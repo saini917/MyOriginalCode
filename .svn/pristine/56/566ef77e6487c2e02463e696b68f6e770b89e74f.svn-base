@@ -1,0 +1,36 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyCloseFun_SC_09_TC_16 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT CLOSE ACTION".
+	 * @author deepak.saini
+	 * @since 2017-11-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Close')])[1]")
+	private WebElement closebtn;
+
+	public void verifyCloseFuc()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(closebtn));
+		HighlightOnElement(closebtn);
+		Assert.assertTrue(closebtn.isDisplayed(),"CLOSE BUTON IS DISPLAYED");
+		Assert.assertTrue(closebtn.isEnabled(),"CLOSE BUTON IS ENABLED");
+		//Reporter.log("Expected result:"+closebtn.getText(),true);
+		closebtn.click();
+		//Reporter.log("Action is performed on close button",true);
+	}
+}

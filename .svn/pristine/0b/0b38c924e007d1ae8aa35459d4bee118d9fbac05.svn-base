@@ -1,0 +1,140 @@
+﻿package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyDraftedApplicationMenu_SC_06_TC_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DRAFTED APPLICATION MENU".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/b[contains(text(),'Application/आवेदन')]/../following-sibling::ul/li/a[contains(text(),'Drafted Application/प्रारूपित आवेदन')]")
+	private WebElement draftedapplicationmenu;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY ASSESSMENT DROPDOWN".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT')]/../span")
+	private WebElement propertyassessmentdrop;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ALL PAGES OF PAGINATION".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="(//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 4')]/../following-sibling::div/div/div/div/span/span)[3]")
+	private List<WebElement> allpages;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ALL ROWS".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 4')]/../following-sibling::div[1]/div/div/div/table/tbody/tr")
+	private List<WebElement> allrows;
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROCEED".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 4')]/preceding-sibling::span/../following-sibling::div/div/div/div/table/tbody/tr/td/button/span[contains(text(),'Proceed')]")
+	private List<WebElement> proceedbtn;
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 4')]/preceding-sibling::span/../following-sibling::div/div/div/div/table/tbody/tr/td/button/span[contains(text(),'Delete')]")
+	private List<WebElement> deletebtn;
+
+	public void verifyDraftedApplicationMenu() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(draftedapplicationmenu));
+		HighlightOnElement(draftedapplicationmenu);
+		Assert.assertTrue(draftedapplicationmenu.isDisplayed(),"DRAFTED APPLICATION MENU is displayed");
+		Assert.assertTrue(draftedapplicationmenu.isEnabled(),"DRAFTED APPLICATION MENU is enabled");
+		Reporter.log("Expected result:"+draftedapplicationmenu.getText(),true);
+		Actions draftedmenu=new Actions(driver);
+		draftedmenu.click(draftedapplicationmenu).build().perform();
+		Reporter.log("Action is performed on Draft Aplication menu",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(propertyassessmentdrop));
+		HighlightOnElement(propertyassessmentdrop);
+		Assert.assertTrue(propertyassessmentdrop.isDisplayed(),"PROPERTY ASSESSMENT DROPDOWN is displayed");
+		Assert.assertTrue(propertyassessmentdrop.isEnabled(),"PROPERTY ASSESSMENT DROPDOWN is enabled");
+		propertyassessmentdrop.click();
+
+		boolean check = true;
+		for(int i=1; i<=(allpages.size()); i++)
+		{
+			for(int row=1; row<=allrows.size(); row++)
+			{
+				Reporter.log("Total rows :" +allrows.size(),true); 
+				String name = driver.findElement(By.xpath("//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 4')]/../following-sibling::div[1]/div/div/div/table/tbody/tr["+row+"]/td[4]")).getText();
+
+				//if(name.equals(Application_Number))
+				if(name.equals("TEMPFPAFC2311170136"))
+				{
+					WebElement ApplicationNumber = driver.findElement(By.xpath("//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 4')]/../following-sibling::div[1]/div/div/div/table/tbody/tr["+row+"]/td[4]"));
+					//ApplicationNumber.click();
+					Reporter.log(ApplicationNumber.getText(),true);
+					Reporter.log("Element  exist",true);
+					check = false;
+					break;
+				}
+				else
+				{
+					Reporter.log("Element doesn't exist",true);
+				}
+			}
+			if(check)
+			{
+				allpages.get(i).click();
+			}
+		}
+
+		for(WebElement probtn:proceedbtn)
+		{
+			if(probtn.isDisplayed())
+			{
+				HighlightOnElement(probtn);
+				Reporter.log("Proceed button is Displayed",true);
+				break;
+			}
+
+		}
+
+		for(WebElement delbtn:deletebtn)
+		{
+			if(delbtn.isDisplayed())
+				HighlightOnElement(delbtn);
+			Reporter.log("Delete button is Displayed",true);
+			break;
+		}
+	}
+}

@@ -1,0 +1,383 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Admin_Sc_04 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Create button"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//button[contains(text(),' Create')]")
+	private WebElement createbtn;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Description"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'Description')]/../following-sibling::td/input")
+	private WebElement description;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACR Initiation Date "
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'ACR Initiation Date')]/../following-sibling::td/div/span")
+	private WebElement ACR_Initiation_Date_drop;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACR Initiator Month Head"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="html/body/div[5]/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	private WebElement clickonACRInitiatormonthhead;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Month"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="html/body/div[5]/div/div[2]/table/tbody/tr/td/span")
+	private List<WebElement> selectmonth;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Date"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[5]/div/div[1]/table/tbody/tr/td")
+	private List<WebElement> selectdate;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACR Submision Date"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'ACR Submission Date')]/../following-sibling::td/div/span")
+	private WebElement ACR_Submission_Date_drop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACR Submission Month Head"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[6]/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	private WebElement clickonACRSubmissionmonthhead;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Submision Month"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="html/body/div[6]/div/div[2]/table/tbody/tr/td/span")
+	private List<WebElement> selectmonthsubmission;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Submission Date"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div[6]/div/div[1]/table/tbody/tr/td")
+	private List<WebElement> selectdatesubmission;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Year"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'Year')]/../following-sibling::td/select")
+	private WebElement year;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Add Item"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_group']/table/tbody/tr/td/div/div[@class='o_list_editable']/div/table/thead/tr/th[contains(text(),'Employee Name')]/../../following-sibling::tbody/tr/td/a[contains(text(),'Add an item')]")
+	private WebElement addanitem;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Employee Name"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[1]/div/input")
+	private WebElement employee_name;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Controlling officer"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[2]/div/input")
+	private WebElement controlling_officer_name;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Reviewer Name"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[3]/div/input")
+	private WebElement reviewer_name;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Approver Name"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[4]/div/input")
+	private WebElement approver_name;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discard button"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Discard')]")
+	private WebElement discardbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discard pop up"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-dialog']/div/div[contains(text(),'The record has been modified, your changes will be discarded. Are you sure you want to leave this page ?')]")
+	private WebElement messOfDiscardPopUp;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "OK button"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-dialog']/div/div/button/span[contains(text(),'Ok')]")
+	private WebElement okbtn;
+
+	public void clickOnDiscardButonWithValidData() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(createbtn));
+		HighlightOnElement(createbtn);
+		Actions create=new Actions(driver);
+		create.click(createbtn).perform();
+		Reporter.log("click on Create button successfully",true);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.visibilityOf(description));
+		HighlightOnElement(description);
+		String descriptioning=exceldata.getExcelData(description,"Appraisal_Data",2,3);
+		Reporter.log("Description:"+descriptioning,true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(ACR_Initiation_Date_drop));
+		HighlightOnElement(ACR_Initiation_Date_drop);
+		ACR_Initiation_Date_drop.click();
+		Reporter.log("click on ACR Initiation Date dropdown successfuly",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(clickonACRInitiatormonthhead));
+		HighlightOnElement(clickonACRInitiatormonthhead);
+		Actions action=new Actions(driver);
+		action.click(clickonACRInitiatormonthhead).perform();
+		Reporter.log("click on ACR INITIATOR Month Head successfuly",true);
+
+		for(WebElement month:selectmonth)
+		{
+			try
+			{
+				String all_month=month.getText();
+				if(all_month.equalsIgnoreCase("Jun"))
+				{
+					HighlightOnElement(month);
+					month.click();
+					for(WebElement date:selectdate)
+					{
+						String all_date=date.getText();
+						if(all_date.equalsIgnoreCase("10"))
+						{
+							HighlightOnElement(date);
+							date.click();
+						}
+					}
+				}
+
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(ACR_Submission_Date_drop));
+		HighlightOnElement(ACR_Submission_Date_drop);
+		ACR_Submission_Date_drop.click();
+		Reporter.log("click on ACR Submission Date dropdown successfuly",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(clickonACRSubmissionmonthhead));
+		HighlightOnElement(clickonACRSubmissionmonthhead);
+		Actions action2=new Actions(driver);
+		action2.click(clickonACRSubmissionmonthhead).perform();
+		Reporter.log("click on ACR SUBMISSION Month Head successfuly",true);
+
+		for(WebElement monthsubmission:selectmonthsubmission)
+		{
+			try
+			{
+				String all_month_submission=monthsubmission.getText();
+				if(all_month_submission.equalsIgnoreCase("Jun"))
+				{
+					HighlightOnElement(monthsubmission);
+					monthsubmission.click();
+					for(WebElement submisiondate:selectdatesubmission)
+					{
+						String all_date=submisiondate.getText();
+						if(all_date.equalsIgnoreCase("15"))
+						{
+							HighlightOnElement(submisiondate);
+							submisiondate.click();
+						}
+					}
+				}
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(year));
+		HighlightOnElement(year);
+		year.click();
+		Reporter.log("click on year successfully",true);
+		waitForDomElement();
+		SelectVisibleText(year,"2015");
+		Reporter.log("year selected successfully",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(addanitem));
+		HighlightOnElement(addanitem);
+		addanitem.click();
+		Reporter.log("click on Add an item successfully",true);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(employee_name));
+		HighlightOnElement(employee_name);
+		employee_name.click();
+		waitForSomeTime();
+		employee_name.sendKeys("swa");
+		waitForSomeTime();
+		employee_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(controlling_officer_name));
+		HighlightOnElement(controlling_officer_name);
+		controlling_officer_name.click();
+		waitForSomeTime();
+		controlling_officer_name.clear();
+		controlling_officer_name.sendKeys("chetan");
+		waitForSomeTime();
+		controlling_officer_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(reviewer_name));
+		HighlightOnElement(reviewer_name);
+		reviewer_name.click();
+		waitForSomeTime();
+		reviewer_name.clear();
+		reviewer_name.sendKeys("AkJha");
+		waitForSomeTime();
+		reviewer_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(approver_name));
+		HighlightOnElement(approver_name);
+		approver_name.click();
+		waitForSomeTime();
+		approver_name.clear();
+		approver_name.sendKeys("Ak Jabar");
+		waitForSomeTime();
+		approver_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(discardbtn));
+		HighlightOnElement(discardbtn);
+		discardbtn.click();
+		Reporter.log("click on discard button successfully",true);
+		
+		String actualValue="The record has been modified, your changes will be discarded. Are you sure you want to leave this page ?";
+		Assert.assertEquals(actualValue,messOfDiscardPopUp.getText(),"Matched");
+		Reporter.log("Expected result:"+messOfDiscardPopUp.getText(),true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(okbtn));
+		HighlightOnElement(okbtn);
+		 okbtn.click();
+		 Reporter.log("click on OK Button successfully",true);
+		 
+		 String actualTitle="Initiate Employee Appraisal - Software";
+		 Assert.assertEquals(actualTitle,driver.getTitle(),"Matched");
+		 Reporter.log("Page Redirected Successfully:"+driver.getTitle(),true);
+	}
+
+}

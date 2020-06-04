@@ -1,0 +1,76 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import java.awt.AWTException;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Reviewer_Sc_16 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	WebDriverWait wait = new WebDriverWait(driver,10);
+	String attchmentCSVfile="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\HRMS_PROJECT\\src\\test\\resources\\HRMS_IMAGE\\CSVFormat.csv";
+	String attchementExcelfile="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\HRMS_PROJECT\\src\\test\\resources\\HRMS_IMAGE\\ExcelFormat.xlsx";
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Rating Status Before Submit".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_view_manager_content']/div/div/table/tbody/tr/th[contains(text(),'Pending Review')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody/tr/td[contains(text(),'Pending Review')]")
+	private WebElement beforeSubmitAcrStatus;
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Attachment Menu".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_main']/div/div/div/div/div/div/button[contains(text(),'Attachment(s)')]/span")
+	private WebElement attachment;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ADD sub menu".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_main']/div/div/div/div/div/div/button[contains(text(),'Attachment(s)')]/span/../following-sibling::ul/li/div/form/span")
+	private WebElement add;
+	
+	public void clickOnPendingReviewerStatus() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(beforeSubmitAcrStatus));
+		HighlightOnElement(beforeSubmitAcrStatus);
+		beforeSubmitAcrStatus.click();
+		Reporter.log("click on Pending Reviewer successfully",true);
+	}
+	public void clickOnAttachment() throws AWTException, InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(attachment));
+		HighlightOnElement(attachment);
+		attachment.click();
+		Reporter.log("click on Attachment menu successfully",true);
+
+		wait.until(ExpectedConditions.visibilityOf(add));
+		HighlightOnElement(add);
+		Reporter.log("Expected result:"+add.getText(),true);
+		Actions ad=new Actions(driver);
+		ad.click(add).perform();
+		waitForSomeTime();
+		UpLoadFile(attchementExcelfile);
+		Reporter.log("File upload successfuly",true);
+	}
+}

@@ -1,0 +1,127 @@
+package HRMS_ERP_CONFIGURATION_EMPLOYEE_GROUP;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_CONFIGURATION_Employee_Group_Discard_Fun_Sc_03 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Employee Group Input Box".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_group o_inner_group o_group_col_6']/tbody/tr/td/label/../following-sibling::td/input")
+	private WebElement employeegroupinputbox;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discard button".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_buttons_edit']/button[contains(text(),' Discard')]")
+	private WebElement discardbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Ok Button".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-content']/div[3]/button/span[contains(text(),'Ok')]")
+	private WebElement okbtn;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Cancel Button".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-content']/div[3]/button/span[contains(text(),'Cancel')]")
+	private WebElement cancelbtn;
+/***********************************************************************************************************/
+	
+	/*
+	 * This method is used to click on Discard button
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	public void clickonDiscardButtonFunctionality() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(discardbtn);
+		discardbtn.click();
+		Reporter.log("click on Discard button sucessfully",true);
+		log.info("To Verify click on Discard button sucessfully");
+	}
+	
+	/*
+	 * This method is used to click on Ok button
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	public void clickonOkButtonFunctionality() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		try
+		{
+			HighlightOnElement(employeegroupinputbox);
+			waitForSomeTime();
+			String employee_group=exceldata.getExcelData(employeegroupinputbox,"Employee_Group_Data",2,1);
+			Reporter.log("Employee Group:"+employee_group,true);
+			log.info("To Verify enter the value in Employee Group textbox sucessfully");
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+		clickonDiscardButtonFunctionality();
+		waitForSomeTime();
+		okbtn.click();
+		Reporter.log("click on Ok button sucessfully",true);
+		log.info("To Verify click on Ok button sucessfully");
+	}
+
+	/*
+	 * This method is used to click on Cancel button
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	public void clickonCancelButtonFunctionality() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		try
+		{
+			HighlightOnElement(employeegroupinputbox);
+			waitForSomeTime();
+			String employee_group=exceldata.getExcelData(employeegroupinputbox,"Employee_Group_Data",2,1);
+			Reporter.log("Employee Group:"+employee_group,true);
+			log.info("To Verify enter the value in Employee Group textbox sucessfully");
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+		clickonDiscardButtonFunctionality();
+		waitForSomeTime();
+		cancelbtn.click();
+		Reporter.log("click on Cancel button sucessfully",true);
+		log.info("To Verify click on Cancel button sucessfully");
+	}
+
+
+}

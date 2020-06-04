@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>TestNG:  New Connection agian  as Junior Engineer</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>New Connection agian  as Junior Engineer</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 26 10:56:58 IST 2017</td>
+</tr>
+<tr><td>Total time:</td><td>229 seconds (229450 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='NRDATestScript.WaterAndSeweage.WaterAndSewerageNewConnectionJE.verifyJEToEE_08_TC_20()'><b>verifyJEToEE_08_TC_20</b><br>Test class: NRDATestScript.WaterAndSeweage.WaterAndSewerageNewConnectionJE<br>Test method: NRDA_Water & Sewerage_SC_08_TC_20<br>Parameters: WAT-JE-01, Vijay@123<br/>
+<a href="#Output-1160546880" onClick='toggleBox("Output-1160546880", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1160546880" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1160546880">
+Email ID:WAT-JE-01<br/>
+Password:Vijay@123<br/>
+Before Submition pending Count On Water Icon Is:25<br/>
+Expected result:click on Pending Application<br/>
+Expected result:New Application<br/>
+Menu list under New Application:DISCONNECTION OF WATER CONNECTION - 2<br/>
+Menu list under New Application:WATER AND SEWERAGE CONNECTION - 20<br/>
+Menu list under New Application:WATER CONNECTION TRANSFER FORM - 1<br/>
+Valid Application Number:WASCC2609170615<br/>
+Expected result:Application is forwarded by Raman Singh(JE) to Rajesh Singh (EE)<br/>
+Expected result:File uploaded Successfully<br/>
+click on Submit button succesfully<br/>
+After Submition pending Count On Water Icon Is:24<br/>
+Pending count is decreased by 1 after submission<br/>
+</div>
+</td>
+<td></td>
+<td>203</td>
+<td>NRDATestScript.WaterAndSeweage.WaterAndSewerageNewConnectionJE@23d2a7e8</td></tr>
+</table><p>
+</body>
+</html>

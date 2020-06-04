@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="GenericLibrary.ExtentReport"/>
+  </listeners>
+  <test name="LOGIN AS VRS EMPLOYEE(failed)">
+    <classes>
+      <class name="HRMS_ERP_UAT_VRS_TEST.LoginAsEmployee">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="logoutHRMS"/>
+          <include name="UAT_HRMS_VRS_4" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- HRMS_ERP_UAT_VRS_TEST.LoginAsEmployee -->
+    </classes>
+  </test> <!-- LOGIN AS VRS EMPLOYEE(failed) -->
+</suite> <!-- Failed suite [Suite] -->

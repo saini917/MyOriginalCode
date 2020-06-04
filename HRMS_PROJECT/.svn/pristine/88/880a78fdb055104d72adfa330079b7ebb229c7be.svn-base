@@ -1,0 +1,58 @@
+package HRMS_ERP_TRANSFER;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyAttachmentLink_SC_02_TC_17 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ATTACHMENT LINK".
+	 * @author deepak.saini
+	 * @since 2017-12-11
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Attachment(s)')]/span")
+	private WebElement attachmentlink;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ADD".
+	 * @author deepak.saini
+	 * @since 2017-12-11
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Attachment(s)')]/span/../following-sibling::ul/li/div/form/span")
+	private WebElement add;
+	
+	public void verifyAttachmentLink() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(attachmentlink));
+		HighlightOnElement(attachmentlink);
+		Assert.assertTrue(attachmentlink.isDisplayed());
+		Assert.assertTrue(attachmentlink.isEnabled());
+		Actions link=new Actions(driver);
+		link.click(attachmentlink).build().perform();
+		
+		wait.until(ExpectedConditions.visibilityOf(add));
+		HighlightOnElement(add);
+		Assert.assertTrue(add.isDisplayed());
+	}
+}

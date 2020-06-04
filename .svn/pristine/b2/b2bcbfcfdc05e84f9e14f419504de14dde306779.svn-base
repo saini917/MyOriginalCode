@@ -1,0 +1,39 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyNameOfSpouse_SC_03_TC_07 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SPOUSE".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name of Spouse')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement nameofspouse;
+	
+	public void verifyNameOfSpouse() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(nameofspouse);
+		Assert.assertTrue(nameofspouse.isDisplayed(),"NAME OF SPOUSE FILED is displayed");
+		Assert.assertTrue(nameofspouse.isEnabled(),"NAME OF SPOUSE FILED is enabled");
+		String value1=excel.getExcelData(nameofspouse,"Owner_Property_Details",1,6);
+		Reporter.log("Expected result:"+value1,true);
+		Reporter.log("Action is performed on Name Of Spouse field",true);
+	}
+}

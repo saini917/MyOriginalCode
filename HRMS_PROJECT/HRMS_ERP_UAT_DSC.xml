@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<listeners>
+		<listener class-name="GenericLibrary.ExtentReport"/>
+</listeners>
+
+  <!-- <test name="LOGIN AS DSC HRManager">
+	<classes>
+		<class name="HRMS_ERP_UAT_DSC_TEST.LoginAsHRManager">
+			<methods>
+       			<include name="UAT_HRMS_DSC_1"/> 
+       			 <include name="UAT_HRMS_DSC_2"/> 
+       			<include name="UAT_HRMS_DSC_3"/>
+       			  <include name="UAT_HRMS_DSC_4"/>  
+       			  <include name="UAT_HRMS_DSC_5"/>   
+       			<include name="UAT_HRMS_DSC_6"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ <!--<test name="LOGIN AS DSC EMPLOYEE">
+	<classes>
+		<class name="HRMS_ERP_UAT_DSC_TEST.LoginAsEmployee">
+			<methods>
+       			 <include name="UAT_HRMS_DSC_7"/> 
+       			 <include name="UAT_HRMS_DSC_8"/> 
+       			<include name="UAT_HRMS_DSC_9"/>
+       			   <include name="UAT_HRMS_DSC_10"/>  
+       			  <include name="UAT_HRMS_DSC_11"/>   
+       			<include name="UAT_HRMS_DSC_12"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+ <!-- <test name="LOGIN AS DSC HRManager again">
+	<classes>
+		<class name="HRMS_ERP_UAT_DSC_TEST.LoginAsHRManager">
+			<methods>
+       			<include name="UAT_HRMS_DSC_13"/> 
+       			 <include name="UAT_HRMS_DSC_14"/> 
+       			<include name="UAT_HRMS_DSC_15"/>
+       			   <include name="UAT_HRMS_DSC_16"/>  
+       			 <include name="UAT_HRMS_DSC_17"/>   
+       			<include name="UAT_HRMS_DSC_18"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+  <!-- <test name="LOGIN AS DSC Enquiry Officer">
+	<classes>
+		<class name="HRMS_ERP_UAT_DSC_TEST.LoginAsEnquiryOfficer">
+			<methods>
+       			<include name="UAT_HRMS_DSC_19"/> 
+       			 <include name="UAT_HRMS_DSC_20"/> 
+       			<include name="UAT_HRMS_DSC_21"/>
+       			    <include name="UAT_HRMS_DSC_22"/>  
+       			 <include name="UAT_HRMS_DSC_23"/>   
+       			<include name="UAT_HRMS_DSC_24"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+ <!-- <test name="LOGIN AS DSC CEO">
+	<classes>
+		<class name="HRMS_ERP_UAT_DSC_TEST.LoginAsCEO">
+			<methods>
+       			<include name="UAT_HRMS_DSC_25"/> 
+       			 <include name="UAT_HRMS_DSC_26"/> 
+       			<include name="UAT_HRMS_DSC_27"/>
+       			    <include name="UAT_HRMS_DSC_28"/>  
+       			 <include name="UAT_HRMS_DSC_29"/>   
+       			 <include name="UAT_HRMS_DSC_30"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+ 
+ <test name="LOGIN AS DSC EMPLOYEE">
+	<classes>
+		<class name="HRMS_ERP_UAT_DSC_TEST.LoginAsEmployee">
+			<methods>
+       			 <include name="UAT_HRMS_DSC_31"/> 
+       			 <include name="UAT_HRMS_DSC_32"/> 
+       			<include name="UAT_HRMS_DSC_33"/>
+       			   <include name="UAT_HRMS_DSC_34"/>  
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

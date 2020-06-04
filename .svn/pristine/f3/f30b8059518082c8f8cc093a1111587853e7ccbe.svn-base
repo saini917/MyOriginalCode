@@ -1,0 +1,88 @@
+package NRDA_NewConnection;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_09_TC_11 extends CommonLibrary 
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Enter Value in the search box".
+	 * @author deepak saini
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[contains(text(),'Enter Application / Reference Number')]/following-sibling::td/input")
+	private WebElement entervalueinsearchbox;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Search button".
+	 * @author deepak saini
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[contains(text(),'Enter Application / Reference Number')]/following-sibling::td/button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+
+	public void validEnterCustomerID() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf(entervalueinsearchbox));
+		excel.getExcelData(entervalueinsearchbox,"Customer ID",0, 1);
+	}
+	public void clickOnSearchBtn() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(searchbtn));
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		Reporter.log("Click on Search button",true);
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Display list and status".
+	 * @author deepak saini
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div[2]/div[2]/div/div/h3/a/../following-sibling::div/div/div/table/thead/tr/th/span")
+	private List<WebElement> displaylist;
+	
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div[2]/div[2]/div/div/h3/a/../following-sibling::div/div/div/table/thead/tr/th/span/../../../following-sibling::tbody/tr/td/span[contains(text(),'PENDING')]")
+	private WebElement status;
+	
+	public void verifyDisplayList() throws InterruptedException
+	{
+		for(WebElement list:displaylist)
+		{
+			HighlightOnElement(list);
+			Assert.assertTrue(list.isDisplayed());
+			Reporter.log("Expected result:"+list.getText(),true);
+			waitForSomeTime();
+		}
+		wait.until(ExpectedConditions.visibilityOf(status));
+		Assert.assertTrue(status.isDisplayed());
+		HighlightOnElement(status);
+		Reporter.log("Status:"+status.getText(),true);
+	}
+
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite">
+ 
+ 			<!-- LOGIN AS CITIZEN IN METER TESTING MODULE-->
+ 			
+<test name="LOGIN AS CITIZEN ">
+	<classes>
+		<class name="NRDA_MeterTesting.LoginAsCitizen">
+			<methods>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_01"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_02"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_03"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_04"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

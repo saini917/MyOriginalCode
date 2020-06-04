@@ -1,0 +1,62 @@
+package WaterAndSewerage_PRO;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+import WaterAndSeweragePRO.ToVerifyWaterAndSeweragePRO_CEO_Sc_03;
+
+
+public class WaterAndSewerage_LoginAsCEO_PRO_Module extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebElement web1=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		Actions action = new Actions(driver);
+		action.moveToElement(web1).build().perform();
+		waitForSomeTime();
+		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+		waitForSomeTime();
+		driver.close();
+	}
+	
+	@DataProvider(name="officer")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"PRO_CEO_Credentials");
+	}
+
+	@Test(priority=1,dataProvider ="officer",description="NRDA_PRO_SC_03_TC_01")
+	public void verifyLoginAsCEODisplayAllLink_PRO_SC_03_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Section=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Section.loginAsPROCEO(username,password);
+		
+		ToVerifyWaterAndSeweragePRO_CEO_Sc_03 display=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_CEO_Sc_03.class);
+		display.verifyDisplayLink01();
+	}
+
+	@Test(priority=2,dataProvider ="officer",description="NRDA_PRO_SC_03_TC_02")
+	public void verifyLoginAsCEOPendingApplication_PRO_SC_03_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Section=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Section.loginAsPROCEO(username,password);
+		
+		ToVerifyWaterAndSeweragePRO_CEO_Sc_03 pendingaplication=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_CEO_Sc_03.class);
+		pendingaplication.clickOnPendingApplication02();
+	}
+}

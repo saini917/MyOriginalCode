@@ -1,0 +1,177 @@
+package HRMS_ERP_CONFIGURATION_CASTE;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+/**
+ * @author deepak.saini
+ * @since 26-10-2017
+ */
+public class HRMS_ERP_CONFIGURATION_Caste_Save_Fun_Sc_02 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Caste input box".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_group o_inner_group']/tbody/tr[1]/td/label[contains(text(),'Caste')]/../following-sibling::td/input")
+	private WebElement casteinputbox;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Caste Category dropdown".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_input_dropdown']/span")
+	private WebElement castecategorydrop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Category dropdown".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']/li/a")
+	private List<WebElement> selectcategoryvalue;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Invalid message".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_notification_manager']/div[1]/div[1]")
+	private WebElement invalidmessage;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Save button".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_buttons_edit']/button[contains(text(),' Save')]")
+	private WebElement savebtn;
+/********************************************************************************************************/
+	
+	/*
+	 * This method is used to enter the valid value in caste input box
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	public void enterCasteInputValidValue() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		try
+		{
+			HighlightOnElement(casteinputbox);
+			String caste_name=exceldata.getExcelData(casteinputbox,"Caste_Data",2,1);
+			Reporter.log("Caste Name:"+caste_name,true);
+			log.info("To Verify enter the value in Caste textbox sucessfully");
+			
+			HighlightOnElement(castecategorydrop);
+			Actions act=new Actions(driver);
+			act.moveToElement(castecategorydrop).click();
+			act.perform();
+			Reporter.log("click on Category dropdown successfuly",true);
+			log.info("To verify click on Category dropdown successfuly");
+			for(int i=0;i<selectcategoryvalue.size();i++)
+			{
+				String value=selectcategoryvalue.get(i).getText();
+				if(value.equalsIgnoreCase("GENERAL"))
+				{
+					selectcategoryvalue.get(i).click();
+					Reporter.log("select Category successfuly",true);
+					log.info("To verify select Category successfuly");
+				}
+			}
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+	}
+
+
+	/*
+	 * This method is used to enter the Invalid value in caste input box
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	public void enterCasteInputInvalidValue() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		try
+		{
+			HighlightOnElement(casteinputbox);
+			String caste_name=exceldata.getExcelData(casteinputbox,"Caste_Data",6,1);
+			Reporter.log("Caste Name:"+caste_name,true);
+			log.info("To Verify enter the value in Caste textbox sucessfully");
+			
+			/*String Actual_Value=" The following fields are invalid:";
+			String Expected_Value=invalidmessage.getText();
+			Assert.assertEquals(Actual_Value, Expected_Value, "Test Case is passed");
+			Reporter.log("Actual value is matched with Expected value");*/
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+	}
+
+
+	/*
+	 * This method is used to enter the Blank value in caste input box
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	public void enterCasteInputBlankValue() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		try
+		{
+			HighlightOnElement(casteinputbox);
+			String caste_name=exceldata.getExcelData(casteinputbox,"Caste_Data",6,2);
+			Reporter.log("Caste Name:"+caste_name,true);
+			log.info("To Verify enter the value in Caste textbox sucessfully");
+			
+			/*String Actual_Value=" The following fields are invalid:";
+			String Expected_Value=invalidmessage.getText();
+			Assert.assertEquals(Actual_Value, Expected_Value, "Test Case is passed");
+			Reporter.log("Actual value is matched with Expected value");*/
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+	}
+	
+	public void clickOnSaveButton() throws InterruptedException
+	{
+		HighlightOnElement(savebtn);
+		savebtn.click();
+		Reporter.log("click on save button sucessfully",true);
+		log.info("click on save button sucessfully");
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+
+}

@@ -1,0 +1,61 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToverifyPropertyTaxDashboard_SC_01_TC_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Dashboard".
+	 * @author deepak.saini
+	 * @since 2017-11-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td/span/div/div/div/div/b")
+	private List<WebElement> dashbaord;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td/span/div/div/div/div/b/../following-sibling::ul/li/a")
+	private List<WebElement> dashboard1;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td/span/table/tbody/tr/td/div/h3/a")
+	private List<WebElement> dashboard2;
+
+	public void verifyValidLoginCredentials()
+	{
+		for(WebElement dash:dashbaord)
+		{
+			wait.until(ExpectedConditions.visibilityOf(dash));
+			HighlightOnElement(dash);
+			Assert.assertTrue(dash.isDisplayed());
+			Reporter.log("Expected result:"+dash.getText(),true);
+		}
+
+		for(WebElement dash1:dashboard1)
+		{
+			wait.until(ExpectedConditions.visibilityOf(dash1));
+			HighlightOnElement(dash1);
+			Assert.assertTrue(dash1.isDisplayed());
+			Reporter.log("Expected result:"+dash1.getText(),true);
+		}
+
+		for(WebElement dash2:dashboard2)
+		{
+			wait.until(ExpectedConditions.visibilityOf(dash2));
+			HighlightOnElement(dash2);
+			Assert.assertTrue(dash2.isDisplayed());
+			Reporter.log("Expected result:"+dash2.getText(),true);
+		}
+	}
+}

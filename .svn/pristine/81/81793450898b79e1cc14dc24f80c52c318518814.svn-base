@@ -1,0 +1,1366 @@
+
+package WaterAndSewerageDisconnection;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+/**
+ * @author Sarvesh.Nellore
+ * @Date: 05-10-2017
+ * @Purpose: WATER AND SEWERAGE DISCONNECTION LOGIN BY FIELD ENGINEER
+ */
+public class WaterAndSewerageDisconnectionLoginAsFE  extends CommonLibrary
+{
+
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	static int pendcountList=0;
+	static int RejectcountList=0;
+	static int ApprovecountList=0;
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Home')]")
+	private WebElement Home_Icon;
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Pending Application')]")
+	private WebElement PendingApplication_Icon;
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Approve/Reject Application')]")
+	private WebElement ApproveorRejectApplication_Icon;
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Payment Collection')]")
+	private WebElement PaymentCollection_Icon;
+
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Invoice Collection')]")
+	private WebElement InvoiceCollection_Icon;
+
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Application Form')]")
+	private WebElement ApplicationForm_Icon;
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'MIS Reports')]")
+	private WebElement MisReport_Icon;
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Generate Bill')]")
+	private WebElement GenerateBill_Icon;
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Manage Water Reading')]")
+	private WebElement ManageWaterReading_Icon;
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Meeting Management')]")
+	private WebElement MeetingManagement_Icon;
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'File Management')]")
+	private WebElement FileManagement_Icon;
+
+	@FindBy(xpath="//div[@class='ui-accordion ui-widget ui-helper-reset ui-hidden-container Accordian-Header-Black']/h3")
+	private  List<WebElement> homepagedisplay;
+
+
+	@FindBy(xpath=".//*[@id='inboxForm']/div[1]")
+	private WebElement WaterIcon_Menu;
+
+
+
+
+	public void toVerifyMenuFieldsonDashBoard_SC_03_TC01() throws InterruptedException
+	{
+		try
+		{
+			HighlightOnElement(WaterIcon_Menu);
+			Assert.assertEquals(true,WaterIcon_Menu.isEnabled());
+			Reporter.log(" To Verify WaterIcon_Menu Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+
+			HighlightOnElement(Home_Icon);
+			Assert.assertEquals(true,Home_Icon.isEnabled());
+			Reporter.log(" To Verify Home_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(PendingApplication_Icon);
+			Assert.assertEquals(true,PendingApplication_Icon.isEnabled());
+			Reporter.log(" To Verify PendingApplication_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(ApproveorRejectApplication_Icon);
+			Assert.assertEquals(true,ApproveorRejectApplication_Icon.isEnabled());
+			Reporter.log(" To Verify ApprovceRejectApplication_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(ManageWaterReading_Icon);
+			Assert.assertEquals(true,ManageWaterReading_Icon.isEnabled());
+			Reporter.log(" To Verify ManageWaterReading_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(GenerateBill_Icon);
+			Assert.assertEquals(true,GenerateBill_Icon.isEnabled());
+			Reporter.log(" To Verify GenerateBill_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(InvoiceCollection_Icon);
+			Assert.assertEquals(true,InvoiceCollection_Icon.isEnabled());
+			Reporter.log(" To Verify InvoiceCollection_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(PaymentCollection_Icon);
+			Assert.assertEquals(true,PaymentCollection_Icon.isEnabled());
+			Reporter.log(" To Verify PaymentCollection_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(MisReport_Icon);
+			Assert.assertEquals(true,MisReport_Icon.isEnabled());
+			Reporter.log(" To Verify MisReports_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(MeetingManagement_Icon);
+			Assert.assertEquals(true,MeetingManagement_Icon.isEnabled());
+			Reporter.log(" To Verify MeetingManagement_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(FileManagement_Icon);
+			Assert.assertEquals(true,FileManagement_Icon.isEnabled());
+			Reporter.log(" To Verify FileManagement_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+		}
+
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+
+
+
+	public void toverifyfunctionalityofWaterStatistics_Icon02() throws InterruptedException
+	{
+
+		waitForSomeTime();
+		//HighlightOnElement(Water_Icon);
+		//Assert.assertEquals(true,Water_Icon.isEnabled());
+		//Reporter.log(" To Verify Water_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+		waitForSomeTime();
+		HighlightOnElement(Approve_count);
+		Assert.assertEquals(true,Approve_count.isEnabled());
+		String Approvecount=Approve_count.getText();
+		Reporter.log("Approve count on WaterMenu:"+Approvecount,true);
+		Reporter.log(" To Verify Approve_count  in Water_Icon  Water&Sewerage link is Present",true); //print for eclipse console
+
+		waitForSomeTime();
+		HighlightOnElement(Reject_count);
+		Assert.assertEquals(true,Reject_count.isEnabled());
+		String Rejectcount=Reject_count.getText();
+		Reporter.log("Reject count on WaterMenu:"+Rejectcount,true);
+		Reporter.log(" To Verify Reject_count  in Water_Icon  Water&Sewerage link is Present",true); //print for eclipse console
+
+		waitForSomeTime();
+		HighlightOnElement(Pending_count);
+		Assert.assertEquals(true,Pending_count.isEnabled());
+		String Pendingcount=Pending_count.getText();
+		Reporter.log("Pending count on WaterMenu:"+Pendingcount,true);
+		Reporter.log(" To Verify Pending_count  in Water_Icon  Water&Sewerage link is Present",true); //print for eclipse console
+
+	}
+
+
+
+	public void toVerifyPendingApplicationAsJE() throws InterruptedException
+	{
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled());
+		PendingApplication_Icon.click();
+		Reporter.log("Expected result:click on Pending Application",true);
+		waitForelementPresent(entervalueinsearchbox);
+		HighlightOnElement(newapplication);
+		String newapplicationlabelname=newapplication.getText();
+		Reporter.log("Expected result:"+newapplicationlabelname,true);
+
+		for(WebElement menulistnewapplication:underNewApplicationpending)
+		{
+
+			if(menulistnewapplication.isDisplayed())
+			{
+				HighlightOnElement(menulistnewapplication);
+				String pendingapplication=menulistnewapplication.getText();
+				Reporter.log("Menu list under New Application:"+pendingapplication,true);
+			}
+		}
+
+
+	}
+
+
+
+
+	@FindBy(xpath="//div[@class='dash-wraper water']/div[2]/div[1]/ul[2]/li[3]")
+	private WebElement Pending_count;
+
+	@FindBy(xpath="//div[@class='dash-wraper water']/div[2]/div[1]/ul[2]/li[2]")
+	private WebElement Reject_count;
+
+	@FindBy(xpath="//div[@class='dash-wraper water']/div[2]/div[1]/ul[2]/li[1]")
+	private WebElement Approve_count;
+
+	@FindBy(xpath="//span[contains(.,'WATER AND SEWERAGE CONNECTION Pending List')]")
+	private WebElement HeadingPendingList;
+
+	@FindBy(xpath="//span[contains(.,'WATER AND SEWERAGE CONNECTION Rejected List')]")
+	private WebElement HeadingRejectList;
+
+	@FindBy(xpath="//span[contains(.,'WATER AND SEWERAGE CONNECTION APPROVED List')]")
+	private WebElement HeadingApproveList;
+
+	public void toclickonpendingcountlink() throws InterruptedException
+	{	
+		HighlightOnElement(Pending_count);
+		Assert.assertEquals(true,Pending_count.isEnabled());
+		String PendingCount1=Pending_count.getText();
+		int pendingcount=Integer.parseInt(PendingCount1);
+		waitForSomeTime();
+		Reporter.log("Pending Count On Water Icon Is:" +pendingcount);
+		Pending_count.click();
+		waitForSomeTime();
+		waitForelementPresent(HeadingPendingList);
+		HighlightOnElement(HeadingPendingList);
+		Close_Popwindow.click();
+		waitForSomeTime();
+		Pending_count.click();
+		waitForSomeTime();
+		waitForelementPresent(HeadingPendingList);
+
+
+	}
+
+	@FindBy(xpath="//img[@src='/NRDAuthority1/resources/images/view-new.png']")
+	private  List<WebElement> actionbtn;
+	public void toVerifyActionButtonDisplayed01()
+	{
+
+		for(WebElement action:actionbtn)
+		{
+			if(action.isDisplayed())
+			{
+				HighlightOnElement(action);
+				Assert.assertNotNull(action.isDisplayed(),"Test Case: Pass");
+			}
+
+		}
+		Reporter.log("ActionButton Shown in All applications");
+	}
+
+	@FindBy(xpath="//div[@id='inboxForm:dlg']/div[2]/div/div/div/div[1]/table/tbody/tr")
+	private List <WebElement> PendingListonPopup;
+
+	@FindBy(xpath="//div[@id='inboxForm:dlg']/div[2]/div/div/div/div[1]/table/tbody/tr")
+	private List <WebElement> RejectListonPopup;
+
+	@FindBy(xpath="//div[@id='inboxForm:dlg']/div[2]/div/div/div/div[1]/table/tbody/tr")
+	private List <WebElement> ApproveListonPopup;
+
+
+	public void toVerifyRecordPerPage02() throws InterruptedException
+	{
+		waitForSomeTime();
+		int count=PendingListonPopup.size();
+		if(count==10)
+		{
+			Assert.assertEquals(count,10);
+			Reporter.log("Test case pass: Number of record per page is equal to 10");
+		}
+		else
+		{
+			Reporter.log("Test case fail: Number of record per page is greater or less than 10");
+			Assert.assertNotEquals(count,10);
+		}
+		Reporter.log("No of record per page:"+count,true);
+		waitForSomeTime();
+	}
+
+	@FindBy(xpath="//span[@class='ui-icon ui-icon-seek-first']")
+	private WebElement SeekFirst_PendingList;
+
+	@FindBy(xpath="//span[@class='ui-icon ui-icon-seek-prev']")
+	private WebElement SeekPrevious_PendingList;
+
+	@FindBy(xpath="//span[@class='ui-icon ui-icon-seek-end']")
+	private WebElement Seekend_PendingList;
+
+	@FindBy(xpath="//span[@class='ui-icon ui-icon-seek-next']")
+	private WebElement Seeknext_PendingList;
+
+	public void toVerifyPagination02() throws InterruptedException
+	{
+		waitForSomeTime();
+		HighlightOnElement(SeekFirst_PendingList);
+		HighlightOnElement(SeekPrevious_PendingList);
+		HighlightOnElement(Seeknext_PendingList);
+		HighlightOnElement(Seekend_PendingList);
+
+		if(Seeknext_PendingList.isEnabled())
+		{
+			Assert.assertTrue(Seeknext_PendingList.isDisplayed(),"TestCase Pass");
+			Reporter.log("Test case pass: Pagination is Displayed in PendingList Application",true);
+			Seeknext_PendingList.click();
+			waitForSomeTime();
+			SeekPrevious_PendingList.click();
+			waitForSomeTime();
+		}
+		else 
+		{
+			Assert.assertFalse(Seeknext_PendingList.isDisplayed(),"Test Case Fail");
+			Reporter.log("Test case pass: Pagination is Not Working in PendingList Application",true);
+		}
+
+	}
+
+	@FindBy(xpath=".//*[@id='inboxForm:dlg']/div[1]/a/span")
+	private WebElement Close_Popwindow;
+
+	public void closePopUpWindow() throws InterruptedException{
+		waitForSomeTime();
+		HighlightOnElement(Close_Popwindow);
+		waitForSomeTime();
+		Assert.assertEquals(true,Close_Popwindow.isEnabled());
+		Close_Popwindow.click();
+		Reporter.log("Expected result:click on Close Popup window",true);
+		waitForSomeTime();
+
+	}
+
+	public void toverifyPendingCountinWatermenu02() throws InterruptedException
+	{
+
+		waitForSomeTime();
+		HighlightOnElement(Pending_count);
+		Assert.assertEquals(true,Pending_count.isEnabled());
+		String PendingCount1=Pending_count.getText();
+		int pendingcount=Integer.parseInt(PendingCount1);
+		waitForSomeTime();
+		Reporter.log("Pending Count On Water Icon Is:" +pendingcount,true);
+		Pending_count.click();
+		waitForelementPresent(HeadingPendingList);
+		Reporter.log(" To Verify Pending_count  in Water_Icon  Water&Sewerage link is Present",true); //print for eclipse console
+		List<WebElement> allpages = driver.findElements(By.xpath("//div[@class='ui-paginator ui-paginator-bottom ui-widget-header ui-corner-bottom']/span[3]/span"));
+		Reporter.log("Total No Of Pages:" +allpages.size(),true);
+		for(int i=1;i<=((pendingcount/10)+1);i++)
+		{
+			pendcountList=pendcountList + PendingListonPopup.size();
+
+			if(Seeknext_PendingList.isEnabled())
+			{
+
+				Seeknext_PendingList.click();
+				waitForSomeTime();
+
+			}
+
+		}
+		Reporter.log("Pending Count On Popup List  Is:" +pendcountList);
+
+		if(pendingcount==pendcountList)
+		{
+			Reporter.log("Test Case Pass: Both Values Matched ");
+		}
+		else
+		{
+			Reporter.log("Test Case Fail: Both Values not Matched ");
+		}
+
+	}
+
+	public void toclickonRejectcountlink_SC_03_TC_03() throws InterruptedException
+	{	
+		HighlightOnElement(Reject_count);
+		Assert.assertEquals(true,Reject_count.isEnabled());
+		String RejectCount1=Reject_count.getText();
+		int rejectcount=Integer.parseInt(RejectCount1);
+		waitForSomeTime();
+		Reporter.log("Reject_count Water Icon Is:" +rejectcount);
+		/*Reject_count.click();
+			waitForSomeTime();
+			waitForelementPresent(HeadingRejectList);
+			Close_Popwindow.click();
+			waitForSomeTime();*/
+		Reject_count.click();
+		waitForelementPresent(HeadingRejectList);
+		HighlightOnElement(HeadingRejectList);
+
+	}
+
+
+	public void toverifyRejectCountinWatermenu03() throws InterruptedException
+	{
+
+		waitForSomeTime();
+		HighlightOnElement(Reject_count);
+		Assert.assertEquals(true,Reject_count.isEnabled());
+		String RejectCount1=Reject_count.getText();
+		int rejectcount=Integer.parseInt(RejectCount1);
+		waitForSomeTime();
+		Reporter.log("Reject Count On Water Icon Is:" +rejectcount);
+		Reject_count.click();
+		waitForelementPresent(HeadingRejectList);
+		Reporter.log(" To Verify Reject_count  in Water_Icon  Water&Sewerage link is Present",true); //print for eclipse console
+		List<WebElement> allpages = driver.findElements(By.xpath("//div[@class='ui-paginator ui-paginator-bottom ui-widget-header ui-corner-bottom']/span[3]/span"));
+		Reporter.log("Total No Of Pages:" +allpages.size());
+		for(int i=1;i<=((rejectcount/10)+1);i++)
+		{
+			RejectcountList=RejectcountList + RejectListonPopup.size();
+
+			if(Seeknext_PendingList.isEnabled())
+			{
+
+				Seeknext_PendingList.click();
+				waitForSomeTime();
+
+			}
+
+		}
+		Reporter.log("Reject Count On Popup List  Is:" +RejectcountList);
+
+		if(rejectcount==RejectcountList)
+		{
+			Reporter.log("Test Case Pass: Both Values Matched ");
+		}
+		else
+		{
+			Reporter.log("Test Case Fail: Both Values not Matched ");
+		}
+
+	}
+
+	public void toclickonApprovecountlink_SC_03_TC_04() throws InterruptedException
+	{	
+		HighlightOnElement(Approve_count);
+		Assert.assertEquals(true,Approve_count.isEnabled());
+		String ApproveCount1=Approve_count.getText();
+		int approvecount=Integer.parseInt(ApproveCount1);
+		waitForSomeTime();
+		Reporter.log("Approve_count Water Icon Is:" +approvecount);
+		Approve_count.click();
+		waitForelementPresent(HeadingApproveList);
+		Close_Popwindow.click();
+		waitForSomeTime();
+		Approve_count.click();
+		waitForelementPresent(HeadingApproveList);
+		HighlightOnElement(HeadingApproveList);
+
+	}
+
+
+	public void toverifyApproveCountinWatermenu04() throws InterruptedException
+	{
+
+		waitForSomeTime();
+		HighlightOnElement(Approve_count);
+		Assert.assertEquals(true,Approve_count.isEnabled());
+		String ApproveCount1=Approve_count.getText();
+		int approvecount=Integer.parseInt(ApproveCount1);
+		waitForSomeTime();
+		Reporter.log("Approve Count On Water Icon Is:" +approvecount,true);
+		Approve_count.click();
+		waitForelementPresent(HeadingApproveList);
+		Reporter.log(" To Verify Approve_count  in Water_Icon  Water&Sewerage link is Present",true); //print for eclipse console
+		List<WebElement> allpages = driver.findElements(By.xpath("//div[@class='ui-paginator ui-paginator-bottom ui-widget-header ui-corner-bottom']/span[3]/span"));
+		Reporter.log("Total No Of Pages:" +allpages.size(),true);
+		for(int i=1;i<=((approvecount/10)+1);i++)
+		{
+			ApprovecountList=ApprovecountList + ApproveListonPopup.size();
+
+			if(Seeknext_PendingList.isEnabled())
+			{
+
+				Seeknext_PendingList.click();
+				waitForSomeTime();
+
+			}
+
+		}
+		Reporter.log("Approve Count On Popup List  Is:" +ApprovecountList,true);
+
+		if(approvecount==ApprovecountList)
+		{
+			Reporter.log("Test Case Pass: Both Values Matched ",true);
+		}
+		else
+		{
+			Reporter.log("Test Case Fail: Both Values not Matched ",true);
+		}
+
+	}
+
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div[2]/div[2]/h3/a")
+	private WebElement newapplication;
+
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div[2]/div[2]/div/div/h3/a")
+	private List<WebElement> underNewApplicationpending;
+
+
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div[1]/div[2]/div/h3/a")
+	private  List<WebElement> allmenusinPendingApplication;
+
+	public void toVerifyPendingApplicationIconInDashBoard_SC_03_TC_05() throws InterruptedException
+	{
+
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled());
+		PendingApplication_Icon.click();
+		Reporter.log("Expected result:click on Pending Application",true);
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(newapplication);
+		String newapplicationlabelname=newapplication.getText();
+		Reporter.log("Expected result:"+newapplicationlabelname,true);
+
+		for(WebElement menulistnewapplication:underNewApplicationpending)
+		{
+
+			if(menulistnewapplication.isDisplayed())
+			{
+				HighlightOnElement(menulistnewapplication);
+				String pendingapplication=menulistnewapplication.getText();
+				Reporter.log("Menu list under New Application:"+pendingapplication,true);
+			}
+		}
+
+
+		for(WebElement menulistpendingapplication:allmenusinPendingApplication)
+		{
+
+			if(menulistpendingapplication.isDisplayed())
+			{
+				HighlightOnElement(menulistpendingapplication);
+				String pendingapplication=menulistpendingapplication.getText();
+				Reporter.log("Menu list underPending Application:"+pendingapplication,true);
+			}
+		}
+
+	}
+
+	@FindBy(xpath="//h3[contains(.,'RTI Questions')]/../div/div/div[2]/span/span[@class='ui-icon ui-icon-seek-first']")
+	private WebElement SeekFirst_RTI;
+
+	@FindBy(xpath="//h3[contains(.,'RTI Questions')]/../div/div/div[2]/span/span[@class='ui-icon ui-icon-seek-prev']")
+	private WebElement SeekPrevious_RTI;
+
+	@FindBy(xpath="//h3[contains(.,'RTI Questions')]/../div/div/div[2]/span/span[@class='ui-icon ui-icon-seek-end']")
+	private WebElement Seekend_RTI;
+
+	@FindBy(xpath="//h3[contains(.,'RTI Questions')]/../div/div/div[2]/span/span[@class='ui-icon ui-icon-seek-next']")
+	private WebElement Seeknext_RTI;
+
+	@FindBy(xpath="//span[contains(.,'Applications List')]/../following-sibling::div/div[1]/div/table/tbody/tr[2]/td/input")
+	private WebElement entervalueinsearchbox;
+
+	public void toverifypeginationofPendingApplication06() throws InterruptedException
+	{
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		waitForSomeTime();
+		waitForelementPresent(entervalueinsearchbox);
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		ScroolDown();
+		waitForSomeTime();
+		HighlightOnElement(SeekFirst_RTI);
+		Assert.assertEquals(SeekFirst_RTI.isDisplayed(),true);
+		HighlightOnElement(SeekPrevious_RTI);
+		Assert.assertEquals(SeekPrevious_RTI.isDisplayed(),true);
+		HighlightOnElement(Seeknext_RTI);
+		Assert.assertEquals(Seeknext_RTI.isDisplayed(),true);
+		HighlightOnElement(Seekend_RTI);
+		Assert.assertEquals(Seekend_RTI.isDisplayed(),true);
+
+		if(Seeknext_PendingList.isEnabled())
+		{
+
+			Reporter.log("Test case pass: Pagination is working in  Application",true);
+			Seeknext_RTI.click();
+			waitForSomeTime();
+			SeekPrevious_RTI.click();
+			waitForSomeTime();
+
+		}
+		else 
+		{
+			Assert.assertFalse(Seeknext_PendingList.isEnabled());
+			Reporter.log("Test case pass: Pagination is Not working in  Application",true);
+		}
+
+		ScroolUp();
+	}
+
+	@FindBy(xpath="//button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+
+	@FindBy(xpath="//button/span[contains(text(),'Reset')]")
+	private WebElement Resetbtn;
+
+	public void toVerifyInvalidApplicationNumber07() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		waitForSomeTime();
+		waitForelementPresent(entervalueinsearchbox);
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		waitForSomeTime();
+		HighlightOnElement(entervalueinsearchbox);
+		String invalidnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",1, 5);
+		Reporter.log("Invalid Application Number:"+invalidnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		acceptAlert();
+		waitForSomeTime();
+
+	}
+
+	@FindBy(xpath=".//*[@id='inboxForm:growl_container']/div/div/div[2]/span")
+	private WebElement getmessage;
+
+	public void toVerifyBlankApplicationNumber() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		waitForelementPresent(entervalueinsearchbox);		
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(entervalueinsearchbox);
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(getmessage);
+		String Expected=getmessage.getText();
+		String Actual="Please enter Application Number !";
+		Assert.assertEquals(Actual, Expected);
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+
+
+	public void toVerifyresetButtonFunctionality() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		//waitForSomeTime();
+		waitForelementPresent(entervalueinsearchbox);
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+
+		waitForSomeTime();
+		HighlightOnElement(entervalueinsearchbox);
+		String invalidnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 2);
+		Reporter.log("Invalid Application Number:"+invalidnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(Resetbtn);
+		Resetbtn.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		VerifyTextField(entervalueinsearchbox);
+
+	}
+
+
+	@FindBy(xpath="(//table[@role='grid']/thead/tr)[1]")
+	private WebElement Application_Grid;
+
+	@FindBy(xpath="//h3/a[contains(.,'DISCONNECTION OF WATER CONNECTION')]/../../div/div/div[1]/table/thead/tr/th")
+	private List<WebElement> ApplicationDetails;
+
+	@FindBy(xpath="//span[contains(.,'PENDING')]")
+	private WebElement Application_Status;
+
+	public void toVerifyValidApplicationNumber()throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		waitForelementPresent(entervalueinsearchbox);
+		waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(entervalueinsearchbox);
+		HighlightOnElement(searchbtn);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(Application_Grid);
+		waitForSomeTime();
+
+		for(WebElement Disconnectionapplication:ApplicationDetails)
+		{
+
+			if(Disconnectionapplication.isDisplayed())
+			{
+				HighlightOnElement(Disconnectionapplication);
+				String pendingapplication=Disconnectionapplication.getText();
+				Reporter.log("Menu list under  Application:"+pendingapplication,true);
+			}
+		}
+
+
+		HighlightOnElement(Application_Status);
+		String ActualStatus=Application_Status.getText();
+		String ExpectedStatus="PENDING";
+		if(ActualStatus.equalsIgnoreCase(ExpectedStatus))
+		{
+			Reporter.log("Application Status Is Pending",true);
+		}
+		else
+		{
+			Reporter.log("Application Status Is Not Pending",true);	
+		}
+
+	}
+
+	@FindBy(xpath="//h3[contains(.,'DISCONNECTION OF WATER CONNECTION')]/../../div/div/div/div[1]/table/tbody/tr/td//img[@src='/NRDAuthority/resources/images/view-new.png']")
+	private WebElement action;
+
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table/tbody/tr/td[1]/label")
+	private List<WebElement> commentlabel;
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table/tbody/tr/td[2]/textarea")
+	private WebElement entercommentbox;
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table/tbody/tr/td[4]/a/span")
+	private WebElement viewpropertymap;
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table[2]/tbody/tr/td/span")
+	private WebElement uploaddocumentlabel;
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table[2]/tbody/tr/td/table/tbody/tr/td/div/div[1]/label")
+	private WebElement uploaddocument;
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table[1]/tbody/tr/td[2]/div/div[3]/span")
+	private WebElement clickonselectactiondrop;
+
+	@FindBy(xpath="//ul[@class='ui-selectonemenu-items ui-selectonemenu-list ui-widget-content ui-widget ui-corner-all ui-helper-reset']/li")
+	private List<WebElement> selectdropdownvalue;
+
+	public void toclickonPendingApplication() throws InterruptedException
+	{
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		waitForelementPresent(entervalueinsearchbox);
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+
+
+	}
+
+	public void toVerifyActionbuttonFunctionalityinPendingApplication() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException, AWTException
+	{
+		HighlightOnElement(entervalueinsearchbox);
+		HighlightOnElement(searchbtn);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+		for(WebElement la:commentlabel)
+		{
+			if(la.isDisplayed())
+			{
+				HighlightOnElement(la);
+				String labelname=la.getText();
+				Reporter.log("Expected result:"+labelname,true);
+
+			}
+		}
+		//Assert.assertEquals(uploaddocumentlabel.isDisplayed(),"Test case pass");
+		HighlightOnElement(uploaddocumentlabel);
+		String uploadlabel=uploaddocumentlabel.getText();
+		Reporter.log("Expected result:"+uploadlabel,true);
+		waitForSomeTime();
+
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+
+		for(WebElement menulistDropdown:selectdropdownvalue)
+		{
+
+			if(menulistDropdown.isDisplayed())
+			{
+				HighlightOnElement(menulistDropdown);
+				String DropdownMenu=menulistDropdown.getText();
+				Reporter.log("Menu list Action DROPDOWN :"+DropdownMenu,true);
+			}
+		}
+	}
+
+
+
+
+	@FindBy(xpath=".//*[@id='inboxForm:msg_container']/div/div/div[2]/span")
+	private WebElement ErrorMessag_Popup;
+
+	@FindBy(xpath="(//button[contains(.,'Submit') and@role='button'])[1]")
+	private WebElement Submit_Button;
+
+	public void toVerifySubmitbuttonFunctionalityWithActionFieldISBlank08() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException, AWTException
+	{
+
+		waitForSomeTime();
+		HighlightOnElement(Submit_Button);
+		Assert.assertEquals(Submit_Button.isEnabled(),true);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		waitForSomeTime();
+		Submit_Button.click();
+		Reporter.log("Click on Submit button Successfully",true);
+
+
+	}
+
+	public void toVerifyErrorMessage() throws InterruptedException
+	{
+		waitForSomeTime();
+		HighlightOnElement(ErrorMessag_Popup);
+		String Expected_Message="Action required !";
+		String Actual_Message=ErrorMessag_Popup.getText();
+		Assert.assertEquals(Expected_Message, Actual_Message);
+		waitForSomeTime();
+		waitForSomeTime();
+
+	}
+
+	public void toVerifySubmitbuttonFunctionalityWithCommentsFieldISBlank10() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+
+		HighlightOnElement(searchbtn);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+		selectValueFromDropdown("Send Back");
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(entercommentbox);
+	}
+
+	public void toVerifyErrorMessageAsCommentFieldisBlank() throws InterruptedException
+	{
+		waitForSomeTime();
+		HighlightOnElement(ErrorMessag_Popup);
+		String Expected_Message="Please enter comments !";
+		String Actual_Message=ErrorMessag_Popup.getText();
+		Assert.assertEquals(Expected_Message, Actual_Message);
+		waitForSomeTime();
+		waitForSomeTime();
+
+	}
+
+	@FindBy(xpath="//div[@class='dash-wraper water']/div[2]/div/ul[2]/li/../li[3]/a")
+	private WebElement beforepending;
+
+	@FindBy(xpath="//span[contains(text(),'File uploaded Successfully')]")
+	private WebElement fileuploadmessage;
+
+	public void toverifySubmitFunctionalitywithActionAsSentBack() throws InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException, IOException	
+	{
+
+		HighlightOnElement(beforepending);
+		String BeforePendingCount=beforepending.getText();
+
+		int beforependingcount=Integer.parseInt(BeforePendingCount);
+		Reporter.log("Before Pending Count:"+beforependingcount);
+
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		waitForSomeTime();
+		//waitForVisibleElement("//span[contains(.,'Applications List')]/../following-sibling::div/div[1]/div/table/tbody/tr[2]/td/input");
+		waitForSomeTime();
+		waitForelementPresent(entervalueinsearchbox);
+		//fluentWait(entervalueinsearchbox)
+		//waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(entervalueinsearchbox);
+		//String Validnumber=ApplicationNumber.getText();
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		//entervalueinsearchbox.sendKeys(Validnumber);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForelementPresent(clickonselectactiondrop);
+		//fluentWait(clickonselectactiondrop);
+		//waitForVisibleElement("//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table[1]/tbody/tr/td[2]/div/div[3]/span");
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+		selectValueFromDropdown("Send Back");
+		waitForSomeTime();
+		waitForSomeTime();
+		//fillsubjectfileFileds();
+		HighlightOnElement(entercommentbox);
+		//excel.getExcelData(entercommentbox, "Customer ID",3, 8);
+		entercommentbox.sendKeys("Not completed SendBack");
+		waitForSomeTime();
+		HighlightOnElement(uploaddocument);
+		uploaddocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		waitForSomeTime();
+
+		String Expected=fileuploadmessage.getText();
+		String Actual="File uploaded Successfully";
+		Assert.assertEquals(Expected,Actual,"Test case pass");
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,250)", "");
+		HighlightOnElement(Submit_Button);
+		waitForSomeTime();
+		Submit_Button.click();
+		Reporter.log("click on Submit button succesfully",true);
+		Thread.sleep(15000);
+		waitForSomeTime();
+		HighlightOnElement(Home_Icon);
+		Home_Icon.click();
+		waitForSomeTime(); 
+		waitForSomeTime(); 
+		waitForSomeTime(); 
+		//fluentWait(beforepending);
+		//aftersentbackpendingcount();
+		String AfterPendingCount=beforepending.getText();
+		int afterpendingcount=Integer.parseInt(AfterPendingCount);
+
+		Reporter.log("After Pending Count:"+afterpendingcount);
+
+		if(BeforePendingCount.equals(afterpendingcount+1))
+		{
+			Reporter.log("Test case Pass pending count Increased", true);
+			waitForSomeTime();
+		}
+		else
+		{
+
+			Reporter.log("Test case fail  pending count not Increased", true);
+		}
+		waitForSomeTime();
+
+	}
+
+
+	@FindBy(xpath="//button[contains(.,'Close')]")
+	private WebElement close_Button;
+
+	public void toverifyfunctionalityofclosebutton13() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForelementPresent(entervalueinsearchbox);
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(entervalueinsearchbox);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		//entervalueinsearchbox.sendKeys(Validnumber);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+		waitForelementPresent(clickonselectactiondrop);
+		HighlightOnElement(clickonselectactiondrop);
+		HighlightOnElement(entercommentbox);
+		HighlightOnElement(Submit_Button);
+		HighlightOnElement(close_Button);
+		waitForSomeTime();
+		close_Button.click();
+		Reporter.log("click on Close button succesfully",true);
+		waitForSomeTime();
+		waitForelementPresent(entervalueinsearchbox);
+		waitForSomeTime();
+
+	}
+
+	public void toverifySubmitFunctionalitywithActionAsVerified() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(beforepending);
+		String BeforePendingCount=beforepending.getText();
+
+		int beforependingcount=Integer.parseInt(BeforePendingCount);
+		Reporter.log("Before Pending Count:"+beforependingcount);
+
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		waitForSomeTime();
+		//waitForVisibleElement("//span[contains(.,'Applications List')]/../following-sibling::div/div[1]/div/table/tbody/tr[2]/td/input");
+		waitForSomeTime();
+		waitForelementPresent(entervalueinsearchbox);
+		//fluentWait(entervalueinsearchbox)
+		//waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(entervalueinsearchbox);
+		//String Validnumber=ApplicationNumber.getText();
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		//entervalueinsearchbox.sendKeys(Validnumber);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForelementPresent(clickonselectactiondrop);
+		//fluentWait(clickonselectactiondrop);
+		//waitForVisibleElement("//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table[1]/tbody/tr/td[2]/div/div[3]/span");
+
+		ScroolDown();
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+		selectValueFromDropdown("Verified");
+		waitForSomeTime();
+		waitForSomeTime();
+
+		//fillsubjectfileFileds();
+		HighlightOnElement(entercommentbox);
+		//excel.getExcelData(entercommentbox, "Customer ID",3, 8);
+		entercommentbox.sendKeys("Application Verified By Field Engineer");
+		waitForSomeTime();
+		HighlightOnElement(uploaddocument);
+		uploaddocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		waitForSomeTime();
+
+		String Expected=fileuploadmessage.getText();
+		String Actual="File uploaded Successfully";
+		Assert.assertEquals(Expected,Actual,"Test case pass");
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,250)", "");
+		HighlightOnElement(Submit_Button);
+		waitForSomeTime();
+		Submit_Button.click();
+		Reporter.log("click on Submit button succesfully",true);
+		Thread.sleep(15000);
+		waitForSomeTime();
+		HighlightOnElement(Home_Icon);
+		Home_Icon.click();
+		waitForSomeTime();
+		String AfterPendingCount=beforepending.getText();
+		int afterpendingcount=Integer.parseInt(AfterPendingCount);
+
+		Reporter.log("After Pending Count:"+afterpendingcount);
+
+		if(BeforePendingCount.equals(afterpendingcount-1))
+		{
+			Reporter.log("Test case Pass pending count Decreased", true);
+			waitForSomeTime();
+		}
+		else
+		{
+
+			Reporter.log("Test case fail  pending count not Decreased", true);
+		}
+		waitForSomeTime();
+
+	}
+
+
+	public void toverifythefieldnofunctionality() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+
+
+		HighlightOnElement(entervalueinsearchbox);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		ScroolDown();
+		ScroolDown();
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		selectValueFromDropdown("Forward for Final Approval");
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(entercommentbox);
+		entercommentbox.sendKeys("Application Approved");
+		waitForSomeTime();
+		HighlightOnElement(File_Field);
+		WebElement fieldName = File_Field;
+		fieldName.sendKeys("1234");
+		String fieldNameVal = fieldName.getAttribute("value");
+		if(fieldNameVal.contentEquals("1234")){
+			System.out.println("Field is editable");
+		}
+		else{
+			System.out.println("Field is non editable" + fieldNameVal);
+		}
+
+		ScroolUp();
+		ScroolUp();
+
+
+	}
+
+	@FindBy(xpath="(//input[@title='Subject'])[1]")
+	private WebElement Subject_Field1;
+
+	@FindBy(xpath="(//input[@title='File Number'])[1]")
+	private WebElement File_Field;
+
+
+	public void toverifytheSubjectfunctionality() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+
+
+		HighlightOnElement(entervalueinsearchbox);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+		waitForSomeTime();
+
+		ScroolDown();
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		selectValueFromDropdown("Forward for Final Approval");
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(entercommentbox);
+		entercommentbox.sendKeys("Application Approved");
+		waitForSomeTime();
+		HighlightOnElement(Subject_Field1);
+		WebElement fieldName = Subject_Field1;
+		fieldName.sendKeys("Sarvesh");
+		String fieldNameVal = fieldName.getAttribute("value");
+		if(fieldNameVal.contentEquals("Sarvesh")){
+			System.out.println("Field is editable");
+		}
+		else{
+			System.out.println("Field is non editable" + fieldNameVal);
+		}
+
+		ScroolUp();
+
+
+	}
+
+
+	public void toVerifySubmitbuttonFunctionalityWithCommentsFieldISBlank() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+
+		HighlightOnElement(searchbtn);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+		selectValueFromDropdown("Approve");
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(entercommentbox);
+	}
+
+	public void toVerifySubmitbuttonuploadingdocumentwithinvalidformat14() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(entervalueinsearchbox);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		ScroolDown();
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		selectValueFromDropdown("Approve");
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(entercommentbox);
+		entercommentbox.sendKeys("Application Approved");
+		waitForSomeTime();
+		HighlightOnElement(uploaddocument);
+		uploaddocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\TestData.txt");
+		waitForSomeTime();
+
+	}
+
+	public void toVerifyErrorMessageAsUploadingDocumentAsInvalidFormat() throws InterruptedException
+	{
+		waitForSomeTime();
+		HighlightOnElement(ErrorMessag_Popup);
+		String Expected=ErrorMessag_Popup.getText();
+		String Actual="Upload only jpg, png or pdf file";
+		Reporter.log("POP-UP Message Is:"+ Expected,true);
+		Assert.assertEquals(Expected,Actual,"Test case pass");
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+		waitForSomeTime();
+
+	}
+
+
+	public void toverifySubmitFunctionalitywithActionAsApprove() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(beforepending);
+		String BeforePendingCount=beforepending.getText();
+
+		int beforependingcount=Integer.parseInt(BeforePendingCount);
+		Reporter.log("Before Pending Count:"+beforependingcount,true);
+
+		HighlightOnElement(PendingApplication_Icon);
+		Assert.assertTrue(PendingApplication_Icon.isEnabled(),"Test Case PAss");
+		PendingApplication_Icon.click();
+		waitForSomeTime();
+		//waitForVisibleElement("//span[contains(.,'Applications List')]/../following-sibling::div/div[1]/div/table/tbody/tr[2]/td/input");
+		waitForSomeTime();
+		waitForelementPresent(entervalueinsearchbox);
+		//fluentWait(entervalueinsearchbox)
+		//waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(entervalueinsearchbox);
+		//String Validnumber=ApplicationNumber.getText();
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "DisconnectionNumber",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		//entervalueinsearchbox.sendKeys(Validnumber);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForelementPresent(clickonselectactiondrop);
+		//fluentWait(clickonselectactiondrop);
+		//waitForVisibleElement("//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table[1]/tbody/tr/td[2]/div/div[3]/span");
+
+		ScroolDown();
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+		selectValueFromDropdown("Approve");
+		waitForSomeTime();
+		waitForSomeTime();
+
+		//fillsubjectfileFileds();
+		HighlightOnElement(entercommentbox);
+		//excel.getExcelData(entercommentbox, "Customer ID",3, 8);
+		entercommentbox.sendKeys("Application Approved By Field Engineer");
+		waitForSomeTime();
+		HighlightOnElement(uploaddocument);
+		uploaddocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		waitForSomeTime();
+
+		String Expected=fileuploadmessage.getText();
+		String Actual="File uploaded Successfully";
+		Assert.assertEquals(Expected,Actual,"Test case pass");
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,250)", "");
+		HighlightOnElement(Submit_Button);
+		waitForSomeTime();
+		Submit_Button.click();
+		Reporter.log("click on Submit button succesfully",true);
+		Thread.sleep(15000);
+		waitForSomeTime();
+		HighlightOnElement(Home_Icon);
+		Home_Icon.click();
+		waitForSomeTime();
+		String AfterPendingCount=beforepending.getText();
+		int afterpendingcount=Integer.parseInt(AfterPendingCount);
+
+		Reporter.log("After Pending Count:"+afterpendingcount,true);
+
+		if(BeforePendingCount.equals(afterpendingcount-1))
+		{
+			Reporter.log("Test case Pass pending count Decreased", true);
+			waitForSomeTime();
+		}
+		else
+		{
+
+			Reporter.log("Test case fail  pending count not Decreased", true);
+		}
+		waitForSomeTime();
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

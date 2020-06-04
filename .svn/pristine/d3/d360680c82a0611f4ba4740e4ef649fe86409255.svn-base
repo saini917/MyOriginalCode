@@ -1,0 +1,38 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifySelectCheckbox_SC_03_TC_02 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	public void selectCheckbox()
+	{
+		List<WebElement> allrows = driver.findElements(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Initial')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr"));
+		//Reporter.log("Total rows :" +allrows.size(),true);
+		for(int row=1;row<=allrows.size();row++)
+		{
+			String name = driver.findElement(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Initial')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr["+row+"]/td[6]")).getText();
+			//Reporter.log("Name :" +name,true);
+			if(name.equalsIgnoreCase("Rohit Singh")) 
+			{
+				WebElement checkbutton =driver.findElement(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Initial')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr["+row+"]/td[2]"));
+				checkbutton.click();
+				WebElement initialstatus = driver.findElement(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Initial')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr["+row+"]/td[10]"));
+				initialstatus.click();
+				break ;
+			}
+		}
+	}
+}
+
+

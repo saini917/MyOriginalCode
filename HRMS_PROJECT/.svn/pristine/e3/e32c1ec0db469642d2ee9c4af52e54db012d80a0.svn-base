@@ -1,0 +1,139 @@
+package HRMS_ERP_CONFIGURATION_INVESTMENT_MASTER;
+
+import org.apache.log4j.Logger;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Reporter;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Configuration_Investment_Master_Sc_01 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discussion icon".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='navbar-header']/a/i")
+	private WebElement discussicon;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Employee icon".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//img[@class='app-drawer-icon-app img-rounded' and @title='Employees']")
+	private WebElement employeeicon;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Configuration Menu".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='odooMenuBarNav']/div[1]/div/ul[14]/li[7]/a/span")
+	private WebElement configurationicon;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Employee Group".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//div[@id='odooMenuBarNav']/div[1]/div/ul[14]/li[7]/ul/li[16]/a/span")
+	private WebElement Investment_Master;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Create".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Create')]")
+	private WebElement create;
+	/**
+	 * @throws InterruptedException **************************************************************************************************/
+	
+	/*
+	 * This method is used to click on Discuss icon
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	public void clickOnDiscussIcon() throws InterruptedException
+	{
+		HighlightOnElement(discussicon);
+		discussicon.click();
+		Reporter.log("click on discuss image successfully",true);
+		log.info("To verify click on discuss image successfully");
+	}
+
+	/*
+	 * This method is used to click on Employee icon
+	 * @author deepak.saini
+	 * @since 27-10-2017
+	 */
+	public void clickOnEmployeeIcon()
+	{
+		HighlightOnElement(employeeicon);
+		employeeicon.click();
+		Reporter.log("click on Employee image successfully",true);
+		log.info("To verify click on Employee image successfully");
+	}
+
+	/*
+	 * This method is used to click on Configuration dropdown icon
+	 * @author deepak.saini
+	 * @since 27-10-2017
+	 */
+	public void clickOnConfigurationDropdown() throws InterruptedException
+	{
+		HighlightOnElement(configurationicon);
+		configurationicon.click();
+		Reporter.log("click on Configuration menu successfully",true);
+		log.info("to verify click on Configuration menu successfully");
+		waitForSomeTime();
+	}
+
+	/*
+	 * This method is used to click on Investment Master Button
+	 * @author deepak.saini
+	 * @since 27-10-2017
+	 */
+	public void clickOnInvestmentGroup() throws InterruptedException
+	{
+		HighlightOnElement(Investment_Master);
+		Investment_Master.click();
+		Reporter.log("click on Investment Master button successfully",true);
+		log.info("To verify click on Investment Master button successfully");
+		waitForSomeTime();
+	}
+
+	/*
+	 * This method is used to click on Create Button
+	 * @author deepak.saini
+	 * @since 27-10-2017
+	 */
+	public void clickOnCreateButton() throws InterruptedException
+	{
+		HighlightOnElement(create);
+		create.click();
+		Reporter.log("click on Create button successfully");
+		log.info("To verify click on Create button successfully");
+		Assert.assertFalse(driver.getTitle().contains("New-Software"));
+		Reporter.log("Form is redirect on Investment Master dashboard successfully",true);
+		log.info("To verify Form is redirect on Investment Master dashboard successfully");
+		waitForSomeTime();
+	}
+
+
+}

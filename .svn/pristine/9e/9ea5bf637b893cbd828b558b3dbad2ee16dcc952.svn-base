@@ -1,0 +1,120 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyApplicationStatus_SC_10_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pending Application".
+	 * @author deepak.saini
+	 * @since 2017-11-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr/td/form/div/ul/li[2]")
+	private WebElement pending_application;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ENTER APPLICATION NUMBER".
+	 * @author deepak.saini
+	 * @since 2017-11-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/div/table/tbody/tr/td[contains(text(),'Enter Application Number')]/following-sibling::td/input")
+	private WebElement enterApplicationNymber;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SEARCH".
+	 * @author deepak.saini
+	 * @since 2017-11-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "STATUS".
+	 * @author deepak.saini
+	 * @since 2017-11-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/span[contains(text(),'VERIFIED')]")
+	private WebElement status;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACTION".
+	 * @author deepak.saini
+	 * @since 2017-11-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/a/img[@src='/NRDAuthority/resources/images/view-new.png']")
+	private WebElement action;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DASHBOARD DETAILS".
+	 * @author deepak.saini
+	 * @since 2017-11-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span/span/div/div/div/div/span")
+	private List<WebElement> details;
+	
+	public void verifyStatusPendingApplication() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		clickOnPendingApplication();
+		wait.until(ExpectedConditions.visibilityOf(enterApplicationNymber));
+		HighlightOnElement(enterApplicationNymber);
+		Assert.assertTrue(enterApplicationNymber.isDisplayed(),"ENTER APPLICATION INPUT BOX is displayed");
+		Assert.assertTrue(enterApplicationNymber.isEnabled(),"ENTER APPLICATION INPUT BOX is enabled");
+		/*String applicationNo=*/excel.getExcelData(enterApplicationNymber,"PropertyTax_Application_Num",0 ,1);
+		//Reporter.log("Pending Application Number"+applicationNo,true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		HighlightOnElement(searchbtn);
+		Assert.assertTrue(searchbtn.isDisplayed(),"SEARCH BUTTON is displayed");
+		Assert.assertTrue(searchbtn.isEnabled(),"SEARCH BUTTON is enabled");
+		searchbtn.click();
+		waitForSomeTime();
+	
+		wait.until(ExpectedConditions.visibilityOf(status));
+		HighlightOnElement(status);
+		String actual="VERIFIED";
+		Assert.assertEquals(actual,status.getText(),"Matched");
+	}
+	
+	public void clickOnPendingApplication() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(pending_application));
+		HighlightOnElement(pending_application);
+		Assert.assertTrue(pending_application.isDisplayed(),"PENDING APPLICATION MENU is displayed");
+		Assert.assertTrue(pending_application.isEnabled(),"PENDING APPLICATION MENU is enabled");
+		pending_application.click();
+		//Reporter.log("Action is performed on Pending Application",true);
+		waitForSomeTime();
+		//waitForSomeTime();
+	}
+
+}

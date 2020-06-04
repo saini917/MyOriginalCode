@@ -1,0 +1,62 @@
+package NRDA_NewConnection;
+
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_14_TC_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+
+	public void clickOnActionLink() throws InterruptedException
+	{
+		boolean check=true;
+		//String Apno="ORTIC2812170409";
+		String Apno="WASCC2209170590";
+		List<WebElement> allpages=driver.findElements(By.xpath("//td[@class='rightColWithLeftPad']/span/div/div/table/tbody/tr/td/div/div/span[@class='ui-paginator-pages']/span"));
+		for(int i=2; i<=allpages.size();i++)
+		{
+			Reporter.log("Totak No Of Pages:"+allpages.size(),true);
+			List<WebElement> allrows=driver.findElements(By.xpath("//td[@class='rightColWithLeftPad']/span/div/div/table/tbody/tr/td/div/div/table/tbody/tr"));
+			for(int row=1; row<=allrows.size(); row++)
+			{
+				Reporter.log("Total rows :" +allrows.size(),true); 
+				String name = driver.findElement(By.xpath("//td[@class='rightColWithLeftPad']/span/div/div/table/tbody/tr/td/div/div/table/tbody/tr["+row+"]/td[2]/center/span")).getText();
+		
+					Reporter.log(name,true);
+					if(name.equals(Apno))
+					{
+						Thread.sleep(5000);
+						WebElement action = driver.findElement(By.xpath("//td[@class='rightColWithLeftPad']/span/div/div/table/tbody/tr/td/div/div/table/tbody/tr["+row+"]/td[2]/center/span/../../following-sibling::td/center/a/img"));
+						action.click();
+						Reporter.log(name,true);
+						Thread.sleep(5000);
+						Reporter.log("Element  exist",true);
+						check=false;
+						break;
+					}
+					else
+					{
+						Reporter.log("Element not exist",true);
+					}
+			}
+			if(check)
+			{
+				driver.findElement(By.xpath("//td[@class='rightColWithLeftPad']/span/div/div/table/tbody/tr/td/div/div/span[@class='ui-paginator-pages']/span["+i+"]")).click();
+				Thread.sleep(5000);
+			}
+		}
+		Reporter.log("User should be able to download the receipt.",true);
+	}
+}
+
+
+

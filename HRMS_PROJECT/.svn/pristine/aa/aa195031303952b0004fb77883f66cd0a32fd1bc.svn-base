@@ -1,0 +1,56 @@
+package LoginPageHRMS_UserLibrary;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.BrowserDriver;
+
+/** 
+ * @author deepak.saini
+ * @since 25-10-2017
+ */
+public class LoginPageHRMS_JavaFile extends BrowserDriver
+{
+	public WebDriver driver;
+	
+	@FindBy(xpath="//div/input[@id='login']")
+	private WebElement emailid;
+
+	@FindBy(xpath="//div/input[@id='password']")
+	private WebElement password;
+	
+	@FindBy(xpath="//div/button[contains(text(),'Log in')]")
+	private WebElement loginbtn;
+	
+	public void hrms_credential(String Username,String Password) throws InterruptedException
+	{
+		try
+		{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(Username);
+		String actual_username="admin";
+		Reporter.log("Email ID:"+Username,true);
+		Assert.assertEquals(Username,actual_username);
+		
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Nrda@1234567";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+		}
+		catch(Exception StaleElementException)
+		{
+			StaleElementException.printStackTrace();
+		}
+		
+		HighlightOnElement(loginbtn);
+		loginbtn.click();
+		waitForSomeTime();
+	}
+
+}

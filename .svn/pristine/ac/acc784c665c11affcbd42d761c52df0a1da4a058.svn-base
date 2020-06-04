@@ -1,0 +1,63 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyUploadDocument_SC_10_TC_07 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "UPLOAD DOCUMENT".
+	 * @author deepak.saini
+	 * @since 2017-11-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/table/tbody/tr/td/form/span/span/div/div/div/div/center/table/tbody/tr/td/span[contains(text(),'Upload Document')]/../following-sibling::td/table/tbody/tr/td/div/div/label/input")
+	private WebElement uploaddocument;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "UPLOAD MESSAGE".
+	 * @author deepak.saini
+	 * @since 2017-11-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-growl-message']/span[contains(text(),'File uploaded Successfully')]")
+	private WebElement mssg;
+	
+	public void verifyUploadDocumentField() throws EncryptedDocumentException, InvalidFormatException, IOException, AWTException, InterruptedException
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,130)", "");
+		
+		waitForSomeTime();
+		HighlightOnElement(uploaddocument);
+		/*Assert.assertTrue(uploaddocument.isDisplayed(),"SUBJECT FIELD INPUT BOX IS DISPLAYED");*/
+		Assert.assertTrue(uploaddocument.isEnabled(),"SUBJECT FIELD INPUT BOX IS ENABLED");
+		waitForSomeTime();
+		uploaddocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\DocumentFormat\\pdf-sample.pdf");
+		//Reporter.log("Action is performed on Upload document");
+		waitForSomeTime();
+		waitForSomeTime();
+		
+		String actual="File uploaded Successfully";
+		Assert.assertEquals(actual,mssg.getText(),"Matched");
+		//Reporter.log("FILE UPLOAD MESSAGE:"+mssg.getText(),true);
+	}
+}

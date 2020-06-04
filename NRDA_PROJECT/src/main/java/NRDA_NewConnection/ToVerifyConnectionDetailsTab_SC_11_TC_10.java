@@ -1,0 +1,163 @@
+package NRDA_NewConnection;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_11_TC_10 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "meter number".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+
+	@FindBy(xpath="//div[@id='inboxForm:docAccordionPanel']/ul/li/a[contains(text(),'Connection Meter Details')]/../../following-sibling::div/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Meter Number')]/../following-sibling::td/input")
+	private WebElement meternumber;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "meter status".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+
+	@FindBy(xpath="//div[@id='inboxForm:docAccordionPanel']/ul/li/a[contains(text(),'Connection Meter Details')]/../../following-sibling::div/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Meter Status')]/../following-sibling::td/input")
+	private WebElement meterstatus;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "meter latitude".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+
+	@FindBy(xpath="//div[@id='inboxForm:docAccordionPanel']/ul/li/a[contains(text(),'Connection Meter Details')]/../../following-sibling::div/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Meter Latitude')]/../following-sibling::td/input")
+	private WebElement meterlatitude;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "meter longitude".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+
+	@FindBy(xpath="//div[@id='inboxForm:docAccordionPanel']/ul/li/a[contains(text(),'Connection Meter Details')]/../../following-sibling::div/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Meter Longitude')]/../following-sibling::td/input")
+	private WebElement meterlongitude;
+	
+	public void enterValidMeterData() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf(meternumber));
+		Assert.assertTrue(meternumber.isDisplayed());
+		HighlightOnElement(meternumber);
+		Assert.assertTrue(meternumber.isEnabled());
+		excel.getExcelData(meternumber,"Connection Meter Number",1,2);
+		
+		wait.until(ExpectedConditions.visibilityOf(meterstatus));
+		Assert.assertTrue(meterstatus.isDisplayed());
+		HighlightOnElement(meterstatus);
+		Assert.assertTrue(meterstatus.isEnabled());
+		excel.getExcelData(meterstatus,"Connection Meter Number",1,3);
+		
+		wait.until(ExpectedConditions.visibilityOf(meterlatitude));
+		Assert.assertTrue(meterlatitude.isDisplayed());
+		HighlightOnElement(meterlatitude);
+		Assert.assertTrue(meterlatitude.isEnabled());
+		excel.getExcelData(meterlatitude,"Connection Meter Number",1,4);
+		
+		
+		wait.until(ExpectedConditions.visibilityOf(meterlongitude));
+		Assert.assertTrue(meterlongitude.isDisplayed());
+		HighlightOnElement(meterlongitude);
+		Assert.assertTrue(meterlongitude.isEnabled());
+		excel.getExcelData(meterlongitude,"Connection Meter Number",1,5);
+		Reporter.log("Enter Meter Details Data",true);
+	}
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Generate Note".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Generate')]")
+	private WebElement generatenote;
+	
+	public void clickOnGenerateNote() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(generatenote));
+		wait.until(ExpectedConditions.elementToBeClickable(generatenote));
+		generatenote.click();
+		Reporter.log("click on Generate Note button succesfully",true);
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Submit".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/center/button/span[contains(text(),'Submit')]")
+	private WebElement submit;
+
+	public void clickOnSubmit() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(submit));
+		wait.until(ExpectedConditions.elementToBeClickable(submit));
+		submit.click();
+		Reporter.log("click on Submit button succesfully",true);
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "successful message".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-growl-message']/span[contains(text(),'Data saved successfully!')]")
+	private WebElement successmessage;
+
+	public void getSuccessMsg() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(successmessage));
+		HighlightOnElement(successmessage);
+		String expected=successmessage.getText();
+		String actual="Data saved successfully!";
+		Assert.assertEquals(actual, expected);
+		Reporter.log("Successful Message:"+expected,true);
+		waitForSomeTime();
+	}
+}

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<!--<test name="PROPERTY TAX login as Valid Citizen Credentials">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithValidCredentials">
+			<methods>
+       			<include name="verifyLoginAsPropertyTaxWithValidCredentials_SC_01_TC_01"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX login as Blank Password Citizen Credentials">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithBlankCredentials">
+			<methods>
+       			<include name="verifyLoginAsPropertyTaxWithBlankPassCredentials_SC_01_TC_02"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX login as Invalid Password Citizen Credentials">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithInValidCredentials">
+			<methods>
+       			<include name="verifyLoginAsPropertyTaxWithInValidPassCredentials_SC_01_TC_03"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	
+ 	<test name="PROPERTY TAX login as Blank Username Password Citizen Credentials">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithBlankUIDPassCredentials">
+			<methods>
+       			<include name="verifyLoginAsPropertyTaxWithBlankUIDPassCredentials_SC_01_TC_04"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX login as Invalid Username Password Citizen Credentials">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithInvalidUIDPasCredentials">
+			<methods>
+       			<include name="verifyLoginAsPropertyTaxWithInvalidUIDPassCredentials_SC_01_TC_05"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Property Assessment Dashboard">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyNewAssessmentDashboard_PropertyTax_Citizen_SC_02_TC_01"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Financial Year">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyFinancialYear_PropertyTax_Citizen_SC_03_TC_02"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Name Of Property">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyNameOfProperty_PropertyTax_Citizen_SC_03_TC_03"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Mobile Number">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyMobileNumber_PropertyTax_Citizen_SC_03_TC_04"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Email">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyEmail_PropertyTax_Citizen_SC_03_TC_05"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Name Of Owner">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyNameOfOwner_PropertyTax_Citizen_SC_03_TC_06"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Name Of Spouse">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyNameOfSpouse_PropertyTax_Citizen_SC_03_TC_07"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Owner Type">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyOwnerType_PropertyTax_Citizen_SC_03_TC_08"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Name Of Second Owner">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyNameOfSecondOwner_PropertyTax_Citizen_SC_03_TC_09"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Address Of Second Owner">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyAddresOfSecondOwner_PropertyTax_Citizen_SC_03_TC_10"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY TAX Next Button">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="clickOnNextButton_PropertyTax_Citizen_SC_03_TC_11"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	
+ 	<test name="PROPERTY ADDRESS TAB">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="clickOnPropertyAddressTab_PropertyTax_Citizen_SC_04_TC_01"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="STATE FIELD">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyStateField_PropertyTax_Citizen_SC_04_TC_02"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="DISTRICT FIELD">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyDistrictField_PropertyTax_Citizen_SC_04_TC_03"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="MUNICIPILITY FIELD">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyMunicipilityField_PropertyTax_Citizen_SC_04_TC_04"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="SECTOR FIELD">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifySectorField_PropertyTax_Citizen_SC_04_TC_05"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="WARD FIELD">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyWardField_PropertyTax_Citizen_SC_04_TC_06"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	
+ 	<test name="CORRESPONDANCE ADDRESS FIELD">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifycorrespondenceAddressField_PropertyTax_Citizen_SC_04_TC_07"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	
+ 	<test name="PROPERTY BUILDING TAB">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyPropertyBuildingTab_PropertyTax_Citizen_SC_05_TC_01"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>	
+ 	
+ 	<test name="PROPERTY USES TYPE">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyPropertyUsesType_PropertyTax_Citizen_SC_05_TC_02"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROPERTY UNIT TYPE">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyPropertyUnit_PropertyTax_Citizen_SC_05_TC_03"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="CONSTRUCTION TYPE">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyConstructionType_PropertyTax_Citizen_SC_05_TC_04"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="FLOOR NUMBER">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyFloorNumber_PropertyTax_Citizen_SC_05_TC_05"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>	
+ 	
+ 	<test name="AREA">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyArea_PropertyTax_Citizen_SC_05_TC_06"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>	
+ 	
+ 	<test name="YEAR OF ESTABLISHMENT">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyYearOfEstablishment_PropertyTax_Citizen_SC_05_TC_07"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="SUBMIT BUTTON WITHOUT DATA">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="clickOnSubmitButtonWithoutData_PropertyTax_Citizen_SC_05_TC_10a"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="SUBMIT BUTTON WITH DATA">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="clickOnSubmitButtonWithData_PropertyTax_Citizen_SC_05_TC_11"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="RESET BUTTON">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="clickOnResetButton_PropertyTax_Citizen_SC_05_TC_13"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	
+ 	<test name="CLOSE BUTTON">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="clickOnCloseButton_PropertyTax_Citizen_SC_05_TC_14"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="SAVE AS DRAFT BUTTON">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="clickOnSaveAsDraftButton_PropertyTax_Citizen_SC_05_TC_15"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="DRAFT APPLICATION MENU">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyDraftedApplicationMenu_PropertyTax_Citizen_SC_06_TC_01"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="PROCEED BUTTON">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyProceedButton_PropertyTax_Citizen_SC_06_TC_02"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="DELETE BUTTON">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyDeleteButton_PropertyTax_Citizen_SC_06_TC_03"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="SEARCH BUTTON">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifySearchButtonFun_PropertyTax_Citizen_SC_06_TC_04"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ 	<test name="RESET BUTTON">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifyResetButtonFun_PropertyTax_Citizen_SC_06_TC_05"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>-->
+ 	
+ 	<test name="RESET BUTTON">
+	<classes>
+		<class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_Property_Assessment_Citizen_Module">
+			<methods>
+       			<include name="verifySubmittedApplicationMenu_PropertyTax_Citizen_SC_07_TC_01"/>
+       			</methods>
+ 			</class>
+ 		</classes>
+ 	</test>
+ 	
+ </suite>

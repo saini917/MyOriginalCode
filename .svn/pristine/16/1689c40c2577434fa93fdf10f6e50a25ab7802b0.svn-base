@@ -1,0 +1,1041 @@
+
+package WaterAndSewerageTransfer;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+
+/**
+ * @author Birbal Tahim
+ * @Date: 07-10-2017
+ * @Purpose: WATER AND SEWERAGE TRANSFER LOGIN BY FIELD ENGINEER
+ */
+public class WaterAndSewerageTransferLoginAsFE  extends CommonLibrary
+{
+
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	static int pendcountList=0;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pending Application".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[2]/a/span/img")
+	private WebElement PendingApplication;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New Application Label" .
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div[2]/div[2]/h3/a")
+	private WebElement newapplication;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Under New Application menu".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div[2]/div[2]/div/div/h3/a")
+	private List<WebElement> underNewApplicationpending;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "RTI name".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div[2]/div[3]/h3/a")
+	private WebElement rtiquestion;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Check Action button is displayed".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//img[@src='/NRDAuthority1/resources/images/view-new.png']")
+	private  List<WebElement> actionbtn;
+
+
+	public void toVerifyPendingApplicationAsFE() throws InterruptedException
+	{
+
+		HighlightOnElement(PendingApplication);
+		Assert.assertTrue(PendingApplication.isEnabled());
+		PendingApplication.click();
+		Reporter.log("Expected result:click on Pending Application",true);
+		waitForSomeTime();
+
+		HighlightOnElement(newapplication);
+		String newapplicationlabelname=newapplication.getText();
+		Reporter.log("Expected result:"+newapplicationlabelname,true);
+
+		for(WebElement menulistnewapplication:underNewApplicationpending)
+		{
+			//HighlightOnElement1(underNewApplicationpending);
+			if(menulistnewapplication.isDisplayed())
+			{
+				String pendingapplication=menulistnewapplication.getText();
+				Reporter.log("Menu list under New Application:"+pendingapplication,true);
+			}
+		}
+
+		HighlightOnElement(rtiquestion);
+		Reporter.log(" RTI question Link is Present",true);
+
+	}
+
+	public void toVerifyActionButtonDisplayed01()
+	{
+		int actionbuttoncount=0;
+		for(WebElement action:actionbtn)
+		{
+			//if(action.isDisplayed())
+			Assert.assertTrue(action.isDisplayed(),"Test Case: Pass");
+			{/*
+								JavascriptExecutor jse = (JavascriptExecutor)driver;
+								jse.executeScript("window.scrollBy(0,250)", "");*/
+				actionbuttoncount++;
+			}
+			Reporter.log("Test case is passed for action button shown:"+actionbuttoncount,true);
+		}
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Enter Value in the search box".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[2]/input")
+	private WebElement entervalueinsearchbox;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Search button".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pending Status".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-accordion-content ui-helper-reset ui-widget-content']/div/div/table/tbody/tr/td[contains(.,'PENDING')]")
+	private WebElement PendingStatus;
+
+	public void toVerifyPendingApplication01() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(entervalueinsearchbox);
+
+		excel.getExcelData(entervalueinsearchbox, "Customer ID", 0, 2);
+		HighlightOnElement(searchbtn);
+		Assert.assertTrue(searchbtn.isDisplayed());
+		searchbtn.click();
+		waitForSomeTime();
+		waitForSomeTime();
+
+		HighlightOnElement(PendingStatus);
+		Assert.assertTrue(PendingStatus.isDisplayed(),"TestCase Pass");
+
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pending Application Link".
+	 * @author birbal.tahim
+	 * @since 2017-09-06
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@class='dash-wraper water']/div[2]/div[1]/ul[2]/li[3]")
+	private WebElement Pending_count;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PendingListonPopup".
+	 * @author birbal.tahim
+	 * @since 2017-09-06
+	 */
+	/*****************************************************************************************************/
+	//@FindBy(xpath="//div[@id='inboxForm:dlg']/div[2]/div/div/div/div[1]/table/tbody/tr/td[5]/span")
+	@FindBy(xpath="//div[@id='inboxForm:dlg']/div[2]/div/div/div/div[1]/table/tbody/tr")
+	private List <WebElement> PendingListonPopup;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Close Popup Window".
+	 * @author birbal.tahim
+	 * @since 2017-09-06
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath=".//*[@id='inboxForm:dlg']/div[1]/a/span")
+	private WebElement Close_Popwindow;
+
+	public void toclickonpendingcountlink() throws InterruptedException
+	{
+
+		HighlightOnElement(Pending_count);
+		Assert.assertEquals(true,Pending_count.isEnabled());
+		String PendingCount1=Pending_count.getText();
+		int pendingcount=Integer.parseInt(PendingCount1);
+		waitForSomeTime();
+		System.out.println("Pending Count On Water Icon Is:" +pendingcount);
+		Pending_count.click();
+		waitForSomeTime();
+
+	}
+
+	public void toverifyPendingCountinWatermenu02() throws InterruptedException
+	{
+
+		waitForSomeTime();
+		HighlightOnElement(Pending_count);
+		Assert.assertEquals(true,Pending_count.isEnabled());
+		String PendingCount1=Pending_count.getText();
+		int pendingcount=Integer.parseInt(PendingCount1);
+		waitForSomeTime();
+		System.out.println("Pending Count On Water Icon Is:" +pendingcount);
+		Pending_count.click();
+		waitForSomeTime();
+		Reporter.log(" To Verify Pending_count  in Water_Icon  Water&Sewerage link is Present",true); //print for eclipse console
+		List<WebElement> allpages = driver.findElements(By.xpath("//div[@class='ui-paginator ui-paginator-bottom ui-widget-header ui-corner-bottom']/span[3]/span/font"));
+		System.out.println("Total No Of Pages:" +allpages.size());
+		for(int i=1;i<=((pendingcount/10)+1);i++)
+		{
+			pendcountList=pendcountList + PendingListonPopup.size();
+
+			if(Seeknext_PendingList.isEnabled())
+			{
+
+				Seeknext_PendingList.click();
+				waitForSomeTime();
+
+			}
+
+		}
+		//Reporter.log("Approve Count On Popup List  Is:" +pendcountList);
+		System.out.println("Pending Count On Popup List  Is:" +pendcountList);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pagination on PendingList_SeekFirst".
+	 * @author birbal.tahim
+	 * @since 2017-09-06
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//span[@class='ui-icon ui-icon-seek-next']")
+	private WebElement Seeknext_PendingList;
+
+	public void closePopUpWindow() throws InterruptedException{
+		waitForSomeTime();
+		HighlightOnElement(Close_Popwindow);
+		waitForSomeTime();
+		Assert.assertEquals(true,Close_Popwindow.isEnabled());
+		Close_Popwindow.click();
+		Reporter.log("Expected result:click on Close Popup window",true);
+		waitForSomeTime();
+		waitForSomeTime();
+
+
+	}
+	public void toVerifyRecordPerPage02() throws InterruptedException
+	{
+
+		waitForSomeTime();
+		int count=PendingListonPopup.size();
+		if(count==10)
+		{
+			Assert.assertEquals(count,10);
+			Reporter.log("Test case pass: Number of record per page is equal to 10",true);
+		}
+		else
+		{
+			Reporter.log("Test case fail: Number of record per page is greater or less than 10",true);
+			Assert.assertNotEquals(count,10);
+		}
+		Reporter.log("No of record per page:"+count,true);
+		waitForSomeTime();
+
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pagination on PendingList_SeekFirst".
+	 * @author birbal.tahim
+	 * @since 2017-09-06
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//span[@class='ui-icon ui-icon-seek-first']")
+	private WebElement SeekFirst_PendingList;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pagination on PendingList_SeekFirst".
+	 * @author birbal.tahim
+	 * @since 2017-09-06
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//span[@class='ui-icon ui-icon-seek-prev']")
+	private WebElement SeekPrevious_PendingList;
+
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pagination on PendingList_SeekFirst".
+	 * @author birbal.tahim
+	 * @since 2017-09-06
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//span[@class='ui-icon ui-icon-seek-end']")
+	private WebElement Seekend_PendingList;
+
+	public void toVerifyPagination02() throws InterruptedException
+	{
+		waitForSomeTime();
+		HighlightOnElement(SeekFirst_PendingList);
+		HighlightOnElement(SeekPrevious_PendingList);
+		HighlightOnElement(Seeknext_PendingList);
+		HighlightOnElement(Seekend_PendingList);
+
+		if(Seeknext_PendingList.isEnabled())
+		{
+			Assert.assertTrue(Seeknext_PendingList.isDisplayed(),"TestCase Pass");
+			Reporter.log("Test case pass: Pagination is Displayed in PendingList Application",true);
+			//Seeknext_PendingList.click();
+			waitForSomeTime();
+		}
+		else 
+		{
+			Assert.assertFalse(Seeknext_PendingList.isDisplayed(),"Test Case Fail");
+			Reporter.log("Test case pass: Pagination is Not Displayed in PendingList Application",true);
+		}
+
+	}	
+
+
+	@FindBy(xpath="(//span[@class='ui-icon ui-icon-seek-next'])[1]")
+	private WebElement Seeknext_PendingApplication;
+
+	@FindBy(xpath="(//span[@class='ui-icon ui-icon-seek-first'])[1]")
+	private WebElement SeekFirst_PendingApplication;
+
+
+	@FindBy(xpath="(//span[@class='ui-icon ui-icon-seek-prev'])[1]")
+	private WebElement SeekPrevious_PendingApplication;
+
+	@FindBy(xpath="(//span[@class='ui-icon ui-icon-seek-end'])[1]")
+	private WebElement Seekend_PendingApplication;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pagination on PendingList_SeekFirst".
+	 * @author birbal.tahim
+	 * @since 2017-09-06
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//a[contains(.,'WATER CONNECTION TRANSFER FORM - 3')]")
+	private WebElement TransferOfWaterConnection;
+
+
+
+	public void toverifypeginationofPendingApplication03() throws InterruptedException
+	{
+		HighlightOnElement(PendingApplication);
+		Assert.assertTrue(PendingApplication.isEnabled(),"Test Case PAss");
+		PendingApplication.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(TransferOfWaterConnection);
+
+
+		waitForSomeTime();
+		HighlightOnElement(SeekFirst_PendingApplication);
+		Assert.assertEquals(SeekFirst_PendingApplication.isDisplayed(),true);
+		HighlightOnElement(SeekPrevious_PendingApplication);
+		Assert.assertEquals(SeekPrevious_PendingApplication.isDisplayed(),true);
+		HighlightOnElement(Seeknext_PendingApplication);
+		Assert.assertEquals(Seeknext_PendingApplication.isDisplayed(),true);
+		HighlightOnElement(Seekend_PendingApplication);
+		Assert.assertEquals(Seekend_PendingApplication.isDisplayed(),true);
+
+		if(Seeknext_PendingList.isEnabled())
+		{
+			Assert.assertTrue(Seeknext_PendingList.isEnabled());
+			Reporter.log("Test case pass: Pagination is Displayed in  Application",true);
+			Seeknext_PendingList.click();
+			waitForSomeTime();
+		}
+		else 
+		{
+			Assert.assertFalse(Seeknext_PendingList.isEnabled());
+			Reporter.log("Test case pass: Pagination is Not Displayed in  Application",true);
+		}
+
+	}
+
+	@FindBy(xpath="//span[contains(text(),'Record not found')]")
+	private WebElement getmessage;
+
+	public void toclickonPendingApplication() throws InterruptedException
+	{
+		HighlightOnElement(PendingApplication);
+		Assert.assertTrue(PendingApplication.isEnabled(),"Test Case PAss");
+		PendingApplication.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+
+
+	}
+
+	public void toVerifyInvalidApplicationNumber04() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+
+		HighlightOnElement(PendingApplication);
+		Assert.assertTrue(PendingApplication.isEnabled(),"Test Case PAss");
+		PendingApplication.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+
+		waitForSomeTime();
+		HighlightOnElement(entervalueinsearchbox);
+		String invalidnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",1, 5);
+		Reporter.log("Invalid Application Number:"+invalidnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(getmessage);
+		String Expected=getmessage.getText();
+		String Actual="Record not found";
+		Assert.assertEquals(Actual, Expected);
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+		waitForSomeTime();
+
+	}
+	public void toVerifyBlankApplicationNumber05() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(PendingApplication);
+		Assert.assertTrue(PendingApplication.isEnabled(),"Test Case PAss");
+		PendingApplication.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+
+		HighlightOnElement(entervalueinsearchbox);
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(getmessage);
+		String Expected=getmessage.getText();
+		String Actual="Record not found";
+		Assert.assertEquals(Actual, Expected);
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Application Grid".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="(//table[@role='grid']/thead/tr)[1]")
+	private WebElement Application_Grid;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Application Status".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//span[contains(.,'PENDING')]")
+	private WebElement Application_Status;
+
+	public void toVerifyValidApplicationNumber06()throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(PendingApplication);
+		Assert.assertTrue(PendingApplication.isEnabled(),"Test Case PAss");
+		PendingApplication.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(entervalueinsearchbox);
+		HighlightOnElement(searchbtn);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",0, 2);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(Application_Grid);
+		waitForSomeTime();
+		HighlightOnElement(Application_Status);
+		String ActualStatus=Application_Status.getText();
+		String ExpectedStatus="PENDING";
+		if(ActualStatus.equalsIgnoreCase(ExpectedStatus))
+		{
+			Reporter.log("Application Status Is Pending",true);
+		}
+		else
+		{
+			Reporter.log("Application Status Is Not Pending",true);	
+		}
+
+	}
+
+	@FindBy(xpath="(//img[@src='/NRDAuthority1/resources/images/view-new.png'])[1]")
+	private WebElement action;
+
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table/tbody/tr/td[1]/label")
+	private List<WebElement> commentlabel;
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table/tbody/tr/td[2]/textarea")
+	private WebElement entercommentbox;
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table/tbody/tr/td[4]/a/span")
+	private WebElement viewpropertymap;
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table[2]/tbody/tr[2]/td[1]/span")
+	private WebElement uploaddocumentlabel;
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table[2]/tbody/tr[2]/td[2]/table/tbody/tr/td/div/div/label")
+	private WebElement uploaddocument;
+
+	@FindBy(xpath="//div[@class='ui-selectonemenu ui-widget ui-state-default ui-corner-all ui-helper-clearfix']/div[3]/span")
+	private WebElement clickonselectactiondrop;
+
+	@FindBy(xpath="//ul[@class='ui-selectonemenu-items ui-selectonemenu-list ui-widget-content ui-widget ui-corner-all ui-helper-reset']/li")
+	private List<WebElement> selectdropdownvalue;
+
+	public void toVerifyActionbuttonFunctionalityinPendingApplication07() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException, AWTException
+	{
+		HighlightOnElement(entervalueinsearchbox);
+		HighlightOnElement(searchbtn);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",0, 2);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+		for(WebElement la:commentlabel)
+		{
+			if(la.isDisplayed())
+			{
+				String labelname=la.getText();
+				Reporter.log("Expected result:"+labelname,true);
+				waitForSomeTime();
+			}
+		}
+		//Assert.assertEquals(uploaddocumentlabel.isDisplayed(),"Test case pass");
+		HighlightOnElement(uploaddocumentlabel);
+		String uploadlabel=uploaddocumentlabel.getText();
+		Reporter.log("Expected result:"+uploadlabel,true);
+		waitForSomeTime();
+
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		for(int i=1;i<selectdropdownvalue.size();i++)
+		{
+			String value=selectdropdownvalue.get(i).getText();
+			Reporter.log("Expected result:"+value,true);
+			waitForSomeTime();
+		}
+
+	}
+
+
+	@FindBy(xpath=".//*[@id='inboxForm:msg_container']/div/div/div[2]/span")
+	private WebElement ErrorMessag_Popup;
+
+	@FindBy(xpath="//button[contains(.,'Submit') and@role='button']")
+	private WebElement Submit_Button;
+
+	public void toVerifySubmitbuttonFunctionalityWithActionFieldISBlank08() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException, AWTException
+	{
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(Submit_Button);
+		Assert.assertEquals(Submit_Button.isEnabled(),true);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		waitForSomeTime();
+		Submit_Button.click();
+		Reporter.log("Click on Submit button Successfully",true);
+
+
+	}
+
+	public void toVerifyErrorMessage() throws InterruptedException
+	{
+		waitForSomeTime();
+		HighlightOnElement(ErrorMessag_Popup);
+		String Expected_Message="Please select some action before submit !";
+		String Actual_Message=ErrorMessag_Popup.getText();
+		Assert.assertEquals(Expected_Message, Actual_Message);
+		waitForSomeTime();
+		waitForSomeTime();
+
+	}
+
+	public void toVerifyErrorMessageAsUserisBlank() throws InterruptedException
+	{
+		waitForSomeTime();
+		HighlightOnElement(ErrorMessag_Popup);
+		String Expected_Message="Please enter some comments before submit !";
+		String Actual_Message=ErrorMessag_Popup.getText();
+		Assert.assertEquals(Expected_Message, Actual_Message);
+		waitForSomeTime();
+		waitForSomeTime();
+
+	}
+
+	public void toVerifyErrorMessageAsUploadingDocumentAsInvalidFormat() throws InterruptedException
+	{
+		waitForSomeTime();
+		HighlightOnElement(ErrorMessag_Popup);
+		String Expected=ErrorMessag_Popup.getText();
+		String Actual="Upload only jpg, png or pdf file";
+		Assert.assertEquals(Expected,Actual,"Test case pass");
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+		waitForSomeTime();
+
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "select value".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//html/body/div[11]/div/ul/li")
+	private List<WebElement> selectdropdownvalueUser;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "select user value".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td[3]/span/div/div[3]/span")
+	private WebElement clickonselectuserdrop;
+
+
+	public void toVerifySubmitbuttonFunctionalityWithUserFieldISBlank09() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+
+		HighlightOnElement(searchbtn);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",0, 2);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		for(int i=0;i<selectdropdownvalue.size();i++)
+		{
+			String value=selectdropdownvalue.get(i).getText();
+			if(value.equalsIgnoreCase("Forward"))
+			{
+				selectdropdownvalue.get(i).click();
+				waitForSomeTime();
+			}
+		}
+
+		HighlightOnElement(clickonselectuserdrop);
+		clickonselectuserdrop.click();
+
+		for(int i=1;i<selectdropdownvalueUser.size();i++)
+		{
+			String value=selectdropdownvalueUser.get(i).getText();
+			Reporter.log("Expected result:"+value,true);
+			waitForSomeTime();
+		}
+
+		waitForSomeTime();
+
+	}
+
+
+	public void toVerifySubmitbuttonFunctionalityWithCommentsFieldISBlank10() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+
+		HighlightOnElement(searchbtn);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",0, 2);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		for(int i=0;i<selectdropdownvalue.size();i++)
+		{
+			String value=selectdropdownvalue.get(i).getText();
+			if(value.equalsIgnoreCase("Verified"))
+			{
+				selectdropdownvalue.get(i).click();
+				waitForSomeTime();
+			}
+		}
+		waitForSomeTime();
+
+		waitForSomeTime();
+		HighlightOnElement(entercommentbox);
+	}
+
+	public void toVerifySubmitbuttonuploadingdocumentwithinvalidformat11() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(searchbtn);
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",0, 2);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		for(int i=0;i<selectdropdownvalue.size();i++)
+		{
+			String value=selectdropdownvalue.get(i).getText();
+			if(value.equalsIgnoreCase("Verified"))
+			{
+				selectdropdownvalue.get(i).click();
+				waitForSomeTime();
+			}
+		}
+		waitForSomeTime();
+		waitForSomeTime();
+		HighlightOnElement(entercommentbox);
+		excel.getExcelData(entercommentbox, "Customer ID",1, 9);
+		waitForSomeTime();
+		HighlightOnElement(uploaddocument);
+		uploaddocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\TestData.txt");
+		waitForSomeTime();
+
+	}
+
+	@FindBy(xpath="//div[@class='dash-wraper water']/div[2]/div/ul[2]/li/../li[3]/a")
+	private WebElement beforepending;
+	public void beforesentbackpendingcount() throws InterruptedException
+	{
+		HighlightOnElement(beforepending);
+		Assert.assertEquals(true,beforepending.isEnabled());
+		String pendingcount=beforepending.getText();;
+		int beforependingcount=Integer.parseInt(pendingcount);
+		waitForSomeTime();
+		Reporter.log("Before Submition pending Count On Water Icon Is:" +beforependingcount,true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "file upload message".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//span[contains(text(),'File uploaded Successfully')]")
+	private WebElement fileuploadmessage;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Home link".
+	 * @author Sarvesh.Nellore
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[1]/a/span/img")
+	private WebElement homelink;
+
+	@FindBy(xpath="//div[@class='dash-wraper water']/div[2]/div[1]/ul[2]/li[3]")
+	private WebElement AfterPending;
+	@FindBy(xpath="//html/body/div[2]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/div/div[2]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr[1]/td[4]")
+	private WebElement ApplicationNumber;
+
+	public void aftersentbackpendingcount() throws InterruptedException
+	{
+		HighlightOnElement(AfterPending);
+		Assert.assertEquals(true,AfterPending.isEnabled());
+		String pendingcount=AfterPending.getText();;
+		int afterpendingcount=Integer.parseInt(pendingcount);
+		waitForSomeTime();
+		Reporter.log("After Submition pending Count On Water Icon Is:" +afterpendingcount,true);
+		waitForSomeTime();
+	}
+
+
+	public void toverifySubmitFunctionalitywithActionAsVerified11() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		beforesentbackpendingcount();
+
+		HighlightOnElement(PendingApplication);
+		Assert.assertTrue(PendingApplication.isEnabled(),"Test Case PAss");
+		PendingApplication.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+
+
+
+		HighlightOnElement(entervalueinsearchbox);
+
+		//String Validnumber=ApplicationNumber.getText();
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",0, 2);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		//entervalueinsearchbox.sendKeys(Validnumber);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		for(int i=0;i<selectdropdownvalue.size();i++)
+		{
+			String value=selectdropdownvalue.get(i).getText();
+			if(value.equalsIgnoreCase("Verified"))
+			{
+				selectdropdownvalue.get(i).click();
+				waitForSomeTime();
+			}
+		}
+		waitForSomeTime();
+		waitForSomeTime();
+
+		HighlightOnElement(entercommentbox);
+		excel.getExcelData(entercommentbox, "Customer ID",1, 9);
+		waitForSomeTime();
+		HighlightOnElement(uploaddocument);
+		uploaddocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		waitForSomeTime();
+
+		waitForSomeTime();
+		String Expected=fileuploadmessage.getText();
+		String Actual="File uploaded Successfully";
+		Assert.assertEquals(Expected,Actual,"Test case pass");
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,250)", "");
+		HighlightOnElement(Submit_Button);
+		waitForSomeTime();
+		Submit_Button.click();
+		Reporter.log("click on Submit button succesfully",true);
+		waitForSomeTime();
+		waitForSomeTime();
+		homelink.click();
+		waitForSomeTime();
+		aftersentbackpendingcount();
+
+
+		if(beforepending==AfterPending)
+		{
+			Reporter.log("Test case fail pending count Matched", true);
+			waitForSomeTime();
+		}
+		else
+		{
+
+			Reporter.log("Test case pass when pending count not Matched", true);
+		}
+		waitForSomeTime();
+
+	}
+
+	public void toverifySubmitFunctionalitywithActionAsSentBack12() throws InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException, IOException	
+	{
+
+		beforesentbackpendingcount();
+
+		HighlightOnElement(PendingApplication);
+		Assert.assertTrue(PendingApplication.isEnabled(),"Test Case PAss");
+		PendingApplication.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(entervalueinsearchbox);
+		//String Validnumber=ApplicationNumber.getText();
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		//entervalueinsearchbox.sendKeys(Validnumber);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		for(int i=0;i<selectdropdownvalue.size();i++)
+		{
+			String value=selectdropdownvalue.get(i).getText();
+			if(value.equalsIgnoreCase("Send Back"))
+			{
+				selectdropdownvalue.get(i).click();
+				waitForSomeTime();
+			}
+		}
+		waitForSomeTime();
+		waitForSomeTime();
+
+		HighlightOnElement(entercommentbox);
+		excel.getExcelData(entercommentbox, "Customer ID",3, 8);
+		waitForSomeTime();
+		HighlightOnElement(uploaddocument);
+		uploaddocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		waitForSomeTime();
+		String Expected=fileuploadmessage.getText();
+		String Actual="File uploaded Successfully";
+		Assert.assertEquals(Expected,Actual,"Test case pass");
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,250)", "");
+		HighlightOnElement(Submit_Button);
+		waitForSomeTime();
+		Submit_Button.click();
+		Reporter.log("click on Submit button succesfully",true);
+		waitForSomeTime();
+		waitForSomeTime();
+		homelink.click();
+		waitForSomeTime();
+		aftersentbackpendingcount();
+
+
+		if(beforepending==AfterPending)
+		{
+			Reporter.log("Test case fail pending count Matched", true);
+			waitForSomeTime();
+		}
+		else
+		{
+
+			Reporter.log("Test case pass when pending count not Matched", true);
+		}
+		waitForSomeTime();
+
+	}
+
+	@FindBy(xpath="//button[contains(.,'Close')]")
+	private WebElement close_Button;
+
+	public void toverifyfunctionalityofclosebutton13() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+
+		HighlightOnElement(PendingApplication);
+		Assert.assertTrue(PendingApplication.isEnabled(),"Test Case PAss");
+		PendingApplication.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		Reporter.log("Expected result:click on PendingApplication Link",true);
+		HighlightOnElement(entervalueinsearchbox);
+		//String Validnumber=ApplicationNumber.getText();
+		String validnumber=excel.getExcelData(entervalueinsearchbox, "Customer ID",0, 1);
+		Reporter.log("Valid Application Number:"+validnumber,true);
+		//entervalueinsearchbox.sendKeys(Validnumber);
+		waitForSomeTime();
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		waitForSomeTime();
+		HighlightOnElement(action);
+		action.click();
+		waitForSomeTime();
+
+		HighlightOnElement(clickonselectactiondrop);
+		HighlightOnElement(entercommentbox);
+		HighlightOnElement(Submit_Button);
+		HighlightOnElement(close_Button);
+		waitForSomeTime();
+		close_Button.click();
+		Reporter.log("click on Close button succesfully",true);
+		waitForSomeTime();
+		waitForSomeTime();
+
+	}
+
+
+
+}

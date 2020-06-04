@@ -1,0 +1,83 @@
+package NRDA_NewConnection;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_08_TC_08 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Enter Value in the search box".
+	 * @author deepak saini
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[contains(text(),'Enter Application / Reference Number')]/following-sibling::td/input")
+	private WebElement entervalueinsearchbox;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Search button".
+	 * @author deepak saini
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[contains(text(),'Enter Application / Reference Number')]/following-sibling::td/button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "get error message".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-growl-message']/span[contains(text(),'Application Number is not in Records')]")
+	private WebElement getmessage;
+
+
+	public void enterCustomerID() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(entervalueinsearchbox));
+		HighlightOnElement(entervalueinsearchbox);
+		excel.getExcelData(entervalueinsearchbox, "Customer ID",0, 5);
+		Reporter.log("Enter any data.",true);
+	}
+	public void clickOnSearchBtn() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(searchbtn));
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		HighlightOnElement(searchbtn);
+		searchbtn.click();
+		Reporter.log("Click on Search button",true);
+		waitForSomeTime();
+	}
+
+	public void getErrorMsg() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(getmessage));
+		HighlightOnElement(getmessage);
+		String Expected=getmessage.getText();
+		String Actual="Application Number is not in Records";
+		Assert.assertEquals(Actual, Expected);
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+	}
+}
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<test name="DisConnection login as Citizen">
+	<classes>
+		<class name="NRDATestScript.WaterAndSeweage.WaterAndSewerageDisConnection">
+			<methods>
+       			<include name="verifyDownloadreceiptFunctionality13"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+
+  <test name="DisConnection login as Junior Engineer">
+ 	<classes>
+		<class name="NRDATestScript.WaterAndSeweage.WaterAndSewerageDisConnectionJE">
+			<methods>
+      			<include name="toVerifySubmitbuttonFunctionalityActionisForward12"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="DisConnection login as Field Engineer">
+ 	<classes>
+		<class name="NRDATestScript.WaterAndSeweage.WaterAndSewerageDisConnectionFE">
+			<methods>
+       			<include name="toVerifySubmitbuttonFunctionalityActionisVerified11"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ <test name="DisConnection again login as Junior Engineer">
+ 	<classes>
+		<class name="NRDATestScript.WaterAndSeweage.WaterAndSewerageDisConnectionJE">
+			<methods>
+      			<include name="toforwardApplivationJEtoEE16"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="New Connection login as Executive Engineer">
+ 	<classes>
+ 		<class name="NRDATestScript.WaterAndSeweage.WaterAndSewerageDisConnectionEE">
+ 			<methods>
+       			<include name="toVerifySubmitbuttonFunctionalityActionisApproved15"/>
+   		 	</methods>
+ 		</class>
+	</classes>
+</test>
+ 
+ 
+</suite>

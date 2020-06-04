@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<test name="login as admin to check Caste module">
+	<classes>
+		<class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module">
+			<methods>
+       			<include name="verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01"/>
+       			<include name="verifyHRMSClickOnCasteHRMS_EMP_C_CR_TC_01_2"/>
+       			<include name="verifySaveFunctionaltyOnCasteValidDataHRMS_EMP__C_CR_TC_02"/>
+       			<include name="verifySaveFunctionaltyOnCasteInvalidDataHRMS_EMP__C_CR_TC_02_1"/>
+       			<include name="verifySaveFunctionaltyOnCasteBlankDataHRMS_EMP__C_CR_TC_02_2"/>
+       			<include name="verifyDiscardFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03"/>
+       			<include name="verifyOkFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03_1"/>
+       			<include name="verifyCancelFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03_2"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="login as admin to check Category module">
+	<classes>
+		<class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module">
+			<methods>
+       			<include name="verifyHRMSLoginPageHRMS_EMP_CT_CR_TC_01"/>
+       			<include name="verifyHRMSClickOnCategoryHRMS_EMP_CT_CR_TC_01_2"/>
+       			<include name="verifySaveFunctionaltyOnCategoryValidDataHRMS_EMP_CT_CR_TC_02"/>
+       			<include name="verifySaveFunctionaltyOnCategoryInvalidDataHRMS_EMP_CT_CR_TC_02_1"/>
+       			<include name="verifySaveFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_02_2"/>
+       			<include name="verifyDiscardFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03"/>
+       			<include name="verifyOkFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03_1"/>
+       			<include name="verifyCancelFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03_2"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="login as admin to check Employee Group module">
+	<classes>
+		<class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module">
+			<methods>
+       			<include name="verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01"/>
+       			<include name="verifyHRMSClickOnEmployeeGroupHRMS_EMP_C_CR_TC_01_2"/>
+       			<include name="verifySaveFunctionaltyOnEmployeeGroupValidDataHRMS_EMP_C_CR_TC_02"/>
+       			<include name="verifySaveFunctionaltyOnEmployeeGroupInvalidDataHRMS_EMP_C_CR_TC_02_1"/>
+       			<include name="verifySaveFunctionaltyOnEmployeeGroupBlankDataHRMS_EMP_C_CR_TC_02_2"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ </suite>

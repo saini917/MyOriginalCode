@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ 
+ 			<!-- REGISTRATION MODULE -->
+ 			
+<test name="REGISTRATION AS CITIZEN ">
+	<classes>
+		<class name="NRDA_Registration.NRDA_RegistrationPage">
+			<methods>
+       			<include name="NRDA_Registration_SC_01_TC_01"/>
+       			<include name="NRDA_Registration_SC_01_TC_02"/>
+       			<include name="NRDA_Registration_SC_01_TC_03"/>
+       			<include name="NRDA_Registration_SC_01_TC_04"/>
+       			<include name="NRDA_Registration_SC_01_TC_05"/>
+       			<include name="NRDA_Registration_SC_01_TC_06"/>
+       			<include name="NRDA_Registration_SC_01_TC_07"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

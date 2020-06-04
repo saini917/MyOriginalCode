@@ -1,0 +1,170 @@
+package HRMS_ERP_Management_Script;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import GenericLibrary.ExcelDataDriver;
+import HRMS_ERP_CONFIGURATION_CATEGORY.HRMS_ERP_CONFIGURATION_Category_Discard_Fun_Sc_03;
+import HRMS_ERP_CONFIGURATION_CATEGORY.HRMS_ERP_CONFIGURATION_Category_Save_Fun_Sc_02;
+import HRMS_ERP_CONFIGURATION_CATEGORY.HRMS_ERP_Configuration_Category_Sc_01;
+import HRMS_URL_Page.HRMS_URL;
+import LoginPageHRMS_UserLibrary.LoginPageHRMS_JavaFile;
+
+public class HRMS_ERP_Configuration_Category_Module extends HRMS_URL
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\HRMS_PROJECT\\src\\test\\resources\\HRMS_TESTDATA\\HRMS_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebElement web1=driver.findElement(By.xpath("//ul[@class='nav navbar-nav navbar-right oe_user_menu_placeholder']/li/a/span[2]"));
+		HighlightOnElement(web1);
+		Actions action = new Actions(driver);
+		action.moveToElement(web1).build().perform();
+		waitForSomeTime();
+
+		WebElement logoutbtn=driver.findElement(By.xpath("//a[contains(text(),'Log out')]"));
+		HighlightOnElement(logoutbtn);
+		logoutbtn.click();
+		driver.close();
+	}
+
+	@DataProvider(name="admin")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"HRMS_Login_Credentials");
+	}
+
+	@Test(priority=1,description="HRMS_EMP_CT_CR_TC_01 and HRMS_EMP_CT_CR_TC_01.1",dataProvider="admin")
+	public void verifyHRMSLoginPageHRMS_EMP_CT_CR_TC_01(String Username,String Password)
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+	}
+	
+	@Test(priority=2,description="HRMS_EMP_CT_CR_TC_01.2",dataProvider="admin")
+	public void verifyHRMSClickOnCategoryHRMS_EMP_CT_CR_TC_01_2(String Username,String Password)
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Category_Sc_01 category=PageFactory.initElements(driver, HRMS_ERP_Configuration_Category_Sc_01.class);
+		category.clickOnDiscussIcon();
+		category.clickOnConfigurationDropdown();
+		category.clickOnCategory();
+		category.clickOnCreateButton();
+	}
+	
+	@Test(priority=3,description="HRMS_EMP_CT_CR_TC_02",dataProvider="admin")
+	public void verifySaveFunctionaltyOnCategoryValidDataHRMS_EMP_CT_CR_TC_02(String Username,String Password) throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Category_Sc_01 category=PageFactory.initElements(driver, HRMS_ERP_Configuration_Category_Sc_01.class);
+		category.clickOnDiscussIcon();
+		category.clickOnConfigurationDropdown();
+		category.clickOnCategory();
+		category.clickOnCreateButton();
+		
+		HRMS_ERP_CONFIGURATION_Category_Save_Fun_Sc_02 savebtn=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Category_Save_Fun_Sc_02.class);
+		savebtn.enterCategoryInputValidValue();
+		savebtn.clickOnSaveButton();
+	}
+	
+	@Test(priority=4,description="HRMS_EMP_CT_CR_TC_02.1",dataProvider="admin")
+	public void verifySaveFunctionaltyOnCategoryInvalidDataHRMS_EMP_CT_CR_TC_02_1(String Username,String Password) throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Category_Sc_01 category=PageFactory.initElements(driver, HRMS_ERP_Configuration_Category_Sc_01.class);
+		category.clickOnDiscussIcon();
+		category.clickOnConfigurationDropdown();
+		category.clickOnCategory();
+		category.clickOnCreateButton();
+		
+		HRMS_ERP_CONFIGURATION_Category_Save_Fun_Sc_02 savebtn=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Category_Save_Fun_Sc_02.class);
+		savebtn.enterCategoryInputInvalidValue();
+		savebtn.clickOnSaveButton();
+	}
+	
+	@Test(priority=5,description="HRMS_EMP_CT_CR_TC_02.2",dataProvider="admin")
+	public void verifySaveFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_02_2(String Username,String Password) throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Category_Sc_01 category=PageFactory.initElements(driver, HRMS_ERP_Configuration_Category_Sc_01.class);
+		category.clickOnDiscussIcon();
+		category.clickOnConfigurationDropdown();
+		category.clickOnCategory();
+		category.clickOnCreateButton();
+		
+		HRMS_ERP_CONFIGURATION_Category_Save_Fun_Sc_02 savebtn=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Category_Save_Fun_Sc_02.class);
+		savebtn.enterCategoryInputBlankValue();
+		savebtn.clickOnSaveButton();
+	}
+	
+	@Test(priority=6,description="HRMS_EMP_CT_CR_TC_03",dataProvider="admin")
+	public void verifyDiscardFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03(String Username,String Password) throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Category_Sc_01 category=PageFactory.initElements(driver, HRMS_ERP_Configuration_Category_Sc_01.class);
+		category.clickOnDiscussIcon();
+		category.clickOnConfigurationDropdown();
+		category.clickOnCategory();
+		category.clickOnCreateButton();
+		
+		HRMS_ERP_CONFIGURATION_Category_Discard_Fun_Sc_03 discard=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Category_Discard_Fun_Sc_03.class);
+		discard.clickonDiscardButtonFunctionality();
+	}
+	
+	@Test(priority=7,description="HRMS_EMP_CT_CR_TC_03.1",dataProvider="admin")
+	public void verifyOkFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03_1(String Username,String Password) throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Category_Sc_01 category=PageFactory.initElements(driver, HRMS_ERP_Configuration_Category_Sc_01.class);
+		category.clickOnDiscussIcon();
+		category.clickOnConfigurationDropdown();
+		category.clickOnCategory();
+		category.clickOnCreateButton();
+		
+		HRMS_ERP_CONFIGURATION_Category_Discard_Fun_Sc_03 discard=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Category_Discard_Fun_Sc_03.class);
+		discard.clickonOkButtonFunctionality();
+	}
+	
+	@Test(priority=8,description="HRMS_EMP_CT_CR_TC_03.2",dataProvider="admin")
+	public void verifyCancelFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03_2(String Username,String Password) throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Category_Sc_01 category=PageFactory.initElements(driver, HRMS_ERP_Configuration_Category_Sc_01.class);
+		category.clickOnDiscussIcon();
+		category.clickOnConfigurationDropdown();
+		category.clickOnCategory();
+		category.clickOnCreateButton();
+		
+		HRMS_ERP_CONFIGURATION_Category_Discard_Fun_Sc_03 discard=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Category_Discard_Fun_Sc_03.class);
+		discard.clickonCancelButtonFunctionality();
+	}
+	
+	
+
+
+
+}

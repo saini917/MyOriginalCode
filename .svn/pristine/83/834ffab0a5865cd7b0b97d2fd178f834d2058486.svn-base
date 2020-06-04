@@ -1,0 +1,39 @@
+package NRDA_ChangeOfUse;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+
+public class ToVerifyChangeOfUse_SC_02_TC_05 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "OTHER DOCUMENT".
+	 * @author deepak.saini
+	 * @since 2017-12-05
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/span/span/div/div/div/ul/li/a[contains(text(),'Change Connection Details/कनेक्शन विवरण बदलें')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Remarks(if any)')]/../../../../../../following-sibling::td/table/tbody/tr/td/textarea")
+	private WebElement remarks;
+	
+	public void verifyRemarks() throws AWTException, InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(remarks);
+		Assert.assertTrue(remarks.isDisplayed());
+		Assert.assertTrue(remarks.isEnabled());
+		excel.getExcelData(remarks,"Change Of Use Data",1,1);
+	}
+}

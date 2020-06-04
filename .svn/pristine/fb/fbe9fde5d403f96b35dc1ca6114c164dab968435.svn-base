@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>TestNG:  Smoke Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Smoke Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 26 10:04:13 IST 2017</td>
+</tr>
+<tr><td>Total time:</td><td>968 seconds (968446 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='NRDATestScript.WaterAndSeweage.WaterAndSewerageNewConnectionCitizen.verifyWaterAndSewerageConnection_03_TC_41()'><b>verifyWaterAndSewerageConnection_03_TC_41</b><br>Test class: NRDATestScript.WaterAndSeweage.WaterAndSewerageNewConnectionCitizen<br>Test method: NRDA_Water & Sewerage_SC_03_TC_41<br>Parameters: ankit.sharma@gmail.com, Vijay@123<br/>
+<a href="#Output-24039137" onClick='toggleBox("Output-24039137", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-24039137" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-24039137">
+Email ID:ankit.sharma@gmail.com<br/>
+Password:Vijay@123<br/>
+Verify Water and Sewerage Connection link is Present<br/>
+Verify the Options available Under Water and Sewerage is Presents:PLUMBER REGISTRATION<br/>
+Verify the Options available Under Water and Sewerage is Presents:WATER AND SEWERAGE CONNECTION<br/>
+Verify the Options available Under Water and Sewerage is Presents:WATER METER TESTING<br/>
+Verify Application of Water and Sewerage New connection link is Present<br/>
+Verify Apply for new connection is Present<br/>
+Reset Button is Present<br/>
+512078213790<br/>
+Pramod<br/>
+Kumar<br/>
+1957<br/>
+1958<br/>
+1959<br/>
+1960<br/>
+1961<br/>
+1962<br/>
+1963<br/>
+1964<br/>
+1965<br/>
+1966<br/>
+1967<br/>
+1968<br/>
+1969<br/>
+1970<br/>
+1971<br/>
+1972<br/>
+1973<br/>
+1974<br/>
+1975<br/>
+1976<br/>
+1977<br/>
+1978<br/>
+1979<br/>
+1980<br/>
+1981<br/>
+1982<br/>
+1983<br/>
+1984<br/>
+1985<br/>
+1986<br/>
+1987<br/>
+Jan<br/>
+Feb<br/>
+Mar<br/>
+Apr<br/>
+May<br/>
+Jun<br/>
+Jul<br/>
+1<br/>
+2<br/>
+3<br/>
+4<br/>
+5<br/>
+6<br/>
+7<br/>
+8<br/>
+9<br/>
+10<br/>
+11<br/>
+12<br/>
+13<br/>
+14<br/>
+15<br/>
+16<br/>
+17<br/>
+18<br/>
+19<br/>
+9824724525<br/>
+pramod@gmail.com<br/>
+ To Verify BuildingDetails Of Link in Application of Water&Sewerage New Connection link is Present<br/>
+SelectDropdown Value As OWNER in BuildingDtetails Application of Water and Sewerage New connection link is Present<br/>
+Verify PropertyID Field in BuildingDetails Application of Water&Sewerage New connection  is Present<br/>
+Verify Search Button in BuildingDetails Application of Water&Sewerage New connection  is Present<br/>
+Verify Fill  in Form Button BuildingDetails Application of Water&Sewerage New connection  is Present<br/>
+Verify CorrespondingAddressSameAsAbove_Dropdown Field in BuildingDetails Application of Water&Sewerage New connection  is Present<br/>
+To Verify Connections Details link is Present<br/>
+--Select--<br/>
+Water and Sewerage Connection/?? ?? ????? ???????<br/>
+--Select--<br/>
+Commercial/Industrial/????????? / ????????<br/>
+--Select--<br/>
+Factories/???????<br/>
+--Select--<br/>
+Plumber<br/>
+Raju<br/>
+Trust/Organisation/School:Sr. Sec School<br/>
+Number of Student/Seat/Employee:25<br/>
+Sewearge Connection Diameter:2<br/>
+To Verify upload  the document in Site plan sucessfully<br/>
+Remarks(if Any):New Connection<br/>
+Verify Uploading Documents Link in Application of Water and Sewerage New connection  is Present<br/>
+ApplicantIDProof Document Link Application of Water and Sewerage New connection link is Present<br/>
+Applicant AddressProof Document Link Application of Water and Sewerage New connection link is Present<br/>
+Other Document Link Application of Water and Sewerage New connection link is Present<br/>
+PropertyOwnershipProof Document Link Application of Water and Sewerage New connection link is Present<br/>
+ReceiptLeaseRent Document Link Application of Water and Sewerage New connection link is Present<br/>
+ To Verify Submit Button in Application of Water and Sewerage New connection  is Present<br/>
+ Application Number Is:   WASCC2609170614<br/>
+MakePayment Button  Application of Water and Sewerage New connection link is Present<br/>
+Card Number on  Application of Water and Sewerage New connection link is Present<br/>
+Card on Name Application of Water and Sewerage New connection link is Present<br/>
+CVV Number on  Application of Water and Sewerage New connection link is Present<br/>
+Card_ExpiryMonth Dropdown on  Application of Water and Sewerage New connection link is Present<br/>
+Card_ExpiryYear Dropdown on  Application of Water and Sewerage New connection link is Present<br/>
+PayNow_Button Button on  Application of Water and Sewerage New connection link is Present<br/>
+</div>
+</td>
+<td></td>
+<td>943</td>
+<td>NRDATestScript.WaterAndSeweage.WaterAndSewerageNewConnectionCitizen@86be70a</td></tr>
+</table><p>
+</body>
+</html>

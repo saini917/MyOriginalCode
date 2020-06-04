@@ -1,0 +1,53 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyDeletePropertyBillFun_SC_13_TC_04 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DELETE PROPERTY BILL".
+	 * @author deepak.saini
+	 * @since 2017-12-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//button/span[contains(text(),'Delete Property Bill')]")
+	private WebElement deletepropertybil;
+	
+	public void selectApplicationNumber()
+	{
+		List<WebElement> allrows = driver.findElements(By.xpath("//div[@class='wrapper']/table/tbody/tr/td/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/table/tbody/tr")); //for all row
+		for (int row=1; row<=allrows.size(); row++) 
+		{
+			String name =driver.findElement(By.xpath("//div[@class='wrapper']/table/tbody/tr/td/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/table/tbody/tr["+row+"]/td[2]")).getText(); //for get second column data
+			if(name.trim().equalsIgnoreCase("FPAFC1511170121"))
+			{
+				WebElement checkbox = driver.findElement(By.xpath("//div[@class='wrapper']/table/tbody/tr/td/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/table/tbody/tr["+row+"]/td[1]/input"));//click on particular application number
+				checkbox.click();
+			}
+		}
+	}
+	public void verifyDeletePropertyBill()
+	{
+		selectApplicationNumber();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(deletepropertybil));
+		HighlightOnElement(deletepropertybil);
+		Assert.assertTrue(deletepropertybil.isDisplayed(),"DELETE PROPERTY BILL is displayed");
+		Assert.assertTrue(deletepropertybil.isEnabled(),"DELETE PROPERTY BILL is enabled");
+		//Reporter.log("Expected result:"+deletepropertybil.getText(),true);
+		deletepropertybil.click();
+	}
+}

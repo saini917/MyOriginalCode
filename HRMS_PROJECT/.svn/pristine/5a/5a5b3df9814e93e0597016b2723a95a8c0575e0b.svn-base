@@ -1,0 +1,50 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Reviewer_Sc_15 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	WebDriverWait wait = new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pending Review".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_view_manager_content']/div/div/table/tbody/tr/th[contains(text(),'Pending Review')]/span[@class='fa fa-caret-right']")
+	private WebElement pendingReview;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Rating Status Before Submit".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_view_manager_content']/div/div/table/tbody/tr/th[contains(text(),'Pending Review')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody/tr/td[contains(text(),'Pending Review')]")
+	private WebElement beforeSubmitAcrStatus;
+	
+	/****************************************************************************************************/
+	
+	public void getPendingReviewerStatus() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(pendingReview));
+		HighlightOnElement(pendingReview);
+		pendingReview.click();
+		wait.until(ExpectedConditions.visibilityOf(beforeSubmitAcrStatus));
+		HighlightOnElement(beforeSubmitAcrStatus);
+		Reporter.log("ACR STATUS BEFORE SUBMIT BY REVIEWER:"+beforeSubmitAcrStatus.getText(),true);
+	}
+}

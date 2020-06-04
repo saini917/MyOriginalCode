@@ -1,0 +1,38 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyWard_SC_04_TC_06 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "WARD FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Ward')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement wardfield;
+
+	public void verifyWardField() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(wardfield));
+		HighlightOnElement(wardfield);
+		Assert.assertTrue(wardfield.isDisplayed(),"WARD FIELD IS DISPLAYED");
+		Assert.assertTrue(wardfield.isEnabled(),"WARD FIELD IS ENABLED");
+		SelectVisibleText(wardfield,"12");
+		Reporter.log("action is performed on Ward Field",true);
+	}
+}

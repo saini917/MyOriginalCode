@@ -1,0 +1,84 @@
+package NRDA_NewConnection;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_11_TC_05 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Search input box".
+	 * @author deepak saini
+	 * @since 2018-01-09
+	 */
+	/*****************************************************************************************************/
+
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/div/table/tbody/tr/td[contains(text(),'Enter Application / Reference Number')]/following-sibling::td/input")
+	private WebElement searchinputbox;
+
+	public void enterCustomerID() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(searchinputbox));
+		Assert.assertTrue(searchinputbox.isDisplayed());
+		HighlightOnElement(searchinputbox);
+		Assert.assertTrue(searchinputbox.isEnabled());
+		excel.getExcelData(searchinputbox,"Customer ID",0,1);
+		Reporter.log("User should be able to view the application under 'WATER And SEWERAGE Connection'",true);
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Search button".
+	 * @author deepak saini
+	 * @since 2018-01-09
+	 */
+	/*****************************************************************************************************/
+
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/div/table/tbody/tr/td[contains(text(),'Enter Application / Reference Number')]/following-sibling::td/button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+
+	public void clickOnSearchBtn() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(searchbtn));
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		Assert.assertTrue(searchbtn.isDisplayed());
+		HighlightOnElement(searchbtn);
+		Assert.assertTrue(searchbtn.isEnabled());
+		searchbtn.click();
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Status".
+	 * @author deepak saini
+	 * @since 2018-01-09
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/div/div/h3/a[contains(text(),'WATER AND SEWERAGE CONNECTION')]/preceding-sibling::span/../following-sibling::div/div/div/table/tbody/tr/td/span[contains(text(),'PENDING METER INSTALLATION')]")
+	private WebElement status;
+
+	public void getStatus()
+	{
+		wait.until(ExpectedConditions.visibilityOf(status));
+		Assert.assertTrue(status.isDisplayed());
+		HighlightOnElement(status);
+		Reporter.log("Status:"+status.getText(),true);
+	}
+}

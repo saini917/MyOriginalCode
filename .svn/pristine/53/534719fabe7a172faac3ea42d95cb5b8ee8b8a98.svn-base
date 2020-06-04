@@ -1,0 +1,37 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyYearOfEstablishment_SC_05_TC_07 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "YEAR OF ESTABLISHMENT".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/select[@title='Year Of Establishment']")
+	private WebElement yearofestablishment;
+
+	public void verifyYearOfEstablishment() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(yearofestablishment));
+		HighlightOnElement(yearofestablishment);
+		Assert.assertTrue(yearofestablishment.isDisplayed(),"YEAR OF ESTABLISHMENT  is displayed");
+		Assert.assertTrue(yearofestablishment.isEnabled(),"YEAR OF ESTABLISHMENT  is enabled");
+		SelectVisibleText(yearofestablishment,"2001 and beyond");
+		Reporter.log("Action is performed on Year Of Establishment type",true);
+	}
+}

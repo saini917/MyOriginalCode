@@ -1,0 +1,996 @@
+	package WaterAndSewerageBilling;
+	
+	import java.io.IOException;
+import java.util.List;
+	
+
+
+	import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+	
+	/**
+	 * @author Sarvesh.Nellore
+	 * @Date:10-10-2017
+	 * @Purpose
+	 */
+	public class ToVerifyWaterAndSewerage_Billing extends CommonLibrary
+	{
+	
+		ExcelDataDriver excel=new ExcelDataDriver();
+		Logger log=Logger.getLogger("devpinoyLogger");
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Home_Icon"
+		 * @author sarvesh.nellore
+		 * @Date: 16-08-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//html/body/div[2]/table[2]/tbody/tr/td[1]/table/tbody/tr[1]/td/form/div/ul/li[1]")
+		private WebElement Home_Icon;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "PendingApplication_Icon"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr[1]/td/form/div/ul/li[2]")
+		private WebElement PendingApplication_Icon;
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "ApprovceRejectApplication_Icon"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr[1]/td/form/div/ul/li[3]")
+		private WebElement ApprovceRejectApplication_Icon;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "ManageWaterReading_Icon"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr[1]/td/form/div/ul/li[4]")
+		private WebElement ManageWaterReading_Icon;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "GenerateBill_Icon"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr[1]/td/form/div/ul/li[5]")
+		private WebElement GenerateBill_Icon;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "PaymentCollection_Icon"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr[1]/td/form/div/ul/li[11]")
+		private WebElement PaymentCollection_Icon;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "MisReports_Icon"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr[1]/td/form/div/ul/li[15]")
+		private WebElement MisReports_Icon;
+	
+	
+		public void toVerifyMenuFieldsonDashBoard01() throws InterruptedException
+		{
+			try
+			{
+				waitForSomeTime();
+				HighlightOnElement(Home_Icon);
+				Assert.assertEquals(true,Home_Icon.isEnabled());
+				Reporter.log(" To Verify Home_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+				waitForSomeTime();
+				HighlightOnElement(PendingApplication_Icon);
+				Assert.assertEquals(true,PendingApplication_Icon.isEnabled());
+				Reporter.log(" To Verify PendingApplication_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+				waitForSomeTime();
+				HighlightOnElement(ApprovceRejectApplication_Icon);
+				Assert.assertEquals(true,ApprovceRejectApplication_Icon.isEnabled());
+				Reporter.log(" To Verify ApprovceRejectApplication_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+				waitForSomeTime();
+				HighlightOnElement(ManageWaterReading_Icon);
+				Assert.assertEquals(true,ManageWaterReading_Icon.isEnabled());
+				Reporter.log(" To Verify ManageWaterReading_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+				waitForSomeTime();
+				HighlightOnElement(GenerateBill_Icon);
+				Assert.assertEquals(true,GenerateBill_Icon.isEnabled());
+				Reporter.log(" To Verify GenerateBill_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+				waitForSomeTime();
+				HighlightOnElement(PaymentCollection_Icon);
+				Assert.assertEquals(true,PaymentCollection_Icon.isEnabled());
+				Reporter.log(" To Verify PaymentCollection_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+	
+				waitForSomeTime();
+				HighlightOnElement(MisReports_Icon);
+				Assert.assertEquals(true,MisReports_Icon.isEnabled());
+				Reporter.log(" To Verify MisReports_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+			}
+	
+			catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+		}
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Mange Water Heading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//div/span/label/font/font[contains(.,'Manage Water Reading')]")
+		private WebElement Manage_WaterHeading;	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Mange Water Heading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//div/span/label[contains(.,'Search')]")
+		private WebElement Search_Heading;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Mange Water Heading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//div/span/label[contains(.,'Reading Details')]")
+		private WebElement ReadingDetails_Heading;
+	
+	
+		public void toVerifyManageWaterReadingIcon02() throws InterruptedException
+		{
+			waitForSomeTime();
+			HighlightOnElement(ManageWaterReading_Icon);
+			HighlightOnElement(ManageWaterReading_Icon);
+			Assert.assertEquals(true,ManageWaterReading_Icon.isEnabled());
+			ManageWaterReading_Icon.click();
+			waitForSomeTime();
+			Reporter.log(" To Click on ManageWaterReading_Icon Link Successfully",true); //print for eclipse console
+	
+		}
+	
+		public void toVerifyMenuDetailsinWaterReadingIcon02() throws InterruptedException
+		{
+	
+			waitForSomeTime();
+			HighlightOnElement(Manage_WaterHeading);
+			Assert.assertEquals(true,Manage_WaterHeading.isEnabled());
+			Reporter.log(" To Verify Manage_WaterHeading Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+			waitForSomeTime();
+			HighlightOnElement(Search_Heading);
+			Assert.assertEquals(true,Manage_WaterHeading.isEnabled());
+			Reporter.log(" To Verify Manage_WaterHeading Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+			waitForSomeTime();
+			HighlightOnElement(ReadingDetails_Heading);
+			Assert.assertEquals(true,ReadingDetails_Heading.isEnabled());
+			Reporter.log(" To Verify ReadingDetails_Heading Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+		}
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Sector Dropdown"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="(//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[2]/select)[1]")
+		private WebElement Sector_Dropdown;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Sector Dropdown"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[4]/select")
+		private WebElement ConnectionType_Dropdown;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Sector Dropdown"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr[2]/td[2]/input")
+		private WebElement Consumer_Number;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Sector Dropdown"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//button[contains(.,'Search') and@type='submit']")
+		private WebElement Search_Button;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Sector Dropdown"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath=".//*[@id='inboxForm:datatb']/div[1]/table")
+		private WebElement Table_Grid;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "ConsumerNumberLink"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath=".//*[@id='inboxForm:datatb_data']/tr/td[2]/center/a")
+		private WebElement ConsumerNumberLink;
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "ConsumerReadingDetailsMenu"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[1]/font/font")
+		private List<WebElement> ConsumerReadingDetailsMenu;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "ConsumerReadingHeading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//span[@id='inboxForm:consumerDetails_title']")
+		private WebElement ConsumerReadingDetails_Heading;
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Close POP-UP"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath=".//*[@id='inboxForm:consumerDetails']/div[1]/a/span")
+		private WebElement Close_popuop;
+	
+	
+		public void toVerifyConsumer_Number02() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+		{
+			HighlightOnElement(Sector_Dropdown);
+			Assert.assertEquals(true,Sector_Dropdown.isEnabled());
+			Reporter.log(" To Verify Sector_Dropdown Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+			HighlightOnElement(ConnectionType_Dropdown);
+			Assert.assertEquals(true,ConnectionType_Dropdown.isEnabled());
+			Reporter.log(" To Verify ConnectionType_Dropdown Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+	
+			HighlightOnElement(Consumer_Number);
+			Assert.assertEquals(true,Manage_WaterHeading.isEnabled());
+			Reporter.log(" To Verify Manage_WaterHeading Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+			excel.getExcelData(Consumer_Number, "ConsumerNumber", 0, 1);
+			waitForSomeTime();
+	
+			HighlightOnElement(Search_Button);
+			Assert.assertEquals(true,Search_Button.isEnabled());
+			Search_Button.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			Reporter.log(" To click Search_Button Link in Application of Water&Sewerage Successfully",true); //print for eclipse console
+	
+			HighlightOnElement(Table_Grid);
+			Assert.assertEquals(true,Table_Grid.isEnabled());
+			Reporter.log(" To Verify Table_Grid Link in Application of Water&Sewerage link is Present",true);
+	
+			HighlightOnElement(ConsumerNumberLink);
+			Assert.assertEquals(true,ConsumerNumberLink.isEnabled());
+			ConsumerNumberLink.click();
+			waitForSomeTime();
+			Reporter.log(" To Verify ConsumerNumberLink Link in Application of Water&Sewerage link is Present",true);
+	
+			HighlightOnElement(ConsumerReadingDetails_Heading);
+	
+			for(WebElement consumerReadingDetails:ConsumerReadingDetailsMenu)
+			{
+				//HighlightOnElement1(underNewApplicationpending);
+				if(consumerReadingDetails.isDisplayed())
+				{
+					String ConsumerReadingDetails1=consumerReadingDetails.getText();
+					Reporter.log("MenuconsumerReadingDetails:"+ConsumerReadingDetails1,true);
+				}
+			}
+			HighlightOnElement(Close_popuop);
+			Close_popuop.click();
+			waitForSomeTime();
+	
+		}
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Action_Img"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table/tbody/tr/td[7]/center/button/span[1]")
+		private WebElement Action_Img;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Meater Reading Billing Cycle Heading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//font[contains(.,'Meter Reading for Bill Cycle April-2017')]/font")
+		private WebElement BillingCycle_Heading;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Reading Type Dropdown
+		 * "
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="(//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[2]/select)[2]")
+		private WebElement ReadingType_Dropdown;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Close POP-UP"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath=".//*[@id='inboxForm:editDia']/div[1]/a/span")
+		private WebElement Close_Popuop;
+	
+	
+		public void toverifyActionButton03() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+		{
+			HighlightOnElement(Consumer_Number);
+			Assert.assertEquals(true,Consumer_Number.isEnabled());
+			Reporter.log(" To Verify Consumer_Number Field  in Application of Water&Sewerage link is Present",true); //print for eclipse console
+			excel.getExcelData(Consumer_Number, "ConsumerNumber", 0, 2);
+			waitForSomeTime();
+	
+			HighlightOnElement(Search_Button);
+			Assert.assertEquals(true,Search_Button.isEnabled());
+			Search_Button.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			Reporter.log(" To click Search_Button Link in Application of Water&Sewerage Successfully",true); //print for eclipse console
+	
+			HighlightOnElement(Table_Grid);
+			Assert.assertEquals(true,Table_Grid.isEnabled());
+			Reporter.log(" To Verify Table_Grid Link in Application of Water&Sewerage link is Present",true);
+	
+	
+			HighlightOnElement(Action_Img);
+			Assert.assertTrue(Action_Img.isEnabled(),"Test Case Pass: Action Image Displayed");
+			Action_Img.click();
+			waitForSomeTime();
+			Reporter.log(" To click Action_Img Link in Application of Water&Sewerage Successfully",true); //print for eclipse console
+	
+			HighlightOnElement(BillingCycle_Heading);
+			Assert.assertTrue(BillingCycle_Heading.isEnabled(),"Test Case Pass: Billing Cycle Heading Displayed");
+			Reporter.log(" To Verify BillingCycle_Heading Link in Application of Water&Sewerage Billing is Present",true);
+	
+			HighlightOnElement(ReadingType_Dropdown);
+			Assert.assertTrue(ReadingType_Dropdown.isEnabled(),"Test Case Pass: ReadingType_Dropdown Displayed");
+			Reporter.log(" To Verify ReadingType_Dropdown Link in Application of Water&Sewerage Billing is Present",true);
+	
+	
+	
+		}
+	
+		public void closepopupWindow() throws InterruptedException
+		{
+			HighlightOnElement(Close_Popuop);
+			Close_Popuop.click();
+			waitForSomeTime();
+	
+	
+		}
+	
+	
+		public void toverifyReadingTypeOption04() throws InterruptedException
+		{
+			waitForSomeTime();
+			getValueFromDropDown(ReadingType_Dropdown);
+		}
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "AddnewmeterReading_Heading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//font[contains(.,'Add new meter reading')]")
+		private WebElement AddnewmeterReading_Heading;
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "MeterReadingBillingunderlabels "
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[1]/label/font")
+		private List<WebElement> MeterReadingBillingunderlabels;
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "MeterReadingBillingunderlabels "
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[1]/label/font/font")
+		private List<WebElement> MeterReadingBillingunderlabels1;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "AddnewmeterReading_Heading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//button[contains(.,'Save')]/span")
+		private WebElement SaveButton_popup;
+	
+		public void toverifyreadingtypeasActualReading05() throws InterruptedException
+		{
+	
+			HighlightOnElement(BillingCycle_Heading);
+			Assert.assertTrue(BillingCycle_Heading.isEnabled(),"Test Case Pass: Billing Cycle Heading Displayed");
+			Reporter.log(" To Verify BillingCycle_Heading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+			HighlightOnElement(AddnewmeterReading_Heading);
+			Assert.assertTrue(AddnewmeterReading_Heading.isEnabled(),"Test Case Pass: Billing Cycle Heading Displayed");
+			Reporter.log(" To Verify AddnewmeterReading_Heading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+	
+	
+	
+	
+			for(WebElement newmeterreadingundermenu:MeterReadingBillingunderlabels)
+			{
+				//HighlightOnElement1(underNewApplicationpending);
+				if(newmeterreadingundermenu.isDisplayed())
+				{
+					String NewmeterReadingunderlabels=newmeterreadingundermenu.getText();
+					Reporter.log("MenuinNewMeterReadings:"+NewmeterReadingunderlabels,true);
+				}
+			}
+			waitForSomeTime();
+			HighlightOnElement(SaveButton_popup);
+			Assert.assertTrue(SaveButton_popup.isEnabled(),"Test Case Pass: SaveButton_popup Displayed");
+			Reporter.log(" To Verify SaveButton_popup button in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+		}
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "New_Reading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr[6]/td[2]/input")
+		private WebElement New_Reading;
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Reading_Date"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr[7]/td[2]/span")
+		private WebElement Reading_Date;
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Today Button in calender"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//*[@id='ui-datepicker-div']/div[2]/button[1]")
+		private WebElement TodayButton_Calender;
+	
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Today Button in calender"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath=".//*[@id='inboxForm:messages1_container']/div/div/div[2]/span")
+		private WebElement Popup_Message;
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Today Button in calender"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//label[contains(.,'Edit meter reading')]")
+		private WebElement EditmeterReading;
+	
+	
+		public void toverifySaveButtonFunctionality06() throws InterruptedException
+		{
+	
+			HighlightOnElement(BillingCycle_Heading);
+			Assert.assertTrue(BillingCycle_Heading.isEnabled(),"Test Case Pass: Billing Cycle Heading Displayed");
+			Reporter.log(" To Verify BillingCycle_Heading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+			HighlightOnElement(EditmeterReading);
+			Assert.assertTrue(EditmeterReading.isEnabled(),"Test Case Pass: EditmeterReading Displayed");
+			Reporter.log(" To Verify EditmeterReading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+	
+			HighlightOnElement(ReadingType_Dropdown);
+			Assert.assertTrue(ReadingType_Dropdown.isEnabled(),"Test Case Pass: ReadingType_Dropdown Displayed");
+			Reporter.log(" To Verify ReadingType_Dropdown Link in Application of Water&Sewerage Billing is Present",true);
+	
+			SelectVisibleText(ReadingType_Dropdown, "Actual Reading");
+	
+			HighlightOnElement(New_Reading);
+			Assert.assertTrue(New_Reading.isEnabled(),"Test Case Pass: New_Reading Displayed");
+			Reporter.log(" To Verify New_Reading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+			New_Reading.sendKeys("50");
+			waitForSomeTime();
+	
+	
+			HighlightOnElement(Reading_Date);
+			Assert.assertTrue(Reading_Date.isEnabled(),"Test Case Pass: Reading_Date Displayed");
+			Reporter.log(" To Verify Reading_Date Link in Application of Water&Sewerage Billing is Present",true);
+			Reading_Date.click();
+	
+			HighlightOnElement(TodayButton_Calender);
+			Assert.assertTrue(TodayButton_Calender.isEnabled(),"Test Case Pass: Reading_Date Displayed");
+			Reporter.log(" To Verify TodayButton_Calender Link in Application of Water&Sewerage Billing is Present",true);
+			TodayButton_Calender.click();
+			waitForSomeTime();
+	
+	
+	
+		}
+	
+		public void toverifyUpdateButtonFunctionality07() throws InterruptedException
+		{
+	
+			HighlightOnElement(BillingCycle_Heading);
+			Assert.assertTrue(BillingCycle_Heading.isEnabled(),"Test Case Pass: Billing Cycle Heading Displayed");
+			Reporter.log(" To Verify BillingCycle_Heading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+			HighlightOnElement(EditmeterReading);
+			Assert.assertTrue(EditmeterReading.isEnabled(),"Test Case Pass: EditmeterReading Displayed");
+			Reporter.log(" To Verify EditmeterReading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+	
+			HighlightOnElement(ReadingType_Dropdown);
+			Assert.assertTrue(ReadingType_Dropdown.isEnabled(),"Test Case Pass: ReadingType_Dropdown Displayed");
+			Reporter.log(" To Verify ReadingType_Dropdown Link in Application of Water&Sewerage Billing is Present",true);
+	
+			SelectVisibleText(ReadingType_Dropdown, "Actual Reading");
+	
+			HighlightOnElement(New_Reading);
+			Assert.assertTrue(New_Reading.isEnabled(),"Test Case Pass: New_Reading Displayed");
+			Reporter.log(" To Verify New_Reading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+			New_Reading.clear();
+			acceptAlert();
+			waitForSomeTime();
+			New_Reading.sendKeys("60");
+			waitForSomeTime();
+			waitForSomeTime();
+	
+			HighlightOnElement(Reading_Date);
+			Assert.assertTrue(Reading_Date.isEnabled(),"Test Case Pass: Reading_Date Displayed");
+			Reporter.log(" To Verify Reading_Date Link in Application of Water&Sewerage Billing is Present",true);
+			Reading_Date.click();
+			waitForSomeTime();
+			HighlightOnElement(TodayButton_Calender);
+			Assert.assertTrue(TodayButton_Calender.isEnabled(),"Test Case Pass: Reading_Date Displayed");
+			Reporter.log(" To Verify TodayButton_Calender Link in Application of Water&Sewerage Billing is Present",true);
+			TodayButton_Calender.click();
+			waitForSomeTime();
+	
+	
+	
+		}
+	
+	
+		public void verifysubmitbutton06() throws InterruptedException
+		{
+			HighlightOnElement(SaveButton_popup);
+			Assert.assertTrue(SaveButton_popup.isEnabled(),"Test Case Pass: Reading_Date Displayed");
+			Reporter.log(" To Verify SaveButton_popup Link in Application of Water&Sewerage Billing is Present",true);
+			SaveButton_popup.click();
+			waitForSomeTime();
+	
+	
+			HighlightOnElement(Popup_Message);
+			String Expected_Message="Data saved successfully!";
+			String Actual_Message=Popup_Message.getText();
+			Assert.assertEquals(Expected_Message, Actual_Message);
+			waitForSomeTime();
+			waitForSomeTime();
+	
+	
+	
+		}
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "AddnewmeterReading_Heading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//button[contains(.,'Update')]/span")
+		private WebElement UpdateButton_popup;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Action_Img"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//img[@src='/NRDAuthority1/resources/images/edit-icon.png']")
+		private WebElement Action_IMG;
+	
+		public void toverifyActionButtonAfterSave() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+		{
+			HighlightOnElement(Consumer_Number);
+			Assert.assertEquals(true,Consumer_Number.isEnabled());
+			Reporter.log(" To Verify Consumer_Number Field  in Application of Water&Sewerage link is Present",true); //print for eclipse console
+			excel.getExcelData(Consumer_Number, "ConsumerNumber", 0, 1);
+			waitForSomeTime();
+	
+			HighlightOnElement(Search_Button);
+			Assert.assertEquals(true,Search_Button.isEnabled());
+			Search_Button.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			Reporter.log(" To click Search_Button Link in Application of Water&Sewerage Successfully",true); //print for eclipse console
+	
+			HighlightOnElement(Table_Grid);
+			Assert.assertEquals(true,Table_Grid.isEnabled());
+			Reporter.log(" To Verify Table_Grid Link in Application of Water&Sewerage link is Present",true);
+	
+	
+			HighlightOnElement(Action_IMG);
+			Assert.assertTrue(Action_IMG.isEnabled(),"Test Case Pass: Action Image Displayed");
+			Action_IMG.click();
+			waitForSomeTime();
+			Reporter.log(" To click Action_IMG Link in Application of Water&Sewerage Successfully",true); //print for eclipse console
+	
+			HighlightOnElement(BillingCycle_Heading);
+			Assert.assertTrue(BillingCycle_Heading.isEnabled(),"Test Case Pass: Billing Cycle Heading Displayed");
+			Reporter.log(" To Verify BillingCycle_Heading Link in Application of Water&Sewerage Billing is Present",true);
+	
+			HighlightOnElement(ReadingType_Dropdown);
+			Assert.assertTrue(ReadingType_Dropdown.isEnabled(),"Test Case Pass: ReadingType_Dropdown Displayed");
+			Reporter.log(" To Verify ReadingType_Dropdown Link in Application of Water&Sewerage Billing is Present",true);
+	
+		}
+	
+	
+		public void verifyupdatebutton07() throws InterruptedException
+		{
+			HighlightOnElement(UpdateButton_popup);
+			Assert.assertTrue(UpdateButton_popup.isEnabled(),"Test Case Pass: Reading_Date Displayed");
+			Reporter.log(" To Verify UpdateButton_popup Link in Application of Water&Sewerage Billing is Present",true);
+			UpdateButton_popup.click();
+			waitForSomeTime();
+	
+	
+			HighlightOnElement(Popup_Message);
+			String Expected_Message="Data saved successfully!";
+			String Actual_Message=Popup_Message.getText();
+			Assert.assertEquals(Expected_Message, Actual_Message);
+			waitForSomeTime();
+			waitForSomeTime();
+	
+		}
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Action_Img"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath=".//*[@id='inboxForm:se1']")
+		private WebElement ReasonForAverageReading;
+	
+		public void toverifyreadingtypeasAverageReading08() throws InterruptedException
+		{
+	
+			HighlightOnElement(BillingCycle_Heading);
+			Assert.assertTrue(BillingCycle_Heading.isEnabled(),"Test Case Pass: Billing Cycle Heading Displayed");
+			Reporter.log(" To Verify BillingCycle_Heading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+			HighlightOnElement(AddnewmeterReading_Heading);
+			Assert.assertTrue(AddnewmeterReading_Heading.isEnabled(),"Test Case Pass: Billing Cycle Heading Displayed");
+			Reporter.log(" To Verify AddnewmeterReading_Heading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+	
+	
+			HighlightOnElement(ReadingType_Dropdown);
+			Assert.assertTrue(ReadingType_Dropdown.isEnabled(),"Test Case Pass: ReadingType_Dropdown Displayed");
+			Reporter.log(" To Verify ReadingType_Dropdown Link in Application of Water&Sewerage Billing is Present",true);
+	
+			SelectVisibleText(ReadingType_Dropdown, "Average Reading");
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+	
+	
+	
+			for(WebElement newmeterreadingundermenu1:MeterReadingBillingunderlabels1)
+			{
+				//HighlightOnElement1(underNewApplicationpending);
+				if(newmeterreadingundermenu1.isDisplayed())
+				{
+					String NewmeterReadingunderlabels=newmeterreadingundermenu1.getText();
+					Reporter.log("MenuinNewMeterReadings are:"+NewmeterReadingunderlabels,true);
+				}
+			}
+			waitForSomeTime();
+			HighlightOnElement(SaveButton_popup);
+			Assert.assertTrue(SaveButton_popup.isEnabled(),"Test Case Pass: SaveButton_popup Displayed");
+			Reporter.log(" To Verify SaveButton_popup button in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+		}
+	
+	
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "New_Reading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr[5]/td[2]/input")
+		private WebElement New_Reading1;
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Reading_Date"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr[6]/td[2]/span")
+		private WebElement Reading_Date1;
+	
+	
+		public void toverifySaveButtonFunctionality09() throws InterruptedException
+		{
+	
+			HighlightOnElement(BillingCycle_Heading);
+			Assert.assertTrue(BillingCycle_Heading.isEnabled(),"Test Case Pass: Billing Cycle Heading Displayed");
+			Reporter.log(" To Verify BillingCycle_Heading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+			HighlightOnElement(EditmeterReading);
+			Assert.assertTrue(EditmeterReading.isEnabled(),"Test Case Pass: EditmeterReading Displayed");
+			Reporter.log(" To Verify EditmeterReading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+	
+			HighlightOnElement(ReadingType_Dropdown);
+			Assert.assertTrue(ReadingType_Dropdown.isEnabled(),"Test Case Pass: ReadingType_Dropdown Displayed");
+			Reporter.log(" To Verify ReadingType_Dropdown Link in Application of Water&Sewerage Billing is Present",true);
+	
+			SelectVisibleText(ReadingType_Dropdown, "Average Reading");
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+	
+	
+			HighlightOnElement(ReasonForAverageReading);
+			Assert.assertTrue(ReasonForAverageReading.isEnabled(),"Test Case Pass: New_Reading Displayed");
+			Reporter.log(" To Verify ReasonForAverageReading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+	
+			SelectVisibleText(ReasonForAverageReading, "Dead Meter");
+	
+
+			HighlightOnElement(New_Reading1);
+			//Assert.assertTrue(New_Reading1.isEnabled(),"Test Case Pass: New_Reading Displayed");
+			Reporter.log(" To Verify New_Reading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+	
+			HighlightOnElement(Reading_Date1);
+			Assert.assertTrue(Reading_Date1.isEnabled(),"Test Case Pass: Reading_Date Displayed");
+			Reporter.log(" To Verify Reading_Date Link in Application of Water&Sewerage Billing is Present",true);
+			Reading_Date1.click();
+	
+			HighlightOnElement(TodayButton_Calender);
+			Assert.assertTrue(TodayButton_Calender.isEnabled(),"Test Case Pass: Reading_Date Displayed");
+			Reporter.log(" To Verify TodayButton_Calender Link in Application of Water&Sewerage Billing is Present",true);
+			TodayButton_Calender.click();
+			waitForSomeTime();
+	
+	
+		}
+		
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "Water Generate Bill Heading"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//label[contains(.,'Water Generate Bill')]")
+		private WebElement GenerateBill_Heading;
+		
+		@FindBy(xpath=".//*[@id='inboxForm:console']/tbody/tr/td/label")
+		private List <WebElement> UnderGenerateBill_menu;
+		
+		@FindBy(xpath=".//*[@id='inboxForm:table1']/div[1]/table/thead")
+		private WebElement BillDetailGrid;
+	
+		
+		public void toverifyGenerateBillIconSC03_TC01() throws InterruptedException
+		 {
+			waitForSomeTime();
+			HighlightOnElement(GenerateBill_Icon);
+			Assert.assertTrue(GenerateBill_Icon.isEnabled(),"Test Case Pass: GenerateBill_Icon Displayed");
+			Reporter.log(" To Verify GenerateBill_Icon Link in Application of Water&Sewerage Billing is Present",true);
+			GenerateBill_Icon.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			
+			HighlightOnElement(GenerateBill_Heading);
+			Assert.assertTrue(GenerateBill_Heading.isEnabled(),"Test Case Pass: GenerateBill_Heading Displayed");
+			Reporter.log(" To Verify GenerateBill_Heading Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+			
+			
+
+			for(WebElement WaterGenerateundermenu:UnderGenerateBill_menu)
+			{
+				//HighlightOnElement1(underNewApplicationpending);
+				if(WaterGenerateundermenu.isDisplayed())
+				{
+					String WaterGeneratelabels=WaterGenerateundermenu.getText();
+					Reporter.log("MenuinWaterGenerateBill:"+WaterGeneratelabels,true);
+				}
+			}
+			
+			
+			HighlightOnElement(BillDetailGrid);
+			Assert.assertTrue(BillDetailGrid.isEnabled(),"Test Case Pass: BillDetailGrid Displayed");
+			Reporter.log(" To Verify BillDetailGrid Link in Application of Water&Sewerage Billing is Present",true);
+			waitForSomeTime();
+			waitForSomeTime();
+		 }
+		
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "CheckBox"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//div[@class='ui-chkbox-box ui-widget ui-corner-all ui-state-default']")
+		private WebElement Checkbox;
+		
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "CheckBox"
+		 * @author sarvesh.nellore
+		 * @Date: 21-09-2017
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//button[contains(.,'Generate Bill') and@role='button']")
+		private WebElement GenerateBill_Button;
+		
+	
+		
+		public void toverifyGenerateBillFunctionalitySC03_TC02() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+		
+		{
+			
+			HighlightOnElement(Consumer_Number);
+			Assert.assertEquals(true,Consumer_Number.isEnabled());
+			Reporter.log(" To Verify Consumer_Number Field  in Application of Water&Sewerage link is Present",true); //print for eclipse console
+			excel.getExcelData(Consumer_Number, "ConsumerNumber", 0, 1);
+			waitForSomeTime();
+	
+			HighlightOnElement(Search_Button);
+			Assert.assertEquals(true,Search_Button.isEnabled());
+			Search_Button.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			Reporter.log(" To click Search_Button Link in Application of Water&Sewerage Successfully",true); //print for eclipse console
+	
+			HighlightOnElement(Checkbox);
+			HighlightOnElement(Checkbox);
+			Assert.assertEquals(true,Checkbox.isEnabled());
+			Checkbox.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			
+			HighlightOnElement(GenerateBill_Button);
+			Assert.assertEquals(true,GenerateBill_Button.isEnabled());
+			GenerateBill_Button.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			Reporter.log(" To click GenerateBill_Button Link in Application of Water&Sewerage Successfully",true); //print for eclipse console
+	
+			
+			
+			
+			
+			
+		
+		}
+	
+	
+	}

@@ -1,0 +1,65 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import com.google.common.base.Function;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyTransferInitiator_SC_02_TC_03 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "TRANSFER INITIATOR".
+	 * @author deepak.saini
+	 * @since 2017-12-06
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//header/nav/div/div/div/div/ul/li/a[contains(text(),'Transfer')]/span/../following-sibling::ul/li/a/span[contains(text(),'Transfer Initiator')]")
+	private WebElement transferinitiator;
+
+	@FindBy(xpath="//div/button[contains(text(),'Create')]")
+	private WebElement displaylink;
+
+	@FindBy(xpath="//div[@class='o_content']/div/div/div/table/thead/tr/th/following-sibling::th")
+	private List<WebElement> displaylink1;
+
+	public void verifyTransferInitiator() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(transferinitiator));
+		HighlightOnElement(transferinitiator);
+		Assert.assertTrue(transferinitiator.isDisplayed());
+		Assert.assertTrue(transferinitiator.isEnabled());
+		transferinitiator.click();
+		waitForSomeTime();
+	}
+
+	public void verifylistDisplay()
+	{
+		fluentWait(displaylink);
+		HighlightOnElement(displaylink);
+		Assert.assertTrue(displaylink.isDisplayed());
+
+		for(WebElement dsiplay:displaylink1)
+		{
+			HighlightOnElement(dsiplay);
+			Assert.assertTrue(dsiplay.isDisplayed());
+		}
+	}
+
+}

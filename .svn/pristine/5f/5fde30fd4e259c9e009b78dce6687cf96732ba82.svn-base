@@ -1,0 +1,3468 @@
+package NRDA_NewConnection;
+
+import java.awt.AWTException;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import NRDA_NewConnection.ToVerifyApplicantDetails_SC_03_TC_03;
+import NRDA_NewConnection.ToVerifyApplicantDetails_SC_03_TC_07;
+import NRDA_NewConnection.ToVerifyApplicationDetails_SC_03_TC_04;
+import NRDA_NewConnection.ToVerifyApplicationDetails_SC_03_TC_05;
+import NRDA_NewConnection.ToVerifyApplicationDetails_SC_03_TC_06;
+import NRDA_NewConnection.ToVerifyConnectionDetailsTab_SC_03_TC_27;
+import NRDA_NewConnection.ToVerifyDashboard_SC_02_TC_01;
+import NRDA_NewConnection.ToVerifyConnectionDetailsTab_SC_03_TC_28;
+import NRDA_NewConnection.ToVerifyWaterAndSewerageConnection_SC_03_TC_01;
+import NRDA_NewConnection.ToVerifyWaterAndSewerageConnection_SC_03_TC_02;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+@Listeners(GenericLibrary.ListenerDriver.class)
+public class LoginAsCitizen extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebElement web1=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		Actions action = new Actions(driver);
+		WebDriverWait wait1 = new WebDriverWait(driver,50);
+		wait1.until(ExpectedConditions.visibilityOf( web1));
+		action.moveToElement(web1).build().perform();
+		waitForSomeTime();
+
+		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+		driver.close();
+
+	}
+	@DataProvider(name="citizen")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"Citizen");
+	}
+
+
+	@Test(description="NRDA_Water & Sewerage_SC_02_TC_01",priority=0,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_02_TC_01(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyDashboard_SC_02_TC_01 verifydashboard=PageFactory.initElements(driver,ToVerifyDashboard_SC_02_TC_01.class);
+		verifydashboard.toVerifyDashboard();
+	}
+
+	@Test(description="NRDA_Water & Sewerage_SC_03_TC_01",priority=1,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_01(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		//watersewerage.waterAndSewerageConnection();
+		watersewerage.toVerifyOptions01();
+	}
+	@Test(description="NRDA_Water & Sewerage_SC_03_TC_02",priority=2,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_02(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+		newconnection.verifyDisplayDashboard();
+	}
+
+	@Test(description="NRDA_Water & Sewerage_SC_03_TC_03",priority=3,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_03(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+		applicant_details.verifyDisplayList();
+	}
+
+	@Test(description="select Organization/Trust/Society",priority=4,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_04(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+		proceed.verifyDisplayList();
+	}
+	@Test(description="Applicant Valid details",priority=5,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_05(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+	}
+
+	@Test(description="Applicant Invalid data details",priority=6,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_06(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+		newconnection.clickOnDeleteButton();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_06 invaliddata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_06.class);
+		invaliddata.clickOnBuildingDetailsNextButton();
+		invaliddata.clickOnConnectionDetailsNextButton();
+		invaliddata.clickOnSubmitButton();
+		invaliddata.getErrorMsg();
+	}
+
+	@Test(description="select Organization/Trust/Society valid data",priority=7,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_07(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();
+	}
+
+	@Test(description="Building Details/Owner",priority=8,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_08(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+		owner.verifyDisplayList();
+		owner.verifyDisplayBtn();
+	}
+
+	@Test(description="Field of property",priority=9,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_09(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+		propertyfield.clickOnPropertyId();
+		propertyfield.enterPropertyId();
+		propertyfield.verifyRadioField();
+		propertyfield.verifyDetailsRadio();
+		propertyfield.closeWindow();
+	}
+
+	@Test(description="enter valid property id",priority=10,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_10(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+		propertyfield.clickOnPropertyId();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_10 propertyid=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_10.class);
+		propertyid.enterPropertyID();
+		propertyid.clickOnSearchButton();
+		propertyid.viewResult();
+		propertyid.closeWindow();
+	}
+
+	@Test(description="enter invalid property id",priority=11,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_11(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+		propertyfield.clickOnPropertyId();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_11 propertyid=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_11.class);
+		propertyid.enterPropertyID();
+		propertyid.clickOnSearch();
+		propertyid.closeWindow();
+	}
+
+	@Test(description="Other Details",priority=12,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_12(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_12 otherdetails=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_12.class);
+		otherdetails.clickOnOtherDetails();
+		otherdetails.verifyField();
+		otherdetails.verifyButtonField();
+		otherdetails.closeWindow();
+	}
+
+	@Test(description="Other Details",priority=13,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_13(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_12 otherdetails=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_12.class);
+		otherdetails.clickOnOtherDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_13 otherdetail=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_13.class);
+		otherdetail.verifyOwnerDetails();
+		otherdetail.clickOnSearch();
+		otherdetail.viewResult();
+		otherdetail.closeWindow();
+	}
+
+	@Test(description="Other Details",priority=14,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_14(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_12 otherdetails=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_12.class);
+		otherdetails.clickOnOtherDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_14 other=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_14.class);
+		other.verifyOwnerDetails();
+		other.clickOnSearch();
+		other.viewResult();
+		other.closeWindow();
+	}
+
+	@Test(description="Other Details",priority=15,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_15(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_12 otherdetails=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_12.class);
+		otherdetails.clickOnOtherDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_15 other=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_15.class);
+		other.verifyOwnerDetails();
+		other.clickOnSearch();
+		other.viewResult();
+		other.closeWindow();
+	}
+
+	@Test(description="Other Details",priority=16,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_16(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_12 otherdetails=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_12.class);
+		otherdetails.clickOnOtherDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_16 other=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_16.class);
+		other.verifyOwnerDetails();
+		other.clickOnSearch();
+		other.closeWindow();
+	}
+
+	@Test(description="Other Details",priority=17,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_17(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_12 otherdetails=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_12.class);
+		otherdetails.clickOnOtherDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_17 other=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_17.class);
+		other.verifyOwnerDetails();
+		other.clickOnSearch();
+		other.closeWindow();
+	}
+
+	@Test(description="Other Details",priority=18,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_18(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+		owner.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_09 propertyfield=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_09.class);
+		propertyfield.clickOnPropertyIDIcon();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_18 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_18.class);
+		property.validPropertyIDIcon();
+		property.clickOnPropertyId();
+		property.enterPropertyID();
+		property.clickOnSearchButton();
+		property.clickOnFillInFormButton();
+		property.clickOnPopUpMessageWindow();
+		property.verifyFieldValue();
+	}
+
+	@Test(description="Other Details",priority=19,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_19(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_19 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_19.class);
+		property.selectTenant();
+		property.validPropertyID();
+		property.clickOnPropertyId();
+		property.enterPropertyID();
+		property.clickOnSearchButton();
+		property.clickOnFillInFormButton();
+		property.clickOnPopUpMessageWindow();
+		property.verifyFieldValue();
+	}
+
+	@Test(description="Other Details",priority=20,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_20(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();
+		property.validPropertyID();
+		property.clickOnPropertyId();
+		property.enterPropertyID();
+		property.clickOnSearchButton();
+		property.clickOnFillInFormButton();
+		property.clickOnPopUpMessageWindow();
+		property.selectCorresspondenceAddress();
+		property.VerifyBuildingDetailsAsOwner();
+	}
+
+	@Test(description="Other Details",priority=21,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_21(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();
+		property.validPropertyID();
+		property.clickOnPropertyId();
+		property.enterPropertyID();
+		property.clickOnSearchButton();
+		property.clickOnFillInFormButton();
+		property.clickOnPopUpMessageWindow();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_21 property1=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_21.class);
+		property1.selectCorresspondenceAddress();
+		property1.VerifyBuildingDetailsAsOwner1();
+	}
+
+	@Test(description="Other Details",priority=22,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_22(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_22 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_22.class);
+		property.selectOwner();
+		property.validPropertyID();
+		property.enterDetails();
+	}
+
+	@Test(description="Other Details",priority=23,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_23(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_22 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_22.class);
+		property.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_23 proper=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_23.class);
+		proper.verifyField();
+	}
+
+	@Test(description="Other Details",priority=24,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_24(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_22 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_22.class);
+		property.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+		prop.VerifyBuildingDetailsAsTenant();
+	}
+
+	@Test(description="Other Details",priority=25,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_25(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_22 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_22.class);
+		property.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_25 propt=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_25.class);
+		propt.selectCorresspondenceAddress();
+		propt.VerifyBuildingDetailsAsTenant1();
+	}
+
+	@Test(description="Other Details",priority=26,dataProvider="citizen")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_26(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_22 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_22.class);
+		property.selectOwner();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_26 propty=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_26.class);
+		propty.validPropertyID();
+		propty.enterDetails();
+	}
+
+	@Test(priority=18,dataProvider ="citizen",description="click connection details tab")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_27(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		/*
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+		connectiondeatils.verifyConnectionDetailsTab();
+	}
+
+	@Test(priority=18,dataProvider ="citizen",description="Verify Usage details")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_28(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_28 details=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_28.class);
+		details.verifyDetailsOfUsage();
+
+	}
+
+	@Test(priority=19,dataProvider ="citizen",description="Applicant type=Water And Sewerage,commerical,factories")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_29(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_29 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_29.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=20,dataProvider ="citizen",description="Applicant type=Water And Sewerage,domestic,individual")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_30(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_30 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_30.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=20,dataProvider ="citizen",description="Applicant type=Water And Sewerage,domestic,society")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_31(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_31 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_31.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=21,dataProvider ="citizen",description="Applicant type=Water And Sewerage,institutional,government offices")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_32(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_32 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_32.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=22,dataProvider ="citizen",description="Applicant type=Water And Sewerage,residentials,nurses home")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_33(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_33 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_33.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=23,dataProvider ="citizen",description="Applicant type=Water connection,commerical,factories")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_34(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		/*
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_34 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_34.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=25,dataProvider ="citizen",description="Applicant type=Water connection,domestic,individual")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_35(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_35 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_35.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=26,dataProvider ="citizen",description="Applicant type=Water connection,domestic,society")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_36(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_36 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_36.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=27,dataProvider ="citizen",description="Applicant type=Water connection,institution,governement office")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_37(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_37 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_37.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=28,dataProvider ="citizen",description="Applicant type=Water connection,residential,nurses home")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_38(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_38 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_38.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=28,dataProvider ="citizen",description="Applicant type=sewerage connection,commerical,factories")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_39(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_39 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_39.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=29,dataProvider ="citizen",description="Applicant type=sewerage connection,domestic,individual")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_40(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_40 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_40.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=31,dataProvider ="citizen",description="Applicant type=sewerage connection,domestic,society")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_41(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_41 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_41.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=31,dataProvider ="citizen",description="Applicant type=sewerage connection,institution,government office")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_42(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_42 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_42.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=32,dataProvider ="citizen",description="Applicant type=sewerage connection,residential,nurses home")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_43(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_43 detail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_43.class);
+		detail.verifyWaterAndSewerage();
+		detail.verifyField();
+	}
+
+	@Test(priority=33,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_44(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_44 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_44.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=34,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_45(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_45 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_45.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=35,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_46(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=36,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_47(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_47 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_47.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=37,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_48(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_48 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_48.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=38,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_49(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_49 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_49.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=39,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_50(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_50 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_50.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=40,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_51(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_51 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_51.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=41,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_52(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_52 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_52.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=42,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_53(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_53 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_53.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=43,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_54(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_54 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_54.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=44,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_55(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_55 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_55.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=45,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_56(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_56 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_56.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=46,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_57(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_57 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_57.class);
+		filled.verifyFilledFunctionality();
+	}
+
+	@Test(priority=47,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_58(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+		connectiondeatils.clickOnResetButton();
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_58 invalid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_58.class);
+		invalid.verifyInValidDataFunctionality();
+	}
+	@Test(priority=48,dataProvider ="citizen",description="verify filled data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_59(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		/*ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();*/
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+		/*proceed.clickOnResetButton();
+		proceed.selectOrganizerApplicantType();
+
+		ToVerifyApplicantDetails_SC_03_TC_07 applicant=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_07.class);
+		applicant.enterValidData();*/
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+		connectiondeatils.clickOnResetButton();
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_59 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_59.class);
+		filled.verifyFilledFunctionality();
+		filled.clickOnSaveAsDraft();
+		filled.clickOnNext();
+	}
+
+	@Test(priority=49,dataProvider ="citizen",description="verify upload document field")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_60(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_22 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_22.class);
+		property.selectOwner();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_60 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_60.class);
+		upload.clickOnUploadDocumentDetails();
+		upload.verifyUploadDocumentField();
+	}
+
+	@Test(priority=50,dataProvider ="citizen",description="verify upload document field")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_61(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_05 proceed=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_05.class);
+		proceed.clickOnProceedBtn();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_08 owner=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_08.class);
+		owner.clickOnBuildingDetails();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_19 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_19.class);
+		property.selectTenant();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_60 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_60.class);
+		upload.clickOnUploadDocumentDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_61 verifyfield=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_61.class);
+		verifyfield.verifyUploadDocumentField();
+	}
+
+	@Test(priority=50,dataProvider ="citizen",description="verify upload document field")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_62(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_22 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_22.class);
+		property.selectOwner();//select tenant
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+		nextbtn1.VerifyUploadingDocumentAsTenant();
+		nextbtn1.clickOnSaveAsDraftButton();
+	}
+
+	@Test(priority=50,dataProvider ="citizen",description="verify upload document field")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_63(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		upload.clickOnSaveAsDraftButton();
+	}
+
+	@Test(priority=51,dataProvider ="citizen",description="verify upload document field invalid data")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_64(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.clickOnNextButton();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_64 invaliddata=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_64.class);
+		invaliddata.VerifyUploadingDocumentAsTenant();
+		invaliddata.clickOnSubmitButton();
+		invaliddata.getErrorMsg();
+	}
+	
+	@Test(priority=52,dataProvider ="citizen",description="verify upload document field")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_65(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.clickOnNextButton();
+		
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+		
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_65 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_65.class);
+		upload.VerifyUploadingDocumentAsOwner();
+		upload.clickOnSubmitButton();
+		upload.getErrorMsg();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="verify reset fun")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_67(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_67 resetbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_67.class);
+		resetbtn1.verifyClickOnResetBtn();
+		resetbtn1.verifyResetField();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="verify close fun if select yes")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_68(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_68 closebtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_68.class);
+		closebtn.verifyClickOnCloseBtn();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="verify close fun if select No")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_69(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_68 closebtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_68.class);
+		closebtn.verifyClickOnCloseBtn();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="verify Save As Draft")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_70(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_03_TC_70 saveasdraft=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_70.class);
+		//saveasdraft.clickOnSaveAsDraftBtn();
+		saveasdraft.clickOnApplicationStatus();
+		saveasdraft.clickOnDraftedApplication();
+		saveasdraft.verifyWaterAndSewerageConnectionExit();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="verify Draft Application exist")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_71(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_03_TC_70 saveasdraft=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_70.class);
+		saveasdraft.clickOnApplicationStatus();
+		saveasdraft.clickOnDraftedApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_03_TC_71 drafted=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_71.class);
+		drafted.clickOnWaterAndSeweragConnDraft();
+		drafted.verifyButton();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="click on proceed button")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_72(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_03_TC_70 saveasdraft=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_70.class);
+		saveasdraft.clickOnApplicationStatus();
+		saveasdraft.clickOnDraftedApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_03_TC_71 drafted=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_71.class);
+		drafted.clickOnWaterAndSeweragConnDraft();
+	
+		ToVerifyConnectionDetailsTab_SC_03_TC_72 proceed=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_72.class);
+		proceed.clickOnProceedBtn();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="click on delete button")
+	public void NRDA_Sewerage_New_Connection_SC_03_TC_73(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_03_TC_70 saveasdraft=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_70.class);
+		saveasdraft.clickOnApplicationStatus();
+		saveasdraft.clickOnDraftedApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_03_TC_71 drafted=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_71.class);
+		drafted.clickOnWaterAndSeweragConnDraft();
+	
+		ToVerifyConnectionDetailsTab_SC_03_TC_73 delete=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_73.class);
+		delete.clickOnDeleteBtn();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify Submit Fun")
+	public void NRDA_Sewerage_New_Connection_SC_04_TC_01(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationLabel();
+		label.verifyApplicationStatus();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify Make Payment")
+	public void NRDA_Sewerage_New_Connection_SC_04_TC_02(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_02 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_02.class);
+		payment.selectOnlinePayment();
+		payment.clickOnMakePayment();
+		payment.verifyCardLabel();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify valid card Payment")
+	public void NRDA_Sewerage_New_Connection_SC_04_TC_03(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_02 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_02.class);
+		payment.selectOnlinePayment();
+		payment.clickOnMakePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_03 carddetail=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_03.class);
+		carddetail.enterCardDetail();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify invalid card Payment")
+	public void NRDA_Sewerage_New_Connection_SC_04_TC_04(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_02 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_02.class);
+		payment.selectOnlinePayment();
+		payment.clickOnMakePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_04 invalidcardno=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_04.class);
+		invalidcardno.enterCardDetail04();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify invalid card Payment")
+	public void NRDA_Sewerage_New_Connection_SC_04_TC_05(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_02 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_02.class);
+		payment.selectOnlinePayment();
+		payment.clickOnMakePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_05 invalidcardno=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_05.class);
+		invalidcardno.enterCardDetail05();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify invalid card Payment")
+	public void NRDA_Sewerage_New_Connection_SC_04_TC_06(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_02 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_02.class);
+		payment.selectOnlinePayment();
+		payment.clickOnMakePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_06 invalidcardno=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_06.class);
+		invalidcardno.enterCardDetail06();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="verify Submitted under Application Status")
+	public void NRDA_Sewerage_New_Connection_SC_05_TC_01(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_05_TC_01 submit=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_05_TC_01.class);
+		submit.clickOnApplicationStatus();
+		submit.clickOnSubmittedApplication();
+		submit.verifyWaterAndSewerageConnectionExit();
+		submit.verifyDisplayList();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="verify Submitted under Application Status")
+	public void NRDA_Sewerage_New_Connection_SC_05_TC_02(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_05_TC_01 submit=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_05_TC_01.class);
+		submit.clickOnApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_05_TC_02 search=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_05_TC_02.class);
+		search.enterCustomerId();
+		search.clickOnSearchBtn();
+		search.clickOnSubmittedApplication();
+		search.verifyWaterAndSewerageConnectionExit();
+		search.clickOnActionImg();
+		search.verifyDisplayList();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify save as draft")
+	public void NRDA_Sewerage_New_Connection_SC_06_TC_01(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_06_TC_01 save=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_06_TC_01.class);
+		save.clickOnSaveAsDraftBtn();
+		save.clickOnApplicationStatus();
+		save.clickOnDraftedApplication();
+		save.verifyWaterAndSewerageConnectionExit();
+		save.verifyDisplayField();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify proceed")
+	public void NRDA_Sewerage_New_Connection_SC_06_TC_02(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_06_TC_01 save=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_06_TC_01.class);
+		save.clickOnSaveAsDraftBtn();
+		save.clickOnApplicationStatus();
+		save.clickOnDraftedApplication();
+		save.verifyWaterAndSewerageConnectionExit();
+		
+		ToVerifyConnectionDetailsTab_SC_06_TC_02 proceed=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_06_TC_02.class);
+		proceed.clickOnProceedBtn();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify delete")
+	public void NRDA_Sewerage_New_Connection_SC_06_TC_03(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_06_TC_01 save=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_06_TC_01.class);
+		save.clickOnSaveAsDraftBtn();
+		save.clickOnApplicationStatus();
+		save.clickOnDraftedApplication();
+		save.verifyWaterAndSewerageConnectionExit();
+		
+		ToVerifyConnectionDetailsTab_SC_06_TC_03 delete=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_06_TC_03.class);
+		delete.clickOnDeleteBtn();
+	}
+	
+	@Test(priority=50,dataProvider ="citizen",description="verify pending payment")
+	public void NRDA_Sewerage_New_Connection_SC_07_TC_01(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_01 pending=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_01.class);
+		pending.clickOnPendingPayment();
+		pending.verifyWaterAndSewerageConnectionExit();
+		pending.verifyDisplayList();
+		pending.verifyDisplayButton();
+	}
+	
+	@Test(priority=51,dataProvider ="citizen",description="verify proceed ")
+	public void NRDA_Sewerage_New_Connection_SC_07_TC_02(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_01 pending=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_01.class);
+		pending.clickOnPendingPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_02 proceedtopay=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_02.class);
+		proceedtopay.enterCustomerID();
+		proceedtopay.clickOnSearchBtn();
+		proceedtopay.verifyWaterAndSewerageConnExist();
+		proceedtopay.clickOnProceedToPayment();
+		proceedtopay.verifyPaymentApplicationLabel();
+	}
+	
+	@Test(priority=52,dataProvider ="citizen",description="verify make payment ")
+	public void NRDA_Sewerage_New_Connection_SC_07_TC_03(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_01 pending=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_01.class);
+		pending.clickOnPendingPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_02 proceedtopay=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_02.class);
+		proceedtopay.enterCustomerID();
+		proceedtopay.clickOnSearchBtn();
+		proceedtopay.verifyWaterAndSewerageConnExist();
+		proceedtopay.clickOnProceedToPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_03 makepayment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_03.class);
+		makepayment.selectOnlinePayment();
+		makepayment.verifyMakePayment();
+	}
+	
+	@Test(priority=53,dataProvider ="citizen",description="click make payment ")
+	public void NRDA_Sewerage_New_Connection_SC_07_TC_04(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_01 pending=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_01.class);
+		pending.clickOnPendingPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_02 proceedtopay=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_02.class);
+		proceedtopay.enterCustomerID();
+		proceedtopay.clickOnSearchBtn();
+		proceedtopay.verifyWaterAndSewerageConnExist();
+		proceedtopay.clickOnProceedToPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_03 makepayment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_03.class);
+		makepayment.selectOnlinePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_04 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_04.class);
+		payment.clickOnMakePayment();
+		payment.verifyCardLabel();
+	}
+	
+	@Test(priority=54,dataProvider ="citizen",description="click make payment with valid card details ")
+	public void NRDA_Sewerage_New_Connection_SC_07_TC_05(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_01 pending=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_01.class);
+		pending.clickOnPendingPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_02 proceedtopay=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_02.class);
+		proceedtopay.enterCustomerID();
+		proceedtopay.clickOnSearchBtn();
+		proceedtopay.verifyWaterAndSewerageConnExist();
+		proceedtopay.clickOnProceedToPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_03 makepayment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_03.class);
+		makepayment.selectOnlinePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_04 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_04.class);
+		payment.clickOnMakePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_05 valid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_05.class);
+		valid.enterCardDetail();
+	}
+	
+	@Test(priority=55,dataProvider ="citizen",description="click make payment with invalid card details ")
+	public void NRDA_Sewerage_New_Connection_SC_07_TC_06(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_01 pending=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_01.class);
+		pending.clickOnPendingPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_02 proceedtopay=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_02.class);
+		proceedtopay.enterCustomerID();
+		proceedtopay.clickOnSearchBtn();
+		proceedtopay.verifyWaterAndSewerageConnExist();
+		proceedtopay.clickOnProceedToPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_03 makepayment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_03.class);
+		makepayment.selectOnlinePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_04 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_04.class);
+		payment.clickOnMakePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_06 invalid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_06.class);
+		invalid.enterCardDetail04();
+	}
+	
+	@Test(priority=56,dataProvider ="citizen",description="click make payment with invalid card details ")
+	public void NRDA_Sewerage_New_Connection_SC_07_TC_07(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		//applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_01 pending=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_01.class);
+		pending.clickOnPendingPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_02 proceedtopay=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_02.class);
+		proceedtopay.enterCustomerID();
+		proceedtopay.clickOnSearchBtn();
+		proceedtopay.verifyWaterAndSewerageConnExist();
+		proceedtopay.clickOnProceedToPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_03 makepayment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_03.class);
+		makepayment.selectOnlinePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_04 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_04.class);
+		payment.clickOnMakePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_07 invalid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_07.class);
+		invalid.enterCardDetail05();
+	}
+	
+	@Test(priority=57,dataProvider ="citizen",description="click make payment with invalid card details ")
+	public void NRDA_Sewerage_New_Connection_SC_07_TC_08(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_01 watersewerage=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_01.class);
+		watersewerage.waterAndSewerageConnection();
+
+		ToVerifyWaterAndSewerageConnection_SC_03_TC_02 newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection_SC_03_TC_02.class);
+		newconnection.clickOnWaterAndSewerageConnection();
+		newconnection.clickOnNewApplicationButton();
+		newconnection.selectPopUp();
+		newconnection.clickOnProceedButton();
+
+		ToVerifyApplicantDetails_SC_03_TC_03 applicant_details=PageFactory.initElements(driver,ToVerifyApplicantDetails_SC_03_TC_03.class);
+		applicant_details.clickOnProceedPopupButton();
+		applicant_details.clickOnResetButton();
+		applicant_details.selectApplicantType();
+
+		ToVerifyApplicationDetails_SC_03_TC_04 validdata=PageFactory.initElements(driver,ToVerifyApplicationDetails_SC_03_TC_04.class);
+		validdata.verifyApplicantValidData();
+		validdata.clickOnNextButton();
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_20 property=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_20.class);
+		property.selectOwner();//select Owner
+
+		ToVerifyBuildingDetailsTab_SC_03_TC_24 prop=PageFactory.initElements(driver,ToVerifyBuildingDetailsTab_SC_03_TC_24.class);
+		prop.validPropertyID();
+		prop.clickOnPropertyId();
+		prop.enterPropertyID();
+		prop.clickOnSearchButton();
+		prop.clickOnFillInFormButton();
+		prop.clickOnPopUpMessageWindow();
+		prop.selectCorresspondenceAddress();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn.clickOnNextButton();
+
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_27 connectiondeatils=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_27.class);
+		connectiondeatils.clickOnConnectionDetails();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_46 filled=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_46.class);
+		filled.verifyFilledFunctionality();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_62 nextbtn1=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_62.class);
+		nextbtn1.clickOnNextButton1();
+
+		ToVerifyConnectionDetailsTab_SC_03_TC_63 upload=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_03_TC_63.class);
+		upload.verifyUploadingDocumentAsOwner();
+		
+		ToVerifyConnectionDetailsTab_SC_04_TC_01 label=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_04_TC_01.class);
+		label.clickOnSubmitBtn();
+		label.verifyApplicationStatus();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_01 pending=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_01.class);
+		pending.clickOnPendingPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_02 proceedtopay=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_02.class);
+		proceedtopay.enterCustomerID();
+		proceedtopay.clickOnSearchBtn();
+		proceedtopay.verifyWaterAndSewerageConnExist();
+		proceedtopay.clickOnProceedToPayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_03 makepayment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_03.class);
+		makepayment.selectOnlinePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_04 payment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_04.class);
+		payment.clickOnMakePayment();
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_08 invalid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_08.class);
+		invalid.enterCardDetail06();
+	}
+	
+	
+	@Test(priority=58,dataProvider ="citizen",description="payment 3500 and check the application status ")
+	public void NRDA_Sewerage_New_Connection_SC_07_TC_11(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_07_TC_11 payment3500=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_07_TC_11.class);
+		payment3500.clickOnPendingPayment();
+		payment3500.enterCustomerID();
+		payment3500.clickOnSearchBtn();
+		payment3500.verifyWaterAndSewerageConnExist();
+		payment3500.clickOnProceedToPayment();
+		payment3500.selectOnlinePayment();
+		payment3500.clickOnMakePayment();
+		payment3500.enterCardDetail();
+		payment3500.clickOnApplicationStatus();
+		payment3500.customerID();
+		payment3500.clickOnSearchBtn1();
+		payment3500.verifyStatus();
+	}
+	
+
+	@Test(priority=59,dataProvider ="citizen",description="Approved and rejected application")
+	public void NRDA_Sewerage_New_Connection_SC_12_TC_02(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_12_TC_02 application=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_12_TC_02.class);
+		application.clickOnApprovedRejectedApplication();
+		application.enterCustomerID();
+		application.clickOnSearchBtn();
+		application.displayList();
+	}
+	
+	@Test(priority=60,dataProvider ="citizen",description="my Account")
+	public void NRDA_Sewerage_New_Connection_SC_13_TC_01(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_13_TC_01 account=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_13_TC_01.class);
+		account.clickOnMyAccount();
+		account.displayList();
+	}
+	
+	@Test(priority=61,dataProvider ="citizen",description="hyper link")
+	public void NRDA_Sewerage_New_Connection_SC_13_TC_02(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_13_TC_01 account=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_13_TC_01.class);
+		account.clickOnMyAccount();
+		
+		ToVerifyConnectionDetailsTab_SC_13_TC_02 hyperlink=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_13_TC_02.class);
+		hyperlink.clickOnHyperLink();
+	}
+	
+	@Test(priority=62,dataProvider ="citizen",description="hyper linclose")
+	public void NRDA_Sewerage_New_Connection_SC_13_TC_03(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_13_TC_01 account=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_13_TC_01.class);
+		account.clickOnMyAccount();
+		
+		ToVerifyConnectionDetailsTab_SC_13_TC_02 hyperlink=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_13_TC_02.class);
+		hyperlink.clickOnHyperLink();
+		
+		ToVerifyConnectionDetailsTab_SC_13_TC_03 close=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_13_TC_03.class);
+		close.clickOnClose();
+	}
+	
+	@Test(priority=63,dataProvider ="citizen",description="my payment history")
+	public void NRDA_Sewerage_New_Connection_SC_14_TC_01(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_14_TC_01 history=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_14_TC_01.class);
+		history.clickOnMyPaymentHistory();
+		history.displayList();
+	}
+	
+	@Test(priority=64,dataProvider ="citizen",description="action")
+	public void NRDA_Sewerage_New_Connection_SC_14_TC_02(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCitizen(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_14_TC_01 history=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_14_TC_01.class);
+		history.clickOnMyPaymentHistory();
+		
+		ToVerifyConnectionDetailsTab_SC_14_TC_02 download=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_14_TC_02.class);
+		download.clickOnActionLink();
+		
+		
+	}
+}

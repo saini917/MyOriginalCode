@@ -1,0 +1,6 @@
+#surefire
+#Fri Jul 21 10:59:10 IST 2017
+user.dir=C\:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT
+suiteXmlFile=testng.xml
+localRepository=C\:\\Users\\deepak.saini\\.m2\\repository
+basedir=C\:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT

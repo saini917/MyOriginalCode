@@ -1,0 +1,90 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyOwnerType_SC_03_TC_08 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SPOUSE".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Owner Type')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement ownertype;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SECOND OWNER".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name Of Second Owner/Occupier')]")
+	private WebElement nameofsecondowner;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ADDRESS OF SECOND OWNER".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Address of Second Owner/Occupier')]")
+	private WebElement addressofsecondowner;
+
+	public void verifySingleOwnerType() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(ownertype);
+		Assert.assertTrue(ownertype.isDisplayed(),"OWNER TYPE FILED is displayed");
+		Assert.assertTrue(ownertype.isEnabled(),"OWNER TYPE FILED is enabled");
+		SelectVisibleText(ownertype,"Single");
+		Reporter.log("Action is performed on Owner Type Single field",true);
+		waitForSomeTime();
+		existsElement(nameofsecondowner);
+	}
+
+	public boolean existsElement(WebElement element) 
+	{
+		boolean exist=true;
+		try 
+		{
+			exist=(nameofsecondowner.isDisplayed() && addressofsecondowner.isDisplayed());
+			Reporter.log("Element is Displayed",true);
+			Reporter.log("VISIBLE FIELD:"+nameofsecondowner.getText()+ "\n" +"VISIBLE FIELD:" +addressofsecondowner.getText(),true);
+			return exist;
+		}  
+		catch (NoSuchElementException e)
+		{
+			Reporter.log("Element is not Displayed",true);
+			return false;
+		}
+	}
+	
+	public void verifyJointHoldingOwnerType() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(ownertype);
+		Assert.assertTrue(ownertype.isDisplayed(),"OWNER TYPE FILED is displayed");
+		Assert.assertTrue(ownertype.isEnabled(),"OWNER TYPE FILED is enabled");
+		SelectVisibleText(ownertype,"Joint Holding");
+		Reporter.log("Action is performed on Owner Type Joint Holding field",true);
+		waitForSomeTime();
+		existsElement(addressofsecondowner);
+	}
+
+}

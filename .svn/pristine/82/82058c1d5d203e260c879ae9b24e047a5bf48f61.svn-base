@@ -1,0 +1,754 @@
+package WaterAndSewerageLogin;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.BrowserDriver;
+
+/**
+ * @author Deepak.saini
+ * @since 05-09-2017
+ */
+public class WaterAndSewerageLoginPage extends BrowserDriver
+{
+	public WebDriver driver;
+
+	@FindBy(xpath=".//*[@id='loginForm:user']")
+	private WebElement emailid;
+
+	@FindBy(xpath=".//*[@id='loginForm:password']")
+	private WebElement password;
+
+	@FindBy(xpath="//div/select")
+	private WebElement usertype;
+
+	@FindBy(xpath=".//*[@id='loginForm']/div[12]")
+	private WebElement anylogo;
+
+	@FindBy(xpath="(//button/span[contains(text(),'Submit')])[1]")
+	private WebElement submit;
+
+	public void loginAsCitizen(String username,String Password) throws InterruptedException
+	{
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="ankit.sharma@gmail.com";
+			//String actual_username="nsarvesh001@gmail.com";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Citizen /Architect Login");
+			waitForSomeTime();
+			
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		}
+
+
+	public void loginAsJE(String username,String Password) throws InterruptedException
+	{
+		HighlightOnElement(emailid);
+			emailid.clear();
+			emailid.sendKeys(username);
+			String actual_username="WAT-JE-01";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			
+
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+	}
+
+	public void loginAsFE(String username,String Password) throws InterruptedException
+	{
+		    HighlightOnElement(emailid);	
+			emailid.clear();
+			emailid.sendKeys(username);
+			String actual_username="WAT-FE-01";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+		    HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		
+	}
+
+	public void loginAsEE(String username,String Password) throws InterruptedException
+	{
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="WAT-EE-01";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			password.clear();
+			HighlightOnElement(password);
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			waitForSomeTime();
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		
+	}
+	
+	public void loginAsPIO(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="m_administration";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+
+		
+		waitForSomeTime();
+
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+
+	}
+	
+	public void loginAsAPIO(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="tehsildaar";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+
+		
+		waitForSomeTime();
+
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+
+	}
+	
+	public void loginAsHead(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="cee";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+
+	
+		waitForSomeTime();
+
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+
+	}
+	
+	public void loginAsNewRTICitizenWithoutBPL(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="arch@gmail.com";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Citizen /Architect Login");
+
+		
+		waitForSomeTime();
+
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+
+	}
+	
+	public void loginAsNewRTICitizenWithBPL(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="arch@gmail.com";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Citizen /Architect Login");
+
+	
+		waitForSomeTime();
+
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+}
+	
+	
+	public void loginAs_AMLEGAL(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="AM-LEGAL";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+		waitForSomeTime();
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+		
+}
+	
+	public void loginAs_MLEGAL(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="M-LEGAL";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+		waitForSomeTime();
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+		
+}
+	
+	public void loginAs_OIC(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="OIC-LEGAL-01";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+		waitForSomeTime();
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+		
+}
+	
+	public void loginAs_BOD(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="BOD-LEGAL";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+		waitForSomeTime();
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+		
+}
+	
+	public void loginAs_CEO(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="CEO";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		
+		//anylogo.click();
+		waitForSomeTime();
+
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+		
+}
+	
+	public void loginAs_GMLEGAL(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="GM-LEGAL";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+		waitForSomeTime();
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+		
+}
+	
+	public void loginAsPROHEAD(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="AD-PRO-HEAD";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+
+		anylogo.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		
+
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+
+	}
+	
+	public void loginAsPROSECTION(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="PRO-SECTION";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+
+		anylogo.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+
+	}
+	
+	public void loginAsPROCEO(String username,String Password) throws InterruptedException
+	{
+		emailid.clear();
+		HighlightOnElement(emailid);
+		emailid.sendKeys(username);
+		String actual_username="PRO-CEO";
+		Reporter.log("Email ID:"+username,true);
+		Assert.assertEquals(username,actual_username);
+
+		password.clear();
+		HighlightOnElement(password);
+		password.sendKeys(Password);
+		String actual_password="Vijay@123";
+		Reporter.log("Password:"+Password,true);
+		Assert.assertEquals(Password,actual_password);
+
+		HighlightOnElement(usertype);
+		Select sel=new Select(usertype);
+		sel.selectByVisibleText("Officer Login");
+
+		anylogo.click();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+		waitForSomeTime();
+
+		HighlightOnElement(submit);
+		submit.click();
+		waitForSomeTime();
+
+	}
+	
+	public void loginAsEmployee(String username,String Password) throws InterruptedException
+	   {
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="ENV-SECTION";
+			//String actual_username="nsarvesh001@gmail.com";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			Thread.sleep(5000);
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		
+	   }
+	
+	public void loginAsAM_ENV(String username,String Password) throws InterruptedException
+	   {
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="AM-ENV";
+			//String actual_username="nsarvesh001@gmail.com";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			Thread.sleep(5000);
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		
+	   }
+	
+	public void loginAsM_ENV(String username,String Password) throws InterruptedException
+	   {
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="M-ENV";
+			//String actual_username="nsarvesh001@gmail.com";
+			Reporter.log("Email ID:"+username,true); 
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			Thread.sleep(5000);
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		
+	   }
+	
+	public void loginAsDGM_ENV(String username,String Password) throws InterruptedException
+	   {
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="DGM-ENV";
+			//String actual_username="nsarvesh001@gmail.com";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			Thread.sleep(5000);
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		
+	   }
+	
+	public void loginAsCEO_ENV(String username,String Password) throws InterruptedException
+	   {
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="CEO-ENV";
+			//String actual_username="nsarvesh001@gmail.com";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			Thread.sleep(5000);
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		
+	   }
+	
+	public void loginAsCtizenPropertyTax(String username,String Password) throws InterruptedException
+	   {
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="CEO-ENV";
+			//String actual_username="nsarvesh001@gmail.com";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			Thread.sleep(5000);
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		
+	   }
+	
+	public void loginAsTaxOfficerPropertyTax(String username,String Password) throws InterruptedException
+	   {
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="CEO-ENV";
+			//String actual_username="nsarvesh001@gmail.com";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			Thread.sleep(5000);
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+		
+	   }
+	
+	public void loginAsTaxSecretaryPropertyTax(String username,String Password) throws InterruptedException
+	   {
+			emailid.clear();
+			HighlightOnElement(emailid);
+			emailid.sendKeys(username);
+			String actual_username="CEO-ENV";
+			//String actual_username="nsarvesh001@gmail.com";
+			Reporter.log("Email ID:"+username,true);
+			Assert.assertEquals(username,actual_username);
+			
+			HighlightOnElement(password);
+			password.clear();
+			password.sendKeys(Password);
+			String actual_password="Vijay@123";
+			Reporter.log("Password:"+Password,true);
+			Assert.assertEquals(Password,actual_password);
+
+			HighlightOnElement(usertype);
+			Select sel=new Select(usertype);
+			sel.selectByVisibleText("Officer Login");
+			Thread.sleep(5000);
+			HighlightOnElement(submit);
+			submit.click();
+			waitForSomeTime();
+	}
+	
+}

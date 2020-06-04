@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="New Connection login as Executive Engineer(failed)">
+    <classes>
+      <class name="NRDA_NewConnection.LoginAsEE">
+        <methods>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_15"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_09"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_14"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_11"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_16"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_13"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_10"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_08"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_19"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_07"/>
+          <include name="logoutWS"/>
+          <include name="NRDA_Sewerage_New_Connection_SC_10_TC_12"/>
+          <include name="openBrowser"/>
+        </methods>
+      </class> <!-- NRDA_NewConnection.LoginAsEE -->
+    </classes>
+  </test> <!-- New Connection login as Executive Engineer(failed) -->
+</suite> <!-- Failed suite [Suite] -->

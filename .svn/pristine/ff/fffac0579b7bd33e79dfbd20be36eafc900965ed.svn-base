@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<test name="PRO_HEAD login as Officer">
+	<classes>
+		<class name="WaterAndSewerage_PRO.WaterAndSewerage_LoginAsHead_PRO_Module">
+			<methods>
+       			<include name="verifyLoginAsHead_PRO_SC_01_TC_01"/>
+       			<include name="verifyPROSECTIONLINK_HEAD_PRO_SC_01_TC_06"/>
+       			<include name="verifyClickOnPROSECTIONLINK_HEAD_PRO_SC_01_TC_07"/>
+       			<include name="verifyAdvertisementDetails_HEAD_PRO_SC_01_TC_08"/>
+       			<include name="verifyAdvertisementDetails_HEAD_PRO_SC_01_TC_09"/>
+       			<include name="verifyPublicTensure_HEAD_PRO_SC_01_TC_10"/>
+       			<include name="verifyDescription_HEAD_PRO_SC_01_TC_11"/>
+       			<include name="verifyReset_HEAD_PRO_SC_01_TC_12"/>
+       			<include name="verifyClose_HEAD_PRO_SC_01_TC_13"/>
+       			<include name="verifyPublicationModeTab_HEAD_PRO_SC_01_TC_14"/>
+       			<include name="verifyPublicationModeDropBox_HEAD_PRO_SC_01_TC_15"/>
+       			<include name="verifyPublicationSubModeDropBox_HEAD_PRO_SC_01_TC_16"/>
+       			<include name="verifyPublicationCategory_HEAD_PRO_SC_01_TC_17"/>
+       			<include name="verifyPublicationSubCategory_HEAD_PRO_SC_01_TC_18"/>
+       			<include name="verifyCotentType_HEAD_PRO_SC_01_TC_19"/>
+       			<include name="verifyCotentTypeDropbox_HEAD_PRO_SC_01_TC_20"/>
+       			<include name="verifyPublicationLocationDropbox_HEAD_PRO_SC_01_TC_21"/>
+       			<include name="verifySubmit_HEAD_PRO_SC_01_TC_25"/>
+       			
+       			<include name="verifyApplicationTypeClassifiedEvent_HEAD_PRO_SC_01_TC_26"/>
+       			<include name="verifyApplicationTypeClassifiedInaguration_HEAD_PRO_SC_01_TC_26"/>
+       			<include name="verifyApplicationTypeClassifiedOther_HEAD_PRO_SC_01_TC_26"/>
+       			
+       			<include name="verifyApplicationTypeDisplayTenderAdv_HEAD_PRO_SC_01_TC_26"/>
+       			<include name="verifyApplicationTypeDisplayOther_HEAD_PRO_SC_01_TC_26"/>
+       			
+       			<include name="verifyApplicationTypeHoarding_HEAD_PRO_SC_01_TC_26"/>
+       			<include name="verifyApplicationTypeHoardingRecuritmentAdv_HEAD_PRO_SC_01_TC_26"/>
+       			
+       			<include name="verifyApplicationTypeOther_HEAD_PRO_SC_01_TC_26"/>
+       			
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <!--<test name="PRO_SECTION login as Officer">
+	<classes>
+		<class name="WaterAndSewerage_PRO.WaterAndSewerage_LoginAsSection_PRO_Module">
+			<methods>
+       			<include name="verifyLoginAsSection_PRO_SC_01_TC_01"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="PRO_CEO login as Officer">
+	<classes>
+		<class name="WaterAndSewerage_PRO.WaterAndSewerage_LoginAsCEO_PRO_Module">
+			<methods>
+       			<include name="verifyLoginAsCEO_PRO_SC_01_TC_01"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ </suite>

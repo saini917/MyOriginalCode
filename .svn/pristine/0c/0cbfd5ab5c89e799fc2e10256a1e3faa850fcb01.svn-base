@@ -1,0 +1,120 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Employee_Sc_09 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Employee name".
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped']/tbody/tr/td[contains(text(),'Swati')]")
+	private WebElement employeeclick;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Submit ACR Button".
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Submit ACR')]")
+	private WebElement submitAcrbtn;
+
+	public void verifySubmitACRFun() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException 
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(employeeclick));
+		HighlightOnElement(employeeclick);
+		employeeclick.click();
+		Reporter.log("click on Employee name for edit successfuly",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(submitAcrbtn));
+		HighlightOnElement(submitAcrbtn);
+		submitAcrbtn.click();
+		Reporter.log("click on Submit ACR button successfuly",true);
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACR icon".
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//img[@class='app-drawer-icon-app img-rounded' and @title='Self Service']")
+	private WebElement selfservice;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Service dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/header/nav/div/div/div/div/ul/li/a[contains(text(),'Services')]/span")
+	private WebElement servicedrop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Apprasial under Service dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/header/nav/div/div/div/div/ul/li/a[contains(text(),'Services')]/span/../following-sibling::ul/li/a/span[contains(text(),'Appraisal')]")
+	private WebElement appraisal;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Get ACR Status".
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped']/tbody/tr/td[contains(text(),'Swati')]/following-sibling::td[contains(text(),'Pending Rating')]")
+	private WebElement EmployeeACRStatus;
+
+	public void clickOnSelfService()
+	{
+		HighlightOnElement(selfservice);
+		selfservice.click();
+		Reporter.log("click on Self Service Image Successfully",true);
+
+	}
+
+	public void clickOnServiceMenu()
+	{
+		HighlightOnElement(servicedrop);
+		servicedrop.click();
+		Reporter.log("click on Service Dropdown Successfully",true);
+
+		HighlightOnElement(appraisal);
+		appraisal.click();
+		Reporter.log("click on Sub-Menu Appraisal under Service Dropdown Menu Successfully",true);
+	}
+	
+	public void getEmployeeApprasialStatus()
+	{
+		wait.until(ExpectedConditions.visibilityOf(EmployeeACRStatus));
+		HighlightOnElement(EmployeeACRStatus);
+		Reporter.log("Employee ACR Status:"+EmployeeACRStatus.getText(),true);
+	}
+
+}

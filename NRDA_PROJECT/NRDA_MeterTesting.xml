@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ 
+ 			<!-- LOGIN AS CITIZEN IN METER TESTING MODULE -->
+ 			
+<!--<test name="LOGIN AS CITIZEN ">
+	<classes>
+		<class name="NRDA_MeterTesting.LoginAsCitizen">
+			<methods>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_01"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_02"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_03"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_04"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_05"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_06"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_07"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_08"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_09"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_10"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_11"/>
+       			<include name="NRDA_MeterTesting_Citizen_SC_01_TC_12"/>-->
+       			
+       				<!-- Login as citizen for meter testing -->
+       			<!--<include name="NRDA_MeterTesting_Citizen_SC_01_TC_13"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 				<!-- LOGIN AS JE IN METER TESTING MODULE -->
+ 				
+ <!--<test name="LOGIN AS JE ">
+	<classes>
+		<class name="NRDA_MeterTesting.LoginAsJE">
+			<methods>
+       			<include name="NRDA_MeterTesting_SC_02_TC_01"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_02"/>
+       			<include name="NNRDA_MeterTesting_SC_02_TC_03"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_05"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_04"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_06"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_07"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_08"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_09"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_10"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_11"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_12"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_13"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_14"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_15"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_16"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_17"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_18"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_19"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_20"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_21"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_22"/>
+       			<include name="NRDA_MeterTesting_SC_02_TC_26"/>-->
+       			
+       			
+       							<!--forward by JE to FE -->
+       			<!--<include name="NRDA_MeterTesting_SC_02_TC_23"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ 
+ 
+ 				<!-- LOGIN AS FE IN METER TESTING MODULE -->
+ 				
+ <!--<test name="LOGIN AS FE ">
+	<classes>
+		<class name="NRDA_MeterTesting.LoginAsFE">
+			<methods>
+       			<include name="NRDA_MeterTesting_SC_03_TC_01"/>
+       			<include name="NRDA_MeterTesting_SC_03_TC_02"/>
+       			<include name="NRDA_MeterTesting_SC_03_TC_03"/>
+       			<include name="NRDA_MeterTesting_SC_03_TC_04"/>
+       			<include name="NRDA_MeterTesting_SC_03_TC_05"/>
+       			<include name="NRDA_MeterTesting_SC_03_TC_06"/>
+       			<include name="NRDA_MeterTesting_SC_03_TC_07"/>
+       			<include name="NRDA_MeterTesting_SC_03_TC_08"/>-->
+       			
+       			<!-- Verified by FE and Forward to JE -->
+       			<!--<include name="NRDA_MeterTesting_SC_03_TC_09"/>
+       			
+       			<include name="NRDA_MeterTesting_SC_03_TC_11"/>
+       			<include name="NRDA_MeterTesting_SC_03_TC_12"/>
+       			<include name="NRDA_MeterTesting_SC_03_TC_13"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ 					<!-- LOGIN AS JE IN METER TESTING MODULE FOR Approval -->
+ 				
+ <!--<test name="LOGIN AS JE Again">
+	<classes>
+		<class name="NRDA_MeterTesting.LoginAsJE">
+			<methods>
+       			<include name="NRDA_MeterTesting_SC_04_TC_01"/>
+       			<include name="NRDA_MeterTesting_SC_04_TC_02"/>
+       			<include name="NRDA_MeterTesting_SC_04_TC_03"/>
+       			<include name="NRDA_MeterTesting_SC_04_TC_06"/>
+       			<include name="NRDA_MeterTesting_SC_04_TC_07"/>
+       			<include name="NRDA_MeterTesting_SC_04_TC_08"/>-->
+       			
+       			
+       				<!-- LOGIN AS JE IN METER TESTING MODULE FOR Approval  -->
+       			<!--<include name="NRDA_MeterTesting_SC_04_TC_05"/>
+ 			</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ 
+ 					<!-- LOGIN AS FE IN METER TESTING MODULE FOR Repair/replaced -->
+ 				
+ <test name="LOGIN AS FE Again">
+	<classes>
+		<class name="NRDA_MeterTesting.LoginAsFE">
+			<methods>
+       			<include name="NRDA_MeterTesting_SC_05_TC_01"/>
+       			
+       			<!-- FE IN METER TESTING MODULE FOR Repair/replaced  -->
+       			<include name="NRDA_MeterTesting_SC_05_TC_02"/>
+       			
+       			<include name="NRDA_MeterTesting_SC_05_TC_04"/>
+       			<include name="NRDA_MeterTesting_SC_05_TC_05"/>
+       			<include name="NRDA_MeterTesting_SC_05_TC_06"/>
+       			<include name="NRDA_MeterTesting_SC_05_TC_07"/>
+ 			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ </suite>

@@ -1,0 +1,281 @@
+package WaterAndSewerage_PropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyCloseFun_SC_08_TC_14;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyDashBoardAfterSelectPendingApp_SC_08_TC_04;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyDownloadAssessmentReport_SC_08_TC_05;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyEnterComment_SC_08_TC_08;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyForwardFun_SC_08_TC_10;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyPendingApplicationDashboard_SC_08_TC_02;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyRejectFun_SC_08_TC_11;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySendBack_SC_08_TC_12;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySpecificOnePendingApplication_SC_08_03;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySubjectField_SC_08_TC_06;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySubmitFun_SC_08_TC_13;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyTaxOfficerDashboard_SC_08_TC_01;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyUploadDocument_SC_08_TC_09;
+@Listeners(GenericLibrary.ListenerDriver.class)
+public class WaterAndSewerage_Property_Tax_Officer_Module extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		WebElement logoutdrop=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		wait.until(ExpectedConditions.visibilityOf(logoutdrop));
+		wait.until(ExpectedConditions.elementToBeClickable(logoutdrop));
+		Actions action = new Actions(driver);
+		action.moveToElement(logoutdrop).build().perform();
+		//Reporter.log("Action is performed on Logout dropdown successfully",true);
+
+		WebElement logout=driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
+		Actions action1 = new Actions(driver);
+		action1.moveToElement(logout).build().perform();
+		//Reporter.log("Action is performed on Logout button successfully",true);
+
+		driver.close();
+		//Reporter.log("Action is performed on browser closed successfully",true);
+	}
+
+	@DataProvider(name="tax officer")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"PropertyTaxLoginAsTaxOfficer");
+	}
+
+	@Test(priority=1,dataProvider ="tax officer",description="verify dashboard")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyTaxOfficerDashboard_SC_08_TC_01 dashboard=PageFactory.initElements(driver,ToVerifyTaxOfficerDashboard_SC_08_TC_01.class);
+		dashboard.verifyDisplayLink01();
+	}
+
+
+	@Test(priority=2,dataProvider ="tax officer",description="verify pending application dashboard")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyPendingApplicationDashboard_SC_08_TC_02 pendingdashboard=PageFactory.initElements(driver,ToVerifyPendingApplicationDashboard_SC_08_TC_02.class);
+		pendingdashboard.verifyPendingApplicationDashboard();
+	}
+
+	@Test(priority=3,dataProvider ="tax officer",description="verify specific one pending application")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyPendingApplicationDashboard_SC_08_TC_02 pendingdashboard=PageFactory.initElements(driver,ToVerifyPendingApplicationDashboard_SC_08_TC_02.class);
+		pendingdashboard.verifyPendingApplicationDashboard();
+
+		ToVerifySpecificOnePendingApplication_SC_08_03 specificone=PageFactory.initElements(driver,ToVerifySpecificOnePendingApplication_SC_08_03.class);
+		specificone.verifySpecificPendingApplication();
+	}
+
+	@Test(priority=4,dataProvider ="tax officer",description="verify dashboard after select pending application")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyPendingApplicationDashboard_SC_08_TC_02 pendingdashboard=PageFactory.initElements(driver,ToVerifyPendingApplicationDashboard_SC_08_TC_02.class);
+		pendingdashboard.verifyPendingApplicationDashboard();
+
+		ToVerifySpecificOnePendingApplication_SC_08_03 specificone=PageFactory.initElements(driver,ToVerifySpecificOnePendingApplication_SC_08_03.class);
+		specificone.verifySpecificPendingApplication();
+
+		ToVerifyDashBoardAfterSelectPendingApp_SC_08_TC_04 afterselectpendingapllication=PageFactory.initElements(driver,ToVerifyDashBoardAfterSelectPendingApp_SC_08_TC_04.class);
+		afterselectpendingapllication.verifyAfterSelectpPendingAppDashboard();
+	}
+
+	@Test(priority=5,dataProvider ="tax officer",description="verify download assessment report")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyDownloadAssessmentReport_SC_08_TC_05 dowload=PageFactory.initElements(driver,ToVerifyDownloadAssessmentReport_SC_08_TC_05.class);
+		dowload.verifyPendingApplicationDashboard();
+		dowload.verifySpecificPendingApplication();
+		dowload.verifyDownloadAssessmentReport();
+	}
+
+	@Test(priority=6,dataProvider ="tax officer",description="verify subject field")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_06(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyDownloadAssessmentReport_SC_08_TC_05 dowload=PageFactory.initElements(driver,ToVerifyDownloadAssessmentReport_SC_08_TC_05.class);
+		dowload.verifyPendingApplicationDashboard();
+		dowload.verifySpecificPendingApplication();
+
+		ToVerifySubjectField_SC_08_TC_06 subject=PageFactory.initElements(driver,ToVerifySubjectField_SC_08_TC_06.class);
+		subject.verifySubjectField();
+	}
+
+	@Test(priority=7,dataProvider ="tax officer",description="verify enter comment field")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_08(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyDownloadAssessmentReport_SC_08_TC_05 dowload=PageFactory.initElements(driver,ToVerifyDownloadAssessmentReport_SC_08_TC_05.class);
+		dowload.verifyPendingApplicationDashboard();
+		dowload.verifySpecificPendingApplication();
+
+		ToVerifyEnterComment_SC_08_TC_08 comment=PageFactory.initElements(driver,ToVerifyEnterComment_SC_08_TC_08.class);
+		comment.verifyEnterCommentField();
+	}
+
+	@Test(priority=8,dataProvider ="tax officer",description="verify upload document")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_09(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyDownloadAssessmentReport_SC_08_TC_05 dowload=PageFactory.initElements(driver,ToVerifyDownloadAssessmentReport_SC_08_TC_05.class);
+		dowload.verifyPendingApplicationDashboard();
+		dowload.verifySpecificPendingApplication();
+
+		ToVerifyUploadDocument_SC_08_TC_09 upload=PageFactory.initElements(driver,ToVerifyUploadDocument_SC_08_TC_09.class);
+		upload.verifyUploadDocumentField();
+	}
+	
+	@Test(priority=9,dataProvider ="tax officer",description="verify close button")
+	public void NRDAs_PropertyTax_Officer_SC_08_TC_14(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyDownloadAssessmentReport_SC_08_TC_05 dowload=PageFactory.initElements(driver,ToVerifyDownloadAssessmentReport_SC_08_TC_05.class);
+		dowload.verifyPendingApplicationDashboard();
+		dowload.verifySpecificPendingApplication();
+
+		ToVerifyForwardFun_SC_08_TC_10 forward=PageFactory.initElements(driver,ToVerifyForwardFun_SC_08_TC_10.class);
+		forward.verifyForwardFun();
+
+		ToVerifySubjectField_SC_08_TC_06 subject=PageFactory.initElements(driver,ToVerifySubjectField_SC_08_TC_06.class);
+		subject.verifySubjectField();
+
+		ToVerifyEnterComment_SC_08_TC_08 comment=PageFactory.initElements(driver,ToVerifyEnterComment_SC_08_TC_08.class);
+		comment.verifyEnterCommentField();
+
+		ToVerifyUploadDocument_SC_08_TC_09 upload=PageFactory.initElements(driver,ToVerifyUploadDocument_SC_08_TC_09.class);
+		upload.verifyUploadDocumentField();
+		
+		ToVerifyCloseFun_SC_08_TC_14 close=PageFactory.initElements(driver,ToVerifyCloseFun_SC_08_TC_14.class);
+		close.verifyCloseFun();
+	}
+
+	@Test(priority=10,dataProvider ="tax officer",description="verify forward action")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_10(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyDownloadAssessmentReport_SC_08_TC_05 dowload=PageFactory.initElements(driver,ToVerifyDownloadAssessmentReport_SC_08_TC_05.class);
+		dowload.verifyPendingApplicationDashboard();
+		dowload.verifySpecificPendingApplication();
+
+		ToVerifyForwardFun_SC_08_TC_10 forward=PageFactory.initElements(driver,ToVerifyForwardFun_SC_08_TC_10.class);
+		forward.verifyForwardFun();
+
+		ToVerifySubjectField_SC_08_TC_06 subject=PageFactory.initElements(driver,ToVerifySubjectField_SC_08_TC_06.class);
+		subject.verifySubjectField();
+
+		ToVerifyEnterComment_SC_08_TC_08 comment=PageFactory.initElements(driver,ToVerifyEnterComment_SC_08_TC_08.class);
+		comment.verifyEnterCommentField();
+
+		ToVerifyUploadDocument_SC_08_TC_09 upload=PageFactory.initElements(driver,ToVerifyUploadDocument_SC_08_TC_09.class);
+		upload.verifyUploadDocumentField();
+	}
+
+
+	@Test(priority=11,dataProvider ="tax officer",description="verify reject action")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_11(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyDownloadAssessmentReport_SC_08_TC_05 dowload=PageFactory.initElements(driver,ToVerifyDownloadAssessmentReport_SC_08_TC_05.class);
+		dowload.verifyPendingApplicationDashboard();
+		dowload.verifySpecificPendingApplication();
+
+		ToVerifyRejectFun_SC_08_TC_11 reject=PageFactory.initElements(driver,ToVerifyRejectFun_SC_08_TC_11.class);
+		reject.verifyRejectFun();
+
+		ToVerifyUploadDocument_SC_08_TC_09 upload=PageFactory.initElements(driver,ToVerifyUploadDocument_SC_08_TC_09.class);
+		upload.verifyUploadDocumentField();
+	}
+
+	@Test(priority=12,dataProvider ="tax officer",description="verify send back action")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_12(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyDownloadAssessmentReport_SC_08_TC_05 dowload=PageFactory.initElements(driver,ToVerifyDownloadAssessmentReport_SC_08_TC_05.class);
+		dowload.verifyPendingApplicationDashboard();
+		dowload.verifySpecificPendingApplication();
+
+		ToVerifySendBack_SC_08_TC_12 sendback=PageFactory.initElements(driver,ToVerifySendBack_SC_08_TC_12.class);
+		sendback.verifySendBackFun();
+
+		ToVerifyUploadDocument_SC_08_TC_09 upload=PageFactory.initElements(driver,ToVerifyUploadDocument_SC_08_TC_09.class);
+		upload.verifyUploadDocumentField();
+	}
+
+
+	@Test(priority=13,dataProvider ="tax officer",description="verify submit action")
+	public void NRDA_PropertyTax_Officer_SC_08_TC_13(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+
+		ToVerifyDownloadAssessmentReport_SC_08_TC_05 dowload=PageFactory.initElements(driver,ToVerifyDownloadAssessmentReport_SC_08_TC_05.class);
+		dowload.verifyPendingApplicationDashboard();
+		dowload.verifySpecificPendingApplication();
+
+		ToVerifyForwardFun_SC_08_TC_10 forward=PageFactory.initElements(driver,ToVerifyForwardFun_SC_08_TC_10.class);
+		forward.verifyForwardFun();
+
+		ToVerifySubjectField_SC_08_TC_06 subject=PageFactory.initElements(driver,ToVerifySubjectField_SC_08_TC_06.class);
+		subject.verifySubjectField();
+
+		ToVerifyEnterComment_SC_08_TC_08 comment=PageFactory.initElements(driver,ToVerifyEnterComment_SC_08_TC_08.class);
+		comment.verifyEnterCommentField();
+
+		ToVerifyUploadDocument_SC_08_TC_09 upload=PageFactory.initElements(driver,ToVerifyUploadDocument_SC_08_TC_09.class);
+		upload.verifyUploadDocumentField();
+
+		ToVerifySubmitFun_SC_08_TC_13 submit=PageFactory.initElements(driver,ToVerifySubmitFun_SC_08_TC_13.class);
+		submit.verifySubmitFuc();
+	}
+
+	
+}

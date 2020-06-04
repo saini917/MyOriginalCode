@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Suite]">
+  <test name="LOGIN AS CITIZEN TO VERIFY CLOSE(failed)">
+    <classes>
+      <class name="WaterAndSewerage_ChangeOfUse.NewConnection_ChangeOfUse_Citizen_Module">
+        <methods>
+          <include name="logoutWS"/>
+          <include name="openBrowser"/>
+          <include name="NRDA_ChangeOfUse_Citizen_SC_02_TC_08" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- WaterAndSewerage_ChangeOfUse.NewConnection_ChangeOfUse_Citizen_Module -->
+    </classes>
+  </test> <!-- LOGIN AS CITIZEN TO VERIFY CLOSE(failed) -->
+</suite> <!-- Failed suite [Suite] -->

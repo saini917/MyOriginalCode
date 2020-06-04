@@ -1,0 +1,87 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyInitiatorName_SC_02_TC_10 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "LOGIN NAME".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='nav navbar-nav navbar-right']/ul/li/a/span[@class='oe_topbar_name']")
+	private WebElement loginName;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "INITIATOR FIELD DROPDOWN".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//div[@class='o_form_sheet']/table/tbody/tr/td/label[contains(text(),'Initiator')]/../following-sibling::td/div/div/span)[1]")
+	private WebElement clickonintiatordrop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "INITIATOR FIELD DROPDOWN".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']/li/a[contains(text(),'Search More...')]")
+	private WebElement searchmore;
+
+	@FindBy(xpath="//div[@class='modal in']/div/div/div/div/div/table/tbody/tr/td[1]")
+	private List<WebElement> allName; 
+
+	@FindBy(xpath="//div[@class='modal in']/div/div/div/button[contains(text(),'×')]")
+	private WebElement closepopup;
+
+	public void verifyInitiatorName() throws InterruptedException
+	{
+		HighlightOnElement(loginName);
+		String name=loginName.getText();
+		HighlightOnElement(clickonintiatordrop);
+		Actions drop=new Actions(driver);
+		drop.click(clickonintiatordrop).build().perform();
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchmore));
+		searchmore.click();
+		waitForSomeTime();
+
+		for(WebElement listofname:allName)
+		{
+			HighlightOnElement(listofname);
+			if(listofname.equals(name))
+			{
+				Assert.assertTrue(true);
+			}
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(closepopup));
+		closepopup.click();
+		
+		/*Actions drop1=new Actions(driver);
+		drop1.click(clickonintiatordrop).build().perform();
+		selectVisibleFromDropdown("jashwant Bais");*/
+	}
+}

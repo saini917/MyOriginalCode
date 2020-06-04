@@ -1,0 +1,322 @@
+package NRDA_NewConnection;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+
+public class ToVerifyBuildingDetailsTab_SC_03_TC_19 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "select Applicant type".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Is Applicant Owner or Tenant?')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement selectowner;
+
+	public void selectTenant() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(selectowner));
+		Assert.assertTrue(selectowner.isDisplayed());
+		Assert.assertTrue(selectowner.isEnabled());
+		SelectVisibleText(selectowner,"Tenant / किराएदार");
+		Reporter.log("Select 'Tenant' as Applicant",true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Property ID radio button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Property ID')]/../../../../../../following-sibling::td/table/tbody/tr/td/a/img")
+	private WebElement propertyid;
+
+	public void validPropertyID() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(propertyid));
+		HighlightOnElement(propertyid);
+		Assert.assertTrue(propertyid.isDisplayed());
+		Assert.assertTrue(propertyid.isEnabled());
+		propertyid.click();
+		Reporter.log("Click on Property ID",true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click Property ID radio button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/table/tbody/tr/td/table/tbody/tr/td/label[contains(text(),'Property ID')]/../preceding-sibling::td/div/div/span")
+	private WebElement clickonpropertyID;
+
+	public void clickOnPropertyId() throws InterruptedException
+	{
+		HighlightOnElement(clickonpropertyID);
+		Assert.assertTrue(clickonpropertyID.isDisplayed());
+		Assert.assertTrue(clickonpropertyID.isEnabled());
+		Actions act=new Actions(driver);
+		act.click(clickonpropertyID).build().perform();
+		Reporter.log("Property ID Radio button:",true);
+		waitForSomeTime();
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "enter Property ID ".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/table/tbody/tr/td/label[contains(text(),'Enter Property ID : ')]/../following-sibling::td/input")
+	private WebElement enterid;
+
+	public void enterPropertyID() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf(enterid));
+		HighlightOnElement(enterid);
+		Assert.assertTrue(enterid.isDisplayed());
+		Assert.assertTrue(enterid.isEnabled());
+		excel.getExcelData(enterid,"Building Details",1,4);
+		Reporter.log("Enter detail",true);
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Search button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/center/button/span[contains(text(),'Search')]")
+	private WebElement searchbutton;
+
+	public void clickOnSearchButton() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(searchbutton));
+		HighlightOnElement(searchbutton);
+		Assert.assertTrue(searchbutton.isDisplayed());
+		Assert.assertTrue(searchbutton.isEnabled());
+		searchbutton.click();
+		Reporter.log("Click on Search",true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Fill in Form button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/center/button/span[contains(text(),'Fill in Form')]")
+	private WebElement filinform;
+
+	public void clickOnFillInFormButton() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(filinform));
+		HighlightOnElement(filinform);
+		Assert.assertTrue(filinform.isDisplayed());
+		Assert.assertTrue(filinform.isEnabled());
+		filinform.click();
+		Reporter.log("Select the result record \n Click on Fill in Form",true);
+		waitForSomeTime();
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Fill in Form button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:propertydlg']/div/div/div/center/table/tbody/tr/td/button/span[contains(text(),'Yes')]")
+	private WebElement popupmessage;
+
+	public void clickOnPopUpMessageWindow() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(popupmessage));
+		HighlightOnElement(popupmessage);
+		Assert.assertTrue(popupmessage.isDisplayed());
+		Assert.assertTrue(popupmessage.isEnabled());
+		popupmessage.click();
+		Reporter.log("This Property already assigned to another user.Do you want assign this Property Id",true);
+		Reporter.log("click on Yes button:"+popupmessage.getText(),true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Name of Building".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name of Owner of Building')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement nameofownerbuilding;
+
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Name of Building".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name of Building')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement nameofbuilding;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "City".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'City')]/../../../../../../following-sibling::td/table/tbody/tr/td/select)[1]")
+	private WebElement city;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Sector".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Sector')]/../../../../../../following-sibling::td/table/tbody/tr/td/select)[1]")
+	private WebElement sector;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Ward".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Ward')]/../../../../../../following-sibling::td/table/tbody/tr/td/select)[1]")
+	private WebElement ward;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "House Number".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'House Number')]/../../../../../../following-sibling::td/table/tbody/tr/td/input)[1]")
+	private WebElement housenumber;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Floor".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Floor')]/../../../../../../following-sibling::td/table/tbody/tr/td/input)[1]")
+	private WebElement floor;
+
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "pin code".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Pin Code')]/../../../../../../following-sibling::td/table/tbody/tr/td/input)[1]")
+	private WebElement pin_code;
+
+
+	public void verifyFieldValue()
+	{
+		HighlightOnElement(nameofownerbuilding);
+		Assert.assertTrue(nameofownerbuilding.isDisplayed());
+		String ownerbuilding=nameofownerbuilding.getAttribute("value");
+		if(ownerbuilding.isEmpty())
+		{
+			Assert.assertFalse(true);
+		}
+		
+		HighlightOnElement(nameofbuilding);
+		Assert.assertTrue(nameofbuilding.isDisplayed());
+		String building=nameofbuilding.getAttribute("value");
+		if(building.isEmpty())
+		{
+			Assert.assertFalse(true);
+		}
+
+		HighlightOnElement(city);
+		Assert.assertTrue(city.isDisplayed());
+		String nameofcity=city.getAttribute("value");
+		if(nameofcity.isEmpty())
+		{
+			Assert.assertFalse(true);
+		}
+
+		HighlightOnElement(sector);
+		Assert.assertTrue(sector.isDisplayed());
+		String Sector=sector.getAttribute("value");
+		if(Sector.isEmpty())
+		{
+			Assert.assertFalse(true);
+		}
+
+		HighlightOnElement(ward);
+		Assert.assertTrue(ward.isDisplayed());
+		String Ward=ward.getAttribute("value");
+		if(Ward.isEmpty())
+		{
+			Assert.assertFalse(true);
+		}
+
+		HighlightOnElement(housenumber);
+		Assert.assertTrue(housenumber.isDisplayed());
+		String House=housenumber.getAttribute("value");
+		if(House.isEmpty())
+		{
+			Assert.assertFalse(true);
+		}
+
+		HighlightOnElement(floor);
+		Assert.assertTrue(floor.isDisplayed());
+		String Floor=floor.getAttribute("value");
+		if(Floor.isEmpty())
+		{
+			Assert.assertFalse(true);
+		}
+
+		HighlightOnElement(pin_code);
+		Assert.assertTrue(pin_code.isDisplayed());
+		String PinCode=pin_code.getAttribute("value");
+		if(PinCode.isEmpty())
+		{
+			Assert.assertFalse(true);
+		}
+
+	}
+
+}

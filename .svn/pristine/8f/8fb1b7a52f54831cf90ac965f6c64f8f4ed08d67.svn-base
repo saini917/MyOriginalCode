@@ -1,0 +1,44 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyEnterComment_SC_10_TC_06 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ENTER COMMENT FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/table/tbody/tr/td/form/span/span/div/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Enter Comments ')]/../following-sibling::td/textarea")
+	private WebElement entercommentfield;
+	
+	public void verifyEnterCommentField() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,130)", "");
+		
+		wait.until(ExpectedConditions.visibilityOf(entercommentfield));
+		HighlightOnElement(entercommentfield);
+		Assert.assertTrue(entercommentfield.isDisplayed(),"ENTER COMMENT FIELD INPUT BOX IS DISPLAYED");
+		Assert.assertTrue(entercommentfield.isEnabled(),"ENTER COMMENT FIELD INPUT BOX IS ENABLED");
+		/*String subject=*/excel.getExcelData(entercommentfield,"ActionAndCommentFieldData",3,1);
+		//Reporter.log("SUBJECT:"+subject,true);
+	}
+}

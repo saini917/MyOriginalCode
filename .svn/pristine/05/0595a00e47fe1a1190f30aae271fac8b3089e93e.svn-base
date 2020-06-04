@@ -1,0 +1,40 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyDownloadAssessmentReport_SC_10_TC_03 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	String downloadpath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\DownloadFile";
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DOWNLOAD ASSESSMENT REPORT".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//button/span[contains(text(),'Download Assessment Report')]")
+	private WebElement downloadassessment;
+	
+	public void verifyDownloadAssessmentReport() throws Exception
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(downloadassessment));
+		HighlightOnElement(downloadassessment);
+		Assert.assertTrue(downloadassessment.isDisplayed(),"DOWNLOAD ASSESSMENT REPORT IS DISPLAYED");
+		Assert.assertTrue(downloadassessment.isEnabled(),"DOWNLOAD ASSESSMENT REPORT IS ENABLED");
+		//Reporter.log("Expected result:"+downloadassessment.getText(),true);
+		downloadassessment.click();
+		//Reporter.log("Action is performed on Download Assessment report",true);
+	}
+
+}

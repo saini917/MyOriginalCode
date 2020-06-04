@@ -1,0 +1,122 @@
+package HRMS_ERP_TRANSFER;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyRemarks_SC_02_TC_13 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CLICK ON CHECKBOX".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	/**
+	 * @throws InterruptedException 
+	 * @throws IOException 
+	 * @throws InvalidFormatException 
+	 * @throws EncryptedDocumentException **************************************************************************************************/
+	public void verifyRemarks() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		List<WebElement> allrows = driver.findElements(By.xpath("//div[@class='o_form_field o_form_field_one2many o_view_manager_content']/div/div/table/tbody/tr"));
+		//Reporter.log("Total rows :" +allrows.size(),true);
+		for(int row=1;row<=allrows.size();row++)
+		{
+			String name = driver.findElement(By.xpath("//div[@class='o_form_field o_form_field_one2many o_view_manager_content']/div/div/table/tbody/tr["+row+"]/td[1]")).getText();
+			//Reporter.log(name,true);
+			if(name.equalsIgnoreCase("Gayatri Sen"))
+			{
+				WebElement clickoncheckbox = driver.findElement(By.xpath("//div[@class='o_form_field o_form_field_one2many o_view_manager_content']/div/div/table/tbody/tr["+row+"]/td[4]/div"));
+				clickoncheckbox.click();
+				WebElement clickoncheckbox1 = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div/div/div/div[1]/div[2]/div[1]/div[4]/input"));
+				Actions act=new Actions(driver);
+				act.click(clickoncheckbox1).build().perform();
+				break;
+			}
+		}
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DELETE REJECTED EMPLOYEES".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Delete Rejected Employees')]")
+	private WebElement deleteemployees;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "OK BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-dialog']/div/div/button/span[contains(text(),'Ok')]")
+	private WebElement okbutton;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CLICK ON REMARKS".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/div/div[2]/div/div/div/div/div[1]/div[2]/div[1]/div[4]/input/../following-sibling::textarea")
+	private WebElement clickOnremarks;
+	
+	@FindBy(xpath="html/body/div[1]/div/div[2]/div/div/div/div/table[1]/tbody/tr[1]/td[1]/label")
+	private WebElement clickOnanys;
+
+	public void clickOnDeleteRejectedEmployees()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(deleteemployees));
+		HighlightOnElement(deleteemployees);
+		Assert.assertTrue(deleteemployees.isDisplayed());
+		Assert.assertTrue(deleteemployees.isEnabled());
+		deleteemployees.click();
+	}
+	
+	public void clickOnOkButton()
+	{
+		HighlightOnElement(okbutton);
+		HighlightOnElement(okbutton);
+		Assert.assertTrue(okbutton.isDisplayed());
+		Assert.assertTrue(okbutton.isEnabled());
+		okbutton.click();
+	}
+	
+	public void clickOnRemarksInputBox() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(clickOnremarks);
+		Assert.assertTrue(clickOnremarks.isDisplayed());
+		Assert.assertTrue(clickOnremarks.isEnabled());
+		excel.getExcelData(clickOnremarks,"HRMS_Transfer_Data",2,1);
+		clickOnanys.click();
+	}
+}
+

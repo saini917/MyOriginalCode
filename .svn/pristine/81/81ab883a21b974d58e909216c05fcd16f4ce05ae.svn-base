@@ -1,0 +1,58 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyApprove_SC_10_TC_08 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT APPROVE ACTION".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/table/tbody/tr/td/form/span/span/div/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Select Action')]/../following-sibling::td/div/div/span")
+	private WebElement selectforwardactiondrop;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SUBMIT ACTION".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Submit')])[1]")
+	private WebElement submitbtn;
+	
+	public void verifyApproveFun() throws InterruptedException
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,130)", "");
+		
+		wait.until(ExpectedConditions.elementToBeClickable(selectforwardactiondrop));
+		HighlightOnElement(selectforwardactiondrop);
+		Assert.assertTrue(selectforwardactiondrop.isDisplayed(),"SELECT APPROVE ACTION IS DISPLAYED");
+		Assert.assertTrue(selectforwardactiondrop.isEnabled(),"SELECT APPROVE ACTION IS ENABLED");
+		selectforwardactiondrop.click();
+		selectValueFromDropdown("Approve");
+		//Reporter.log("Action is performed on Approve",true);
+	}
+
+	public void clickOnSubmitBtn()
+	{
+		HighlightOnElement(submitbtn);
+		Assert.assertTrue(submitbtn.isDisplayed(),"SUBMIT BUTTON IS DISPLAYED");
+		Assert.assertTrue(submitbtn.isEnabled(),"SUBMIT BUTON IS ENABLED");
+		submitbtn.click();
+	}
+}

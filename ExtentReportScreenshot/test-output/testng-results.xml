@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="20432" started-at="2020-05-04T14:12:22Z" finished-at="2020-05-04T14:12:42Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="20432" started-at="2020-05-04T14:12:22Z" finished-at="2020-05-04T14:12:42Z">
+      <class name="ExtentReport">
+        <test-method status="PASS" signature="setExtent()[pri:0, instance:ExtentReport@5622fdf]" name="setExtent" is-config="true" duration-ms="327" started-at="2020-05-04T19:42:22Z" finished-at="2020-05-04T19:42:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setExtent -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ExtentReport@5622fdf]" name="setUp" is-config="true" duration-ms="7985" started-at="2020-05-04T19:42:22Z" finished-at="2020-05-04T19:42:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="verifyTitle()[pri:1, instance:ExtentReport@5622fdf]" name="verifyTitle" duration-ms="26" started-at="2020-05-04T19:42:30Z" finished-at="2020-05-04T19:42:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitle -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ExtentReport@5622fdf]" name="tearDown" is-config="true" duration-ms="1977" started-at="2020-05-04T19:42:30Z" finished-at="2020-05-04T19:42:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitle status=SUCCESS method=ExtentReport.verifyTitle()[pri:1, instance:ExtentReport@5622fdf] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ExtentReport@5622fdf]" name="setUp" is-config="true" duration-ms="6978" started-at="2020-05-04T19:42:32Z" finished-at="2020-05-04T19:42:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="LoginPage()[pri:2, instance:ExtentReport@5622fdf]" name="LoginPage" duration-ms="1039" started-at="2020-05-04T19:42:39Z" finished-at="2020-05-04T19:42:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginPage -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ExtentReport@5622fdf]" name="tearDown" is-config="true" duration-ms="1745" started-at="2020-05-04T19:42:40Z" finished-at="2020-05-04T19:42:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=LoginPage status=SUCCESS method=ExtentReport.LoginPage()[pri:2, instance:ExtentReport@5622fdf] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="endExtent()[pri:0, instance:ExtentReport@5622fdf]" name="endExtent" is-config="true" duration-ms="333" started-at="2020-05-04T19:42:42Z" finished-at="2020-05-04T19:42:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endExtent -->
+      </class> <!-- ExtentReport -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

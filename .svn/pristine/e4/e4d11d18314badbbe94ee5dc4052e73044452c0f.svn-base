@@ -1,0 +1,43 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyCorrespondenceAddress_SC_04_TC_07 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CORRESPONDENCE ADDRESS FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Correspondence Address')]/../../../../../../following-sibling::td/table/tbody/tr/td/textarea")
+	private WebElement correspondenceaddressfield;
+
+	public void verifyCorrespondenceAddressField() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf( correspondenceaddressfield));
+		HighlightOnElement( correspondenceaddressfield);
+		Assert.assertTrue( correspondenceaddressfield.isDisplayed(),"CORRESPONDENCE ADDRESS FIELD IS DISPLAYED");
+		Assert.assertTrue( correspondenceaddressfield.isEnabled(),"CORRESPONDENCE ADDRESS FIELD IS ENABLED");
+		String corAdd=excel.getExcelData(correspondenceaddressfield,"Owner_Property_Details",1,19);	
+		Reporter.log("CORRESPONDENCE ADDRES:"+corAdd,true);
+		Reporter.log("action is performed on Correspondence Address Field",true);
+	}
+}

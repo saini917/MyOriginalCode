@@ -1,0 +1,39 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Reviewer_Sc_17 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	WebDriverWait wait = new WebDriverWait(driver,10);
+	
+	@FindBy(xpath="//div[@class='o_main']/div/div/div/div/div/div/button[contains(text(),'Action')]/span")
+	private WebElement actionbutton;
+	
+	@FindBy(xpath="//div[@class='o_main']/div/div/div/div/div/div/button[contains(text(),'Action')]/span/../following-sibling::ul/li/a[contains(text(),'Delete')]")
+	private WebElement delete;
+	
+	public void clickOnActionButton()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(actionbutton));
+		HighlightOnElement(actionbutton);
+		actionbutton.click();
+		Reporter.log("click on Action Button Successfully",true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(delete));
+		HighlightOnElement(delete);
+		Reporter.log("Expected result:"+delete.getText(),true);
+		delete.click();
+		Reporter.log("click on Delete Button Successfully",true);
+	}
+
+}

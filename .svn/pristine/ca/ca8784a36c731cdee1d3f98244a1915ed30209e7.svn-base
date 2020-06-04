@@ -1,0 +1,74 @@
+package NRDA_LEGAL;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+/**
+ * @author Sarvesh.Nellore
+ *
+ */
+public class ToverifyFunctionalityof_GM_LEGAL_Approval extends CommonLibrary 
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	ExcelDataDriver excel=new ExcelDataDriver();
+	
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Home')]")
+	private WebElement Home_Icon;
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Pending Application')]")
+	private WebElement PendingApplication_Icon;
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Approve/Reject Application')]")
+	private WebElement ApproveorRejectApplication_Icon;
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Payment Collection')]")
+	private WebElement PaymentCollection_Icon;
+		
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Invoice Collection')]")
+	private WebElement InvoiceCollection_Icon;
+		
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Application Form')]")
+	private WebElement ApplicationForm_Icon;
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'MIS Reports')]")
+	private WebElement MisReport_Icon;
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Case List')]")
+	private WebElement CaseList_Icon;
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Process Legal Invoice')]")
+	private WebElement ProcessLegalInvoice_Icon;
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Manage Advocate')]")
+	private WebElement ManageAdvocate_Icon;
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'Meeting Management')]")
+	private WebElement MeetingManagement_Icon;
+	
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[contains(.,'File Management')]")
+	private WebElement FileManagement_Icon;
+	
+	
+	
+	public void toverifyProceslegainvoicelinkfunctionality() throws InterruptedException
+	{
+		
+		waitForSomeTime();
+		HighlightOnElement(ProcessLegalInvoice_Icon);
+		Assert.assertTrue(ProcessLegalInvoice_Icon.isDisplayed());
+		Reporter.log(" To Verify ProcessLegalInvoice_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+		
+		
+		
+	}
+	
+	
+}

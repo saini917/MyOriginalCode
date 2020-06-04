@@ -1,0 +1,125 @@
+package NRDA_LAND_MUTUAL_TRANSFER;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class NRDA_LandManagement_SC001_TC051 extends CommonLibrary{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	ExcelDataDriver excel=new ExcelDataDriver();
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "subject".
+	 * @author deepak.saini
+	 * @since 2018-03-29
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@id='inboxForm:srchDlg']/div/div/div/table/tbody/tr/td/label[contains(text(),'Subject')]/../following-sibling::td[2]/input")
+	private WebElement subjectname;
+	
+	public void enterInvalidSubject() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException{
+		wait.until(ExpectedConditions.visibilityOf(subjectname));
+		Assert.assertTrue(subjectname.isDisplayed());
+		HighlightOnElement(subjectname);
+		Assert.assertTrue(subjectname.isEnabled());
+		excel.getExcelData(subjectname,"Land Data",2,15);
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "subject".
+	 * @author deepak.saini
+	 * @since 2018-03-29
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@id='inboxForm:srchDlg']/div/div/div/table/tbody/tr/td/label[contains(text(),'File No.')]/../following-sibling::td[2]/input")
+	private WebElement filenum;
+	
+	public void enterInvalidFileNumber() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException{
+		wait.until(ExpectedConditions.visibilityOf(filenum));
+		Assert.assertTrue(filenum.isDisplayed());
+		HighlightOnElement(filenum);
+		Assert.assertTrue(filenum.isEnabled());
+		excel.getExcelData(filenum,"Land Data",2,16);
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "search".
+	 * @author deepak.saini
+	 * @since 2018-03-29
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Search')])[2]")
+	private WebElement search;
+	
+	public void clickOnSearch() throws InterruptedException{		
+		wait.until(ExpectedConditions.visibilityOf(search));
+		Assert.assertTrue(search.isDisplayed());
+		HighlightOnElement(search);
+		Assert.assertTrue(search.isEnabled());
+		wait.until(ExpectedConditions.elementToBeClickable(search));
+		search.click();
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "error msg".
+	 * @author deepak.saini
+	 * @since 2018-03-29
+	 */
+	/*****************************************************************************************************/
+	
+	@FindBy(xpath="(//td[contains(text(),'No application found')])[1]")
+	private WebElement msg;
+	
+	public void verifyErrorMsg(){
+		String expected="No application found";
+		wait.until(ExpectedConditions.visibilityOf(msg));
+		Assert.assertTrue(msg.isDisplayed());
+		HighlightOnElement(msg);
+		Assert.assertTrue(msg.isEnabled());
+		String actual=msg.getText();
+		Reporter.log("Error message:"+actual,true);
+		Assert.assertEquals(actual,expected,"Test case not pass");
+		
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "close window".
+	 * @author deepak.saini
+	 * @since 2018-03-29
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@id='inboxForm:srchDlg']/div/a/span")
+	//@FindBy(xpath="(//button/span[contains(text(),'Close')])[1]")
+	private WebElement closewindow1;
+	
+	public void verifyClosePopUpWindow1() throws InterruptedException{
+		wait.until(ExpectedConditions.visibilityOf(closewindow1));
+		Assert.assertTrue(closewindow1.isDisplayed());
+		HighlightOnElement(closewindow1);
+		Assert.assertTrue(closewindow1.isEnabled());
+		wait.until(ExpectedConditions.elementToBeClickable(closewindow1));
+		closewindow1.click();
+		waitForSomeTime();
+	}
+
+}

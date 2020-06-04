@@ -1,0 +1,10 @@
+<h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>Suite</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table border="1">
+<tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>
+<tr bgcolor="94c7ba">  <td>17/10/25 12:15:44</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;HRMS_URL.openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Module@67b92f0a]">&gt;&gt;openBrowser</td> 
+<td>&nbsp;</td>  <td>main@510464020</td>   <td></td> </tr>
+<tr bgcolor="efea79">  <td>17/10/25 12:15:51</td>   <td>6861</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="HRMS_ERP_Configuration_Module.verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01(java.lang.String, java.lang.String)[pri:1, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Module@67b92f0a]">verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01</td> 
+  <td>main@510464020</td>   <td></td> </tr>
+<tr bgcolor="efea79">  <td>17/10/25 12:15:53</td>   <td>8813</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;HRMS_ERP_Configuration_Module.logoutWS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Module@67b92f0a]">&lt;&lt;logoutWS</td> 
+<td>&nbsp;</td>  <td>main@510464020</td>   <td></td> </tr>
+</table>

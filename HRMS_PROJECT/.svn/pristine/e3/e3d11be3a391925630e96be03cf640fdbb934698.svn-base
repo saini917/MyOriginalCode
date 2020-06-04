@@ -1,0 +1,64 @@
+<table border='1'>
+<tr>
+<th>Class name</th>
+<th>Method name</th>
+<th>Groups</th>
+</tr><tr>
+<td>HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module</td>
+<td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr>
+<td align='center' colspan='3'>@Test</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifyHRMSLoginPageHRMS_EMP_CT_CR_TC_01</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifyCancelFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03_2</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifyHRMSClickOnCategoryHRMS_EMP_CT_CR_TC_01_2</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifySaveFunctionaltyOnCategoryValidDataHRMS_EMP_CT_CR_TC_02</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifySaveFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_02_2</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifyDiscardFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifyOkFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03_1</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifySaveFunctionaltyOnCategoryInvalidDataHRMS_EMP_CT_CR_TC_02_1</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td align='center' colspan='3'>@BeforeClass</td>
+</tr>
+<tr>
+<td align='center' colspan='3'>@BeforeMethod</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>openBrowser</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td align='center' colspan='3'>@AfterMethod</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>logoutWS</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td align='center' colspan='3'>@AfterClass</td>
+</tr>
+</table>

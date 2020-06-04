@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="login as admin to check Investment Master module(failed)">
+    <classes>
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="logoutWS"/>
+          <include name="verifyCancelFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_2"/>
+          <include name="verifyOkFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_1"/>
+          <include name="verifySaveFunctionalityOnInvestmentBlankDataHRMS_EMP_IM_CR_TC_02_1"/>
+          <include name="verifySaveFunctionalityOnDescriptionBlankDataHRMS_EMP_IM_CR_TC_02_2"/>
+          <include name="verifyDiscardFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03"/>
+        </methods>
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module -->
+    </classes>
+  </test> <!-- login as admin to check Investment Master module(failed) -->
+</suite> <!-- Failed suite [Suite] -->

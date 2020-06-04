@@ -1,0 +1,36 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyFinancialYearField_SC_03_TC_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "FINANCIAL YEAR dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Financial Year')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement financialyear;
+	
+	public void verifyFinancialYear() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(financialyear));
+		HighlightOnElement(financialyear);
+		Assert.assertTrue(financialyear.isDisplayed(),"FINANCIAL YEAR is displayed");
+		Assert.assertTrue(financialyear.isEnabled(),"FINANCIAL YEAR is enabled");
+		SelectVisibleText(financialyear,"2017-18");
+		Reporter.log("Action is performed on Financial Year dropdown",true);
+	}
+}

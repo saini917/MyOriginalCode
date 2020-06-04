@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<listeners>
+		<listener class-name="GenericLibrary.ExtentReport"/>
+</listeners>
+
+  
+  <!--<test name="LOGIN AS AA HOD">
+	<classes>
+		<class name="HRMS_ERP_UAT_ADMINISTRATIVE_APPROVAL_ALLOCATION.LoginAsHOD">
+			<methods>
+					 <include name="UAT_Finance_AA_01"/>
+       				<include name="UAT_Finance_AA_02"/>  
+       			 	<include name="UAT_Finance_AA_03"/>
+       			 	<include name="UAT_Finance_AA_04"/> 
+       			 	<include name="UAT_Finance_AA_05"/>
+       			 	<include name="UAT_Finance_AA_06"/>
+       			 	<include name="UAT_Finance_AA_07"/>
+       			 	<include name="UAT_Finance_AA_08"/> 
+       			 	<include name="UAT_Finance_AA_09"/>
+       			 	<include name="UAT_Finance_AA_10"/>
+       			 	<include name="UAT_Finance_AA_11"/>
+       			 	<include name="UAT_Finance_AA_12"/>
+       			 	<include name="UAT_Finance_AA_13"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ <!-- <test name="LOGIN AS AA FM">
+	<classes>
+		<class name="HRMS_ERP_UAT_ADMINISTRATIVE_APPROVAL_ALLOCATION.LoginAsFM">
+			<methods>
+       			   <include name="UAT_Finance_AA_14"/>
+       			<include name="UAT_Finance_AA_15"/>  
+       			 <include name="UAT_Finance_AA_16"/>
+       			 <include name="UAT_Finance_AA_17"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+ 
+ <!-- <test name="LOGIN AS AA CEO">
+	<classes>
+		<class name="HRMS_ERP_UAT_ADMINISTRATIVE_APPROVAL_ALLOCATION.LoginAsCEO">
+			<methods>
+       			   <include name="UAT_Finance_AA_18"/>
+       			<include name="UAT_Finance_AA_19"/>  
+       			 <include name="UAT_Finance_AA_20"/>
+       			 <include name="UAT_Finance_AA_21"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+ <test name="LOGIN AS AA BOD">
+	<classes>
+		<class name="HRMS_ERP_UAT_ADMINISTRATIVE_APPROVAL_ALLOCATION.LoginAsBOD">
+			<methods>
+       			   <include name="UAT_Finance_AA_22"/>
+       			<include name="UAT_Finance_AA_23"/>  
+       			 <include name="UAT_Finance_AA_24"/>
+       			 <include name="UAT_Finance_AA_25"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ </suite>

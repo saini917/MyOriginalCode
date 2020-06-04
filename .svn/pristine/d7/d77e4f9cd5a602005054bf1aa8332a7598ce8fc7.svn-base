@@ -1,0 +1,57 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyCreateButton_SC_02_TC_04 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CREATE BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-12-06
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Create')]")
+	private WebElement create;
+
+	@FindBy(xpath="//button[@type='button']")
+	private List<WebElement> display;
+
+	@FindBy(xpath="//div[@class='o_form_sheet']/table/tbody/tr/td/label")
+	private List<WebElement> display1;
+
+	public void verifyCreateButton() throws InterruptedException
+	{
+			wait.until(ExpectedConditions.elementToBeClickable(create));
+			HighlightOnElement(create);
+			Actions cr=new Actions(driver);
+			cr.click(create).build().perform();
+			waitForSomeTime();
+	}
+
+	public void verifyCreateDisplayList()
+	{
+		for(WebElement disp:display)
+		{
+			HighlightOnElement(disp);
+			Assert.assertNotNull(disp.isDisplayed());
+		}
+		for(WebElement disp:display1)
+		{
+			HighlightOnElement(disp);
+			Assert.assertNotNull(disp.isDisplayed());
+		}
+	}
+
+}

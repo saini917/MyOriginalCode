@@ -1,0 +1,44 @@
+package NRDA_ChangeOfUse;
+
+import java.io.IOException;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+public class ToVerifyChangeOfUse_SC_02_TC_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "WATER AND SEWERAGE SECTION".
+	 * @author deepak.saini
+	 * @since 2017-12-05
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/span/span/div/div/div/ul/li/a[contains(text(),'Change Connection Details/कनेक्शन विवरण बदलें')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Connection Details')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement connectiondetailsfield;
+	
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/span/span/div/div/div/ul/li/a[contains(text(),'Change Connection Details/कनेक्शन विवरण बदलें')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Connection Details')]")
+	private WebElement clickonany;
+	
+	public void verifyConnectionDetailsField() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf(connectiondetailsfield));
+		HighlightOnElement(connectiondetailsfield);
+		Assert.assertTrue(connectiondetailsfield.isDisplayed());
+		Assert.assertTrue(connectiondetailsfield.isEnabled());
+		excel.getExcelData(connectiondetailsfield,"Change Of Use Data",2,0);
+		clickonany.click();
+		acceptAlert();
+		excel.getExcelData(connectiondetailsfield,"Change Of Use Data",1,0);
+	}
+}

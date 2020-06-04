@@ -1,0 +1,99 @@
+package HRMS_ERP_CONFIGURATION_CATEGORY;
+
+import java.io.IOException;
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+/**
+ * @author deepak.saini
+ * @since 26-10-2017
+ */
+public class HRMS_ERP_CONFIGURATION_Category_Save_Fun_Sc_02 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Category input box".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_group o_inner_group']/tbody/tr/td/label/../following-sibling::td/input")
+	private WebElement categoryinputbox;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Invalid message".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_notification_manager']/div[1]/div[1]")
+	private WebElement invalidmessage;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Save button".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_buttons_edit']/button[contains(text(),'Save')]")
+	private WebElement savebtn;
+/*************************************************************************************************************/
+	
+	/*
+	 * This method is used to enter the valid value in category input box
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	public void enterCategoryInputValidValue() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(categoryinputbox);
+		exceldata.getExcelData(categoryinputbox, "Category_Data",6,2);
+	}
+	
+	/*
+	 * This method is used to enter the Invalid value in category input box
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	public void enterCategoryInputInvalidValue() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(categoryinputbox);
+		exceldata.getExcelData(categoryinputbox, "Category_Data",1,6);
+		String Actual_Value=" The following fields are invalid:";
+		String Expected_Value=invalidmessage.getText();
+		Assert.assertEquals(Actual_Value, Expected_Value, "Test Case is passed");
+		Reporter.log("Actual value is matched with Expected value");
+	}
+	
+	/*
+	 * This method is used to enter the Blank value in category input box
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	public void enterCategoryInputBlankValue() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(categoryinputbox);
+		exceldata.getExcelData(categoryinputbox, "Category_Data",2,6);
+	}
+	public void clickOnSaveButton()
+	{
+		HighlightOnElement(savebtn);
+		savebtn.click();
+	}
+
+}
+
+

@@ -1,0 +1,39 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyACRLink_SC_06_TC_01 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACR".
+	 * @author deepak.saini
+	 * @since 2017-12-13
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/thead/tr/th/following-sibling::th")
+	private List<WebElement> acrlink;
+	
+	public void verifyACRLink() throws InterruptedException
+	{
+		for(WebElement ale:acrlink)
+		{
+			HighlightOnElement(ale);
+			Assert.assertTrue(ale.isDisplayed());
+			waitForSomeTime();
+		}
+	}
+}

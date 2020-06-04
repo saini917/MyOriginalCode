@@ -1,0 +1,2457 @@
+package WaterAndSeweragePRO;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Application Form".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li[14]")
+	private WebElement application_form;                                    
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PRO SECTION DROPDOWN".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PRO SECTION')]/preceding-sibling::span")
+	private WebElement prosectiondrop;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "VERIFY PRO SECTION ".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PRO SECTION')]/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'ADVERTISEMENT AND PUBLICATION')]")
+	private WebElement prosectionlink;
+
+	public void clickOnApplicationForm() throws InterruptedException
+	{
+		HighlightOnElement(application_form);
+		Assert.assertTrue(application_form.isDisplayed());
+		Assert.assertTrue(application_form.isEnabled());
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(application_form)).click();
+		//application_form.click();
+		Reporter.log("click on Application Form Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	public void clickOnProSection() throws InterruptedException
+	{
+		HighlightOnElement(prosectiondrop);
+		Assert.assertTrue(prosectiondrop.isDisplayed());
+		Assert.assertTrue(prosectiondrop.isEnabled());
+		prosectiondrop.click();
+		Reporter.log("click on PRO SECTION dropdown Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	public void verifyProSection06() throws InterruptedException
+	{
+		HighlightOnElement(prosectionlink);
+		Assert.assertTrue(prosectionlink.isDisplayed());
+		String Pro_Section=prosectionlink.getText();
+		Reporter.log("Expected Value:"+Pro_Section,true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PRO SECTION IMAGE".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PRO SECTION')]/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'ADVERTISEMENT AND PUBLICATION')]/../following-sibling::td/span/a/img[@src='/NRDAuthority/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	private WebElement prosection;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PRO SECTION TAB".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a")
+	private List<WebElement> prosectiontablist;
+
+	public void clickOnProSectionImage07() throws InterruptedException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+		HighlightOnElement(prosection);
+		Assert.assertTrue(prosection.isDisplayed());
+		Assert.assertTrue(prosection.isEnabled());
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		for(WebElement prosectionlist:prosectiontablist)
+		{
+			HighlightOnElement(prosectionlist);
+			String list=prosectionlist.getText();
+			Reporter.log("Expected result:"+list,true);
+		}
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	}
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Advertisement details".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Advertisement Details')]")
+	private WebElement advertisement_details;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Advertisement details List".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label")
+	private List<WebElement> advertisement_details_list;
+
+	public void verifyAdvertisementDetails08() throws InterruptedException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(advertisement_details);
+		Assert.assertTrue(advertisement_details.isDisplayed());
+		Assert.assertTrue(advertisement_details.isEnabled());
+		advertisement_details.click();
+		Reporter.log("Expected result:"+advertisement_details,true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		for(WebElement advertisement:advertisement_details_list)
+		{
+			HighlightOnElement(advertisement);
+			String advertisement_list=advertisement.getText();
+			Reporter.log("Expected result:"+advertisement_list,true);
+		}
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Advertisement Type".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Advertising Type')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement advertisementtype;
+
+	public void verifyAdvertisementType09() throws InterruptedException
+	{
+		verifyAdvertisementDetails08();
+		HighlightOnElement(advertisementtype);
+		String adv_type=advertisementtype.getText();
+		Reporter.log("Advertisement Type:"+adv_type,true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Tensure Label".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication tenure')]")
+	private WebElement publication_tensure_label;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Tensure Element".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication tenure')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement publication_tensure_element;
+
+
+	public void verifyPublicTensure10() throws InterruptedException
+	{
+		verifyAdvertisementType09();
+		SelectVisibleText(advertisementtype,"Classified");
+		waitForSomeTime();
+
+		HighlightOnElement(publication_tensure_label);
+		String publication=publication_tensure_label.getText();
+		Reporter.log("Expected result:"+publication,true);
+
+		HighlightOnElement(publication_tensure_element);
+		String public_element=publication_tensure_element.getText();
+		Reporter.log("Expected result:"+public_element,true);
+
+
+	}
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Description Input TextBox".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Description')]/../../../../../../following-sibling::td/table/tbody/tr/td/textarea")
+	private WebElement descriptiontext;
+
+	public void verifyDescriptionText11() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		verifyPublicTensure10();
+		HighlightOnElement(descriptiontext);
+		String decription=excel.getExcelData(descriptiontext,"PRO_Advertisement_Details_Data",1,0);
+		Reporter.log("Description:"+decription,true);
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Reset Button".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Reset')])[1]")
+	private WebElement resetbtn;
+
+	public void clickOnReset12() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		verifyDescriptionText11();
+		HighlightOnElement(resetbtn);
+		Assert.assertTrue(resetbtn.isDisplayed());
+		Assert.assertTrue(resetbtn.isEnabled());
+		resetbtn.click();
+		Reporter.log("click on reset button successfully",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Close Button".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Close')])[1]")
+	private WebElement closebtn;
+
+	public void clickOnClose13() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		verifyDescriptionText11();
+		HighlightOnElement(resetbtn);
+		Assert.assertTrue(closebtn.isDisplayed());
+		Assert.assertTrue(closebtn.isEnabled());
+		closebtn.click();
+		Reporter.log("click on close button successfully",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Mode".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Mode')]")
+	private WebElement publication_mode;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Mode List".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:tabView']/div/div[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication Mode')]")
+	private WebElement publication_mode_list;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Mode List".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:tabView']/div/div[2]/span/center/table/tbody/tr/td/span/button/span")
+	private List<WebElement> publication_mode_list1;
+
+	public void verifyPublicationModeTab14() throws InterruptedException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(publication_mode);
+		Assert.assertTrue(publication_mode.isDisplayed());
+		Assert.assertTrue(publication_mode.isEnabled());
+		publication_mode.click();
+		Reporter.log("Expected result:"+publication_mode.getText(),true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(publication_mode_list);
+		Assert.assertTrue(publication_mode_list.isDisplayed());
+		String publicationMode=publication_mode_list.getText();
+		Reporter.log("Expected result:"+publicationMode,true);
+
+		for(WebElement list:publication_mode_list1)
+		{
+			HighlightOnElement(list);
+			Assert.assertTrue(list.isDisplayed());
+			String publicationMode1=list.getText();
+			Reporter.log("Expected result:"+publicationMode1,true);
+		}
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Mode dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:tabView']/div/div[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication Mode')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement publicationmodedrop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Sub Mode dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:tabView']/div/div[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication Sub Mode')]")
+	private WebElement publicationsubmodedrop;
+
+	public void verifyPublicationModeDropBox15() throws InterruptedException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(publication_mode);
+		Assert.assertTrue(publication_mode.isDisplayed());
+		Assert.assertTrue(publication_mode.isEnabled());
+		publication_mode.click();
+		Reporter.log("Expected result:"+publication_mode.getText(),true);
+		waitForSomeTime();
+
+		HighlightOnElement(publicationmodedrop);
+		publicationmodedrop.click();
+		SelectVisibleText(publicationmodedrop,"Display Advertisement");
+		Reporter.log("select the value from the publication mode successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(publicationsubmodedrop);
+		String sub_mode=publicationsubmodedrop.getText();
+		Reporter.log("Expected result:"+sub_mode,true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Sub Mode dropbox".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:tabView']/div/div[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication Sub Mode')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement publicationsubmodedropbox;
+
+	public void verifyPublicationSubModeDropBox16() throws InterruptedException
+	{
+		verifyPublicationModeDropBox15();
+		HighlightOnElement(publicationsubmodedropbox);
+		SelectVisibleText(publicationsubmodedropbox,"Event");
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Category".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]")
+	private WebElement publication_category;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Category Label".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Category')]")
+	private WebElement categorylabel;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Category dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Category')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement categoryselect;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Sub Category label".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Sub Category')]")
+	private WebElement subcategorylabel;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "enter required pages".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Enter Required Pages')]")
+	private WebElement enterrequiredpages;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Sub Category dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Sub Category')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement subcategoryselect;
+
+	public void verifyPublicationCategory17() throws InterruptedException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(publication_category);
+		String public_category=publication_category.getText();
+		Reporter.log("Expected result:"+public_category,true);
+		publication_category.click();
+		Reporter.log("click on Publication Category Tab successfuly",true);
+		waitForSomeTime();
+
+
+		HighlightOnElement(categorylabel);
+		String category=categorylabel.getText();
+		Reporter.log("Expected result:"+category,true);
+
+		HighlightOnElement(categoryselect);
+		SelectVisibleText(categoryselect,"Broacher");
+		Reporter.log("Category selected successfuly",true);
+		waitForSomeTime();
+
+		HighlightOnElement(subcategorylabel);
+		String subcategory=subcategorylabel.getText();
+		Reporter.log("Expected result:"+subcategory,true);
+
+		HighlightOnElement(enterrequiredpages);
+		String pages=enterrequiredpages.getText();
+		Reporter.log("Expected result:"+pages,true);
+
+		HighlightOnElement(subcategoryselect);
+		SelectVisibleText(subcategoryselect,"Folding maps");
+		waitForSomeTime();
+
+	}
+
+
+	public void verifyPublicationSubCategory18() throws InterruptedException
+	{
+		verifyPublicationCategory17();
+
+		HighlightOnElement(subcategoryselect);
+		SelectVisibleText(subcategoryselect,"Folding maps");
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Content/type tab".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Content Type / Location')]")
+	private WebElement content_typetab;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Content/type Label".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Content Type / Location')]/../../following-sibling::div/div[4]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label")
+	private List<WebElement> contentlabel;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "button".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Content Type / Location')]/../../following-sibling::div/div[4]/span/center/table/tbody/tr/td/span/button/span")
+	private List<WebElement> button;
+
+	public void verifyContentTypeTab19() throws InterruptedException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(content_typetab);
+		String content=content_typetab.getText();
+		Reporter.log("Expected result:"+content,true);
+		content_typetab.click();
+		Reporter.log("click on Content Type/Location successfuly");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		for(WebElement list:contentlabel)
+		{
+			HighlightOnElement(list);
+			String type=list.getText();
+			Reporter.log("Expected result:"+type,true);
+		}
+
+		for(WebElement butt:button)
+		{
+			HighlightOnElement(butt);
+			String buttonn=butt.getText();
+			Reporter.log("Expected result:"+buttonn,true);
+		}
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Content Type Dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-07
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Content Type')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement contenttypedropbox;
+
+	public void contentTypeDropbox20() throws InterruptedException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(content_typetab);
+		String content=content_typetab.getText();
+		Reporter.log("Expected result:"+content,true);
+		content_typetab.click();
+		Reporter.log("click on Content Type/Location successfuly");
+		waitForSomeTime();
+
+		HighlightOnElement(contenttypedropbox);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		String content_type=contenttypedropbox.getText();
+		Reporter.log("Content Type:"+content_type,true);
+		SelectVisibleText(contenttypedropbox,"Both");
+		Reporter.log("Element selected successfully from the Content Type dropbox",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Location Dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-07
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication Location')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement publication_location;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "District Dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-07
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'District')]/../../../../../../following-sibling::td/table/tbody/tr/td/div/div/span")
+	private WebElement districtdropbox;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Search box ".
+	 * @author deepak.saini
+	 * @since 2017-11-07
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-selectcheckboxmenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden']/div/div/input")
+	private WebElement searchelement;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Search box checkbox".
+	 * @author deepak.saini
+	 * @since 2017-11-07
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-selectcheckboxmenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden']/div/ul/li/div/div")
+	private WebElement selectelementchkbox;
+
+	public void publicationTypeDropBox21() throws InterruptedException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(content_typetab);
+		String content=content_typetab.getText();
+		Reporter.log("Expected result:"+content,true);
+		content_typetab.click();
+		Reporter.log("click on Content Type/Location successfuly");
+		waitForSomeTime();
+
+
+		HighlightOnElement( publication_location);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		String publication_type= publication_location.getText();
+		Reporter.log("Publication Location:"+publication_type,true);
+		SelectVisibleText(publication_location,"Within CG");
+		Reporter.log("Element selected successfully from the Publication Location dropbox",true);
+		waitForSomeTime();
+
+		HighlightOnElement(districtdropbox);
+		districtdropbox.click();
+		Reporter.log("click on District dropbox successfully",true);
+		HighlightOnElement(searchelement);
+		searchelement.sendKeys("bastar");
+		Reporter.log("Enter the value in District dropbox successfully",true);
+		selectelementchkbox.click();
+		Reporter.log("click on selected checkbox District dropbox successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	@FindBy(xpath="//button/span[contains(text(),'Submit')]")
+	private WebElement submitbtn;
+
+	public void  clickOnSubmitButton25() throws InterruptedException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(content_typetab);
+		String content=content_typetab.getText();
+		Reporter.log("Expected result:"+content,true);
+		content_typetab.click();
+		Reporter.log("click on Content Type/Location successfuly");
+		waitForSomeTime();
+
+		HighlightOnElement(contenttypedropbox);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		String content_type=contenttypedropbox.getText();
+		Reporter.log("Content Type:"+content_type,true);
+		SelectVisibleText(contenttypedropbox,"Both");
+		Reporter.log("Element selected successfully from the Content Type dropbox",true);
+		waitForSomeTime();
+
+		HighlightOnElement( publication_location);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		String publication_type= publication_location.getText();
+		Reporter.log("Publication Location:"+publication_type,true);
+		SelectVisibleText(publication_location,"Within CG");
+		Reporter.log("Element selected successfully from the Publication Location dropbox",true);
+		waitForSomeTime();
+
+		HighlightOnElement(districtdropbox);
+		districtdropbox.click();
+		Reporter.log("click on District dropbox successfully",true);
+		HighlightOnElement(searchelement);
+		searchelement.sendKeys("bastar");
+		Reporter.log("Enter the value in District dropbox successfully",true);
+		selectelementchkbox.click();
+		Reporter.log("click on selected checkbox District dropbox successfully",true);
+		waitForSomeTime();
+
+		submitbtn.click();
+		Reporter.log("click on submit button",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Dimension of classified in cm".
+	 * @author deepak.saini
+	 * @since 2017-11-07
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Dimension of classified (In CM')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement dimension_classified;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Start date".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication Start Date')]/../../../../../../following-sibling::td/table/tbody/tr/td/span/input")
+	private WebElement publication_start_date;
+
+	@FindBy(xpath=".//*[@id='ui-datepicker-div']/div[1]/div/select[2]")
+	private WebElement select_start_year;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication  End date".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication End Date')]/../../../../../../following-sibling::td/table/tbody/tr/td/span/input")
+	private WebElement publication_end_date;
+
+	@FindBy(xpath=".//*[@id='ui-datepicker-div']/div[1]/div/select[2]")
+	private WebElement select_end_year;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Description Input TextBox".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Description')]/../../../../../../following-sibling::td/table/tbody/tr/td/textarea")
+	private WebElement descriptioninputtextbox;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "File upload".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'File Upload')]/../../../../../../following-sibling::td/table/tbody/tr/td/span/div/div/label/input")
+	private WebElement fileupload;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "reset button".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Reset')]")
+	private WebElement reset;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Mode".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Mode')]")
+	private WebElement publicationmode;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Mode dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:tabView']/div/div[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication Mode')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement publication_mode_drop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Sub Mode dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:tabView']/div/div[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Publication Sub Mode')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement publication_sub_mode;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Publication Category".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]")
+	private WebElement publicationcategory;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Category dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Category')]/../../../../../../following-sibling::td/table/tbody/tr/td/select)[1]")
+	private WebElement category_select;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Sub Category label".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Sub Category')]")
+	private WebElement subcategory_label;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "enter required pages".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Enter Required Pages')]")
+	private WebElement enterrequired_pages;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Sub Category dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Sub Category')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement subcategory_select;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Frequency in days".
+	 * @author deepak.saini
+	 * @since 2017-11-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Frequency in Days')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement frequency;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Duration in second".
+	 * @author deepak.saini
+	 * @since 2017-11-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div/table[2]/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/ul/li/a[contains(text(),'Publication Category')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Duration in Seconds')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement duration;
+
+	public void clickOnApplicationTypeClassifiedEventBrochureDownloadbutton26() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(advertisement_details);
+		Assert.assertTrue(advertisement_details.isDisplayed());
+		Assert.assertTrue(advertisement_details.isEnabled());
+		advertisement_details.click();
+		Reporter.log("Expected result:"+advertisement_details,true);
+		waitForSomeTime();
+
+		HighlightOnElement(reset);
+		reset.click();
+		Reporter.log("click on reset button successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(advertisementtype);
+		SelectVisibleText(advertisementtype,"Classified");
+		Reporter.log("select Classified from Advertising Type successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(dimension_classified);
+		String dimension=excel.getExcelData(dimension_classified,"PRO_Advertisement_Details_Data",1,2);
+		Reporter.log("Dimension of classfied(In cm):"+dimension,true);
+
+		HighlightOnElement(publication_start_date);
+		publication_start_date.click();
+
+		select_start_year.click();
+		Select start_year=new Select(select_start_year);
+		List<WebElement> list_start_year=start_year.getOptions();
+		for(int index=0;index<list_start_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_start_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					start_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("6"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+
+
+		HighlightOnElement(publication_end_date);
+		publication_end_date.click();
+
+		select_end_year.click();
+		Select end_year=new Select(select_end_year);
+		List<WebElement> list_end_year=end_year.getOptions();
+		for(int index=0;index<list_end_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_end_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					end_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("8"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+		HighlightOnElement(descriptiontext);
+		String decription=excel.getExcelData(descriptiontext,"PRO_Advertisement_Details_Data",1,3);
+		Reporter.log("Description:"+decription,true);
+
+		HighlightOnElement(fileupload);
+		fileupload.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+		Reporter.log("File upload successfully",true);
+		waitForSomeTime();
+
+
+		HighlightOnElement(publicationmode);
+		Assert.assertTrue(publicationmode.isDisplayed());
+		Assert.assertTrue(publicationmode.isEnabled());
+		publicationmode.click();
+		Reporter.log("Expected result:"+publicationmode.getText(),true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		waitForSomeTime();
+
+		HighlightOnElement(publication_mode_drop);
+		SelectVisibleText(publication_mode_drop,"Display Advertisement");
+		Reporter.log("select Display Advertisement from Publication Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publication_sub_mode);
+		SelectVisibleText(publication_sub_mode,"Event");
+		Reporter.log("select Event from Publication Sub Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publicationcategory);
+		String public_category=publicationcategory.getText();
+		Reporter.log("Expected result:"+public_category,true);
+		publicationcategory.click();
+		Reporter.log("click on Publication Category Tab successfuly",true);
+		waitForSomeTime();
+
+		HighlightOnElement(category_select);
+		SelectVisibleText(category_select,"Brochure");
+		Reporter.log("Category selected successfuly",true);
+		waitForSomeTime();
+
+		HighlightOnElement(subcategory_label);
+		String subcategory=subcategory_label.getText();
+		Reporter.log("Expected result:"+subcategory,true);
+
+		/*HighlightOnElement(enterrequired_pages);
+		String pages=enterrequired_pages.getText();
+		Reporter.log("Expected result:"+pages,true);*/
+
+		HighlightOnElement(subcategory_select);
+		SelectVisibleText(subcategory_select,"Folding maps");
+		waitForSomeTime();
+	}
+
+
+	
+	public void clickOnApplicationTypeClassifiedInagurationDownloadbutton26() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(advertisement_details);
+		Assert.assertTrue(advertisement_details.isDisplayed());
+		Assert.assertTrue(advertisement_details.isEnabled());
+		advertisement_details.click();
+		Reporter.log("Expected result:"+advertisement_details,true);
+		waitForSomeTime();
+
+		HighlightOnElement(reset);
+		reset.click();
+		Reporter.log("click on reset button successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(advertisementtype);
+		SelectVisibleText(advertisementtype,"Classified");
+		Reporter.log("select Classified from Advertising Type successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(dimension_classified);
+		String dimension=excel.getExcelData(dimension_classified,"PRO_Advertisement_Details_Data",1,2);
+		Reporter.log("Dimension of classfied(In cm):"+dimension,true);
+
+		HighlightOnElement(publication_start_date);
+		publication_start_date.click();
+
+		select_start_year.click();
+		Select start_year=new Select(select_start_year);
+		List<WebElement> list_start_year=start_year.getOptions();
+		for(int index=0;index<list_start_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_start_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					start_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("6"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+
+
+		HighlightOnElement(publication_end_date);
+		publication_end_date.click();
+
+		select_end_year.click();
+		Select end_year=new Select(select_end_year);
+		List<WebElement> list_end_year=end_year.getOptions();
+		for(int index=0;index<list_end_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_end_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					end_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("8"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+		HighlightOnElement(descriptiontext);
+		String decription=excel.getExcelData(descriptiontext,"PRO_Advertisement_Details_Data",1,3);
+		Reporter.log("Description:"+decription,true);
+
+		HighlightOnElement(fileupload);
+		fileupload.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+		Reporter.log("File upload successfully",true);
+		waitForSomeTime();
+
+
+		HighlightOnElement(publicationmode);
+		Assert.assertTrue(publicationmode.isDisplayed());
+		Assert.assertTrue(publicationmode.isEnabled());
+		publicationmode.click();
+		Reporter.log("Expected result:"+publicationmode.getText(),true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		waitForSomeTime();
+
+		HighlightOnElement(publication_mode_drop);
+		SelectVisibleText(publication_mode_drop,"Display Advertisement");
+		Reporter.log("select Display Advertisement from Publication Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publication_sub_mode);
+		SelectVisibleText(publication_sub_mode,"Inauguration");
+		Reporter.log("select Inauguration from Publication Sub Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publication_sub_mode);
+		SelectVisibleText(publication_sub_mode,"Event");
+		Reporter.log("select Event from Publication Sub Mode successfully",true);
+		waitForSomeTime();
+		
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Enter Mode under publication mode".
+	 * @author deepak.saini
+	 * @since 2017-11-07
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:tabView']/div/div[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Enter Mode')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement enter_mode;
+	
+	public void clickOnApplicationTypeClassifiedOtherDownloadbutton26() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(advertisement_details);
+		Assert.assertTrue(advertisement_details.isDisplayed());
+		Assert.assertTrue(advertisement_details.isEnabled());
+		advertisement_details.click();
+		Reporter.log("Expected result:"+advertisement_details,true);
+		waitForSomeTime();
+
+		HighlightOnElement(reset);
+		reset.click();
+		Reporter.log("click on reset button successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(advertisementtype);
+		SelectVisibleText(advertisementtype,"Classified");
+		Reporter.log("select Classified from Advertising Type successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(dimension_classified);
+		String dimension=excel.getExcelData(dimension_classified,"PRO_Advertisement_Details_Data",1,2);
+		Reporter.log("Dimension of classfied(In cm):"+dimension,true);
+
+		HighlightOnElement(publication_start_date);
+		publication_start_date.click();
+
+		select_start_year.click();
+		Select start_year=new Select(select_start_year);
+		List<WebElement> list_start_year=start_year.getOptions();
+		for(int index=0;index<list_start_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_start_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					start_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("6"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+
+
+		HighlightOnElement(publication_end_date);
+		publication_end_date.click();
+
+		select_end_year.click();
+		Select end_year=new Select(select_end_year);
+		List<WebElement> list_end_year=end_year.getOptions();
+		for(int index=0;index<list_end_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_end_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					end_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("8"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+		HighlightOnElement(descriptiontext);
+		String decription=excel.getExcelData(descriptiontext,"PRO_Advertisement_Details_Data",1,3);
+		Reporter.log("Description:"+decription,true);
+
+		HighlightOnElement(fileupload);
+		fileupload.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+		Reporter.log("File upload successfully",true);
+		waitForSomeTime();
+
+
+		HighlightOnElement(publicationmode);
+		Assert.assertTrue(publicationmode.isDisplayed());
+		Assert.assertTrue(publicationmode.isEnabled());
+		publicationmode.click();
+		Reporter.log("Expected result:"+publicationmode.getText(),true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		waitForSomeTime();
+
+		HighlightOnElement(publication_mode_drop);
+		SelectVisibleText(publication_mode_drop,"Display Advertisement");
+		Reporter.log("select Display Advertisement from Publication Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publication_sub_mode);
+		SelectVisibleText(publication_sub_mode,"Other");
+		Reporter.log("select Other from Publication Sub Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(enter_mode);
+		String entermode=excel.getExcelData(enter_mode,"PRO_Advertisement_Details_Data",1,20);
+		Reporter.log("Enter Mode:"+entermode,true);
+		waitForSomeTime();
+		
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Location of display".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Location of Display')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement location_of_display;
+
+	public void clickOnApplicationTypeDisplayedTenderAdvertisementNewsChannelDownloadbutton26() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+		HighlightOnElement(advertisement_details);
+		Assert.assertTrue(advertisement_details.isDisplayed());
+		Assert.assertTrue(advertisement_details.isEnabled());
+		advertisement_details.click();
+		Reporter.log("Expected result:"+advertisement_details,true);
+		waitForSomeTime();
+
+		HighlightOnElement(reset);
+		reset.click();
+		Reporter.log("click on reset button successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(advertisementtype);
+		SelectVisibleText(advertisementtype,"Display");
+		Reporter.log("select Display from Advertising Type successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(location_of_display);
+		String dimension=excel.getExcelData(location_of_display,"PRO_Advertisement_Details_Data",1,7);
+		Reporter.log("Location of Display:"+dimension,true);
+
+		HighlightOnElement(publication_start_date);
+		publication_start_date.click();
+
+		select_start_year.click();
+		Select start_year=new Select(select_start_year);
+		List<WebElement> list_start_year=start_year.getOptions();
+		for(int index=0;index<list_start_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_start_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					start_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("10"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+
+
+		HighlightOnElement(publication_end_date);
+		publication_end_date.click();
+
+		select_end_year.click();
+		Select end_year=new Select(select_end_year);
+		List<WebElement> list_end_year=end_year.getOptions();
+		for(int index=0;index<list_end_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_end_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					end_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("20"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+		HighlightOnElement(descriptiontext);
+		String decription=excel.getExcelData(descriptiontext,"PRO_Advertisement_Details_Data",1,3);
+		Reporter.log("Description:"+decription,true);
+
+		HighlightOnElement(fileupload);
+		fileupload.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+		Reporter.log("File upload successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(publicationmode);
+		Assert.assertTrue(publicationmode.isDisplayed());
+		Assert.assertTrue(publicationmode.isEnabled());
+		publicationmode.click();
+		Reporter.log("Expected result:"+publicationmode.getText(),true);
+		waitForSomeTime();
+		
+
+		HighlightOnElement(publication_mode_drop);
+		SelectVisibleText(publication_mode_drop,"Tender Advertisement");
+		Reporter.log("select Tender Advertisement from Publication Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publication_sub_mode);
+		SelectVisibleText(publication_sub_mode,"NIT");
+		Reporter.log("select NIT from Publication Sub Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publicationcategory);
+		String public_category=publicationcategory.getText();
+		Reporter.log("Expected result:"+public_category,true);
+		publicationcategory.click();
+		Reporter.log("click on Publication Category Tab successfuly",true);
+		waitForSomeTime();
+
+		HighlightOnElement(category_select);
+		SelectVisibleText(category_select,"News Channel");
+		Reporter.log("Category selected successfuly",true);
+		waitForSomeTime();
+
+		HighlightOnElement(subcategory_label);
+		String subcategory=subcategory_label.getText();
+		Reporter.log("Expected result:"+subcategory,true);
+
+
+		HighlightOnElement(subcategory_select);
+		SelectVisibleText(subcategory_select,"Bill board");
+		waitForSomeTime();
+		
+		HighlightOnElement(frequency);
+		String frequencys=excel.getExcelData(frequency,"PRO_Advertisement_Details_Data",1,24);
+		Reporter.log("Frquency in days:"+frequencys,true);
+		
+		HighlightOnElement(duration);
+		String durations=excel.getExcelData(duration,"PRO_Advertisement_Details_Data",1,25);
+		Reporter.log("Duration in days:"+durations,true);
+	}
+
+		public void clickOnApplicationTypeDisplayedOtherRadioJingleDownloadbutton26() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+		{
+			clickOnApplicationForm();
+			clickOnProSection();
+			verifyProSection06();
+
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,250)", "");
+			WebDriverWait wait = new WebDriverWait(driver,30);
+			wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+			Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+			HighlightOnElement(advertisement_details);
+			Assert.assertTrue(advertisement_details.isDisplayed());
+			Assert.assertTrue(advertisement_details.isEnabled());
+			advertisement_details.click();
+			Reporter.log("Expected result:"+advertisement_details,true);
+			waitForSomeTime();
+
+			HighlightOnElement(reset);
+			reset.click();
+			Reporter.log("click on reset button successfully",true);
+			waitForSomeTime();
+
+			HighlightOnElement(advertisementtype);
+			SelectVisibleText(advertisementtype,"Display");
+			Reporter.log("select Display from Advertising Type successfully",true);
+			waitForSomeTime();
+
+			HighlightOnElement(location_of_display);
+			String dimension=excel.getExcelData(location_of_display,"PRO_Advertisement_Details_Data",1,7);
+			Reporter.log("Location of Display:"+dimension,true);
+
+			HighlightOnElement(publication_start_date);
+			publication_start_date.click();
+
+			select_start_year.click();
+			Select start_year=new Select(select_start_year);
+			List<WebElement> list_start_year=start_year.getOptions();
+			for(int index=0;index<list_start_year.size();index++)
+			{
+				try
+				{
+					String allyear=list_start_year.get(index).getText();
+					Reporter.log("Year:"+allyear,true);
+					if(allyear.trim().equalsIgnoreCase("2017"))
+					{
+						start_year.selectByIndex(index);
+						WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+						selectMonth.click();
+						Select month=new Select(selectMonth);
+						List<WebElement> list_month=month.getOptions();
+						for(int index1=0;index1<list_month.size();index1++)
+						{
+							String allmonth=list_month.get(index1).getText();
+							Reporter.log("Month:"+allmonth,true);
+							if(allmonth.trim().equalsIgnoreCase("Nov"))
+							{
+								month.selectByIndex(index1);
+								List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+								for(int index2=0;index2<selectdate.size();index2++)
+								{
+									String alldate=selectdate.get(index2).getText();
+									Reporter.log("Date:"+alldate,true);
+									if(alldate.trim().equalsIgnoreCase("10"))
+									{
+										selectdate.get(index2).click();
+										break;
+									}
+								}
+							}
+						}
+
+					}
+				}
+				catch (org.openqa.selenium.StaleElementReferenceException ex) 
+				{
+					ex.printStackTrace();
+				}
+
+			}
+
+
+
+			HighlightOnElement(publication_end_date);
+			publication_end_date.click();
+
+			select_end_year.click();
+			Select end_year=new Select(select_end_year);
+			List<WebElement> list_end_year=end_year.getOptions();
+			for(int index=0;index<list_end_year.size();index++)
+			{
+				try
+				{
+					String allyear=list_end_year.get(index).getText();
+					Reporter.log("Year:"+allyear,true);
+					if(allyear.trim().equalsIgnoreCase("2017"))
+					{
+						end_year.selectByIndex(index);
+						WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+						selectMonth.click();
+						Select month=new Select(selectMonth);
+						List<WebElement> list_month=month.getOptions();
+						for(int index1=0;index1<list_month.size();index1++)
+						{
+							String allmonth=list_month.get(index1).getText();
+							Reporter.log("Month:"+allmonth,true);
+							if(allmonth.trim().equalsIgnoreCase("Nov"))
+							{
+								month.selectByIndex(index1);
+								List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+								for(int index2=0;index2<selectdate.size();index2++)
+								{
+									String alldate=selectdate.get(index2).getText();
+									Reporter.log("Date:"+alldate,true);
+									if(alldate.trim().equalsIgnoreCase("20"))
+									{
+										selectdate.get(index2).click();
+										break;
+									}
+								}
+							}
+						}
+
+					}
+				}
+				catch (org.openqa.selenium.StaleElementReferenceException ex) 
+				{
+					ex.printStackTrace();
+				}
+
+			}
+
+			HighlightOnElement(descriptiontext);
+			String decription=excel.getExcelData(descriptiontext,"PRO_Advertisement_Details_Data",1,3);
+			Reporter.log("Description:"+decription,true);
+
+			HighlightOnElement(fileupload);
+			fileupload.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+			Reporter.log("File upload successfully",true);
+			waitForSomeTime();
+
+			HighlightOnElement(publicationmode);
+			Assert.assertTrue(publicationmode.isDisplayed());
+			Assert.assertTrue(publicationmode.isEnabled());
+			publicationmode.click();
+			Reporter.log("Expected result:"+publicationmode.getText(),true);
+			waitForSomeTime();
+			
+
+			HighlightOnElement(publication_mode_drop);
+			SelectVisibleText(publication_mode_drop,"Tender Advertisement");
+			Reporter.log("select Tender Advertisement from Publication Mode successfully",true);
+			waitForSomeTime();
+			
+			HighlightOnElement(publication_sub_mode);
+			SelectVisibleText(publication_sub_mode,"Other");
+			Reporter.log("select Other from Publication Sub Mode successfully",true);
+			waitForSomeTime();
+			
+			HighlightOnElement(enter_mode);
+			String entermode=excel.getExcelData(enter_mode,"PRO_Advertisement_Details_Data",1,20);
+			Reporter.log("Enter Mode:"+entermode,true);
+			waitForSomeTime();
+			
+			HighlightOnElement(publicationcategory);
+			String public_category=publicationcategory.getText();
+			Reporter.log("Expected result:"+public_category,true);
+			publicationcategory.click();
+			Reporter.log("click on Publication Category Tab successfuly",true);
+			waitForSomeTime();
+
+			HighlightOnElement(category_select);
+			SelectVisibleText(category_select,"Radio Jingle");
+			Reporter.log("Category selected successfuly",true);
+			waitForSomeTime();
+			
+			HighlightOnElement(frequency);
+			String frequencys=excel.getExcelData(frequency,"PRO_Advertisement_Details_Data",1,24);
+			Reporter.log("Frquency in days:"+frequencys,true);
+			
+			HighlightOnElement(duration);
+			String durations=excel.getExcelData(duration,"PRO_Advertisement_Details_Data",1,25);
+			Reporter.log("Duration in days:"+durations,true);
+	}
+
+		
+		
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Dimension of hoarding".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Dimension of Hoarding (In Meters')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement dimension_hoarding;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Location of hoarding".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Location of Hoarding')]//../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement location_of_hoarding;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "display type".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Display Type')]/../../../.././../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement diplay_type;
+
+	public void clickOnApplicationTypeHoardingTenderRecruitmentDownloadbutton26() throws AWTException, EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException 
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+		HighlightOnElement(advertisement_details);
+		Assert.assertTrue(advertisement_details.isDisplayed());
+		Assert.assertTrue(advertisement_details.isEnabled());
+		advertisement_details.click();
+		Reporter.log("Expected result:"+advertisement_details,true);
+		waitForSomeTime();
+
+		HighlightOnElement(reset);
+		reset.click();
+		Reporter.log("click on reset button successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(advertisementtype);
+		SelectVisibleText(advertisementtype,"Hoarding");
+		Reporter.log("select Hoarding from Advertising Type successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(dimension_hoarding);
+		String dimension=excel.getExcelData(dimension_hoarding,"PRO_Advertisement_Details_Data",1,11);
+		Reporter.log("Dimension of Horading:"+dimension,true);
+
+		HighlightOnElement(location_of_hoarding);
+		String location=excel.getExcelData(location_of_hoarding,"PRO_Advertisement_Details_Data",1,12);
+		Reporter.log("Location of Horading:"+location,true);
+
+		HighlightOnElement(diplay_type);
+		SelectVisibleText(diplay_type,"Color");
+		Reporter.log("select Color from Display Type successfully",true);
+
+		HighlightOnElement(publication_start_date);
+		publication_start_date.click();
+
+		select_start_year.click();
+		Select start_year=new Select(select_start_year);
+		List<WebElement> list_start_year=start_year.getOptions();
+		for(int index=0;index<list_start_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_start_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					start_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("10"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+
+
+		HighlightOnElement(publication_end_date);
+		publication_end_date.click();
+
+		select_end_year.click();
+		Select end_year=new Select(select_end_year);
+		List<WebElement> list_end_year=end_year.getOptions();
+		for(int index=0;index<list_end_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_end_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					end_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("20"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+		HighlightOnElement(descriptiontext);
+		String decription=excel.getExcelData(descriptiontext,"PRO_Advertisement_Details_Data",1,3);
+		Reporter.log("Description:"+decription,true);
+
+		HighlightOnElement(fileupload);
+		fileupload.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+		Reporter.log("File upload successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publicationmode);
+		Assert.assertTrue(publicationmode.isDisplayed());
+		Assert.assertTrue(publicationmode.isEnabled());
+		publicationmode.click();
+		Reporter.log("Expected result:"+publicationmode.getText(),true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(publication_mode_drop);
+		SelectVisibleText(publication_mode_drop,"Recruitment Advertisement");
+		Reporter.log("select Recruitment Advertisement from Publication Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publicationcategory);
+		String public_category=publicationcategory.getText();
+		Reporter.log("Expected result:"+public_category,true);
+		publicationcategory.click();
+		Reporter.log("click on Publication Category Tab successfuly",true);
+		waitForSomeTime();
+
+		HighlightOnElement(category_select);
+		SelectVisibleText(category_select,"Flex");
+		Reporter.log("Category selected successfuly",true);
+		waitForSomeTime();
+
+	}
+
+	
+	public void clickOnApplicationTypeHoardingRecuritmentAdvFlexDownloadbutton26() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+		HighlightOnElement(advertisement_details);
+		Assert.assertTrue(advertisement_details.isDisplayed());
+		Assert.assertTrue(advertisement_details.isEnabled());
+		advertisement_details.click();
+		Reporter.log("Expected result:"+advertisement_details,true);
+		waitForSomeTime();
+
+		HighlightOnElement(reset);
+		reset.click();
+		Reporter.log("click on reset button successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(advertisementtype);
+		SelectVisibleText(advertisementtype,"Hoarding");
+		Reporter.log("select Hoarding from Advertising Type successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(dimension_hoarding);
+		String dimension=excel.getExcelData(dimension_hoarding,"PRO_Advertisement_Details_Data",1,11);
+		Reporter.log("Dimension of Horading:"+dimension,true);
+
+		HighlightOnElement(location_of_hoarding);
+		String location=excel.getExcelData(location_of_hoarding,"PRO_Advertisement_Details_Data",1,12);
+		Reporter.log("Location of Horading:"+location,true);
+
+		HighlightOnElement(diplay_type);
+		SelectVisibleText(diplay_type,"Color");
+		Reporter.log("select Color from Display Type successfully",true);
+
+		HighlightOnElement(publication_start_date);
+		publication_start_date.click();
+
+		select_start_year.click();
+		Select start_year=new Select(select_start_year);
+		List<WebElement> list_start_year=start_year.getOptions();
+		for(int index=0;index<list_start_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_start_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					start_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("10"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+
+
+		HighlightOnElement(publication_end_date);
+		publication_end_date.click();
+
+		select_end_year.click();
+		Select end_year=new Select(select_end_year);
+		List<WebElement> list_end_year=end_year.getOptions();
+		for(int index=0;index<list_end_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_end_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					end_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("20"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+		HighlightOnElement(descriptiontext);
+		String decription=excel.getExcelData(descriptiontext,"PRO_Advertisement_Details_Data",1,3);
+		Reporter.log("Description:"+decription,true);
+
+		HighlightOnElement(fileupload);
+		fileupload.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+		Reporter.log("File upload successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(publicationmode);
+		Assert.assertTrue(publicationmode.isDisplayed());
+		Assert.assertTrue(publicationmode.isEnabled());
+		publicationmode.click();
+		Reporter.log("Expected result:"+publicationmode.getText(),true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		HighlightOnElement(publication_mode_drop);
+		SelectVisibleText(publication_mode_drop,"Recruitment Advertisement");
+		Reporter.log("select Recruitment Advertisement from Publication Mode successfully",true);
+		waitForSomeTime();
+		
+		HighlightOnElement(publicationcategory);
+		String public_category=publicationcategory.getText();
+		Reporter.log("Expected result:"+public_category,true);
+		publicationcategory.click();
+		Reporter.log("click on Publication Category Tab successfuly",true);
+		waitForSomeTime();
+
+		HighlightOnElement(category_select);
+		SelectVisibleText(category_select,"Flex");
+		Reporter.log("Category selected successfuly",true);
+		waitForSomeTime();
+}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "enter advertising type".
+	 * @author deepak.saini
+	 * @since 2017-11-03
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="html/body/div[1]/table[2]/tbody/tr/td[2]/table/tbody/tr/td/form/span[2]/span/div/div[2]/div/div/div[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Enter Advertising Type')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement enter_Advertising_type;
+
+	public void clickOnApplicationTypeOtherDownloadbutton26() throws AWTException, EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException 
+	{
+		clickOnApplicationForm();
+		clickOnProSection();
+		verifyProSection06();
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(prosection)).click();
+		Reporter.log("click on PRO SECTION IMAGE Successfully",true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+		HighlightOnElement(advertisement_details);
+		Assert.assertTrue(advertisement_details.isDisplayed());
+		Assert.assertTrue(advertisement_details.isEnabled());
+		advertisement_details.click();
+		Reporter.log("Expected result:"+advertisement_details,true);
+		waitForSomeTime();
+
+		HighlightOnElement(reset);
+		reset.click();
+		Reporter.log("click on reset button successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(advertisementtype);
+		SelectVisibleText(advertisementtype,"Other");
+		Reporter.log("select Other from Advertising Type successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(enter_Advertising_type);
+		String advertising_type=excel.getExcelData(enter_Advertising_type,"PRO_Advertisement_Details_Data",1,16);
+		Reporter.log("Enter Advertising Type:"+advertising_type,true);
+
+		HighlightOnElement(publication_start_date);
+		publication_start_date.click();
+
+		select_start_year.click();
+		Select start_year=new Select(select_start_year);
+		List<WebElement> list_start_year=start_year.getOptions();
+		for(int index=0;index<list_start_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_start_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					start_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("10"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+
+
+		HighlightOnElement(publication_end_date);
+		publication_end_date.click();
+
+		select_end_year.click();
+		Select end_year=new Select(select_end_year);
+		List<WebElement> list_end_year=end_year.getOptions();
+		for(int index=0;index<list_end_year.size();index++)
+		{
+			try
+			{
+				String allyear=list_end_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				if(allyear.trim().equalsIgnoreCase("2017"))
+				{
+					end_year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						if(allmonth.trim().equalsIgnoreCase("Nov"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								if(alldate.trim().equalsIgnoreCase("20"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+
+				}
+			}
+			catch (org.openqa.selenium.StaleElementReferenceException ex) 
+			{
+				ex.printStackTrace();
+			}
+
+		}
+
+		HighlightOnElement(descriptiontext);
+		String decription=excel.getExcelData(descriptiontext,"PRO_Advertisement_Details_Data",1,3);
+		Reporter.log("Description:"+decription,true);
+
+		HighlightOnElement(fileupload);
+		fileupload.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+		Reporter.log("File upload successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(publicationmode);
+		Assert.assertTrue(publicationmode.isDisplayed());
+		Assert.assertTrue(publicationmode.isEnabled());
+		publicationmode.click();
+		Reporter.log("Expected result:"+publicationmode.getText(),true);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	}
+}

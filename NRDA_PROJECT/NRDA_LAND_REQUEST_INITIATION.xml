@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ 
+ 	<!-- LOGIN AS PATWARI IN LAND REQUEST INITIATION MODULE-->
+ 			
+<!--<test name="LOGIN AS PATWARI ">
+	<classes>
+		<class name="NRDA_LAND_REQUEST_INITIATION.LoginAsPatwari">
+			<methods>
+       			<include name="NRDA_LandManagement_SC001_TC003"/>
+       			<include name="NRDA_LandManagement_SC002_TC001"/>
+       			<include name="NRDA_LandManagement_SC002_TC002"/>
+       			<include name="NRDA_LandManagement_SC002_TC003"/>
+       			<include name="NRDA_LandManagement_SC002_TC004"/>
+       			<include name="NRDA_LandManagement_SC002_TC005"/>
+       			<include name="NRDA_LandManagement_SC002_TC006"/>
+       			<include name="NRDA_LandManagement_SC002_TC007"/>
+       			<include name="NRDA_LandManagement_SC002_TC008"/>
+       			<include name="NRDA_LandManagement_SC002_TC009"/>
+       			<include name="NRDA_LandManagement_SC003_TC001"/>
+       			<include name="NRDA_LandManagement_SC003_TC002"/>
+       			<include name="NRDA_LandManagement_SC003_TC003"/>
+       			<include name="NRDA_LandManagement_SC003_TC004"/>
+       			<include name="NRDA_LandManagement_SC003_TC005"/>
+       			<include name="NRDA_LandManagement_SC003_TC006"/>
+       			<include name="NRDA_LandManagement_SC003_TC007"/>
+       			<include name="NRDA_LandManagement_SC003_TC008"/>
+       			<include name="NRDA_LandManagement_SC003_TC009"/>
+       			<include name="NRDA_LandManagement_SC003_TC010"/>
+       			<include name="NRDA_LandManagement_SC003_TC011"/>
+       			<include name="NRDA_LandManagement_SC003_TC012"/>
+       			<include name="NRDA_LandManagement_SC003_TC013"/>
+       			<include name="NRDA_LandManagement_SC003_TC014"/>
+       			<include name="NRDA_LandManagement_SC003_TC015"/>
+       			<include name="NRDA_LandManagement_SC003_TC016"/>
+       			<include name="NRDA_LandManagement_SC003_TC017"/>
+       			<include name="NRDA_LandManagement_SC003_TC018"/>
+       			<include name="NRDA_LandManagement_SC003_TC019"/>
+       			<include name="NRDA_LandManagement_SC003_TC020"/>
+       			<include name="NRDA_LandManagement_SC003_TC024"/>
+       			<include name="NRDA_LandManagement_SC003_TC025"/>
+       			
+       			
+       			<include name="NRDA_LandManagement_SC004_TC001"/>
+       			<include name="NRDA_LandManagement_SC004_TC002"/>
+       			<include name="NRDA_LandManagement_SC004_TC003"/>
+       			<include name="NRDA_LandManagement_SC004_TC004"/>
+       			<include name="NRDA_LandManagement_SC004_TC005"/>
+       			<include name="NRDA_LandManagement_SC004_TC006"/>
+       			<include name="NRDA_LandManagement_SC004_TC007"/>
+       			
+       			<include name="NRDA_LandManagement_SC007_TC001"/>
+       			<include name="NRDA_LandManagement_SC007_TC002"/>
+       			<include name="NRDA_LandManagement_SC007_TC003"/>
+       			
+       			<include name="NRDA_LandManagement_SC008_TC001"/>
+       			
+       			<include name="NRDA_LandManagement_SC009_TC001"/>
+       			<include name="NRDA_LandManagement_SC009_TC002"/>
+       			<include name="NRDA_LandManagement_SC009_TC003"/>
+       			<include name="NRDA_LandManagement_SC009_TC004"/>
+       			<include name="NRDA_LandManagement_SC009_TC005"/>
+       			<include name="NRDA_LandManagement_SC009_TC006"/>
+       			<include name="NRDA_LandManagement_SC009_TC007"/>
+       			<include name="NRDA_LandManagement_SC009_TC008"/>
+       			<include name="NRDA_LandManagement_SC009_TC010"/>
+       			<include name="NRDA_LandManagement_SC009_TC011"/>
+       			<include name="NRDA_LandManagement_SC009_TC012"/>
+       			<include name="NRDA_LandManagement_SC009_TC013"/>
+       			<include name="NRDA_LandManagement_SC009_TC014"/>
+       			<include name="NRDA_LandManagement_SC009_TC015"/>
+       			<include name="NRDA_LandManagement_SC009_TC016"/>
+       			<include name="NRDA_LandManagement_SC009_TC017"/>
+       			<include name="NRDA_LandManagement_SC009_TC019"/>
+       			<include name="NRDA_LandManagement_SC009_TC020"/>
+       			<include name="NRDA_LandManagement_SC009_TC021"/>
+       			<include name="NRDA_LandManagement_SC009_TC022"/>
+       			<include name="NRDA_LandManagement_SC009_TC023"/>
+       			<include name="NRDA_LandManagement_SC009_TC024"/>
+       			<include name="NRDA_LandManagement_SC009_TC025"/>-->
+       			
+       			<!-- Land request submit -->
+       			<!--<include name="NRDA_LandManagement_SC010_TC001"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ 
+ <!-- LOGIN AS TEHSILDAAR IN LAND REQUEST INITIATION MODULE-->
+ 			
+<!--<test name="LOGIN AS TEHSILDAAR ">
+	<classes>
+		<class name="NRDA_LAND_REQUEST_INITIATION.LoginAsTehsildaar">
+			<methods>
+       			<include name="NRDA_LandManagement_SC011_TC002"/>
+       			<include name="NRDA_LandManagement_SC012_TC001"/>
+       			<include name="NRDA_LandManagement_SC012_TC002"/>
+       			<include name="NRDA_LandManagement_SC012_TC003"/>
+       			<include name="NRDA_LandManagement_SC012_TC004"/>
+       			<include name="NRDA_LandManagement_SC012_TC005"/>
+       			<include name="NRDA_LandManagement_SC012_TC006"/>
+       			<include name="NRDA_LandManagement_SC012_TC007"/>
+       			<include name="NRDA_LandManagement_SC012_TC008"/>
+       			<include name="NRDA_LandManagement_SC012_TC009"/>
+       			<include name="NRDA_LandManagement_SC012_TC010"/>
+       			<include name="NRDA_LandManagement_SC012_TC011"/>
+       			<include name="NRDA_LandManagement_SC012_TC012"/>
+       			<include name="NRDA_LandManagement_SC013_TC001"/>
+       			<include name="NRDA_LandManagement_SC013_TC002"/>
+       			<include name="NRDA_LandManagement_SC014_TC001"/>
+       			<include name="NRDA_LandManagement_SC014_TC002"/>
+       			<include name="NRDA_LandManagement_SC014_TC003"/>
+       			<include name="NRDA_LandManagement_SC015_TC001"/>
+       			<include name="NRDA_LandManagement_SC015_TC002"/>
+       			<include name="NRDA_LandManagement_SC015_TC003"/>
+       			<include name="NRDA_LandManagement_SC015_TC004"/>
+       			<include name="NRDA_LandManagement_SC015_TC005"/>
+       			<include name="NRDA_LandManagement_SC015_TC006"/>
+       			<include name="NRDA_LandManagement_SC015_TC007"/>-->
+       			
+       			<!-- Land request submit -->
+       			<!--<include name="NRDA_LandManagement_SC015_TC008"/>
+       		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ <!-- LOGIN AS LAND MANAGER IN LAND REQUEST INITIATION MODULE-->
+ 			
+<!--<test name="LOGIN AS LAND MANAGER ">
+	<classes>
+		<class name="NRDA_LAND_REQUEST_INITIATION.LoginAsLandManager">
+			<methods>
+       			<include name="NRDA_LandManagement_SC016_TC002"/>
+       			<include name="NRDA_LandManagement_SC016_TC003"/>
+       			<include name="NRDA_LandManagement_SC016_TC004"/>
+       			<include name="NRDA_LandManagement_SC016_TC005"/>
+       			<include name="NRDA_LandManagement_SC016_TC006"/>
+       			<include name="NRDA_LandManagement_SC016_TC007"/>
+       			<include name="NRDA_LandManagement_SC016_TC008"/>
+       			<include name="NRDA_LandManagement_SC016_TC009"/>
+       			<include name="NRDA_LandManagement_SC016_TC010"/>
+       			<include name="NRDA_LandManagement_SC016_TC011"/>
+       			<include name="NRDA_LandManagement_SC016_TC012"/>
+       			<include name="NRDA_LandManagement_SC016_TC013"/>
+       			<include name="NRDA_LandManagement_SC016_TC014"/>
+       			<include name="NRDA_LandManagement_SC016_TC015"/>
+       			<include name="NRDA_LandManagement_SC016_TC016"/>
+       			<include name="NRDA_LandManagement_SC016_TC017"/>
+       			<include name="NRDA_LandManagement_SC016_TC018"/>
+       			<include name="NRDA_LandManagement_SC016_TC026"/>
+       			<include name="NRDA_LandManagement_SC016_TC027"/>
+       			<include name="NRDA_LandManagement_SC016_TC028"/>
+       			<include name="NRDA_LandManagement_SC016_TC029"/>
+       			<include name="NRDA_LandManagement_SC016_TC030"/>
+       			<include name="NRDA_LandManagement_SC016_TC031"/>
+       			<include name="NRDA_LandManagement_SC016_TC032"/>
+       			<include name="NRDA_LandManagement_SC016_TC033"/>
+       			<include name="NRDA_LandManagement_SC016_TC034"/>
+       			<include name="NRDA_LandManagement_SC016_TC035"/>-->
+       			
+       			<!-- Land request submit -->
+       			<!--<include name="NRDA_LandManagement_SC016_TC036"/>
+       		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ 
+ <!-- LOGIN AS PLANNING SECTION MANAGER IN LAND REQUEST INITIATION MODULE-->
+ 			
+<!--<test name="LOGIN AS PLANNING SECTION MANAGER ">
+	<classes>
+		<class name="NRDA_LAND_REQUEST_INITIATION.LoginAsPlanningSectionManager">
+			<methods>
+       			<include name="NRDA_LandManagement_SC017_TC002"/>
+       			<include name="NRDA_LandManagement_SC017_TC003"/>
+       			<include name="NRDA_LandManagement_SC017_TC004"/>
+       			<include name="NRDA_LandManagement_SC017_TC005"/>
+       			<include name="NRDA_LandManagement_SC017_TC006"/>
+       			<include name="NRDA_LandManagement_SC017_TC007"/>
+       			<include name="NRDA_LandManagement_SC017_TC008"/>
+       			<include name="NRDA_LandManagement_SC017_TC009"/>
+       			<include name="NRDA_LandManagement_SC017_TC010"/>
+       			<include name="NRDA_LandManagement_SC017_TC011"/>
+       			<include name="NRDA_LandManagement_SC017_TC012"/>
+       			<include name="NRDA_LandManagement_SC017_TC013"/>
+       			<include name="NRDA_LandManagement_SC017_TC014"/>
+       			<include name="NRDA_LandManagement_SC017_TC015"/>
+       			<include name="NRDA_LandManagement_SC017_TC016"/>
+       			<include name="NRDA_LandManagement_SC017_TC017"/>
+       			<include name="NRDA_LandManagement_SC017_TC018"/>
+       			<include name="NRDA_LandManagement_SC017_TC026"/>
+       			<include name="NRDA_LandManagement_SC017_TC027"/>
+       			<include name="NRDA_LandManagement_SC017_TC028"/>
+       			<include name="NRDA_LandManagement_SC017_TC029"/>
+       			<include name="NRDA_LandManagement_SC017_TC030"/>
+       			<include name="NRDA_LandManagement_SC017_TC031"/>
+       			<include name="NRDA_LandManagement_SC017_TC032"/>
+       			<include name="NRDA_LandManagement_SC017_TC033"/>
+       			<include name="NRDA_LandManagement_SC017_TC034"/>
+       			<include name="NRDA_LandManagement_SC017_TC035"/>
+       			<include name="NRDA_LandManagement_SC017_TC036"/>
+       			<include name="NRDA_LandManagement_SC017_TC037"/>
+       			<include name="NRDA_LandManagement_SC017_TC038"/>
+       			<include name="NRDA_LandManagement_SC017_TC039"/>
+       			<include name="NRDA_LandManagement_SC017_TC040"/>
+       			<include name="NRDA_LandManagement_SC017_TC041"/>-->
+       			
+       			<!-- submit the application -->
+       			<!--<include name="NRDA_LandManagement_SC017_TC042"/>
+       		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ 
+ <!-- LOGIN AS LAND SECTION MANAGER IN LAND REQUEST INITIATION MODULE-->
+ 			
+<!--<test name="LOGIN AS LAND SECTION MANAGER ">
+	<classes>
+		<class name="NRDA_LAND_REQUEST_INITIATION.LoginAsLandSectionManager">
+			<methods>
+       			<include name="NRDA_LandManagement_SC018_TC002"/>
+       			<include name="NRDA_LandManagement_SC018_TC003"/>
+       			<include name="NRDA_LandManagement_SC018_TC004"/>
+       			<include name="NRDA_LandManagement_SC018_TC005"/>
+       			<include name="NRDA_LandManagement_SC018_TC006"/>
+       			<include name="NRDA_LandManagement_SC018_TC007"/>
+       			<include name="NRDA_LandManagement_SC018_TC008"/>
+       			<include name="NRDA_LandManagement_SC018_TC009"/>
+       			<include name="NRDA_LandManagement_SC018_TC010"/>
+       			<include name="NRDA_LandManagement_SC018_TC011"/>
+       			<include name="NRDA_LandManagement_SC018_TC012"/>
+       			<include name="NRDA_LandManagement_SC018_TC013"/>
+       			<include name="NRDA_LandManagement_SC018_TC014"/>
+       			<include name="NRDA_LandManagement_SC018_TC015"/>
+       			<include name="NRDA_LandManagement_SC018_TC016"/>
+       			<include name="NRDA_LandManagement_SC018_TC017"/>
+       			<include name="NRDA_LandManagement_SC018_TC018"/>
+       			<include name="NRDA_LandManagement_SC018_TC025"/>
+       			<include name="NRDA_LandManagement_SC018_TC026"/>
+       			<include name="NRDA_LandManagement_SC018_TC027"/>
+       			<include name="NRDA_LandManagement_SC018_TC028"/>
+       			<include name="NRDA_LandManagement_SC018_TC029"/>
+       			<include name="NRDA_LandManagement_SC018_TC030"/>
+       			<include name="NRDA_LandManagement_SC018_TC031"/>
+       			<include name="NRDA_LandManagement_SC018_TC032"/>
+       			<include name="NRDA_LandManagement_SC018_TC033"/>
+       			<include name="NRDA_LandManagement_SC018_TC034"/>
+       			<include name="NRDA_LandManagement_SC018_TC035"/>
+       			<include name="NRDA_LandManagement_SC018_TC036"/>
+       			<include name="NRDA_LandManagement_SC018_TC037"/>
+       			<include name="NRDA_LandManagement_SC018_TC038"/>
+       			<include name="NRDA_LandManagement_SC018_TC039"/>
+       			<include name="NRDA_LandManagement_SC018_TC040"/>
+       			<include name="NRDA_LandManagement_SC018_TC041"/>
+       			<include name="NRDA_LandManagement_SC018_TC042"/>
+       			<include name="NRDA_LandManagement_SC018_TC043"/>
+       			<include name="NRDA_LandManagement_SC018_TC044"/>
+       			<include name="NRDA_LandManagement_SC018_TC045"/>
+       			<include name="NRDA_LandManagement_SC018_TC046"/>
+       			<include name="NRDA_LandManagement_SC018_TC047"/>
+       			<include name="NRDA_LandManagement_SC018_TC048"/>
+       			<include name="NRDA_LandManagement_SC018_TC049"/>
+       			<include name="NRDA_LandManagement_SC018_TC050"/>-->
+       			
+       			<!-- submit the application -->
+       			<!--<include name="NRDA_LandManagement_SC018_TC051"/>
+       		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ <!-- LOGIN AS GENERAL MANAGER IN LAND REQUEST INITIATION MODULE-->
+ 			
+<!--<test name="LOGIN AS GENERAL MANAGER ">
+	<classes>
+		<class name="NRDA_LAND_REQUEST_INITIATION.LoginAsGM">
+			<methods>
+       			<include name="NRDA_LandManagement_SC019_TC003"/>
+       			<include name="NRDA_LandManagement_SC019_TC004"/>
+       			<include name="NRDA_LandManagement_SC019_TC005"/>
+       			<include name="NRDA_LandManagement_SC019_TC006"/>
+       			<include name="NRDA_LandManagement_SC019_TC007"/>
+       			<include name="NRDA_LandManagement_SC019_TC008"/>
+       			<include name="NRDA_LandManagement_SC019_TC009"/>
+       			<include name="NRDA_LandManagement_SC019_TC010"/>
+       			<include name="NRDA_LandManagement_SC019_TC011"/>
+       			<include name="NRDA_LandManagement_SC019_TC012"/>
+       			<include name="NRDA_LandManagement_SC019_TC013"/>
+       			<include name="NRDA_LandManagement_SC019_TC014"/>
+       			<include name="NRDA_LandManagement_SC019_TC015"/>
+       			<include name="NRDA_LandManagement_SC019_TC016"/>
+       			<include name="NRDA_LandManagement_SC019_TC017"/>
+       			<include name="NRDA_LandManagement_SC019_TC018"/>
+       			<include name="NRDA_LandManagement_SC019_TC027"/>
+       			<include name="NRDA_LandManagement_SC019_TC028"/>
+       			<include name="NRDA_LandManagement_SC019_TC029"/>
+       			<include name="NRDA_LandManagement_SC019_TC030"/>
+       			<include name="NRDA_LandManagement_SC019_TC031"/>
+       			<include name="NRDA_LandManagement_SC019_TC032"/>
+       			<include name="NRDA_LandManagement_SC019_TC033"/>
+       			<include name="NRDA_LandManagement_SC019_TC034"/>
+       			<include name="NRDA_LandManagement_SC019_TC035"/>
+       			<include name="NRDA_LandManagement_SC019_TC036"/>-->
+       			
+       			<!-- submit the application -->
+       			<!--<include name="NRDA_LandManagement_SC019_TC037"/>
+       		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ 
+ 
+ <!-- LOGIN AS CEO IN LAND REQUEST INITIATION MODULE-->
+ 			
+<test name="LOGIN AS CEO ">
+	<classes>
+		<class name="NRDA_LAND_REQUEST_INITIATION.LoginAsCEO">
+			<methods>
+				<include name="NRDA_LandManagement_SC020_TC002"/>
+       			<include name="NRDA_LandManagement_SC020_TC003"/>
+       			<include name="NRDA_LandManagement_SC020_TC004"/>
+       			<include name="NRDA_LandManagement_SC020_TC005"/>
+       			<include name="NRDA_LandManagement_SC020_TC006"/>
+       			<include name="NRDA_LandManagement_SC020_TC007"/>
+       			<include name="NRDA_LandManagement_SC020_TC008"/>
+       			<include name="NRDA_LandManagement_SC020_TC009"/>
+       			<include name="NRDA_LandManagement_SC020_TC010"/>
+       			<include name="NRDA_LandManagement_SC020_TC011"/>
+       			<include name="NRDA_LandManagement_SC020_TC012"/>
+       			<include name="NRDA_LandManagement_SC020_TC013"/>
+       			<include name="NRDA_LandManagement_SC020_TC014"/>
+       			<include name="NRDA_LandManagement_SC020_TC015"/>
+       			<include name="NRDA_LandManagement_SC020_TC016"/>
+       			<include name="NRDA_LandManagement_SC020_TC017"/>
+       			<include name="NRDA_LandManagement_SC020_TC018"/>
+       			<include name="NRDA_LandManagement_SC020_TC026"/>
+       			<include name="NRDA_LandManagement_SC020_TC027"/>
+       			<include name="NRDA_LandManagement_SC020_TC028"/>
+       			<include name="NRDA_LandManagement_SC020_TC029"/>
+       			<include name="NRDA_LandManagement_SC020_TC030"/>
+       			<include name="NRDA_LandManagement_SC020_TC031"/>
+       			<include name="NRDA_LandManagement_SC020_TC032"/>
+       			<include name="NRDA_LandManagement_SC020_TC033"/>
+       			<include name="NRDA_LandManagement_SC020_TC034"/>
+       			<include name="NRDA_LandManagement_SC020_TC041"/>
+       			
+       			<!--Approve application -->
+       			<include name="NRDA_LandManagement_SC020_TC042"/>
+       			<include name="NRDA_LandManagement_SC020_TC051"/>
+       			<include name="NRDA_LandManagement_SC020_TC052"/>
+       			<include name="NRDA_LandManagement_SC020_TC053"/>
+       			<include name="NRDA_LandManagement_SC020_TC054"/>
+       			<include name="NRDA_LandManagement_SC020_TC055"/>
+       			<include name="NRDA_LandManagement_SC020_TC056"/>
+       			<include name="NRDA_LandManagement_SC020_TC057"/>
+       			<include name="NRDA_LandManagement_SC020_TC058"/>
+       			<include name="NRDA_LandManagement_SC020_TC059"/>
+       			<include name="NRDA_LandManagement_SC020_TC060"/>
+       			
+       		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+
+
+ </suite>

@@ -1,0 +1,96 @@
+package HRMS_ERP_CONFIGURATION_EMPLOYEE_GROUP;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_CONFIGURATION_Employee_Group_Save_Fun_Sc_02 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+
+	@FindBy(xpath="//table[@class='o_group o_inner_group o_group_col_6']/tbody/tr/td/label/../following-sibling::td/input")
+	private WebElement employeegroupinputbox;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Invalid message".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_notification_manager']/div[1]/div[1]")
+	private WebElement invalidmessage;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Save button".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_buttons_edit']/button[contains(text(),' Save')]")
+	private WebElement savebtn;
+	/**
+	 * @throws InterruptedException ******************************************************************************************************/
+
+	public void enterEmployeeGroupInputValidValue() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+			HighlightOnElement(employeegroupinputbox);
+			waitForSomeTime();
+			String employee_group=exceldata.getExcelData(employeegroupinputbox,"Employee_Group_Data",2,1);
+			Reporter.log("Employee Group:"+employee_group,true);
+			log.info("To Verify enter the value in Employee Group textbox sucessfully");
+	}
+
+
+	public void enterEmployeeGroupInputInvalidValue() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		try
+		{
+			HighlightOnElement(employeegroupinputbox);
+			String employee_group=exceldata.getExcelData(employeegroupinputbox,"Employee_Group_Data",6,1);
+			Reporter.log("Employee Group:"+employee_group,true);
+		}
+		catch(Exception StaleElementReferenceException)
+		{
+			StaleElementReferenceException.printStackTrace();
+		}
+		log.info("To Verify enter the value in Employee Group textbox sucessfully");
+		String Actual_Value=" The following fields are invalid:";
+		String Expected_Value=invalidmessage.getText();
+		Assert.assertEquals(Actual_Value, Expected_Value, "Test Case is passed");
+		Reporter.log("Actual value is matched with Expected value");
+	}
+
+	public void enterEmployeeGroupInputBlankValue() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(employeegroupinputbox);
+		String employee_group=exceldata.getExcelData(employeegroupinputbox,"Employee_Group_Data",2,6);
+		Reporter.log("Employee Group:"+employee_group,true);
+		log.info("To Verify enter the value in Employee Group textbox sucessfully");
+		String Actual_Value=" The following fields are invalid:";
+		String Expected_Value=invalidmessage.getText();
+		Assert.assertEquals(Actual_Value, Expected_Value, "Test Case is passed");
+		Reporter.log("Actual value is matched with Expected value");
+	}
+
+	public void clickOnSaveButton()
+	{
+		HighlightOnElement(savebtn);
+		savebtn.click();
+		Reporter.log("click on save button succesfully:",true);
+		log.info("To click on save button sucessfully");
+	}
+
+}

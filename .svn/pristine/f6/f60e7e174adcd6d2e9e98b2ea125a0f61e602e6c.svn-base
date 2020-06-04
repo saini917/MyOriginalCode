@@ -1,0 +1,44 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyUploadedFile_SC_09_TC_07 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	String downloadpath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\DownloadFile";
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "UPLOAD FILE".
+	 * @author deepak.saini
+	 * @since 2017-11-28
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/div/div/span/div/div/div/label[contains(text(),'TAX-OFFICER')]/../following-sibling::div/a")
+	private WebElement uploadedfile;
+
+	public void verifyUploadedFile() throws IOException, InterruptedException
+	{ 
+		wait.until(ExpectedConditions.elementToBeClickable(uploadedfile));
+		HighlightOnElement(uploadedfile);
+		Assert.assertTrue(uploadedfile.isDisplayed(),"PRINT BUTTON is displayed");
+		Assert.assertTrue(uploadedfile.isEnabled(),"PRINT BUTTON is enabled");
+		uploadedfile.click();
+		waitForDomElement();
+		driver.navigate().back();
+	}
+}

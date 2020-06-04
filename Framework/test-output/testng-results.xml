@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Automation test" duration-ms="18" started-at="2018-10-03T15:22:30Z" finished-at="2018-10-03T15:22:30Z">
+    <groups>
+    </groups>
+    <test name="Smoke test" duration-ms="18" started-at="2018-10-03T15:22:30Z" finished-at="2018-10-03T15:22:30Z">
+      <class name="testFiles.Annot2">
+        <test-method status="PASS" signature="installSoftware()[pri:0, instance:testFiles.Annot2@6d8a00e3]" name="installSoftware" is-config="true" duration-ms="8" started-at="2018-10-03T20:52:30Z" finished-at="2018-10-03T20:52:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- installSoftware -->
+        <test-method status="PASS" signature="software()[pri:0, instance:testFiles.Annot2@6d8a00e3]" name="software" duration-ms="4" started-at="2018-10-03T20:52:30Z" finished-at="2018-10-03T20:52:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- software -->
+        <test-method status="PASS" signature="deinstallSoftware()[pri:0, instance:testFiles.Annot2@6d8a00e3]" name="deinstallSoftware" is-config="true" duration-ms="0" started-at="2018-10-03T20:52:30Z" finished-at="2018-10-03T20:52:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deinstallSoftware -->
+      </class> <!-- testFiles.Annot2 -->
+    </test> <!-- Smoke test -->
+  </suite> <!-- Automation test -->
+</testng-results>

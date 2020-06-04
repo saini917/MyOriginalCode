@@ -1,0 +1,12 @@
+package HRMS_ERP_CONFIGURATION_EMPLOYEE_GRADE;
+
+import org.apache.log4j.Logger;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_CONFIGURATION_Employee_Grade_Discard_Fun_Sc_03 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+}

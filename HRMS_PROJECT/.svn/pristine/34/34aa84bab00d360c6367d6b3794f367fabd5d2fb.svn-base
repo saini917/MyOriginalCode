@@ -1,0 +1,82 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyRefuseByEstabManager_SC_05_TC_01 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "WAITING APPROVAL BY ESTABLISHMENT".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Waiting Approval by Establishment')]/span[@class='fa fa-caret-right']")
+	private WebElement waitingapproval;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "REFUSE BY ESTABLISHMENT MANAGER".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Refuse by Establishment Manager')]")
+	private WebElement refusebtn;
+
+	public void clickOnWaitingApprovalByEstb() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(waitingapproval));
+		HighlightOnElement(waitingapproval);
+		Assert.assertTrue(waitingapproval.isDisplayed());
+		Assert.assertTrue(waitingapproval.isEnabled());
+		Actions act=new Actions(driver);
+		act.click(waitingapproval).build().perform();
+		waitForDomElement();
+	}
+	
+	
+	public void clickOnRefuseByEstablishmentManager()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(refusebtn));
+		HighlightOnElement(refusebtn);
+		Assert.assertTrue(refusebtn.isDisplayed());
+		Assert.assertTrue(refusebtn.isEnabled());
+		refusebtn.click();
+	}
+	
+	
+	public void verifySelectCheck()
+	{
+		List<WebElement> allrows = driver.findElements(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Waiting Approval by Establishment')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr"));
+		Reporter.log("Total rows :" +allrows.size(),true);
+		for(int row=1;row<=allrows.size();row++)
+		{
+			String name = driver.findElement(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Waiting Approval by Establishment')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr["+row+"]/td[6]")).getText();
+			Reporter.log("Name :" +name,true);
+			if(name.equalsIgnoreCase("kalu bains")) 
+			{
+				WebElement checkbutton =driver.findElement(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Waiting Approval by Establishment')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr["+row+"]/td[2]"));
+				checkbutton.click();
+				WebElement waitingapprovalstatus = driver.findElement(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Waiting Approval by Establishment')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr["+row+"]/td[10]"));
+				waitingapprovalstatus.click();
+				break ;
+			}
+		}
+	}
+}

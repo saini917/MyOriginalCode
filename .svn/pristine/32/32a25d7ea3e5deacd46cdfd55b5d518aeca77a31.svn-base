@@ -1,0 +1,182 @@
+package NRDA_NewConnection;
+
+import java.awt.AWTException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_03_TC_60 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Upload document Details".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//a[contains(text(),'Upload Document / अपलोड दस्तावेज़')]")
+	private WebElement uploaddocumenttab;
+
+	public void clickOnUploadDocumentDetails() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(uploaddocumenttab));
+		Assert.assertTrue(uploaddocumenttab.isDisplayed());
+		Assert.assertTrue(uploaddocumenttab.isEnabled());
+		uploaddocumenttab.click();
+		Reporter.log("Go to 'Upload Documents' tab",true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents Link"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="//div[@id='form0:Nb']/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label")
+	private List<WebElement> uploaddocumentlabel;
+
+	public void verifyUploadDocumentField() throws InterruptedException
+	{
+		Reporter.log(" Verify that the following fields are shown :-",true);
+		for(WebElement list:uploaddocumentlabel)
+		{
+			HighlightOnElement(list);
+			Assert.assertNotNull(list.isDisplayed());
+		}
+		Reporter.log("Applicant ID Proof \n Applicant Address proof \n Other Document \n Receipt lease Rent \n Property ownership Proof",true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents Link"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	//@FindBy(xpath="(//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[1]/td/table/tbody/tr/td[2]/table/tbody/tr/td)[10]/span/div/div[1]/label")
+	//@FindBy(xpath="(//table/tbody/tr/td/span/div/div/label)[3]")
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[2]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+	private WebElement Upload_ApplicantIdProof;
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents Link"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	//@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[2]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+	//@FindBy(xpath="(//table/tbody/tr/td/span/div/div/label)[4]")
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+	private WebElement Upload_ApplicantAddressProof;
+
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents As OtherDocuments Link"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+	//@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+	//@FindBy(xpath="(//table/tbody/tr/td/span/div/div/label)[5]")
+	private WebElement Upload_OtherDocument;
+
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Upload_PropertyOwnerShipProofLink"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	//@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[3]/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+	//@FindBy(xpath="(//table/tbody/tr/td/span/div/div/label)[7]")
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[4]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+	private WebElement Upload_PropertyOwnerShipProof;
+
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents As ReeiptLeaseRent Link"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	//@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+	//@FindBy(xpath="(//table/tbody/tr/td/span/div/div/label)[6]")
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[3]/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+	private WebElement Upload_ReceiptLeaseRent;
+	public void VerifyfUploadingDocumentAsOwner() throws InterruptedException, AWTException
+	{
+		waitForSomeTime();
+		waitForSomeTime();
+		Assert.assertEquals(true,Upload_ApplicantIdProof.isEnabled());
+		Assert.assertNotNull(Upload_ApplicantIdProof,"Click on Click on uploading document as ApplicantIDProof in Application of Water and Sewerage New connection sucessfully");
+		HighlightOnElement(Upload_ApplicantIdProof);
+		Upload_ApplicantIdProof.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		Reporter.log("ApplicantIDProof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+		waitForSomeTime();
+		waitForSomeTime();
+
+		Assert.assertEquals(true,Upload_ApplicantAddressProof.isEnabled());
+		Assert.assertNotNull(Upload_ApplicantAddressProof,"Click on Click on uploading document as ApplicantAddressProof in Application of Water and Sewerage New connection sucessfully");	
+		HighlightOnElement(Upload_ApplicantAddressProof);
+		Upload_ApplicantAddressProof.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+		Reporter.log("Applicant AddressProof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+		waitForSomeTime();
+		waitForSomeTime();
+
+		Assert.assertEquals(true,Upload_OtherDocument.isEnabled());
+		Assert.assertNotNull(Upload_OtherDocument,"Click on Click on uploading document as OtherDocuments in Application of Water and Sewerage New connection sucessfully");
+		HighlightOnElement(Upload_OtherDocument);
+		Upload_OtherDocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+		Reporter.log("Other Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+		waitForSomeTime();
+		waitForSomeTime();
+
+		Assert.assertEquals(true,Upload_PropertyOwnerShipProof.isEnabled());
+		Assert.assertNotNull(Upload_PropertyOwnerShipProof,"Click on Click on uploading document as PropertyOwnerShip Proof in Application of Water and Sewerage New connection sucessfully");
+		HighlightOnElement(Upload_PropertyOwnerShipProof);
+		Upload_PropertyOwnerShipProof.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		Reporter.log("PropertyOwnershipProof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+		waitForSomeTime();
+		waitForSomeTime();
+
+		Assert.assertEquals(true,Upload_ReceiptLeaseRent.isEnabled());
+		Assert.assertNotNull(Upload_ReceiptLeaseRent,"Click on Click on uploading document as ReceiptLeaseRent in Application of Water and Sewerage New connection sucessfully");
+		HighlightOnElement(Upload_ReceiptLeaseRent);
+		Upload_ReceiptLeaseRent.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+		Reporter.log("ReceiptLeaseRent Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+
+}

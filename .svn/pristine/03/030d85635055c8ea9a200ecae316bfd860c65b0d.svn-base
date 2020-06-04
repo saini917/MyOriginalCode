@@ -1,0 +1,52 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyFetchAllEmployee_SC_02_TC_11 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "FETCH ALL EMPLOYEE".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Fetch All Employees')]")
+	private WebElement fetchbutton;
+	
+	@FindBy(xpath="//div[@class='o_form_field o_form_field_one2many o_view_manager_content']/div/div/table/tbody/tr/td")
+	private List<WebElement> listofemployee;
+	
+	public void verifyFetchAllEmployee() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(fetchbutton));
+		HighlightOnElement(fetchbutton);
+		Assert.assertTrue(fetchbutton.isEnabled());
+		fetchbutton.click();
+		waitForSomeTime();
+	}
+	
+	public void verifyListOfEmployeeShow()
+	{
+		for(WebElement employeelist:listofemployee)
+		{
+			HighlightOnElement(employeelist);
+			Assert.assertTrue(employeelist.isDisplayed());
+		}
+	}
+}

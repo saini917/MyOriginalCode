@@ -1,0 +1,40 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyAddressOfSecondOwner_SC_03_TC_10 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SECOND OWNER".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Address of Second Owner/Occupier')]/../../../../../../following-sibling::td/table/tbody/tr/td/textarea")
+	private WebElement addressofsecondowner;
+	
+	public void verifyAddressOfSecondOwner() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(addressofsecondowner);
+		Assert.assertTrue(addressofsecondowner.isDisplayed(),"ADDRESS OF SECOND OWNER FILED is displayed");
+		Assert.assertTrue(addressofsecondowner.isEnabled(),"ADDRESS OF SECOND OWNER FILED is enabled");
+		String value1=excel.getExcelData(addressofsecondowner,"Owner_Property_Details",1,8);
+		Reporter.log("Expected result:"+value1,true);
+		Reporter.log("Action is performed on Address Of Second Owner field",true);
+	}
+}

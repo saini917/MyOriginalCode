@@ -1,0 +1,1007 @@
+package HRMS_ERP_TRANSFER_SCRIPT;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import GenericLibrary.ExcelDataDriver;
+import HRMS_ERP_TRANSFER.ToVerifyACRLink_SC_02_TC_01;
+import HRMS_ERP_TRANSFER.ToVerifyAction_SC_02_TC_19;
+import HRMS_ERP_TRANSFER.ToVerifyAddFun_SC_02_TC_18;
+import HRMS_ERP_TRANSFER.ToVerifyApprovedByEstablishmentManager_SC_04_TC_01;
+import HRMS_ERP_TRANSFER.ToVerifyAttachmentLink_SC_02_TC_17;
+import HRMS_ERP_TRANSFER.ToVerifyCreateButton_SC_02_TC_04;
+import HRMS_ERP_TRANSFER.ToVerifyCreateDate_SC_02_TC_07;
+import HRMS_ERP_TRANSFER.ToVerifyDescriptionField_SC_02_TC_05;
+import HRMS_ERP_TRANSFER.ToVerifyDiscard_SC_03_TC_08;
+import HRMS_ERP_TRANSFER.ToVerifyEdit_SC_03_TC_03;
+import HRMS_ERP_TRANSFER.ToVerifyEffectiveDate_SC_02_TC_08;
+import HRMS_ERP_TRANSFER.ToVerifyFetchAllEmployee_SC_02_TC_11;
+import HRMS_ERP_TRANSFER.ToVerifyHRManagerField_SC_03_TC_05;
+import HRMS_ERP_TRANSFER.ToVerifyInitiateTransfer_SC_02_TC_16;
+import HRMS_ERP_TRANSFER.ToVerifyInitiatorName_SC_02_TC_10;
+import HRMS_ERP_TRANSFER.ToVerifyNewSection_SC_03_TC_04;
+import HRMS_ERP_TRANSFER.ToVerifyRefuseByEstabManager_SC_05_TC_01;
+import HRMS_ERP_TRANSFER.ToVerifyRemark_SC_03_TC_06;
+import HRMS_ERP_TRANSFER.ToVerifyRemarks_SC_02_TC_13;
+import HRMS_ERP_TRANSFER.ToVerifySanctionOrderNo_SC_02_TC_06;
+import HRMS_ERP_TRANSFER.ToVerifySaveButtonFun_SC_02_TC_15;
+import HRMS_ERP_TRANSFER.ToVerifySave_SC_03_TC_07;
+import HRMS_ERP_TRANSFER.ToVerifySectionTransferLink_SC_03_TC_01;
+import HRMS_ERP_TRANSFER.ToVerifySelectCheckbox_SC_02_TC_12;
+import HRMS_ERP_TRANSFER.ToVerifySelectCheckbox_SC_03_TC_02;
+import HRMS_ERP_TRANSFER.ToVerifySubmitForApproval_SC_03_TC_09;
+import HRMS_ERP_TRANSFER.ToVerifyTransferInitiator_SC_02_TC_03;
+import HRMS_ERP_TRANSFER.ToVerifyTransferLink_SC_02_TC_02;
+import HRMS_ERP_TRANSFER.ToVerifyYear_SC_02_TC_09;
+import HRMS_LOGINPAGE.LoginPageHRMS_JavaFile;
+import HRMS_URL_Page.HRMS_URL;
+@Listeners(GenericLibrary.ListenerDriver.class)
+public class HRMS_ERP_Transfer_HOD_Module extends HRMS_URL
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\HRMS_PROJECT\\src\\test\\resources\\HRMS_TESTDATA\\HRMS_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutHRMS() throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebElement Administrator=driver.findElement(By.xpath("//ul[@class='nav navbar-nav navbar-right oe_user_menu_placeholder']/li/a/span[2]"));
+		wait.until(ExpectedConditions.elementToBeClickable(Administrator));
+		HighlightOnElement(Administrator);
+		Administrator.click();
+		log.info("To verify click on Administrator menu successfully");
+
+		WebElement logoutbtn=driver.findElement(By.xpath("//a[contains(text(),'Log out')]"));
+		wait.until(ExpectedConditions.elementToBeClickable(logoutbtn));
+		HighlightOnElement(logoutbtn);
+		Actions logout=new Actions(driver);
+		logout.click(logoutbtn).perform();
+		log.info("To verify click on Logout button successfully");
+
+		driver.close();
+		log.info("To verify Browser closed successfully");
+	}
+
+	@DataProvider(name="HOD")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"HRMSLogin_Transfer_Credentials");
+	}
+
+	@Test(priority=0,dataProvider="HOD",description="verify login")
+	public void HRMS_EMP_EMP_TR_SC_01_TC_01(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+	}
+
+	@Test(priority=1,dataProvider="HOD",description="verify ACR link")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_01(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+	}
+
+	@Test(priority=2,dataProvider="HOD",description="verify transfer link")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_02(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+		transferlink.verifyTransferDisplayLink();
+	}
+
+	@Test(priority=3,dataProvider="HOD",description="verify transfer initiator")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_03(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+		transinitiator.verifylistDisplay();
+	}
+
+	@Test(priority=4,dataProvider="HOD",description="verify create")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_04(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+		create.verifyCreateDisplayList();
+	}
+
+	@Test(priority=5,dataProvider="HOD",description="verify description")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_05(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+	}
+
+	@Test(priority=6,dataProvider="HOD",description="verify sanction order no")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_06(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField();
+	}
+
+	@Test(priority=7,dataProvider="HOD",description="verify create date")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_07(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField1();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+		createdate.compareCurrentDate();
+	}
+
+	@Test(priority=8,dataProvider="HOD",description="verify effective date")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_08(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField2();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+	}
+
+	@Test(priority=9,dataProvider="HOD",description="verify year")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_09(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField3();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+	}
+
+	@Test(priority=10,dataProvider="HOD",description="verify initiator name")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_10(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField4();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+
+		ToVerifyInitiatorName_SC_02_TC_10 intiatorname=PageFactory.initElements(driver,ToVerifyInitiatorName_SC_02_TC_10.class);
+		intiatorname.verifyInitiatorName();
+	}
+
+	@Test(priority=10,dataProvider="HOD",description="verify Fetch all employee")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_11(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField5();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+
+
+		ToVerifyFetchAllEmployee_SC_02_TC_11 fetchallemployee=PageFactory.initElements(driver,ToVerifyFetchAllEmployee_SC_02_TC_11.class);
+		fetchallemployee.verifyFetchAllEmployee();
+		fetchallemployee.verifyListOfEmployeeShow();
+	}
+
+	@Test(priority=11,dataProvider="HOD",description="verify checkbox")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_12(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField6();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+
+		ToVerifyFetchAllEmployee_SC_02_TC_11 fetchallemployee=PageFactory.initElements(driver,ToVerifyFetchAllEmployee_SC_02_TC_11.class);
+		fetchallemployee.verifyFetchAllEmployee();
+
+		ToVerifySelectCheckbox_SC_02_TC_12 checkbox=PageFactory.initElements(driver,ToVerifySelectCheckbox_SC_02_TC_12.class);
+		checkbox.verifySelectCheckbox();
+	}
+
+	@Test(priority=12,dataProvider="HOD",description="verify remarks")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_13(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField7();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+
+		ToVerifyFetchAllEmployee_SC_02_TC_11 fetchallemployee=PageFactory.initElements(driver,ToVerifyFetchAllEmployee_SC_02_TC_11.class);
+		fetchallemployee.verifyFetchAllEmployee();
+
+		ToVerifyRemarks_SC_02_TC_13 remarks=PageFactory.initElements(driver,ToVerifyRemarks_SC_02_TC_13.class);
+		remarks.verifyRemarks();
+		remarks.clickOnDeleteRejectedEmployees();
+		remarks.clickOnOkButton();
+
+		remarks.verifyRemarks();
+		remarks.clickOnRemarksInputBox();
+	}
+
+	@Test(priority=13,dataProvider="HOD",description="verify save")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_15(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField8();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+
+		ToVerifyFetchAllEmployee_SC_02_TC_11 fetchallemployee=PageFactory.initElements(driver,ToVerifyFetchAllEmployee_SC_02_TC_11.class);
+		fetchallemployee.verifyFetchAllEmployee();
+
+		ToVerifySaveButtonFun_SC_02_TC_15 save=PageFactory.initElements(driver,ToVerifySaveButtonFun_SC_02_TC_15.class);
+		save.verifySaveButtonFun();
+	}
+
+
+	@Test(priority=14,dataProvider="HOD",description="verify initiate transfer")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_16(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField9();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+
+		ToVerifyFetchAllEmployee_SC_02_TC_11 fetchallemployee=PageFactory.initElements(driver,ToVerifyFetchAllEmployee_SC_02_TC_11.class);
+		fetchallemployee.verifyFetchAllEmployee();
+
+		ToVerifySaveButtonFun_SC_02_TC_15 save=PageFactory.initElements(driver,ToVerifySaveButtonFun_SC_02_TC_15.class);
+		save.verifySaveButtonFun();
+
+		ToVerifyInitiateTransfer_SC_02_TC_16 initiatortransfer=PageFactory.initElements(driver,ToVerifyInitiateTransfer_SC_02_TC_16.class);
+		initiatortransfer.verifyInitiateTransferButtonFun();
+	}
+
+	@Test(priority=15,dataProvider="HOD",description="verify attachment link")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_17(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField10();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+
+		ToVerifyFetchAllEmployee_SC_02_TC_11 fetchallemployee=PageFactory.initElements(driver,ToVerifyFetchAllEmployee_SC_02_TC_11.class);
+		fetchallemployee.verifyFetchAllEmployee();
+
+		ToVerifySaveButtonFun_SC_02_TC_15 save=PageFactory.initElements(driver,ToVerifySaveButtonFun_SC_02_TC_15.class);
+		save.verifySaveButtonFun();
+
+		ToVerifyAttachmentLink_SC_02_TC_17 attachmentlink=PageFactory.initElements(driver,ToVerifyAttachmentLink_SC_02_TC_17.class);
+		attachmentlink.verifyAttachmentLink();
+	}
+
+	@Test(priority=16,dataProvider="HOD",description="verify Add")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_18(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField11();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+
+		ToVerifyFetchAllEmployee_SC_02_TC_11 fetchallemployee=PageFactory.initElements(driver,ToVerifyFetchAllEmployee_SC_02_TC_11.class);
+		fetchallemployee.verifyFetchAllEmployee();
+
+		ToVerifySaveButtonFun_SC_02_TC_15 save=PageFactory.initElements(driver,ToVerifySaveButtonFun_SC_02_TC_15.class);
+		save.verifySaveButtonFun();
+
+		ToVerifyAttachmentLink_SC_02_TC_17 attachmentlink=PageFactory.initElements(driver,ToVerifyAttachmentLink_SC_02_TC_17.class);
+		attachmentlink.verifyAttachmentLink();
+
+		ToVerifyAddFun_SC_02_TC_18 add=PageFactory.initElements(driver,ToVerifyAddFun_SC_02_TC_18.class);
+		add.verifyAddFun();
+	}
+
+	@Test(priority=17,dataProvider="HOD",description="verify Action")
+	public void HRMS_EMP_EMP_TR_SC_02_TC_19(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifyTransferInitiator_SC_02_TC_03 transinitiator=PageFactory.initElements(driver,ToVerifyTransferInitiator_SC_02_TC_03.class);
+		transinitiator.verifyTransferInitiator();
+
+		ToVerifyCreateButton_SC_02_TC_04 create=PageFactory.initElements(driver,ToVerifyCreateButton_SC_02_TC_04.class);
+		create.verifyCreateButton();
+
+		ToVerifyDescriptionField_SC_02_TC_05 description=PageFactory.initElements(driver,ToVerifyDescriptionField_SC_02_TC_05.class);
+		description.verifyDescriptionField();
+
+		ToVerifySanctionOrderNo_SC_02_TC_06 sanction=PageFactory.initElements(driver,ToVerifySanctionOrderNo_SC_02_TC_06.class);
+		sanction.verifySanctionField12();
+
+		ToVerifyCreateDate_SC_02_TC_07 createdate=PageFactory.initElements(driver,ToVerifyCreateDate_SC_02_TC_07.class);
+		createdate.verifyCreatedate();
+
+		ToVerifyEffectiveDate_SC_02_TC_08 effectivedate=PageFactory.initElements(driver,ToVerifyEffectiveDate_SC_02_TC_08.class);
+		effectivedate.verifyEffectiveDate();
+
+		ToVerifyYear_SC_02_TC_09 year=PageFactory.initElements(driver,ToVerifyYear_SC_02_TC_09.class);
+		year.verifyYear();
+
+		ToVerifyFetchAllEmployee_SC_02_TC_11 fetchallemployee=PageFactory.initElements(driver,ToVerifyFetchAllEmployee_SC_02_TC_11.class);
+		fetchallemployee.verifyFetchAllEmployee();
+
+		ToVerifySaveButtonFun_SC_02_TC_15 save=PageFactory.initElements(driver,ToVerifySaveButtonFun_SC_02_TC_15.class);
+		save.verifySaveButtonFun();
+
+		ToVerifyAction_SC_02_TC_19 action=PageFactory.initElements(driver,ToVerifyAction_SC_02_TC_19.class);
+		action.verifyAction();
+	}
+
+	//section transfer
+
+	@Test(priority=18,dataProvider="HOD",description="verify Section transfer")
+	public void HRMS_EMP_EMP_TR_SC_03_TC_01(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+		sectiontransfer.approverList();
+		sectiontransfer.clickOnInitial();
+		sectiontransfer.intialList();
+	}
+
+	@Test(priority=19,dataProvider="HOD",description="verify Select checkbox")
+	public void HRMS_EMP_EMP_TR_SC_03_TC_02(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+		sectiontransfer.clickOnInitial();
+
+		ToVerifySelectCheckbox_SC_03_TC_02 checkbox=PageFactory.initElements(driver,ToVerifySelectCheckbox_SC_03_TC_02.class);
+		checkbox.selectCheckbox();
+	}
+
+	@Test(priority=20,dataProvider="HOD",description="verify edit")
+	public void HRMS_EMP_EMP_TR_SC_03_TC_03(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+		sectiontransfer.clickOnInitial();
+
+		ToVerifySelectCheckbox_SC_03_TC_02 checkbox=PageFactory.initElements(driver,ToVerifySelectCheckbox_SC_03_TC_02.class);
+		checkbox.selectCheckbox();
+
+		ToVerifyEdit_SC_03_TC_03 editbtn=PageFactory.initElements(driver,ToVerifyEdit_SC_03_TC_03.class);
+		editbtn.verifyEdit();
+		editbtn.verifyHRManager();
+		editbtn.verifyNewSection();
+		editbtn.verifyRemarks();
+	}
+
+	@Test(priority=21,dataProvider="HOD",description="verify new section")
+	public void HRMS_EMP_EMP_TR_SC_03_TC_04(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+		sectiontransfer.clickOnInitial();
+
+		ToVerifySelectCheckbox_SC_03_TC_02 checkbox=PageFactory.initElements(driver,ToVerifySelectCheckbox_SC_03_TC_02.class);
+		checkbox.selectCheckbox();
+
+		ToVerifyEdit_SC_03_TC_03 editbtn=PageFactory.initElements(driver,ToVerifyEdit_SC_03_TC_03.class);
+		editbtn.verifyEdit();
+
+		ToVerifyNewSection_SC_03_TC_04 newsection=PageFactory.initElements(driver,ToVerifyNewSection_SC_03_TC_04.class);
+		newsection.enterNewSection();
+	}
+	@Test(priority=22,dataProvider="HOD",description="verify HR Maanger")
+	public void HRMS_EMP_EMP_TR_SC_03_TC_05(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+		sectiontransfer.clickOnInitial();
+
+		ToVerifySelectCheckbox_SC_03_TC_02 checkbox=PageFactory.initElements(driver,ToVerifySelectCheckbox_SC_03_TC_02.class);
+		checkbox.selectCheckbox();
+
+		ToVerifyEdit_SC_03_TC_03 editbtn=PageFactory.initElements(driver,ToVerifyEdit_SC_03_TC_03.class);
+		editbtn.verifyEdit();
+
+		ToVerifyNewSection_SC_03_TC_04 newsection=PageFactory.initElements(driver,ToVerifyNewSection_SC_03_TC_04.class);
+		newsection.enterNewSection();
+
+		ToVerifyHRManagerField_SC_03_TC_05 hrmanager=PageFactory.initElements(driver,ToVerifyHRManagerField_SC_03_TC_05.class);
+		hrmanager.enterHRManagerField();
+	}
+
+	@Test(priority=23,dataProvider="HOD",description="verify remarks")
+	public void HRMS_EMP_EMP_TR_SC_03_TC_06(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+		sectiontransfer.clickOnInitial();
+
+		ToVerifySelectCheckbox_SC_03_TC_02 checkbox=PageFactory.initElements(driver,ToVerifySelectCheckbox_SC_03_TC_02.class);
+		checkbox.selectCheckbox();
+
+		ToVerifyEdit_SC_03_TC_03 editbtn=PageFactory.initElements(driver,ToVerifyEdit_SC_03_TC_03.class);
+		editbtn.verifyEdit();
+
+		ToVerifyNewSection_SC_03_TC_04 newsection=PageFactory.initElements(driver,ToVerifyNewSection_SC_03_TC_04.class);
+		newsection.enterNewSection();
+
+		ToVerifyHRManagerField_SC_03_TC_05 hrmanager=PageFactory.initElements(driver,ToVerifyHRManagerField_SC_03_TC_05.class);
+		hrmanager.enterHRManagerField();
+
+		ToVerifyRemark_SC_03_TC_06 remarks=PageFactory.initElements(driver,ToVerifyRemark_SC_03_TC_06.class);
+		remarks.verifyRemark();
+	}
+
+	@Test(priority=24,dataProvider="HOD",description="verify discard")
+	public void HRMS_EMP_EMP_TR_SC_03_TC_08(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+		sectiontransfer.clickOnInitial();
+
+		ToVerifySelectCheckbox_SC_03_TC_02 checkbox=PageFactory.initElements(driver,ToVerifySelectCheckbox_SC_03_TC_02.class);
+		checkbox.selectCheckbox();
+
+		ToVerifyEdit_SC_03_TC_03 editbtn=PageFactory.initElements(driver,ToVerifyEdit_SC_03_TC_03.class);
+		editbtn.verifyEdit();
+
+		ToVerifyNewSection_SC_03_TC_04 newsection=PageFactory.initElements(driver,ToVerifyNewSection_SC_03_TC_04.class);
+		newsection.enterNewSection();
+
+		ToVerifyHRManagerField_SC_03_TC_05 hrmanager=PageFactory.initElements(driver,ToVerifyHRManagerField_SC_03_TC_05.class);
+		hrmanager.enterHRManagerField();
+
+		ToVerifyRemark_SC_03_TC_06 remarks=PageFactory.initElements(driver,ToVerifyRemark_SC_03_TC_06.class);
+		remarks.verifyRemark();
+
+		ToVerifyDiscard_SC_03_TC_08 discard=PageFactory.initElements(driver,ToVerifyDiscard_SC_03_TC_08.class);
+		discard.verifyDiscard();
+	}
+
+	@Test(priority=25,dataProvider="HOD",description="verify save")
+	public void HRMS_EMP_EMP_TR_SC_03_TC_07(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+		sectiontransfer.clickOnInitial();
+
+		ToVerifySelectCheckbox_SC_03_TC_02 checkbox=PageFactory.initElements(driver,ToVerifySelectCheckbox_SC_03_TC_02.class);
+		checkbox.selectCheckbox();
+
+		ToVerifyEdit_SC_03_TC_03 editbtn=PageFactory.initElements(driver,ToVerifyEdit_SC_03_TC_03.class);
+		editbtn.verifyEdit();
+
+		ToVerifyNewSection_SC_03_TC_04 newsection=PageFactory.initElements(driver,ToVerifyNewSection_SC_03_TC_04.class);
+		newsection.enterNewSection();
+
+		ToVerifyHRManagerField_SC_03_TC_05 hrmanager=PageFactory.initElements(driver,ToVerifyHRManagerField_SC_03_TC_05.class);
+		hrmanager.enterHRManagerField();
+
+		ToVerifyRemark_SC_03_TC_06 remarks=PageFactory.initElements(driver,ToVerifyRemark_SC_03_TC_06.class);
+		remarks.verifyRemark();
+
+		ToVerifySave_SC_03_TC_07 save=PageFactory.initElements(driver,ToVerifySave_SC_03_TC_07.class);
+		save.verifySave();
+	}
+
+
+	@Test(priority=26,dataProvider="HOD",description="verify submit for approval")
+	public void HRMS_EMP_EMP_TR_SC_03_TC_09(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+		sectiontransfer.clickOnInitial();
+
+		ToVerifySelectCheckbox_SC_03_TC_02 checkbox=PageFactory.initElements(driver,ToVerifySelectCheckbox_SC_03_TC_02.class);
+		checkbox.selectCheckbox();
+
+		ToVerifyEdit_SC_03_TC_03 editbtn=PageFactory.initElements(driver,ToVerifyEdit_SC_03_TC_03.class);
+		editbtn.verifyEdit();
+
+		ToVerifyNewSection_SC_03_TC_04 newsection=PageFactory.initElements(driver,ToVerifyNewSection_SC_03_TC_04.class);
+		newsection.enterNewSection();
+
+		ToVerifyHRManagerField_SC_03_TC_05 hrmanager=PageFactory.initElements(driver,ToVerifyHRManagerField_SC_03_TC_05.class);
+		hrmanager.enterHRManagerField();
+
+		ToVerifyRemark_SC_03_TC_06 remarks=PageFactory.initElements(driver,ToVerifyRemark_SC_03_TC_06.class);
+		remarks.verifyRemark();
+
+		ToVerifySave_SC_03_TC_07 save=PageFactory.initElements(driver,ToVerifySave_SC_03_TC_07.class);
+		save.verifySave();
+
+		ToVerifySubmitForApproval_SC_03_TC_09 submitapproval=PageFactory.initElements(driver,ToVerifySubmitForApproval_SC_03_TC_09.class);
+		submitapproval.verifySubmitForApproval();
+	}
+
+	@Test(priority=27,dataProvider="HOD",description="verify refuse by establishment manager")
+	public void HRMS_EMP_EMP_TR_SC_05_TC_01(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+
+		ToVerifyRefuseByEstabManager_SC_05_TC_01 refuse=PageFactory.initElements(driver,ToVerifyRefuseByEstabManager_SC_05_TC_01.class);
+		refuse.clickOnWaitingApprovalByEstb();
+		refuse.verifySelectCheck();
+		refuse.clickOnRefuseByEstablishmentManager();
+	}
+
+
+	@Test(priority=28,dataProvider="HOD",description="verify approve by establishment manager")
+	public void HRMS_EMP_EMP_TR_SC_04_TC_01(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_Transfer_HOD_Credential(Username,Password);
+
+		ToVerifyACRLink_SC_02_TC_01 acrlink=PageFactory.initElements(driver,ToVerifyACRLink_SC_02_TC_01.class);
+		acrlink.clickOnDiscussIcon();
+		acrlink.clickOnACR();
+
+		ToVerifyTransferLink_SC_02_TC_02 transferlink=PageFactory.initElements(driver,ToVerifyTransferLink_SC_02_TC_02.class);
+		transferlink.clickOnTransferLink();
+
+		ToVerifySectionTransferLink_SC_03_TC_01 sectiontransfer=PageFactory.initElements(driver,ToVerifySectionTransferLink_SC_03_TC_01.class);
+		sectiontransfer.verifySectionTransfer();
+
+		ToVerifyRefuseByEstabManager_SC_05_TC_01 refuse=PageFactory.initElements(driver,ToVerifyRefuseByEstabManager_SC_05_TC_01.class);
+		refuse.clickOnWaitingApprovalByEstb();
+		refuse.verifySelectCheck();
+		
+		ToVerifyApprovedByEstablishmentManager_SC_04_TC_01 approve=PageFactory.initElements(driver,ToVerifyApprovedByEstablishmentManager_SC_04_TC_01.class);
+		approve.editBtn();
+		approve.verifyGM();
+		approve.clickOnApproveByEstablishmentManager();
+	}
+}

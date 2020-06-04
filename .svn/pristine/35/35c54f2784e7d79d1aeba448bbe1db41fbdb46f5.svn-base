@@ -1,0 +1,43 @@
+package NRDA_NewConnection;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_09_TC_03 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "DisplayLink"
+	 * @author sarvesh.nellore
+	 * @Date: 04-01-2018
+	 */
+	/****************************************************************************************************/
+	
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div[@class='dash-wraper water']/div/div/ul[1]/li/a")
+	private List<WebElement> displaylink1;
+	
+	public void verifyDisplayLink1() throws InterruptedException
+	{
+		for(WebElement list1:displaylink1)
+		{
+			HighlightOnElement(list1);
+			Assert.assertNotNull(list1.isDisplayed());
+		}
+		Reporter.log("Water statistics icon shows count value for 'Approved' , 'Rejected' & 'Pending'.",true);
+		waitForSomeTime();
+	}	
+
+}

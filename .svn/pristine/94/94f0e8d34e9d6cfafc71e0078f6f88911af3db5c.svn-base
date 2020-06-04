@@ -1,0 +1,38 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyMuncipalityField_SC_04_TC_04 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "MUNICIPILITY/ULB FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Municipality/ULB')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement municipilityfield;
+
+	public void verifyMunicipilityField() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(municipilityfield));
+		HighlightOnElement(municipilityfield);
+		Assert.assertTrue(municipilityfield.isDisplayed(),"MUNICIPILITY/ULB FIELD IS DISPLAYED");
+		Assert.assertTrue(municipilityfield.isEnabled(),"MUNICIPILITY/ULB FIELD IS ENABLED");
+		SelectVisibleText(municipilityfield,"Rajim");
+		Reporter.log("action is performed on Municipility/ulb Field",true);
+	}
+}

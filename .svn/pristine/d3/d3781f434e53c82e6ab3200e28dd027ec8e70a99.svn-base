@@ -1,0 +1,1671 @@
+package WaterAndSewerageRegistration;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.Reporter;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyRegistrationPage extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on New Registration tab".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//a[contains(text(),'New Registration')]")
+	private WebElement new_registration;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Register As".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="(//html/body/div[1]/div[3]/form/table[2]/tbody/tr/td/select)[1]")
+	private WebElement register_as_citizen;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New registration form text".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//html/body/div[1]/div[3]/form/table/tbody/tr/td/span[@class='form-label']")
+	private List<WebElement> registartion_details_label;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New registration form textbox".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div[1]/div[3]/form/table/tbody/tr/td/span/input")
+	private WebElement registartion_details_textbox;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New registration form textbox".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div[1]/div[3]/form/table/tbody/tr/td/input")
+	private WebElement registartion_details_textbox1;
+
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New registration form dropdown".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//html/body/div[1]/div[3]/form/table/tbody/tr/td/select")
+	private WebElement registartion_details_dropdown;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New registration form select district from dropdown".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//html/body/div[1]/div[3]/form/table[4]/tbody/tr/td/select)[1]")
+	private WebElement registartion_district;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New registration form select city from dropdown".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//html/body/div[1]/div[3]/form/table[4]/tbody/tr/td/select)[2]")
+	private WebElement registartion_city;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New registration form select district from Address".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//html/body/div[1]/div[3]/form/table/tbody/tr/td/textarea")
+	private WebElement registartion_details_textarea;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New registration form text".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//html/body/div[1]/div[3]/form/table/tbody/tr/td/span/span[@class='form-label']")
+	private List<WebElement> registartion_details1_label; 
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Aadhar Number".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[1]/td[4]/span/input")
+	private WebElement aadhar_no;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "upload image".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[2]/td[2]/table/tbody/tr/td/div/div/label")
+	private WebElement uploadimage;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Applicant first name".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[2]/td[4]/input")
+	private WebElement applicant_first_name;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Applicant middle name".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[2]/td[6]/input")
+	private WebElement applicant_middle_name;
+
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Applicant last name".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[3]/td[2]/input")
+	private WebElement applicant_last_name;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "gender".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[3]/td[4]/select")
+	private WebElement gender;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "date of birth".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[3]/td[6]/span/input")
+	private WebElement clickdate_of_birth_textbox;
+
+	@FindBy(xpath=".//*[@id='ui-datepicker-div']/div[1]/div/select[2]")
+	private WebElement select_year;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "father First name".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[4]/td[2]/input")
+	private WebElement father_first_name;
+
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "father middle name".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[4]/td[4]/input")
+	private WebElement father_middle_name;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Father Last name".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[4]/td[6]/input")
+	private WebElement father_last_name;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "mother name".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[5]/td[2]/input")
+	private WebElement mother_name;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Firm name".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[5]/td[4]/input")
+	private WebElement firm_name;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Firm address".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5fa8']/tbody/tr[5]/td[6]/input")
+	private WebElement firm_address;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Post Office".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5be9']/tbody/tr[1]/td[6]/input")
+	private WebElement post_office;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pin code".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5be9']/tbody/tr[2]/td[2]/input")
+	private WebElement pin_code;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "address".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5be9']/tbody/tr[2]/td[4]/textarea")
+	private WebElement address;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Email id".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5949']/tbody/tr[1]/td[2]/input")
+	private WebElement email_id;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Mobile number".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5949']/tbody/tr[1]/td[4]/input")
+	private WebElement mobile_no;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "registration Number".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5949']/tbody/tr[1]/td[6]/input")
+	private WebElement registration_number;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Registration certificate Scanned copy".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5949']/tbody/tr[2]/td[2]/table/tbody/tr/td/div/div[1]/label")
+	private WebElement registration_certificate_scanned_copy;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "register by".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@id='regForm:j_id751759787_145b5949']/tbody/tr[2]/td[4]/select")
+	private WebElement register_by;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "register button".
+	 * @author deepak.saini
+	 * @since 2017-08-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@style='width:100%;margin:20px 0;']/tbody/tr/td/span/center/button/span[contains(text(),'Register')]")
+	private WebElement register;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "clear button".
+	 * @author deepak.saini
+	 * @since 2017-08-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@style='width:100%;margin:20px 0;']/tbody/tr/td/span/center/button/span[contains(text(),'Clear')]")
+	private WebElement clear;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "home button".
+	 * @author deepak.saini
+	 * @since 2017-08-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@style='width:100%;margin:20px 0;']/tbody/tr/td/span/center/button/span[contains(text(),'Home')]")
+	private WebElement home;
+
+	
+	//To verify all element register as Citizen
+	public void clickOnNewRegistrationlink_RegisterAs_Citizen01() throws InterruptedException
+	{
+		HighlightOnElement(new_registration);
+		Assert.assertEquals(true,new_registration.isEnabled());
+		Assert.assertNotNull(new_registration,"click on New Registration Link sucessfully");
+		new_registration.click();
+		Reporter.log("click on New Registration Link sucessfully",true);
+		log.info("click on New Registration Link sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,register_as_citizen.isDisplayed());
+		SelectByIndex(register_as_citizen, "Citizen Login");//verify the field register as citizen login
+		Reporter.log("Register As:"+register_as_citizen.getText(),true);
+		log.info("To verify Register As Citizen sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,registartion_details_textbox.isDisplayed());
+		Assert.assertEquals(true,registartion_details_textbox1.isDisplayed());
+		Assert.assertEquals(true,registartion_details_dropdown.isDisplayed());
+		Assert.assertEquals(true, registartion_details_textarea.isDisplayed());
+
+		Select sel=new Select(registartion_district);
+		List<WebElement> list=sel.getOptions();
+		int selectlist=list.size();
+		for(int index=1;index<selectlist;index++)
+		{
+			String districtlist=list.get(index).getText();
+			Reporter.log("District:"+districtlist,true);
+		}
+		log.info("To verify District selected successfully");
+
+		@SuppressWarnings("unused")
+		Select sel1=new Select(registartion_city);
+		@SuppressWarnings("unused")
+		List<WebElement> list1=sel.getOptions();
+		int selectlist1=list.size();
+		for(int index=1;index<selectlist1;index++)
+		{
+			String citylist=list.get(index).getText();
+			Reporter.log("City:"+citylist,true);
+		}
+		log.info("To verify City selected successfully");
+
+		int Size=registartion_details_label.size();
+		for(int index=0;index<Size;index++)
+		{
+			String applicantdetails=registartion_details_label.get(index).getText();
+			waitForSomeTime();
+			Reporter.log("Citizen Registration Form details Element is displayed:"+applicantdetails,true);
+		}
+
+		waitForSomeTime();
+		int size=registartion_details1_label.size();
+		for(int index=0;index<size;index++)
+		{
+			String applicantdetails1=registartion_details1_label.get(index).getText();
+			waitForSomeTime();
+			Reporter.log("Citizen Registration Form details Element is displayed:"+applicantdetails1,true);
+		}
+		log.info("To verify Registration Form details Element is displayed successfully");
+
+	}
+
+	//To verify all element register as Architect
+	public void clickOnNewRegistrationlink_RegisterAs_Architect02() throws InterruptedException
+	{
+		HighlightOnElement(new_registration);
+		Assert.assertEquals(true,new_registration.isEnabled());
+		Assert.assertNotNull(new_registration,"click on New Registration Link sucessfully");
+		new_registration.click();
+		Reporter.log("click on New Registration Link sucessfully",true);
+		log.info("click on New Registration Link sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,register_as_citizen.isDisplayed());
+		SelectByIndex(register_as_citizen, "Architect Login");//verify the field register as Architect login
+		Reporter.log("Register As:"+register_as_citizen.getText(),true);
+		log.info("To verify Register As Architect sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,registartion_details_textbox.isDisplayed());
+		Assert.assertEquals(true,registartion_details_textbox1.isDisplayed());
+		Assert.assertEquals(true,registartion_details_dropdown.isDisplayed());
+		Assert.assertEquals(true, registartion_details_textarea.isDisplayed());
+
+		Select sel=new Select(registartion_district);
+		List<WebElement> list=sel.getOptions();
+		int selectlist=list.size();
+		for(int index=1;index<selectlist;index++)
+		{
+			String districtlist=list.get(index).getText();
+			Reporter.log("District:"+districtlist,true);
+		}
+		log.info("To verify District selected successfully");
+		
+		@SuppressWarnings("unused")
+		Select sel1=new Select(registartion_city);
+		@SuppressWarnings("unused")
+		List<WebElement> list1=sel.getOptions();
+		int selectlist1=list.size();
+		for(int index=1;index<selectlist1;index++)
+		{
+			String citylist=list.get(index).getText();
+			Reporter.log("City:"+citylist,true);
+		}
+		log.info("To verify City selected successfully");
+		
+		int Size=registartion_details_label.size();
+		for(int index=0;index<Size;index++)
+		{
+			String applicantdetails=registartion_details_label.get(index).getText();
+			waitForSomeTime();
+			Reporter.log("Registration Form details Element is displayed:"+applicantdetails,true);
+		}
+
+		waitForSomeTime();
+		int size=registartion_details1_label.size();
+		for(int index=0;index<size;index++)
+		{
+			String applicantdetails1=registartion_details1_label.get(index).getText();
+			waitForSomeTime();
+			Reporter.log("Registration Form details Element is displayed:"+applicantdetails1,true);
+		}
+		log.info("To verify Architect Registration Form details Element is displayed successfully");
+	}
+
+
+
+	//Register As Citizen Login
+	public void verifyRegisterfunctionalityRegisterAs_Citizen03() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(new_registration);
+		Assert.assertEquals(true,new_registration.isEnabled());
+		Assert.assertNotNull(new_registration,"click on New Registration Link sucessfully");
+		new_registration.click();
+		Reporter.log("click on New Registration Link sucessfully",true);
+		log.info("click on New Registration Link sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,register_as_citizen.isDisplayed());
+		SelectByIndex(register_as_citizen, "Citizen Login");//verify the field register as citizen login
+		Reporter.log("Register As:"+register_as_citizen.getText(),true);
+		log.info("To verify Register As Citizen sucessfully");
+		waitForSomeTime();
+
+		try
+		{
+			String aadharno=excel.getExcelData(aadhar_no,"Registration Details",1,6);
+			Reporter.log("Aadhar number:"+aadharno,true);
+			log.info("To verify Aadhar number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(uploadimage);
+			uploadimage.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\images.jpg");
+			Reporter.log("To verify Image upload successfully",true);
+			log.info("To verify Image upload successfully");
+			waitForSomeTime();
+
+			String applicantfirstname=excel.getExcelData(applicant_first_name, "Registration Details", 1, 9);
+			Reporter.log("Applicant First number:"+applicantfirstname,true);
+			log.info("To verify Applicant First number entered successfully");
+			waitForSomeTime();
+
+			SelectByIndex(gender, "Male");
+			Reporter.log("Gender:"+gender.getText(),true);
+			log.info("To verify Gender selected successfully");
+			waitForSomeTime();
+
+			HighlightOnElement(clickdate_of_birth_textbox);
+			clickdate_of_birth_textbox.click();
+			select_year.click();
+			Select year=new Select(select_year);
+			List<WebElement> list_year=year.getOptions();
+			for(int index=0;index<list_year.size();index++)
+			{
+				String allyear=list_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				log.info("To verify year selected successfully");
+				if(allyear.trim().equalsIgnoreCase("1987"))
+				{
+					year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						log.info("To verify month selected successfully");
+						if(allmonth.trim().equalsIgnoreCase("jul"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								log.info("To verify date selected successfully");
+								if(alldate.trim().equalsIgnoreCase("19"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+		try
+		{
+			waitForSomeTime();
+			String fatherfirstname=excel.getExcelData(father_first_name,"Registration Details",1,8);
+			Reporter.log("Father first name:"+fatherfirstname,true);
+			log.info("To verify Father first name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String fatherlastname=excel.getExcelData(father_last_name,"Registration Details",1,13);
+			Reporter.log("Father last name:"+fatherlastname,true);
+			log.info("To verify Father last name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mothername=excel.getExcelData(mother_name,"Registration Details",1,14);
+			Reporter.log("Mother name:"+mothername,true);
+			log.info("To verify Mother name entered successfully");
+			waitForSomeTime();
+
+
+			SelectByIndex(registartion_district,"RAIPUR");
+			log.info("To verify District selected successfully");
+			waitForSomeTime();
+
+			SelectByIndex(registartion_city,"RAIPUR");
+			log.info("To verify City selected successfully");
+			waitForSomeTime();
+
+
+			waitForSomeTime();
+			String postoffice=excel.getExcelData(post_office,"Registration Details",1,18);
+			Reporter.log("Post Office:"+postoffice,true);
+			log.info("To verify Post Office number entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String pincode=excel.getExcelData(pin_code,"Registration Details",1,19);
+			Reporter.log("Pin Code:"+pincode,true);
+			log.info("To verify Pin Code number entered successfully");
+
+			waitForSomeTime();
+			String aDdress=excel.getExcelData(address,"Registration Details",1,20);
+			Reporter.log("Address:"+aDdress,true);
+			log.info("To verify Address entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String emailid=excel.getExcelData(email_id,"Registration Details",1,22);
+			Reporter.log("Email id:"+emailid,true);
+			log.info("To verify Email id entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mobileno=excel.getExcelData(mobile_no,"Registration Details",1,23);
+			Reporter.log("Mobile Number:"+ mobileno,true);
+			log.info("To verify Mobile Number entered successfully");
+			waitForSomeTime();
+
+			Assert.assertEquals(true,register.isDisplayed());
+			HighlightOnElement(register);
+			String Actual=register.getText();
+			Reporter.log("Expected Result:"+Actual,true);
+			register.click();
+			log.info("To verify click on register button successfully");
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+	}
+
+
+
+	//Register As Architect Login
+
+	public void verifyRegisterfunctionalityRegisterAs_Architect04() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(new_registration);
+		Assert.assertEquals(true,new_registration.isEnabled());
+		Assert.assertNotNull(new_registration,"click on New Registration Link sucessfully");
+		new_registration.click();
+		Reporter.log("click on New Registration Link sucessfully",true);
+		log.info("click on New Registration Link sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,register_as_citizen.isDisplayed());
+		SelectByIndex(register_as_citizen, "Architect Login");//verify the field register as citizen login
+		Reporter.log("Register As:"+register_as_citizen.getText(),true);
+		log.info("To verify Register As Architect sucessfully");
+		waitForSomeTime();
+
+		try
+		{
+			String aadharno=excel.getExcelData(aadhar_no,"Registration Details",1,29);
+			Reporter.log("Aadhar number:"+aadharno,true);
+			log.info("To verify Aadhar number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(uploadimage);
+			uploadimage.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\images.jpg");
+			log.info("To verify Image upload successfully");
+			waitForSomeTime();
+
+			String applicantfirstname=excel.getExcelData(applicant_first_name, "Registration Details", 1,32);
+			Reporter.log("Applicant First number:"+applicantfirstname,true);
+			log.info("To verify Applicant First number successfully");
+			waitForSomeTime();
+
+			SelectByIndex(gender, "Male");
+			Reporter.log("Gender:"+gender.getText(),true);
+			log.info("To verify Gender selected successfully");
+			waitForSomeTime();
+
+			HighlightOnElement(clickdate_of_birth_textbox);
+			clickdate_of_birth_textbox.click();
+			select_year.click();
+			Select year=new Select(select_year);
+			List<WebElement> list_year=year.getOptions();
+			for(int index=0;index<list_year.size();index++)
+			{
+				String allyear=list_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				log.info("To verify year selected successfully");
+				if(allyear.trim().equalsIgnoreCase("1987"))
+				{
+					year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						log.info("To verify month selected successfully");
+						if(allmonth.trim().equalsIgnoreCase("jul"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								log.info("To verify date selected successfully");
+								if(alldate.trim().equalsIgnoreCase("19"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+		try
+		{
+			waitForSomeTime();
+			String fatherfirstname=excel.getExcelData(father_first_name,"Registration Details",1,31);
+			Reporter.log("Father first name:"+fatherfirstname,true);
+			log.info("To verify Father first name entered successfully");
+
+			waitForSomeTime();
+			String fatherlastname=excel.getExcelData(father_last_name,"Registration Details",1,36);
+			Reporter.log("Father last name:"+fatherlastname,true);
+			log.info("To verify Father last name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mothername=excel.getExcelData(mother_name,"Registration Details",1,37);
+			Reporter.log("Mother name:"+mothername,true);
+			log.info("To verify Mother name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String firmname=excel.getExcelData(firm_name,"Registration Details",1,38);
+			Reporter.log("Firm name:"+firmname,true);
+			log.info("To verify Firm name entered successfully");
+
+			waitForSomeTime();
+			String firmaddress=excel.getExcelData(firm_address,"Registration Details",1,39);
+			Reporter.log("Firm address:"+firmaddress,true);
+			log.info("To verify Firm address entered successfully");
+
+
+			SelectByIndex(registartion_district,"RAIPUR");
+			log.info("To verify District selected successfully");
+			waitForSomeTime();
+
+			SelectByIndex(registartion_city,"RAIPUR");
+			log.info("To verify City selected successfully");
+			waitForSomeTime();
+
+
+			waitForSomeTime();
+			String postoffice=excel.getExcelData(post_office,"Registration Details",1,43);
+			Reporter.log("Post Office:"+postoffice,true);
+			log.info("To verify Post Office number entered successfully");
+
+			waitForSomeTime();
+			String pincode=excel.getExcelData(pin_code,"Registration Details",1,44);
+			Reporter.log("Pin Code:"+pincode,true);
+			log.info("To verify Pin Code number entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String aDdress=excel.getExcelData(address,"Registration Details",1,45);
+			Reporter.log("Address:"+aDdress,true);
+			log.info("To verify Address entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String emailid=excel.getExcelData(email_id,"Registration Details",1,47);
+			Reporter.log("Email id:"+emailid,true);
+			log.info("To verify Email id entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mobileno=excel.getExcelData(mobile_no,"Registration Details",1,48);
+			Reporter.log("Mobile Number:"+ mobileno,true);
+			log.info("To verify Mobile Number entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String registrationno=excel.getExcelData(registration_number,"Registration Details",1,49);
+			Reporter.log("Registration Number:"+ registrationno,true);
+			log.info("To verify Registration Number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(registration_certificate_scanned_copy);
+			registration_certificate_scanned_copy.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\Background Verification Form_FADV.pdf");
+			log.info("To verify Upload document successfully");
+			waitForSomeTime();
+
+
+			Assert.assertEquals(true,register_by.isDisplayed());
+			SelectByIndex(register_by,"COA");
+			Reporter.log("Register by:"+register_by.getText(),true);
+			log.info("To verify Register By selected successfully");
+			waitForSomeTime();
+
+			Assert.assertEquals(true,register.isDisplayed());
+			HighlightOnElement(register);
+			String Actual=register.getText();
+			Reporter.log("Expected Result:"+Actual,true);
+			register.click();
+			log.info("To verify click on register button successfully");
+		}
+
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+
+	}
+
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Validation Message".
+	 * @author deepak.saini
+	 * @since 2017-08-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='growl_container']/div/div/div[2]/span")
+	private List<WebElement> errormessage;
+
+	//Register as Citizen/Architect Login to verify when mandatory field is blank
+
+	public void verifyMandatoryFieldFunctionalityRegisterAs_ArchitectOrCitizen05() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(new_registration);
+		Assert.assertEquals(true,new_registration.isEnabled());
+		Assert.assertNotNull(new_registration,"click on New Registration Link sucessfully");
+		new_registration.click();
+		Reporter.log("click on New Registration Link sucessfully",true);
+		log.info("click on New Registration Link sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,register_as_citizen.isDisplayed());
+		SelectByIndex(register_as_citizen, "Architect Login");//verify the field register as citizen login
+		Reporter.log("Register As:"+register_as_citizen.getText(),true);
+		log.info("To verify Register As Architect/Citizen sucessfully");
+		waitForSomeTime();
+
+		try
+		{
+			String aadharno=excel.getExcelData(aadhar_no,"Registration Details",1,55);
+			Reporter.log("Aadhar number:"+aadharno,true);
+			log.info("To verify Aadhar number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(uploadimage);
+			uploadimage.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\images.jpg");
+			log.info("To verify Image upload successfully");
+			waitForSomeTime();
+
+			String applicantfirstname=excel.getExcelData(applicant_first_name, "Registration Details", 1,58);
+			Reporter.log("Applicant First number:"+applicantfirstname,true);
+			log.info("To verify Applicant First number successfully");
+			waitForSomeTime();
+
+			SelectByIndex(gender, "");
+			Reporter.log("Gender:"+gender.getText(),true);
+			log.info("To verify Gender selected successfully");
+			waitForSomeTime();
+
+			HighlightOnElement(clickdate_of_birth_textbox);
+			clickdate_of_birth_textbox.click();
+			select_year.click();
+			Select year=new Select(select_year);
+			List<WebElement> list_year=year.getOptions();
+			for(int index=0;index<list_year.size();index++)
+			{
+				String allyear=list_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				log.info("To verify year selected successfully");
+				if(allyear.trim().equalsIgnoreCase("1987"))
+				{
+					year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						log.info("To verify month selected successfully");
+						if(allmonth.trim().equalsIgnoreCase("jul"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								log.info("To verify date selected successfully");
+								if(alldate.trim().equalsIgnoreCase("19"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+		try
+		{
+			waitForSomeTime();
+			String fatherfirstname=excel.getExcelData(father_first_name,"Registration Details",1,57);
+			Reporter.log("Father first name:"+fatherfirstname,true);
+			log.info("To verify Father first name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String fatherlastname=excel.getExcelData(father_last_name,"Registration Details",1,62);
+			Reporter.log("Father last name:"+fatherlastname,true);
+			log.info("To verify Father last name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mothername=excel.getExcelData(mother_name,"Registration Details",1,63);
+			Reporter.log("Mother name:"+mothername,true);
+			log.info("To verify Mother name entered successfully");
+			waitForSomeTime();
+
+
+			waitForSomeTime();
+			String firmname=excel.getExcelData(firm_name,"Registration Details",1,64);
+			Reporter.log("Firm name:"+firmname,true);
+			log.info("To verify Firm name entered successfully");
+			
+
+			waitForSomeTime();
+			String firmaddress=excel.getExcelData(firm_address,"Registration Details",1,65);
+			Reporter.log("Firm address:"+firmaddress,true);
+			log.info("To verify Firm address entered successfully");
+			waitForSomeTime();
+
+
+			SelectByIndex(registartion_district,"");
+			log.info("To verify District selected successfully");
+			waitForSomeTime();
+
+			SelectByIndex(registartion_city,"");
+			log.info("To verify City selected successfully");
+			waitForSomeTime();
+
+
+			waitForSomeTime();
+			String postoffice=excel.getExcelData(post_office,"Registration Details",1,69);
+			Reporter.log("Post Office:"+postoffice,true);
+			log.info("To verify Post Office number entered successfully");
+
+			waitForSomeTime();
+			String pincode=excel.getExcelData(pin_code,"Registration Details",1,70);
+			Reporter.log("Pin Code:"+pincode,true);
+			log.info("To verify Pin Code number entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String aDdress=excel.getExcelData(address,"Registration Details",1,71);
+			Reporter.log("Address:"+aDdress,true);
+			log.info("To verify Address entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String emailid=excel.getExcelData(email_id,"Registration Details",1,73);
+			Reporter.log("Email id:"+emailid,true);
+			log.info("To verify Email id entered successfully");
+
+			waitForSomeTime();
+			String mobileno=excel.getExcelData(mobile_no,"Registration Details",1,74);
+			Reporter.log("Mobile Number:"+ mobileno,true);
+			log.info("To verify Mobile Number entered successfully");
+
+			waitForSomeTime();
+			String registrationno=excel.getExcelData(registration_number,"Registration Details",1,75);
+			Reporter.log("Registration Number:"+ registrationno,true);
+			log.info("To verify Registration Number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(registration_certificate_scanned_copy);
+			registration_certificate_scanned_copy.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\Background Verification Form_FADV.pdf");
+			log.info("To verify Upload document successfully");
+			waitForSomeTime();
+
+
+			Assert.assertEquals(true,register_by.isDisplayed());
+			SelectByIndex(register_by,"COA");
+			Reporter.log("Register by:"+register_by.getText(),true);
+			log.info("To verify Register By selected successfully");
+			waitForSomeTime();
+
+
+			Assert.assertEquals(true,register.isDisplayed());
+			HighlightOnElement(register);
+			String Actual=register.getText();
+			Reporter.log("Expected Result:"+Actual,true);
+			register.click();
+			log.info("To verify click on Register button successfully");
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+		waitForSomeTime();
+		for(WebElement element:errormessage)
+		{
+			Assert.assertEquals(element.isDisplayed(),true);
+			String Allerrormessage=element.getText();
+			Reporter.log("Error Message:"+Allerrormessage,true);
+			log.info("To verify Validation Message dispayed successfully");
+		}
+	}
+
+
+
+	//To verify when invalid data is enter
+
+	public void verifyInvalidDetailsFunctionalityRegisterAs_ArchitectOrCitizen06() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(new_registration);
+		Assert.assertEquals(true,new_registration.isEnabled());
+		Assert.assertNotNull(new_registration,"click on New Registration Link sucessfully");
+		new_registration.click();
+		Reporter.log("click on New Registration Link sucessfully",true);
+		log.info("click on New Registration Link sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,register_as_citizen.isDisplayed());
+		SelectByIndex(register_as_citizen, "Architect Login");//verify the field register as citizen login
+		Reporter.log("Register As:"+register_as_citizen.getText(),true);
+		log.info("To verify Register As Architect/Citizen sucessfully");
+		waitForSomeTime();
+
+		try
+		{
+			String aadharno=excel.getExcelData(aadhar_no,"Registration Details",1,81);
+			Reporter.log("Aadhar number:"+aadharno,true);
+			log.info("To verify Aadhar number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(uploadimage);
+			uploadimage.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\images.jpg");
+			log.info("To verify Image upload successfully");
+			waitForSomeTime();
+
+			String applicantfirstname=excel.getExcelData(applicant_first_name, "Registration Details", 1,84);
+			Reporter.log("Applicant First number:"+applicantfirstname,true);
+			log.info("To verify Applicant First number successfully");
+			waitForSomeTime();
+
+			SelectByIndex(gender, "male");
+			Reporter.log("Gender:"+gender.getText(),true);
+			log.info("To verify Gender selected successfully");
+			waitForSomeTime();
+
+			HighlightOnElement(clickdate_of_birth_textbox);
+			clickdate_of_birth_textbox.click();
+			select_year.click();
+			Select year=new Select(select_year);
+			List<WebElement> list_year=year.getOptions();
+			for(int index=0;index<list_year.size();index++)
+			{
+				String allyear=list_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				log.info("To verify year selected successfully");
+				if(allyear.trim().equalsIgnoreCase("1987"))
+				{
+					year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						log.info("To verify month selected successfully");
+						if(allmonth.trim().equalsIgnoreCase("jul"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								log.info("To verify date selected successfully");
+								if(alldate.trim().equalsIgnoreCase("19"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+		try
+		{
+			waitForSomeTime();
+			String fatherfirstname=excel.getExcelData(father_first_name,"Registration Details",1,83);
+			Reporter.log("Father first name:"+fatherfirstname,true);
+			log.info("To verify Father first name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String fatherlastname=excel.getExcelData(father_last_name,"Registration Details",1,88);
+			Reporter.log("Father last name:"+fatherlastname,true);
+			log.info("To verify Father last name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mothername=excel.getExcelData(mother_name,"Registration Details",1,89);
+			Reporter.log("Mother name:"+mothername,true);
+			log.info("To verify Mother name entered successfully");
+			waitForSomeTime();
+
+
+			waitForSomeTime();
+			String firmname=excel.getExcelData(firm_name,"Registration Details",1,90);
+			Reporter.log("Firm name:"+firmname,true);
+			log.info("To verify Firm name entered successfully");
+
+			waitForSomeTime();
+			String firmaddress=excel.getExcelData(firm_address,"Registration Details",1,91);
+			Reporter.log("Firm address:"+firmaddress,true);
+			log.info("To verify Firm address entered successfully");
+			waitForSomeTime();
+
+			SelectByIndex(registartion_district,"raipur");
+			log.info("To verify District selected successfully");
+			waitForSomeTime();
+
+			SelectByIndex(registartion_city,"raipur");
+			log.info("To verify City selected successfully");
+			waitForSomeTime();
+
+
+			waitForSomeTime();
+			String postoffice=excel.getExcelData(post_office,"Registration Details",1,95);
+			Reporter.log("Post Office:"+postoffice,true);
+			log.info("To verify Post Office number entered successfully");
+
+			waitForSomeTime();
+			String pincode=excel.getExcelData(pin_code,"Registration Details",1,96);
+			Reporter.log("Pin Code:"+pincode,true);
+			log.info("To verify Pin Code number entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String aDdress=excel.getExcelData(address,"Registration Details",1,97);
+			Reporter.log("Address:"+aDdress,true);
+			log.info("To verify Address entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String emailid=excel.getExcelData(email_id,"Registration Details",1,99);
+			Reporter.log("Email id:"+emailid,true);
+			log.info("To verify Email id entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mobileno=excel.getExcelData(mobile_no,"Registration Details",1,100);
+			log.info("To verify Mobile Number entered successfully");
+			Reporter.log("Mobile Number:"+mobileno,true);
+
+
+
+			waitForSomeTime();
+			String registrationno=excel.getExcelData(registration_number,"Registration Details",1,101);
+			Reporter.log("Registration Number:"+ registrationno,true);
+			log.info("To verify Registration Number entered successfully");
+			waitForSomeTime();
+		}
+		catch (Exception exception) 
+		{
+			acceptAlert();
+		}
+
+		HighlightOnElement(registration_certificate_scanned_copy);
+		registration_certificate_scanned_copy.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\Background Verification Form_FADV.pdf");
+		log.info("To verify Upload document successfully");
+		waitForSomeTime();
+
+
+		Assert.assertEquals(true,register_by.isDisplayed());
+		SelectByIndex(register_by,"COA");
+		Reporter.log("Register by:"+register_by.getText(),true);
+		log.info("To verify Register By selected successfully");
+		waitForSomeTime();
+
+	}
+
+
+
+	//To verify clear button functionalty
+
+	public void verifyClearFunctionalityRegisterAs_ArchitectOrCitizen07() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(new_registration);
+		Assert.assertEquals(true,new_registration.isEnabled());
+		Assert.assertNotNull(new_registration,"click on New Registration Link sucessfully");
+		new_registration.click();
+		Reporter.log("click on New Registration Link sucessfully",true);
+		log.info("click on New Registration Link sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,register_as_citizen.isDisplayed());
+		SelectByIndex(register_as_citizen, "Architect Login");//verify the field register as citizen login
+		Reporter.log("Register As:"+register_as_citizen.getText(),true);
+		log.info("To verify Register As Architect/Citizen sucessfully");
+		waitForSomeTime();
+
+		try
+		{
+			String aadharno=excel.getExcelData(aadhar_no,"Registration Details",1,81);
+			Reporter.log("Aadhar number:"+aadharno,true);
+			log.info("To verify Aadhar number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(uploadimage);
+			uploadimage.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\images.jpg");
+			log.info("To verify Image upload successfully");
+			waitForSomeTime();
+
+			String applicantfirstname=excel.getExcelData(applicant_first_name, "Registration Details", 1,84);
+			Reporter.log("Applicant First number:"+applicantfirstname,true);
+			log.info("To verify Applicant First number successfully");
+			waitForSomeTime();
+
+			SelectByIndex(gender, "male");
+			Reporter.log("Gender:"+gender.getText(),true);
+			log.info("To verify Gender selected successfully");
+			waitForSomeTime();
+
+			HighlightOnElement(clickdate_of_birth_textbox);
+			clickdate_of_birth_textbox.click();
+			select_year.click();
+			Select year=new Select(select_year);
+			List<WebElement> list_year=year.getOptions();
+			for(int index=0;index<list_year.size();index++)
+			{
+				String allyear=list_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				log.info("To verify year selected successfully");
+				if(allyear.trim().equalsIgnoreCase("1987"))
+				{
+					year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						log.info("To verify month selected successfully");
+						if(allmonth.trim().equalsIgnoreCase("jul"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								log.info("To verify date selected successfully");
+								if(alldate.trim().equalsIgnoreCase("19"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+		try
+		{
+			waitForSomeTime();
+			String fatherfirstname=excel.getExcelData(father_first_name,"Registration Details",1,31);
+			Reporter.log("Father first name:"+fatherfirstname,true);
+			log.info("To verify Father first name entered successfully");
+		
+
+			waitForSomeTime();
+			String fatherlastname=excel.getExcelData(father_last_name,"Registration Details",1,36);
+			Reporter.log("Father last name:"+fatherlastname,true);
+			log.info("To verify Father last name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mothername=excel.getExcelData(mother_name,"Registration Details",1,37);
+			Reporter.log("Mother name:"+mothername,true);
+			log.info("To verify Mother name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String firmname=excel.getExcelData(firm_name,"Registration Details",1,38);
+			Reporter.log("Firm name:"+firmname,true);
+			log.info("To verify Firm name entered successfully");
+
+			waitForSomeTime();
+			String firmaddress=excel.getExcelData(firm_address,"Registration Details",1,39);
+			Reporter.log("Firm address:"+firmaddress,true);
+			log.info("To verify Firm address entered successfully");
+
+
+			SelectByIndex(registartion_district,"RAIPUR");
+			log.info("To verify District selected successfully");
+			waitForSomeTime();
+
+			SelectByIndex(registartion_city,"RAIPUR");
+			log.info("To verify City selected successfully");
+			waitForSomeTime();
+
+
+			waitForSomeTime();
+			String postoffice=excel.getExcelData(post_office,"Registration Details",1,43);
+			Reporter.log("Post Office:"+postoffice,true);
+			log.info("To verify Post Office number entered successfully");
+
+			waitForSomeTime();
+			String pincode=excel.getExcelData(pin_code,"Registration Details",1,44);
+			Reporter.log("Pin Code:"+pincode,true);
+			log.info("To verify Pin Code number entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String aDdress=excel.getExcelData(address,"Registration Details",1,45);
+			Reporter.log("Address:"+aDdress,true);
+			log.info("To verify Address entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String emailid=excel.getExcelData(email_id,"Registration Details",1,47);
+			Reporter.log("Email id:"+emailid,true);
+			log.info("To verify Email id entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mobileno=excel.getExcelData(mobile_no,"Registration Details",1,48);
+			Reporter.log("Mobile Number:"+ mobileno,true);
+			log.info("To verify Mobile Number entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String registrationno=excel.getExcelData(registration_number,"Registration Details",1,49);
+			Reporter.log("Registration Number:"+ registrationno,true);
+			log.info("To verify Registration Number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(registration_certificate_scanned_copy);
+			registration_certificate_scanned_copy.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\Background Verification Form_FADV.pdf");
+			log.info("To verify Upload document successfully");
+			waitForSomeTime();
+
+
+			Assert.assertEquals(true,register_by.isDisplayed());
+			SelectByIndex(register_by,"COA");
+			Reporter.log("Register by:"+register_by.getText(),true);
+			log.info("To verify Register By selected successfully");
+			waitForSomeTime();
+
+		}
+
+		catch (Exception exception) 
+		{
+			acceptAlert();
+		}
+
+		Assert.assertEquals(true,clear.isDisplayed());
+		clear.click();
+		Reporter.log("Expected Value:"+clear.getText(),true);
+		log.info("To verify click on clear button successfully");
+	}
+
+
+
+	//To verify Home button functionalty
+
+	public void verifyHomeFunctionalityRegisterAs_ArchitectOrCitizen08() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		HighlightOnElement(new_registration);
+		Assert.assertEquals(true,new_registration.isEnabled());
+		Assert.assertNotNull(new_registration,"click on New Registration Link sucessfully");
+		new_registration.click();
+		Reporter.log("click on New Registration Link sucessfully",true);
+		log.info("click on New Registration Link sucessfully");
+		waitForSomeTime();
+
+		Assert.assertEquals(true,register_as_citizen.isDisplayed());
+		SelectByIndex(register_as_citizen, "Architect Login");//verify the field register as citizen login
+		Reporter.log("Register As:"+register_as_citizen.getText(),true);
+		log.info("To verify Register As Architect/Citizen sucessfully");
+		waitForSomeTime();
+
+		try
+		{
+			String aadharno=excel.getExcelData(aadhar_no,"Registration Details",1,81);
+			Reporter.log("Aadhar number:"+aadharno,true);
+			log.info("To verify Aadhar number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(uploadimage);
+			uploadimage.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\images.jpg");
+			log.info("To verify Image upload successfully");
+			waitForSomeTime();
+
+			String applicantfirstname=excel.getExcelData(applicant_first_name, "Registration Details", 1,84);
+			Reporter.log("Applicant First number:"+applicantfirstname,true);
+			log.info("To verify Applicant First number successfully");
+			waitForSomeTime();
+
+			SelectByIndex(gender, "male");
+			Reporter.log("Gender:"+gender.getText(),true);
+			log.info("To verify Gender selected successfully");
+			waitForSomeTime();
+
+			HighlightOnElement(clickdate_of_birth_textbox);
+			clickdate_of_birth_textbox.click();
+			select_year.click();
+			Select year=new Select(select_year);
+			List<WebElement> list_year=year.getOptions();
+			for(int index=0;index<list_year.size();index++)
+			{
+				String allyear=list_year.get(index).getText();
+				Reporter.log("Year:"+allyear,true);
+				log.info("To verify year selected successfully");
+				if(allyear.trim().equalsIgnoreCase("1987"))
+				{
+					year.selectByIndex(index);
+					WebElement selectMonth=driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/select[1]"));
+					selectMonth.click();
+					Select month=new Select(selectMonth);
+					List<WebElement> list_month=month.getOptions();
+					for(int index1=0;index1<list_month.size();index1++)
+					{
+						String allmonth=list_month.get(index1).getText();
+						Reporter.log("Month:"+allmonth,true);
+						log.info("To verify month selected successfully");
+						if(allmonth.trim().equalsIgnoreCase("jul"))
+						{
+							month.selectByIndex(index1);
+							List<WebElement> selectdate=driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+							for(int index2=0;index2<selectdate.size();index2++)
+							{
+								String alldate=selectdate.get(index2).getText();
+								Reporter.log("Date:"+alldate,true);
+								log.info("To verify date selected successfully");
+								if(alldate.trim().equalsIgnoreCase("19"))
+								{
+									selectdate.get(index2).click();
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+		try
+		{
+			waitForSomeTime();
+			String fatherfirstname=excel.getExcelData(father_first_name,"Registration Details",1,31);
+			Reporter.log("Father first name:"+fatherfirstname,true);
+			log.info("To verify Father first name entered successfully");
+		
+
+			waitForSomeTime();
+			String fatherlastname=excel.getExcelData(father_last_name,"Registration Details",1,36);
+			Reporter.log("Father last name:"+fatherlastname,true);
+			log.info("To verify Father last name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mothername=excel.getExcelData(mother_name,"Registration Details",1,37);
+			Reporter.log("Mother name:"+mothername,true);
+			log.info("To verify Mother name entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String firmname=excel.getExcelData(firm_name,"Registration Details",1,38);
+			Reporter.log("Firm name:"+firmname,true);
+			log.info("To verify Firm name entered successfully");
+
+			waitForSomeTime();
+			String firmaddress=excel.getExcelData(firm_address,"Registration Details",1,39);
+			Reporter.log("Firm address:"+firmaddress,true);
+			log.info("To verify Firm address entered successfully");
+
+
+			SelectByIndex(registartion_district,"RAIPUR");
+			log.info("To verify District selected successfully");
+			waitForSomeTime();
+
+			SelectByIndex(registartion_city,"RAIPUR");
+			log.info("To verify City selected successfully");
+			waitForSomeTime();
+
+
+			waitForSomeTime();
+			String postoffice=excel.getExcelData(post_office,"Registration Details",1,43);
+			Reporter.log("Post Office:"+postoffice,true);
+			log.info("To verify Post Office number entered successfully");
+
+			waitForSomeTime();
+			String pincode=excel.getExcelData(pin_code,"Registration Details",1,44);
+			Reporter.log("Pin Code:"+pincode,true);
+			log.info("To verify Pin Code number entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String aDdress=excel.getExcelData(address,"Registration Details",1,45);
+			Reporter.log("Address:"+aDdress,true);
+			log.info("To verify Address entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String emailid=excel.getExcelData(email_id,"Registration Details",1,47);
+			Reporter.log("Email id:"+emailid,true);
+			log.info("To verify Email id entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String mobileno=excel.getExcelData(mobile_no,"Registration Details",1,48);
+			Reporter.log("Mobile Number:"+ mobileno,true);
+			log.info("To verify Mobile Number entered successfully");
+			waitForSomeTime();
+
+			waitForSomeTime();
+			String registrationno=excel.getExcelData(registration_number,"Registration Details",1,49);
+			Reporter.log("Registration Number:"+ registrationno,true);
+			log.info("To verify Registration Number entered successfully");
+			waitForSomeTime();
+
+
+			HighlightOnElement(registration_certificate_scanned_copy);
+			registration_certificate_scanned_copy.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\Users\\deepak.saini\\Downloads\\Background Verification Form_FADV.pdf");
+			log.info("To verify Upload document successfully");
+			waitForSomeTime();
+
+
+			Assert.assertEquals(true,register_by.isDisplayed());
+			SelectByIndex(register_by,"COA");
+			Reporter.log("Register by:"+register_by.getText(),true);
+			log.info("To verify Register By selected successfully");
+			waitForSomeTime();
+
+		}
+
+		catch (Exception exception) 
+		{
+			acceptAlert();
+		}
+
+		Assert.assertEquals(true,home.isDisplayed());
+		home.click();
+		Reporter.log("Expected Value:"+home.getText(),true);
+		log.info("To verify click on home button successfully");
+	}
+
+	}
+

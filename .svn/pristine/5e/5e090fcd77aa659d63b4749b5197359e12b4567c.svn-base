@@ -1,0 +1,60 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyAction_SC_02_TC_19 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACTION".
+	 * @author deepak.saini
+	 * @since 2017-12-11
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Action')]/span")
+	private WebElement actionlink;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACTION ELEMENT".
+	 * @author deepak.saini
+	 * @since 2017-12-11
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Action')]/span/../following-sibling::ul/li/a")
+	private List<WebElement> actionelement;
+
+
+
+	public void verifyAction()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(actionlink));
+		HighlightOnElement(actionlink);
+		Assert.assertTrue(actionlink.isDisplayed());
+		Assert.assertTrue(actionlink.isEnabled());
+		Actions link=new Actions(driver);
+		link.click(actionlink).build().perform();
+
+		for(WebElement ele:actionelement)
+		{
+			HighlightOnElement(ele);
+			Assert.assertTrue(ele.isDisplayed());
+		}
+	}
+}

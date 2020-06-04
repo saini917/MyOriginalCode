@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	
+	<listeners>
+		<listener class-name="GenericLibrary.ExtentReport"/>
+	</listeners>
+	
+	<test name="login">
+		<classes>
+			<class name="LoginPage.Login">
+				<methods>
+					<include name="NRDA_BOD_SC_01_TC_01"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

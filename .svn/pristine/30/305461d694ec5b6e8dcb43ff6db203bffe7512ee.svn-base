@@ -1,0 +1,61 @@
+package WaterAndSewerage_PropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyApplicationStatus_SC_10_01;
+
+public class WaterAndSewerage_Property_Tax_Officer_Again_Module extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		WebElement logoutdrop=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		wait.until(ExpectedConditions.visibilityOf(logoutdrop));
+		wait.until(ExpectedConditions.elementToBeClickable(logoutdrop));
+		Actions action = new Actions(driver);
+		action.moveToElement(logoutdrop).build().perform();
+		//Reporter.log("Action is performed on Logout dropdown successfully",true);
+
+		WebElement logout=driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
+		Actions action1 = new Actions(driver);
+		action1.moveToElement(logout).build().perform();
+		//Reporter.log("Action is performed on Logout button successfully",true);
+
+		driver.close();
+		//Reporter.log("Action is performed on browser closed successfully",true);
+	}
+
+	@DataProvider(name="tax officer")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"PropertyTaxLoginAsTaxOfficer");
+	}
+
+	@Test(priority=1,dataProvider ="tax officer",description="verify status of pending application after tax secretary verified")
+	public void NRDA_PropertyTax_Officer_SC_10_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_officer=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_officer.loginAsTaxOfficerPropertyTax(username, password);
+		
+		ToVerifyApplicationStatus_SC_10_01 status=PageFactory.initElements(driver,ToVerifyApplicationStatus_SC_10_01.class);
+		status.verifyStatusPendingApplication();
+	}
+
+}

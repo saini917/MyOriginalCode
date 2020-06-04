@@ -1,0 +1,148 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+import javafx.scene.web.WebEngineBuilder;
+import sun.security.util.PropertyExpander.ExpandException;
+
+public class HRMS_ERP_Performance_Appraisal_Sc_03 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discussion icon".
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//button[contains(text(),' Create')]")
+	private WebElement createbtn;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'Description')]/../following-sibling::td/input")
+	private WebElement description;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'ACR Initiation Date')]/../following-sibling::td/div/span")
+	private WebElement ACR_Initiation_Date_drop;
+
+	//@FindBy(xpath="//div[@class='bootstrap-datetimepicker-widget dropdown-menu top picker-open']/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	@FindBy(xpath="html/body/div[5]/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	private WebElement clickonACRInitiatormonthhead;
+
+	@FindBy(xpath="html/body/div[5]/div/div[2]/table/tbody/tr/td/span")
+	private List<WebElement> selectmonth;
+
+	@FindBy(xpath="html/body/div[5]/div/div[1]/table/tbody/tr/td")
+	private List<WebElement> selectdate;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'ACR Submission Date')]/../following-sibling::td/div/span")
+	private WebElement ACR_Submission_Date_drop;
+
+	@FindBy(xpath="html/body/div[6]/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	private WebElement clickonACRSubmissionmonthhead;
+
+	@FindBy(xpath="html/body/div[6]/div/div[2]/table/tbody/tr/td/span")
+	private List<WebElement> selectmonthsubmission;
+
+	@FindBy(xpath="//html/body/div[6]/div/div[1]/table/tbody/tr/td")
+	private List<WebElement> selectdatesubmission;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'Year')]/../following-sibling::td/select")
+	private WebElement year;
+
+	public void clickOnCreateButon() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		try
+		{
+			HighlightOnElement(createbtn);
+			createbtn.click();
+			Reporter.log("click on Create button successfully",true);
+			waitForSomeTime();
+
+			HighlightOnElement(description);
+			String descriptioning=exceldata.getExcelData(description,"Appraisal_Data",2,1);
+			Reporter.log("Description:"+descriptioning,true);
+
+			HighlightOnElement(ACR_Initiation_Date_drop);
+			ACR_Initiation_Date_drop.click();
+			Reporter.log("click on ACR Initiation Date dropdown successfuly",true);
+
+			HighlightOnElement(clickonACRInitiatormonthhead);
+			Actions action=new Actions(driver);
+			action.click(clickonACRInitiatormonthhead).perform();
+			Reporter.log("click on ACR INITIATOR Month Head successfuly",true);
+
+			for(WebElement month:selectmonth)
+			{
+				String all_month=month.getText();
+				if(all_month.equalsIgnoreCase("Nov"))
+				{
+					HighlightOnElement(month);
+					month.click();
+					for(WebElement date:selectdate)
+					{
+						String all_date=date.getText();
+						if(all_date.equalsIgnoreCase("5"))
+						{
+							HighlightOnElement(date);
+							date.click();
+						}
+					}
+				}
+			}
+
+
+
+			HighlightOnElement(ACR_Submission_Date_drop);
+			ACR_Submission_Date_drop.click();
+			Reporter.log("click on ACR Submission Date dropdown successfuly",true);
+
+			HighlightOnElement(clickonACRSubmissionmonthhead);
+			Actions action1=new Actions(driver);
+			action1.click(clickonACRSubmissionmonthhead).perform();
+			Reporter.log("click on ACR SUBMISSION Month Head successfuly",true);
+
+			for(WebElement monthsubmission:selectmonthsubmission)
+			{
+				String all_month_submission=monthsubmission.getText();
+				if(all_month_submission.equalsIgnoreCase("Dec"))
+				{
+					HighlightOnElement(monthsubmission);
+					monthsubmission.click();
+					for(WebElement submisiondate:selectdatesubmission)
+					{
+						String all_date=submisiondate.getText();
+						if(all_date.equalsIgnoreCase("5"))
+						{
+							HighlightOnElement(submisiondate);
+							submisiondate.click();
+						}
+					}
+				}
+			}
+
+			waitForSomeTime();
+			HighlightOnElement(year);
+			year.click();
+			Reporter.log("click on year successfully",true);
+			SelectVisibleText(year,"2017");
+			Reporter.log("year selected successfully",true);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+}

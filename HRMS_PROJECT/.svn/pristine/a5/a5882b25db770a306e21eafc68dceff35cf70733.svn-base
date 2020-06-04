@@ -1,0 +1,70 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Employee_Sc_08 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Employee name".
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped']/tbody/tr/td[contains(text(),'Sunny Sharma')]")
+	private WebElement employeeclick;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Edit button".
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button[contains(text(),'Edit')]")
+	private WebElement editbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discard button".
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button[contains(text(),'Discard')]")
+	private WebElement discardbtn;
+	
+	public void verifyDiscardFun() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException 
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(employeeclick));
+		HighlightOnElement(employeeclick);
+		employeeclick.click();
+		Reporter.log("click on Employee name for edit successfuly",true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(editbtn));
+		HighlightOnElement(editbtn);
+		editbtn.click();
+		Reporter.log("click on edit button successfuly",true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(discardbtn));
+		HighlightOnElement(discardbtn);
+		discardbtn.click();
+		Reporter.log("click on discard button successfuly",true);
+		
+	}
+
+}

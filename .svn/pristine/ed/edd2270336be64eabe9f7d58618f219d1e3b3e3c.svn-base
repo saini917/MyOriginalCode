@@ -1,0 +1,30 @@
+package HRMS_URL_Page;
+
+import org.apache.log4j.Logger;
+import org.testng.annotations.BeforeMethod;
+
+import GenericLibrary.BrowserDriver;
+import GenericLibrary.ConstantInstanceDriver;
+
+public class HRMS_URL extends BrowserDriver
+	{
+
+		Logger log=Logger.getLogger("devpinoyLogger");
+		
+		/*****************************************************************************************************************/
+		/**
+		 *  BeforeMethod annotation is used to open Url of application 
+		 * 	@author deepak.saini
+		 * @throws InterruptedException 
+		 *  @since 2017-08-03 
+		 */
+		/****************************************************************************************************************/
+		@BeforeMethod
+		public void openBrowser()
+		{
+			BrowserDriver.getBrowser(ConstantInstanceDriver.browser).navigate().to(ConstantInstanceDriver.url);
+			log.info("Step1: opening Application Website");
+			windowMaximize();
+			log.info(" Step3: Maximize the Window");
+		}
+}

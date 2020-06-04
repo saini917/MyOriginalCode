@@ -1,0 +1,51 @@
+package NRDA_NewConnection;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_08_TC_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "DisplayLink"
+	 * @author sarvesh.nellore
+	 * @Date: 04-01-2018
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td[@class='leftCol']/table/tbody/tr/td/form/div/ul/li")
+	private List<WebElement> displaylink;
+
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div[@class='dash-wraper water']")
+	private List<WebElement> displaylink1;
+
+	public void verifyDisplayLink() throws InterruptedException
+	{
+		for(WebElement list:displaylink)
+		{
+			HighlightOnElement(list);
+			Assert.assertNotNull(list.isDisplayed());
+		}
+		waitForSomeTime();
+
+		for(WebElement list1:displaylink1)
+		{
+			HighlightOnElement(list1);
+			Assert.assertNotNull(list1.isDisplayed());
+		}
+		Reporter.log("1. System will display the Following Links \n * HOME \n * Pending Application. \n * Approval/Reject Application \n * Manage water Reading. \n * Generate Bills. \n * Payment Collection \n * Mis Report. \n * Invoice Collection \n * Meeting Management \n * File Management \n 2.  Statistics count panel should be shown",true);
+		waitForSomeTime();
+	}
+}

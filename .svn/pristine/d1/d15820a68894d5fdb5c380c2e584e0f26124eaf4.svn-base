@@ -1,0 +1,119 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyDashBoardAfterSelectPendingApp_SC_10_TC_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACTION".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/a/img[@src='/NRDAuthority/resources/images/view-new.png']")
+	private WebElement action;
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DETAIL UNDER BASIC DETAILS".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span/span/div/div/div/div/span[contains(text(),'Basic Details')]/../following-sibling::div/table/tbody/tr/td/span")
+	private List<WebElement> underbasicdetails;
+	
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span/span/div/div/div/ul/li/a")
+	private List<WebElement> listdetails;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DETAIL UNDER ACTION AND COMMENT".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span/span/div/div/div/div/span[contains(text(),'Action and Comment')]/../following-sibling::div/center/table/tbody/tr/td/label")
+	private List<WebElement> underActionAndcomment;
+	
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/span/span/div/div/div/div/span[contains(text(),'Action and Comment')]/../following-sibling::div/center/table/tbody/tr/td/span[contains(text(),'Upload Document')]")
+	private WebElement uploaddocu;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SUBMIT".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Submit')]")
+	private WebElement submitbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CLOSE".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Close')]")
+	private WebElement closebtn;
+	
+	public void clickOnActionBtn()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(action));
+		HighlightOnElement(action);
+		Assert.assertTrue(action.isDisplayed());
+		Assert.assertTrue(action.isEnabled());
+		action.click();
+	}
+	public void verifyAfterSelectPendingAppDashboard() throws InterruptedException
+	{
+		
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(underbasicdetails));
+		for(WebElement detail:underbasicdetails)
+		{
+			HighlightOnElement(detail);
+			Assert.assertTrue(detail.isDisplayed());
+			//Reporter.log("Expected result:"+detail.getText(),true);
+		}
+		
+		for(WebElement lis:listdetails)
+		{
+			HighlightOnElement(lis);
+			Assert.assertTrue(lis.isDisplayed());
+			//Reporter.log("Expected result:"+lis.getText(),true);
+		}
+		wait.until(ExpectedConditions.visibilityOfAllElements(underActionAndcomment));
+		for(WebElement detail:underActionAndcomment)
+		{
+			HighlightOnElement(detail);
+			Assert.assertTrue(detail.isDisplayed());
+			//Reporter.log("Expected result:"+detail.getText(),true);
+		}
+		HighlightOnElement(uploaddocu);
+		//Reporter.log("Expected result:"+uploaddocu.getText(),true);
+		
+		HighlightOnElement(submitbtn);
+		//Reporter.log("Expected result:"+submitbtn.getText(),true);
+		
+		HighlightOnElement(closebtn);
+		//Reporter.log("Expected result:"+closebtn.getText(),true);
+		
+	}	
+
+}

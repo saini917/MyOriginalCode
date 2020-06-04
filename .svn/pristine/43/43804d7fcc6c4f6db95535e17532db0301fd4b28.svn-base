@@ -1,0 +1,145 @@
+package NRDA_NewConnection;
+
+import java.awt.AWTException;
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_03_TC_63 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents AS Applicant ID proof"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Applicant ID Proof')]/../../../../../../following-sibling::td/table/tbody/tr/td/span/div/div/label")
+	private WebElement upload_applicantIdproof;
+	
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents AS Applicant Address proof"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Applicant Address Proof')]/../../../../../../following-sibling::td/table/tbody/tr/td/span/div/div/label")
+	private WebElement upload_applicantAddressproof;
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents Other Document"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Other Document')]/../../../../../../following-sibling::td/table/tbody/tr/td/span/div/div/label")
+	private WebElement upload_otherdocument;
+	
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Upload Receipt Lease Rent"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Receipt Lease Rent')]/../../../../../../following-sibling::td/table/tbody/tr/td/span/div/div/label")
+	private WebElement upload_receiptleaserent;
+	
+	
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents As Property OwnerShip Proof"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Property OwnerShip Proof')]/../../../../../../following-sibling::td/table/tbody/tr/td/span/div/div/label")
+	private WebElement Upload_propertyownershipproof;
+	
+	public void verifyUploadingDocumentAsOwner() throws InterruptedException, AWTException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(upload_applicantIdproof));
+		Assert.assertTrue(upload_applicantIdproof.isDisplayed());
+		HighlightOnElement(upload_applicantIdproof);
+		Assert.assertTrue(upload_applicantIdproof.isEnabled());
+		upload_applicantIdproof.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		waitForSomeTime();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(upload_applicantAddressproof));
+		Assert.assertTrue(upload_applicantAddressproof.isDisplayed());
+		HighlightOnElement(upload_applicantAddressproof);
+		Assert.assertTrue(upload_applicantAddressproof.isEnabled());
+		upload_applicantAddressproof.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		waitForSomeTime();
+
+		wait.until(ExpectedConditions.elementToBeClickable(upload_otherdocument));
+		Assert.assertTrue(upload_otherdocument.isDisplayed());
+		HighlightOnElement(upload_otherdocument); 
+		Assert.assertTrue(upload_otherdocument.isEnabled());
+		upload_otherdocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+		waitForSomeTime();
+
+		wait.until(ExpectedConditions.elementToBeClickable(upload_receiptleaserent));
+		Assert.assertTrue(upload_receiptleaserent.isDisplayed());
+		HighlightOnElement(upload_receiptleaserent);
+		Assert.assertTrue(upload_receiptleaserent.isEnabled());
+		upload_receiptleaserent.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		waitForSomeTime();
+
+		wait.until(ExpectedConditions.elementToBeClickable(Upload_propertyownershipproof));
+		Assert.assertTrue(Upload_propertyownershipproof.isDisplayed());
+		HighlightOnElement(Upload_propertyownershipproof);
+		Assert.assertTrue(Upload_propertyownershipproof.isEnabled());
+		Upload_propertyownershipproof.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Save As Draft"
+	 * @author deepak saini
+	 * @Date: 02-01-2018
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="(//button/span[contains(text(),'Save As Draft')])[4]")
+	private WebElement saveasdraftbtn;
+	
+
+	public void clickOnSaveAsDraftButton() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(saveasdraftbtn));
+		Assert.assertTrue(saveasdraftbtn.isDisplayed());
+		HighlightOnElement(saveasdraftbtn);
+		Assert.assertTrue(saveasdraftbtn.isEnabled());
+		saveasdraftbtn.click();
+		Reporter.log("Click on 'Save As Draft' button",true);
+		saveasdraftbtn.click();
+		waitForSomeTime();
+	}
+}

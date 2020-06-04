@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="login as admin to check Employee Group module(failed)">
+    <classes>
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="verifySaveFunctionaltyOnEmployeeGroupValidDataHRMS_EMP_C_CR_TC_02" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module -->
+    </classes>
+  </test> <!-- login as admin to check Employee Group module(failed) -->
+</suite> <!-- Failed suite [Suite] -->

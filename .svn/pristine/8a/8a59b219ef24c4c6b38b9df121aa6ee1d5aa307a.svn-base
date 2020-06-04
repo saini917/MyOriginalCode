@@ -1,0 +1,162 @@
+package NRDA_ChangeOfUse;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+public class ToVerifyChangeOfUse_SC_02_TC_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "WATER AND SEWERAGE SECTION".
+	 * @author deepak.saini
+	 * @since 2017-12-05
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/table/tbody/tr/td/div/h3/a[contains(text(),'WATER AND SEWERAGE SECTION')]/preceding-sibling::span")
+	private WebElement waterAndSeweragesection;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "WATER AND SEWERAGE CONNECTION IMAGE".
+	 * @author deepak.saini
+	 * @since 2017-12-05
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/table/tbody/tr/td/div/h3/a[contains(text(),'WATER AND SEWERAGE SECTION')]/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'WATER AND SEWERAGE CONNECTION')]/../following-sibling::td/span/a/img[@src='/NRDAuthority/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	private WebElement waterandsewerageconnection;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CHANGE CONNECTION DETAILS".
+	 * @author deepak.saini
+	 * @since 2017-12-05
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/span/span/div/div/div/ul/li/a[contains(text(),'Change Connection Details/कनेक्शन विवरण बदलें')]")
+	private WebElement changeconnectiondetails;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CHANGE CONNECTION DETAILS DSAHBOARD".
+	 * @author deepak.saini
+	 * @since 2017-12-05
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/span/span/div/div/div/ul/li/a[contains(text(),'Change Connection Details/कनेक्शन विवरण बदलें')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label")
+	private List<WebElement> changeconnectiondashboard;
+	
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/span/span/div/div/div/ul/li/a")
+	private List<WebElement> dashboard;
+	
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/span/span/div/div/div/div/div/span/center/table/tbody/tr/td/span/button")
+	private List<WebElement> dashboard1;
+
+	public void verifyChangeConnectionDetailTab()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(waterAndSeweragesection));
+		HighlightOnElement(waterAndSeweragesection);
+		Assert.assertTrue(waterAndSeweragesection.isDisplayed());
+		Assert.assertTrue(waterAndSeweragesection.isEnabled());
+		Actions clickOnWSsection=new Actions(driver);
+		clickOnWSsection.click(waterAndSeweragesection).build().perform();
+	}
+
+	public void clickOnWaterAndSewerageConnectionImage() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(waterandsewerageconnection));
+		HighlightOnElement(waterandsewerageconnection);
+		Assert.assertTrue(waterandsewerageconnection.isDisplayed());
+		Assert.assertTrue(waterandsewerageconnection.isEnabled());
+		waterandsewerageconnection.click();
+		waitForSomeTime();
+	}
+
+	@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td/span/div/div/div/div/div/div/span[@class='ui-paginator-pages']/span")
+	private List<WebElement> allpages;
+
+	@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td/span/div/div/div/div/div/div/table/tbody/tr")
+	private List<WebElement> allrows;
+
+	public void exitConnection() throws InterruptedException
+	{
+		List<WebElement> allpages = driver.findElements(By.xpath("//div[@class='ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-overlay-visible']/div[2]/div/div/div/div[2]/span[4]/span"));
+		//System.out.println("Total pages :" +allpages.size());
+
+		boolean check = true;
+		for(int i=1; i<=(allpages.size()); i++)
+		{
+			List<WebElement> allrows = driver.findElements(By.xpath("//div[@class='ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-overlay-visible']/div[2]/div/div/div/div[1]/table/tbody/tr"));
+			for(int row=1; row<=allrows.size(); row++)
+			{
+				//System.out.println("Total rows :" +allrows.size()); 
+				String name = driver.findElement(By.xpath("//div[@class='ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-overlay-visible']/div[2]/div/div/div/div[1]/table/tbody/tr["+row+"]/td[2]")).getText();
+				//System.out.println(name);
+				//System.out.println("Row loop");
+				if(name.equals("WASCC1412170913"))
+				{
+					WebElement ApplicationNumber = driver.findElement(By.xpath("//table[@class='ui-panelgrid ui-widget']/tbody/tr/td/span/div/div/div/div/div/div/table/tbody/tr["+row+"]/td[2]/following-sibling::td[4]/a/img[@src='/NRDAuthority/resources/images/change-of-use.png']"));
+					ApplicationNumber.click();
+					//System.out.println("Element  exist");
+					check = false;
+					break;
+				}
+				else
+				{
+					//System.out.println("Element doesn't exist");
+				}
+			}
+			if(check)
+			{
+				allpages.get(i).click();
+				waitForSomeTime();
+			}
+		}
+	}
+
+	public void clickOnChangeConnectionDetails() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(changeconnectiondetails));
+		HighlightOnElement(changeconnectiondetails);
+		Assert.assertTrue(changeconnectiondetails.isDisplayed());
+		Assert.assertTrue(changeconnectiondetails.isEnabled());
+		changeconnectiondetails.click();
+		waitForSomeTime();
+	}
+	
+		public void verifyChangeConnectionDashboard()
+		{
+			for(WebElement dash:changeconnectiondashboard)
+			{
+				HighlightOnElement(dash);
+				Assert.assertNotNull(dash.isDisplayed());
+			}
+			
+			for(WebElement dash:dashboard)
+			{
+				HighlightOnElement(dash);
+				Assert.assertNotNull(dash.isDisplayed());
+			}
+			
+			for(WebElement dash:dashboard1)
+			{
+				HighlightOnElement(dash);
+				Assert.assertNotNull(dash.isDisplayed());
+			}
+			
+		}
+}

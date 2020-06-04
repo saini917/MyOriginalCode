@@ -1,0 +1,43 @@
+package NRDA_NewConnection;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+
+public class ToVerifyBuildingDetailsTab_SC_03_TC_23 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "verify field".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label")
+	private List<WebElement> displaylist;
+	
+	public void verifyField() throws InterruptedException
+	{
+		Reporter.log("Verify that the following fields are shown :- ",true);
+		for(WebElement list:displaylist)
+		{
+			HighlightOnElement(list);
+			Assert.assertTrue(list.isDisplayed());
+			Reporter.log(list.getText(),true);
+			waitForSomeTime();
+		}
+	}
+
+}

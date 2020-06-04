@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Halfbay App Test Automation Suite]">
+  <test name="Halfbay App Test(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.datadriven.FacebookClass">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="halfEbayRegPageTest"/>
+        </methods>
+      </class> <!-- com.datadriven.FacebookClass -->
+    </classes>
+  </test> <!-- Halfbay App Test(failed) -->
+</suite> <!-- Failed suite [Halfbay App Test Automation Suite] -->

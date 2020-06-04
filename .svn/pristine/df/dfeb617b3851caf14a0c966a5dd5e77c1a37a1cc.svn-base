@@ -1,0 +1,232 @@
+package NRDA_NewConnection;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+
+public class ToVerifyConnectionDetailsTab_SC_08_TC_27 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "status".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div[2]/div[2]/h3/a/../following-sibling::div/div/div/div/div/table/tbody/tr/td/span[contains(text(),'VERIFIED')]")
+	private WebElement status;
+	
+	public void verifyStatus()
+	{
+		wait.until(ExpectedConditions.visibilityOf(status));
+		Assert.assertTrue(status.isDisplayed());
+		HighlightOnElement(status);
+		
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Action Image".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div[2]/div[2]/h3/a/../following-sibling::div/div/div/div/div/table/tbody/tr/td/span[contains(text(),'VERIFIED')]/../following-sibling::td/a/img")
+	private WebElement action;
+	
+	public void clickOnActionImg() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(action));
+		wait.until(ExpectedConditions.elementToBeClickable(action));
+		Assert.assertTrue(action.isDisplayed());
+		HighlightOnElement(action);
+		Assert.assertTrue(action.isEnabled());
+		action.click();
+		waitForSomeTime();
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on dropdown".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="(//div[@class='ui-selectonemenu ui-widget ui-state-default ui-corner-all ui-helper-clearfix']/div[3]/span)[1]")
+	private WebElement clickonselectactiondrop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "select value".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="(//ul[@class='ui-selectonemenu-items ui-selectonemenu-list ui-widget-content ui-widget ui-corner-all ui-helper-reset'])[1]/li")
+	private List<WebElement> selectdropdownvalue;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Submit".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/center/button/span[contains(text(),'Submit')]")
+	private WebElement submit;
+
+	public void selectAction() throws InterruptedException
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,500)", "");
+		
+		HighlightOnElement(clickonselectactiondrop);
+		clickonselectactiondrop.click();
+
+		for(int i=0;i<selectdropdownvalue.size();i++)
+		{
+			String value=selectdropdownvalue.get(i).getText();
+			if(value.equalsIgnoreCase("Forward"))
+			{
+				selectdropdownvalue.get(i).click();
+				waitForSomeTime();
+			}
+		}
+
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on dropdown".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Select Action')]/../following-sibling::td/span/div/div/span")
+	private WebElement clickonselectactiondrop1;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "select value".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="(//ul[@class='ui-selectonemenu-items ui-selectonemenu-list ui-widget-content ui-widget ui-corner-all ui-helper-reset'])[4]/li")
+	private List<WebElement> selectdropdownvalue1;
+	
+	public void selectUser() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(clickonselectactiondrop1));
+		wait.until(ExpectedConditions.elementToBeClickable(clickonselectactiondrop1));
+		Assert.assertTrue(clickonselectactiondrop1.isDisplayed());
+		HighlightOnElement(clickonselectactiondrop1);
+		Assert.assertTrue(clickonselectactiondrop1.isEnabled());
+		clickonselectactiondrop1.click();
+		waitForSomeTime();
+		for(int i=0;i<selectdropdownvalue1.size();i++)
+		{
+			String value=selectdropdownvalue1.get(i).getText();
+			if(value.equalsIgnoreCase("Rajesh Singh (EE)"))
+			{
+				selectdropdownvalue1.get(i).click();
+				waitForSomeTime();
+			}
+		}
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Comment ".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table/tbody/tr/td[2]/textarea")
+	private WebElement entercommentbox;
+	
+	public void enterComment() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(entercommentbox);
+		String comment=excel.getExcelData(entercommentbox,"Customer ID",1,11);
+		Reporter.log("Expected result:"+comment,true);
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "upload document".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/div[3]/div[2]/center/table/tbody/tr/td[2]/table/tbody/tr[1]/td/div/div[1]/label/input")
+	private WebElement uploaddocument;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "file upload message".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//span[contains(text(),'File uploaded Successfully')]")
+	private WebElement fileuploadmessage;
+	
+	public void verifyuploadDocument() throws InterruptedException, AWTException
+	{
+		HighlightOnElement(uploaddocument);
+		uploaddocument.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+		waitForSomeTime();
+		
+		HighlightOnElement(fileuploadmessage);
+		String Expected=fileuploadmessage.getText();
+		String Actual="File uploaded Successfully";
+		Assert.assertEquals(Expected,Actual,"Test case pass");
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+	}
+	
+	@FindBy(xpath="//div[@class='ui-growl-message']/span[contains(text(),'Your application submitted successfully.')]")
+	private WebElement successfulMsg;
+	
+	public void clickOnSubmit() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(submit));
+		wait.until(ExpectedConditions.elementToBeClickable(submit));
+		submit.click();
+		Reporter.log("click on Submit button succesfully",true);
+		waitForSomeTime();
+		waitForSomeTime();
+		
+		wait.until(ExpectedConditions.visibilityOf(successfulMsg));
+		HighlightOnElement(successfulMsg);
+		String Actual="Your application submitted successfully.";
+		String Expected=successfulMsg.getText();
+		Assert.assertEquals(Actual,Expected,"Matched");
+		Reporter.log("Expected Result:"+Expected,true);
+	}
+	
+
+}

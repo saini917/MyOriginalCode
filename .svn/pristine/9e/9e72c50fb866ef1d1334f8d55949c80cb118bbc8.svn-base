@@ -1,0 +1,62 @@
+package WaterAndSewerage_PropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+import WaterAndSeweragePropertyTaxManagement.ToverifyPropertyTaxDashboard_SC_01_TC_01;
+
+@Listeners(GenericLibrary.ListenerDriver.class)
+public class WaterAndSewerageLoginAsCitizenPropertyTaxWithValidCredentials extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+	
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebElement web1=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		wait.until(ExpectedConditions.elementToBeClickable(web1));
+		Actions action = new Actions(driver);
+		action.moveToElement(web1).build().perform();
+		Reporter.log("Action is performed on Logout button successfully",true);
+	
+		WebElement logout=driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
+		wait.until(ExpectedConditions.elementToBeClickable(logout));
+		Actions action1 = new Actions(driver);
+		action1.moveToElement(logout).build().perform();
+		Reporter.log("Action is performed on browser closed successfully",true);
+		driver.close();
+	}
+	
+	@DataProvider(name="citizen")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"Property_Tax_LoginAsCitizen");
+	}
+
+	@Test(priority=1,dataProvider ="citizen",description="NRDA_Water & Sewerage_SC_01_TC_01")
+	public void verifyLoginAsPropertyTaxWithValidCredentials_SC_01_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+		
+		ToverifyPropertyTaxDashboard_SC_01_TC_01 dashboard=PageFactory.initElements(driver,ToverifyPropertyTaxDashboard_SC_01_TC_01.class);
+		dashboard.verifyValidLoginCredentials();
+	}
+}

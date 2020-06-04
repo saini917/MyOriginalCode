@@ -1,0 +1,58 @@
+package NRDA_NewConnection;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_08_TC_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Home link".
+	 * @author deepak saini
+	 * @since 04-01-2018
+	 */
+	/*****************************************************************************************************/
+
+	@FindBy(xpath="//div[@class='col-lg-12 col-md-12 padmar0']/ul/li/../li[1]/a/span/img")
+	private WebElement homelink;
+
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/ul/li/a")
+	private List<WebElement> displaylink;
+
+	public void clickOnHome() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(homelink));
+		wait.until(ExpectedConditions.elementToBeClickable(homelink));
+		Assert.assertTrue(homelink.isDisplayed());
+		HighlightOnElement(homelink);
+		Assert.assertTrue(homelink.isEnabled());
+		homelink.click();
+		Reporter.log("Click on Home button",true);
+		waitForSomeTime();
+	}
+	public void verifyDisplayLink() throws InterruptedException
+	{
+		for(WebElement list:displaylink)
+		{
+			HighlightOnElement(list);
+			Assert.assertNotNull(list.isDisplayed());
+		}
+		Reporter.log("Check that three status are shown with count value i.e \n Approved \n Rejected \n Pending.",true);
+		waitForSomeTime();
+	}
+
+}

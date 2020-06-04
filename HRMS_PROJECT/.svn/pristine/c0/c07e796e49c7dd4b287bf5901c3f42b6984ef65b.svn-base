@@ -1,0 +1,181 @@
+package HRMS_ERP_CONFIGURATION_CASTE;
+
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Reporter;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+/**
+ * @author deepak.saini
+ * @since 26-10-2017
+ */
+public class HRMS_ERP_CONFIGURATION_Caste_Discard_Fun_Sc_03 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Caste input box".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_group o_inner_group']/tbody/tr[1]/td/label[contains(text(),'Caste')]/../following-sibling::td/input")
+	private WebElement casteinputbox;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Caste Category dropdown".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_input_dropdown']/span")
+	private WebElement castecategorydrop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Category dropdown".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']/li/a")
+	private List<WebElement> selectcategoryvalue;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discard button".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_buttons_edit']/button[contains(text(),' Discard')]")
+	private WebElement discardbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Ok button".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-content']/div[3]/button/span[contains(text(),'Ok')]")
+	private WebElement okbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Cancel button".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-content']/div[3]/button/span[contains(text(),'Cancel')]")
+	private WebElement cancelbtn;
+/********************************************************************************************************/
+
+	/*
+	 * This method is used to click on discard button
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	public void clickonDiscardButtonFunctionality()
+	{
+		try
+		{
+			HighlightOnElement(casteinputbox);
+			String caste_name=exceldata.getExcelData(casteinputbox,"Caste_Data",1,2);
+			Reporter.log("Caste Name:"+caste_name,true);
+			log.info("To Verify enter the value in Caste textbox sucessfully");
+			
+			HighlightOnElement(castecategorydrop);
+			castecategorydrop.click();
+			for(int i=0;i<selectcategoryvalue.size();i++)
+			{
+				String value=selectcategoryvalue.get(i).getText();
+				if(value.equalsIgnoreCase("General"))
+				{
+					selectcategoryvalue.get(i).click();
+				}
+			}
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+		discardbtn.click();
+	}
+	
+	/*
+	 * This method is used to click on Ok button
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	public void clickonOkButtonFunctionality()
+	{
+		try
+		{
+			HighlightOnElement(casteinputbox);
+			String caste_name=exceldata.getExcelData(casteinputbox,"Caste_Data",1,2);
+			Reporter.log("Caste Name:"+caste_name,true);
+			log.info("To Verify enter the value in Caste textbox sucessfully");
+			
+			HighlightOnElement(castecategorydrop);
+			castecategorydrop.click();
+			for(int i=0;i<selectcategoryvalue.size();i++)
+			{
+				String value=selectcategoryvalue.get(i).getText();
+				if(value.equalsIgnoreCase("General"))
+				{
+					selectcategoryvalue.get(i).click();
+				}
+			}
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+		discardbtn.click();
+		okbtn.click();
+	}
+	
+	/*
+	 * This method is used to click on Cancel button
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	public void clickonCancelButtonFunctionality()
+	{
+		try
+		{
+			HighlightOnElement(casteinputbox);
+			String caste_name=exceldata.getExcelData(casteinputbox,"Caste_Data",1,2);
+			Reporter.log("Caste Name:"+caste_name,true);
+			log.info("To Verify enter the value in Caste textbox sucessfully");
+			
+			HighlightOnElement(castecategorydrop);
+			castecategorydrop.click();
+			for(int i=0;i<selectcategoryvalue.size();i++)
+			{
+				String value=selectcategoryvalue.get(i).getText();
+				if(value.equalsIgnoreCase("General"))
+				{
+					selectcategoryvalue.get(i).click();
+				}
+			}
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+		discardbtn.click();
+		cancelbtn.click();
+	}
+}
+
+

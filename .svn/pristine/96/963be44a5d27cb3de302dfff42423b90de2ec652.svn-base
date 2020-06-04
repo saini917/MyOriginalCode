@@ -1,0 +1,43 @@
+package NRDA_MeterTesting;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyMeterTesting_SC_01_TC_04 extends CommonLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	ExcelDataDriver excel=new ExcelDataDriver();
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "save as draft".
+	 * @author deepak.saini
+	 * @since 2017-01-23
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/span/span/span/div/div/div/div/div/span/center/table/tbody/tr/td/span/button/following-sibling::button/span[contains(text(),'Save As Draft')]")
+	private WebElement saveasdraft;
+
+	public void clickOnSaveAsDraft() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(saveasdraft));
+		wait.until(ExpectedConditions.elementToBeClickable(saveasdraft));
+		Assert.assertTrue(saveasdraft.isDisplayed());
+		HighlightOnElement(saveasdraft);
+		Assert.assertTrue(saveasdraft.isEnabled());
+		saveasdraft.click();
+		Reporter.log("Click on Save as Draft  button",true);
+		waitForSomeTime();
+	}
+	
+
+}

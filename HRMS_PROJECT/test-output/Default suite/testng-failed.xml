@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_08"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_19"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_04"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_15"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_07"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_18"/>
+          <include name="logoutHRMS"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_06"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_17"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_09"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_11"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_03"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_02"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_13"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_05"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_16"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_10"/>
+          <include name="HRMS_EMP_EMP_TR_SC_03_TC_03"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_01"/>
+          <include name="HRMS_EMP_EMP_TR_SC_02_TC_12"/>
+          <include name="HRMS_EMP_EMP_TR_SC_03_TC_02"/>
+          <include name="HRMS_EMP_EMP_TR_SC_03_TC_04"/>
+          <include name="HRMS_EMP_EMP_TR_SC_03_TC_01"/>
+        </methods>
+      </class> <!-- HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

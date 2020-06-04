@@ -1,0 +1,91 @@
+package HRMS_ERP_Management_Script;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import GenericLibrary.ExcelDataDriver;
+import HRMS_ERP_PERFORMANCE_APPRAISAL.HRMS_ERP_Performance_Appraisal_Sc_02;
+import HRMS_ERP_PERFORMANCE_APPRAISAL.HRMS_ERP_Performance_Appraisal_Sc_03;
+import HRMS_URL_Page.HRMS_URL;
+import LoginPageHRMS_UserLibrary.LoginPageHRMS_JavaFile;
+
+public class HRMS_ERP_Performance_Appraisal_Module extends HRMS_URL
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\HRMS_PROJECT\\src\\test\\resources\\HRMS_TESTDATA\\HRMS_TESTDATA.xlsx";
+
+/*	@AfterMethod 
+	public void logoutHRMS() throws InterruptedException
+	{
+		WebElement Administrator=driver.findElement(By.xpath("//ul[@class='nav navbar-nav navbar-right oe_user_menu_placeholder']/li/a/span[2]"));
+		HighlightOnElement(Administrator);
+		Administrator.click();
+		Reporter.log("click on Administrator menu successfully",true);
+		log.info("To verify click on Administrator menu successfully");
+
+		WebElement logoutbtn=driver.findElement(By.xpath("//a[contains(text(),'Log out')]"));
+		HighlightOnElement(logoutbtn);
+		logoutbtn.click();
+		Reporter.log("click on Logout buton successfully",true);
+		log.info("To verify click on Logout button successfully");
+		
+		driver.close();
+		Reporter.log("Browser closed succesfully",true);
+		log.info("To verify Browser closed successfully");
+	}*/
+
+	@DataProvider(name="admin")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"HRMS_Login_Credentials");
+	}
+
+	/*@Test(priority=1,description="HRMS_Admin_Appraisal_SC_01_TC_01",dataProvider="admin")
+	public void verifyHRMSLoginPageHRMS_Admin_Appraisal_SC_01_TC_01(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+	}
+	*/
+	/*@Test(priority=2,description="HRMS_Admin_Appraisal_SC_02_TC_01",dataProvider="admin")
+	public void verifyHRMSCreateAppraisalInitiatorHRMS_Admin_Appraisal_SC_02_TC_01(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+		
+		HRMS_ERP_Performance_Appraisal_Sc_02 appraisal=PageFactory.initElements(driver,HRMS_ERP_Performance_Appraisal_Sc_02.class);
+		appraisal.clickOnDiscussIcon();
+		appraisal.clickOnAcrIcon();
+		appraisal.getAppraisalText();
+		appraisal.clickOnAppraisal();
+		appraisal.clickOnAppraisalInitiator();
+	}*/
+	
+	@Test(priority=3,description="HRMS_Admin_Appraisal_SC_03_TC_01",dataProvider="admin")
+	public void verifyHRMSSaveFunWithValidDataHRMS_Admin_Appraisal_SC_03_TC_01(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+		
+		HRMS_ERP_Performance_Appraisal_Sc_02 appraisal=PageFactory.initElements(driver,HRMS_ERP_Performance_Appraisal_Sc_02.class);
+		appraisal.clickOnDiscussIcon();
+		appraisal.clickOnAcrIcon();
+		appraisal.getAppraisalText();
+		appraisal.clickOnAppraisal();
+		appraisal.clickOnAppraisalInitiator();
+		
+		HRMS_ERP_Performance_Appraisal_Sc_03 savebtn=PageFactory.initElements(driver,HRMS_ERP_Performance_Appraisal_Sc_03.class);
+		 savebtn.clickOnCreateButon();
+	}
+}

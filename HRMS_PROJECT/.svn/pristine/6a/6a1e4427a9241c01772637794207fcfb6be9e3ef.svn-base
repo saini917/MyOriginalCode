@@ -1,0 +1,54 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifySectionTransferLink_SC_06_TC_03 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Approved list".
+	 * @author deepak.saini
+	 * @since 2017-12-13
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Approved by HR')]/span[@class='fa fa-caret-right']")
+	private WebElement approveddrop;
+
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Approved by HR')]/../../following-sibling::tbody[1]/tr/td")
+	private List<WebElement> approvelist;
+
+	public void approveDrop() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(approveddrop));
+		HighlightOnElement(approveddrop);
+		Assert.assertTrue(approveddrop.isDisplayed());
+		Assert.assertTrue(approveddrop.isEnabled());
+		Actions act=new Actions(driver);
+		act.click(approveddrop).build().perform();
+		waitForSomeTime();
+	}
+
+	public void approveList()
+	{
+		for(WebElement list:approvelist)
+		{
+			HighlightOnElement(list);
+			Assert.assertTrue(list.isDisplayed());
+		}
+	}
+}

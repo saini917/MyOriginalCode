@@ -1,0 +1,199 @@
+package WaterAndSewerage_Transfer;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageDisconnection.WaterAndSewerageDisconnectionLoginAsFE;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+import WaterAndSewerageTransfer.WaterAndSewerageTransferLoginAsFE;
+
+
+/**
+ * @author Birbal Tahim
+ * @ Date: 07-10-2017
+ * @ Purpose: WATER AND SEWERAGE TRANSFER LOGIN BY FE
+ */
+public class WaterAndSewerageTransferFE extends URLPageWSNRDAScript
+{
+
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebElement web1=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		Actions action = new Actions(driver);
+		action.moveToElement(web1).build().perform();
+		waitForSomeTime();
+		waitForSomeTime();
+		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+		driver.close();
+		waitForSomeTime();
+	}
+	@DataProvider(name="Field engineer")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"Field Engineer Credentials");
+	}
+
+	@Test(priority=1,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_01")
+	public void verifypendingapplicationLoginasFE01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toVerifyPendingApplicationAsFE();
+		application.toVerifyActionButtonDisplayed01();
+		application.toVerifyPendingApplication01();
+
+	}
+
+	@Test(priority=2,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_02")
+	public void verifypendingcountlinkinWaterMenu02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toclickonpendingcountlink();
+		application.toVerifyActionButtonDisplayed01();
+		application.toVerifyRecordPerPage02();
+		application.toVerifyPagination02();
+		application.closePopUpWindow();
+		application.toverifyPendingCountinWatermenu02();
+		application.closePopUpWindow();
+	}
+
+	@Test(priority=3,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_03")
+	public void toverifypaginationonPendingApplication03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toverifypeginationofPendingApplication03();
+	}
+
+	@Test(priority=4,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_04")
+	public void toverifyApplicationAsInvalidNumber04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toVerifyInvalidApplicationNumber04();
+	}
+
+	@Test(priority=5,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_05")
+	public void toverifyApplicationNumberAsBlankField05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toVerifyBlankApplicationNumber05();
+	}
+
+	@Test(priority=6,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_06")
+	public void toverifyApplicationNumberisValid06(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toVerifyValidApplicationNumber06();
+	}
+
+	@Test(priority=7,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_07")
+	public void toVerifyActionbuttonFunctionality_PendingApplication07(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toclickonPendingApplication();
+		application.toVerifyActionbuttonFunctionalityinPendingApplication07();
+	}
+
+	@Test(priority=8,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_08")
+	public void toVerifySubmitbuttonFunctionalityWithActionFieldIS_Blank08(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toclickonPendingApplication();
+		application.toVerifyActionbuttonFunctionalityinPendingApplication07();
+		application.toVerifySubmitbuttonFunctionalityWithActionFieldISBlank08();
+		application.toVerifyErrorMessage();
+	}
+
+	@Test(priority=9,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_09")
+	public void toVerifySubmitbuttonFunctionalityWithCommentsFieldIS_Blank09(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toclickonPendingApplication();
+		application.toVerifySubmitbuttonFunctionalityWithCommentsFieldISBlank10();
+		application.toVerifySubmitbuttonFunctionalityWithActionFieldISBlank08();
+		application.toVerifyErrorMessageAsUserisBlank();
+	}
+
+	@Test(priority=10,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_10")
+	public void toVerifySubmitbuttonFunctionalityuploaddocumentwithinvalidformat10(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toclickonPendingApplication();
+		application.toVerifySubmitbuttonuploadingdocumentwithinvalidformat11();
+		application.toVerifyErrorMessageAsUploadingDocumentAsInvalidFormat();
+	}
+
+	@Test(priority=11,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_11")
+	public void toVerifySubmitbuttonFunctionalityActionisVerified11(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toverifySubmitFunctionalitywithActionAsVerified11();
+	}
+
+	@Test(priority=12,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_SC_03_TC_12")
+	public void toVerifySubmitbuttonFunctionalityActionisSendBack12(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toverifySubmitFunctionalitywithActionAsSentBack12(); 
+	}
+
+	@Test(priority=13,dataProvider ="Field engineer",description="NRDA_Water & Sewerage_Transfer_SC_03_TC_13")
+	public void toVerifyFunctionalityofClose_Button13(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_FE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_FE.loginAsFE(username, password);
+
+		WaterAndSewerageTransferLoginAsFE application=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAsFE.class);
+		application.toverifyfunctionalityofclosebutton13();
+		application.toVerifyPendingApplicationAsFE();
+	}
+
+}

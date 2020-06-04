@@ -1,0 +1,41 @@
+2019-01-04 12:23:54,526 [main] INFO Google - Browser Opened
+2019-01-04 12:23:54,561 [main] INFO Google - Implicit wait given
+2019-01-04 12:23:56,724 [main] INFO Google - Url opened
+2019-01-04 12:23:57,113 [main] INFO Google - keyword type
+2019-01-04 12:26:34,963 [main] INFO Google - Browser Opened
+2019-01-04 12:26:34,999 [main] INFO Google - Implicit wait given
+2019-01-04 12:26:38,161 [main] INFO Google - Url opened
+2019-01-04 12:26:39,309 [main] INFO Google - Maximize the window
+2019-01-04 12:26:39,449 [main] INFO Google - keyword type
+2019-01-04 12:26:41,858 [main] INFO Google - window closed
+2019-01-04 12:27:52,035 [main] INFO Google - Browser Opened
+2019-01-04 12:27:52,050 [main] INFO Google - Implicit wait given
+2019-01-04 12:27:54,440 [main] INFO Google - Url opened
+2019-01-04 12:27:55,564 [main] INFO Google - Maximize the window
+2019-01-04 12:29:48,460 [main] INFO Google - Browser Opened
+2019-01-04 12:29:48,487 [main] INFO Google - Implicit wait given
+2019-01-04 12:29:51,006 [main] INFO Google - Url opened
+2019-01-04 12:29:52,158 [main] INFO Google - Maximize the window
+2019-01-04 12:29:52,337 [main] INFO Google - keyword type
+2019-01-04 12:29:58,796 [main] INFO Google - window closed
+2019-01-04 12:45:51,776 [main] INFO Google - Browser Opened
+2019-01-04 12:45:51,812 [main] INFO Google - Implicit wait given
+2019-01-04 12:45:53,976 [main] INFO Google - Url opened
+2019-01-04 12:45:55,154 [main] INFO Google - Maximize the window
+2019-01-04 12:45:55,250 [main] INFO Google - keyword type
+2019-01-04 12:46:03,986 [main] INFO Google - window closed
+2019-01-04 12:46:03,987 [main] INFO Google - End
+2019-01-04 12:53:08,630 [main] INFO Google - Browser Opened
+2019-01-04 12:53:08,677 [main] INFO Google - Implicit wait given
+2019-01-04 12:53:10,509 [main] INFO Google - Url opened
+2019-01-04 12:53:11,655 [main] INFO Google - Maximize the window
+2019-01-04 12:53:11,753 [main] INFO Google - keyword type
+2019-01-04 12:53:12,953 [main] INFO Google - window closed
+2019-01-04 12:53:12,954 [main] INFO Google - End
+2019-01-04 12:53:51,672 [main] INFO Google - Browser Opened
+2019-01-04 12:53:51,717 [main] INFO Google - Implicit wait given
+2019-01-04 12:53:53,814 [main] INFO Google - Url opened
+2019-01-04 12:53:54,964 [main] INFO Google - Maximize the window
+2019-01-04 12:53:55,108 [main] INFO Google - keyword type
+2019-01-04 12:54:05,584 [main] INFO Google - window closed
+2019-01-04 12:54:05,585 [main] INFO Google - End

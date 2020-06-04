@@ -1,0 +1,77 @@
+package NRDA_NewConnection;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_03_TC_67 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Reset button"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="(//div[@id='form0:tabView']/div/div/span/center/table/tbody/tr/td/span/button/span[contains(text(),'Reset')])[1]")
+	private WebElement resetbtn;
+	
+	public void verifyClickOnResetBtn() throws InterruptedException
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,300)", "");
+
+		wait.until(ExpectedConditions.visibilityOf(resetbtn));
+		wait.until(ExpectedConditions.elementToBeClickable(resetbtn));
+		Assert.assertTrue(resetbtn.isDisplayed());
+		HighlightOnElement(resetbtn);
+		Assert.assertTrue(resetbtn.isEnabled());
+		resetbtn.click();
+		Reporter.log("Click on 'Reset' button",true);
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Enter Aadhar number in text box".
+	 * @author deepak.saini
+	 * @since 2017-08-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Aadhar Number')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement aadhar_number;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Enter Middle name".
+	 * @author deepak.saini
+	 * @since 2017-12-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Middle Name')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement middle_name;
+	
+	public void verifyResetField() throws InterruptedException
+	{
+		HighlightOnElement(aadhar_number);
+		String emptyAadharBox=aadhar_number.getAttribute("value");
+		Assert.assertTrue(emptyAadharBox.isEmpty(),"Matched");
+		
+		HighlightOnElement(middle_name);
+		String emptyMiddleNameBox=middle_name.getAttribute("value");
+		Assert.assertTrue(emptyMiddleNameBox.isEmpty(),"Matched");
+		Reporter.log("Verify that all the entered fields are left blank",true);
+	}
+
+}

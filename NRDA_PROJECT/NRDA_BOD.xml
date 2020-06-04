@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	
+ <test name="BOD login as Administartor Officer">
+	<classes>
+		<class name="NRDA_BOD.LoginAsAdminOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_01_TC_01"/>
+				<include name="NRDA_BOD_SC_01_TC_03"/>
+				<include name="NRDA_BOD_SC_01_TC_04"/>
+				<include name="NRDA_BOD_SC_01_TC_05"/>
+				<include name="NRDA_BOD_SC_01_TC_06"/>
+				<include name="NRDA_BOD_SC_01_TC_07"/>
+				<include name="NRDA_BOD_SC_01_TC_08"/>
+				<include name="NRDA_BOD_SC_01_TC_09"/>
+				<include name="NRDA_BOD_SC_01_TC_10"/>
+				<include name="NRDA_BOD_SC_01_TC_11"/>
+				<include name="NRDA_BOD_SC_01_TC_12"/>
+				<include name="NRDA_BOD_SC_01_TC_13"/>
+				<include name="NRDA_BOD_SC_01_TC_14"/>
+				<include name="NRDA_BOD_SC_01_TC_15"/>
+				<include name="NRDA_BOD_SC_01_TC_16"/>
+				<include name="NRDA_BOD_SC_01_TC_17"/>
+				<include name="NRDA_BOD_SC_01_TC_18"/>
+				<include name="NRDA_BOD_SC_01_TC_19"/>
+				<include name="NRDA_BOD_SC_01_TC_20"/>
+				<include name="NRDA_BOD_SC_01_TC_21"/>
+				<include name="NRDA_BOD_SC_01_TC_22"/>
+				<include name="NRDA_BOD_SC_01_TC_23"/>
+				<include name="NRDA_BOD_SC_01_TC_24"/>
+				<include name="NRDA_BOD_SC_01_TC_25"/>
+				<include name="NRDA_BOD_SC_01_TC_26"/>
+				<include name="NRDA_BOD_SC_01_TC_27"/>
+				<include name="NRDA_BOD_SC_01_TC_28"/>
+				<include name="NRDA_BOD_SC_01_TC_31"/>
+				<include name="NRDA_BOD_SC_01_TC_32"/>
+				<include name="NRDA_BOD_SC_01_TC_33"/>
+				<include name="NRDA_BOD_SC_01_TC_34"/>
+				<include name="NRDA_BOD_SC_01_TC_35"/>
+				<include name="NRDA_BOD_SC_01_TC_36"/>
+				<include name="NRDA_BOD_SC_01_TC_37"/>
+				<include name="NRDA_BOD_SC_01_TC_38"/>
+				<include name="NRDA_BOD_SC_01_TC_39"/>
+				<include name="NRDA_BOD_SC_01_TC_40"/>
+				<include name="NRDA_BOD_SC_01_TC_41"/>
+				<include name="NRDA_BOD_SC_01_TC_42"/>
+				<include name="NRDA_BOD_SC_01_TC_43"/>
+				
+				<!--   Application Submitted by Admin to officer  -->
+				<include name="NRDA_BOD_SC_01_TC_44"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 				<!--  Public Health and Engineering  Officer Login -->
+ 
+  <test name="BOD login as Public Health and Engineering Officer">
+	<classes>
+		<class name="NRDA_BOD.LoginAsPublicHealthOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_02_TC_01"/>
+				<include name="NRDA_BOD_SC_02_TC_03"/>
+				<include name="NRDA_BOD_SC_02_TC_04"/>
+				<include name="NRDA_BOD_SC_02_TC_05"/>
+				<include name="NRDA_BOD_SC_02_TC_06"/>
+				<include name="NRDA_BOD_SC_02_TC_07"/>
+				<include name="NRDA_BOD_SC_02_TC_08"/>
+				<include name="NRDA_BOD_SC_02_TC_09"/>
+				<include name="NRDA_BOD_SC_02_TC_10"/>
+				<include name="NRDA_BOD_SC_02_TC_11"/>
+				<include name="NRDA_BOD_SC_02_TC_12"/>
+				<include name="NRDA_BOD_SC_02_TC_13"/>
+				
+				<!--   Application Send by Officer to Section User   -->
+				<include name="NRDA_BOD_SC_02_TC_14"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 					<!--  Section user Officer Login -->
+ 
+  <test name="BOD login as Section User Officer">
+	<classes>
+		<class name="NRDA_BOD.LoginAsSectionUserOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_03_TC_01"/>
+				<include name="NRDA_BOD_SC_03_TC_02"/>
+				<include name="NRDA_BOD_SC_03_TC_03"/>
+				<include name="NRDA_BOD_SC_03_TC_04"/>
+				<include name="NRDA_BOD_SC_03_TC_05"/>
+				<include name="NRDA_BOD_SC_03_TC_06"/>
+				<include name="NRDA_BOD_SC_03_TC_07"/>
+				<include name="NRDA_BOD_SC_03_TC_08"/>
+				<include name="NRDA_BOD_SC_03_TC_09"/>
+				<include name="NRDA_BOD_SC_03_TC_10"/>
+				<include name="NRDA_BOD_SC_03_TC_11"/>
+				<include name="NRDA_BOD_SC_03_TC_13"/>
+				
+				<!--  Section user Officer submit to Officer -->
+				<include name="NRDA_BOD_SC_03_TC_12"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 	<!--  Public Health and Engineering  Officer Login again -->
+ 
+  <test name="BOD login as Public Health and Engineering Officer again">
+	<classes>
+		<class name="NRDA_BOD.LoginAsPublicHealthOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_04_TC_01"/>
+				<include name="NRDA_BOD_SC_04_TC_03"/>
+				<include name="NRDA_BOD_SC_04_TC_04"/>
+				<include name="NRDA_BOD_SC_04_TC_05"/>
+				<include name="NRDA_BOD_SC_04_TC_06"/>
+				<include name="NRDA_BOD_SC_04_TC_07"/>
+				<include name="NRDA_BOD_SC_04_TC_08"/>
+				<include name="NRDA_BOD_SC_04_TC_09"/>
+				<include name="NRDA_BOD_SC_04_TC_10"/>
+				<include name="NRDA_BOD_SC_04_TC_11"/>
+				<include name="NRDA_BOD_SC_04_TC_12"/>
+				
+				<!--   Application Submitted by officer to Admin  -->
+				<include name="NRDA_BOD_SC_04_TC_13"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 					<!--  Administartor Officer Login again -->
+ 
+ <test name="BOD login as Administartor Officer again">
+	<classes>
+		<class name="NRDA_BOD.LoginAsAdminOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_05_TC_01"/>
+				<include name="NRDA_BOD_SC_05_TC_03"/>
+				<include name="NRDA_BOD_SC_05_TC_04"/>
+				<include name="NRDA_BOD_SC_05_TC_05"/>
+				<include name="NRDA_BOD_SC_05_TC_06"/>
+				<include name="NRDA_BOD_SC_05_TC_07"/>
+				<include name="NRDA_BOD_SC_05_TC_08"/>
+				<include name="NRDA_BOD_SC_05_TC_09"/>
+				<include name="NRDA_BOD_SC_05_TC_10"/>
+				<include name="NRDA_BOD_SC_05_TC_11"/>
+				<include name="NRDA_BOD_SC_05_TC_12"/>
+				<include name="NRDA_BOD_SC_05_TC_13"/>
+				<include name="NRDA_BOD_SC_05_TC_14"/>
+				<include name="NRDA_BOD_SC_05_TC_15"/>
+				
+				<!--   Application Submitted by Admin to GM -->
+				<include name="NRDA_BOD_SC_05_TC_16"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 	<!--  GM Officer Login  -->
+ 
+ <test name="BOD login as GM Officer">
+	<classes>
+		<class name="NRDA_BOD.LoginAsGMOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_06_TC_01"/>
+				<include name="NRDA_BOD_SC_06_TC_03"/>
+				<include name="NRDA_BOD_SC_06_TC_04"/>
+				<include name="NRDA_BOD_SC_06_TC_05"/>
+				<include name="NRDA_BOD_SC_06_TC_06"/>
+				<include name="NRDA_BOD_SC_06_TC_07"/>
+				<include name="NRDA_BOD_SC_06_TC_08"/>
+				<include name="NRDA_BOD_SC_06_TC_09"/>
+				<include name="NRDA_BOD_SC_06_TC_10"/>
+				<include name="NRDA_BOD_SC_06_TC_11"/>
+				<include name="NRDA_BOD_SC_06_TC_12"/>
+				
+				<!-- Application is submitted by GM to CEO -->
+				<include name="NRDA_BOD_SC_06_TC_13"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 			<!--  CEO Officer Login  -->
+ 
+ <test name="BOD login as CEO Officer">
+	<classes>
+		<class name="NRDA_BOD.LoginAsCEOOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_07_TC_01"/>
+				<include name="NRDA_BOD_SC_07_TC_03"/>
+				<include name="NRDA_BOD_SC_07_TC_04"/>
+				<include name="NRDA_BOD_SC_07_TC_05"/>
+				<include name="NRDA_BOD_SC_07_TC_06"/>
+				<include name="NRDA_BOD_SC_07_TC_07"/>
+				<include name="NRDA_BOD_SC_07_TC_08"/>
+				
+				<!--  CEO submitted application to Chairman  -->
+				<include name="NRDA_BOD_SC_07_TC_09"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 
+ 
+ 			<!--  CHAIRMAN Officer Login  -->
+ 
+ <test name="BOD login as Chairman Officer">
+	<classes>
+		<class name="NRDA_BOD.LoginAsChairmanOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_08_TC_01"/>
+				<include name="NRDA_BOD_SC_08_TC_03"/>
+				<include name="NRDA_BOD_SC_08_TC_04"/>
+				<include name="NRDA_BOD_SC_08_TC_05"/>
+				<include name="NRDA_BOD_SC_08_TC_06"/>
+				<include name="NRDA_BOD_SC_08_TC_07"/>
+				<include name="NRDA_BOD_SC_08_TC_08"/>
+				
+				<!--  Chairman approved application  -->
+				<include name="NRDA_BOD_SC_08_TC_09"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 
+ 			<!--  CEO Officer Login again -->
+ 
+ <test name="BOD login as CEO Officer for publish">
+	<classes>
+		<class name="NRDA_BOD.LoginAsCEOOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_09_TC_01"/>
+				<include name="NRDA_BOD_SC_09_TC_02"/>
+				<include name="NRDA_BOD_SC_09_TC_03"/>
+				<include name="NRDA_BOD_SC_09_TC_04"/>
+				<include name="NRDA_BOD_SC_09_TC_05"/>
+				<include name="NRDA_BOD_SC_09_TC_06"/>
+				<include name="NRDA_BOD_SC_09_TC_07"/>
+				<include name="NRDA_BOD_SC_09_TC_08"/>
+				<include name="NRDA_BOD_SC_09_TC_09"/>
+				<include name="NRDA_BOD_SC_09_TC_10"/>
+				<include name="NRDA_BOD_SC_09_TC_11"/>
+				<include name="NRDA_BOD_SC_09_TC_12"/>
+				<include name="NRDA_BOD_SC_09_TC_13"/>
+				<include name="NRDA_BOD_SC_09_TC_14"/>
+				<include name="NRDA_BOD_SC_09_TC_15"/>
+				<include name="NRDA_BOD_SC_09_TC_16"/>
+				
+				<!--     CEO Officer publish and submit to ADMIN  -->
+				<include name="NRDA_BOD_SC_09_TC_17"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ <!--  ADMIN Officer Login again -->
+ 
+ <test name="BOD login as ADMIN Officer for Proceeding">
+	<classes>
+		<class name="NRDA_BOD.LoginAsAdminOfficer">
+			<methods>
+				<include name="NRDA_BOD_SC_10_TC_01"/>
+				<include name="NRDA_BOD_SC_10_TC_03"/>
+				<include name="NRDA_BOD_SC_10_TC_04"/>
+				<include name="NRDA_BOD_SC_10_TC_05"/>
+				<include name="NRDA_BOD_SC_10_TC_06"/>
+				<include name="NRDA_BOD_SC_10_TC_07"/>
+				<include name="NRDA_BOD_SC_10_TC_08"/>
+				<include name="NRDA_BOD_SC_10_TC_09"/>
+				<include name="NRDA_BOD_SC_10_TC_10"/>
+				
+				<!--  ADMIN Officer for Proceeding  application to GM officer  -->
+				<include name="NRDA_BOD_SC_10_TC_11"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+
+
+ 
+ </suite>

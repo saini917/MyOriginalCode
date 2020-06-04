@@ -1,0 +1,198 @@
+package WaterAndSewerage_ChangeOfUse;
+
+import java.io.IOException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import ChangeOfUseNewConnection.ToVerifyChangeConnectionDetailTab_SC_02_TC_01;
+import ChangeOfUseNewConnection.ToVerifyClose_SC_02_TC_08;
+import ChangeOfUseNewConnection.ToVerifyCompletionCertificateDocument_SC_02_TC_03;
+import ChangeOfUseNewConnection.ToVerifyConnectionDetailsField_SC_02_TC_02;
+import ChangeOfUseNewConnection.ToVerifyDashboard_SC_01_TC_01;
+import ChangeOfUseNewConnection.ToVerifyOtherDocument_SC_02_TC_04;
+import ChangeOfUseNewConnection.ToVerifyRemarks_SC_02_TC_05;
+import ChangeOfUseNewConnection.ToVerifySaveAsDraft_SC_02_TC_06;
+import ChangeOfUseNewConnection.ToVerifySubmitFun_SC_03_TC_01;
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+
+@Listeners(GenericLibrary.ListenerDriver.class)
+public class NewConnection_ChangeOfUse_Citizen_Module extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		WebElement logoutdrop=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		wait.until(ExpectedConditions.visibilityOf(logoutdrop));
+		wait.until(ExpectedConditions.elementToBeClickable(logoutdrop));
+		Actions action = new Actions(driver);
+		action.moveToElement(logoutdrop).build().perform();
+		//Reporter.log("Action is performed on Logout dropdown successfully",true);
+
+		WebElement logout=driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
+		Actions action1 = new Actions(driver);
+		action1.moveToElement(logout).build().perform();
+		//Reporter.log("Action is performed on Logout button successfully",true);
+
+		driver.close();
+		//Reporter.log("Action is performed on browser closed successfully",true);
+	}
+
+	@DataProvider(name="citizen")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"citi");
+	}
+
+	@Test(priority=0,dataProvider ="citizen",description="verify dashboard")
+	public void NRDA_ChangeOfUse_Citizen_SC_01_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.ChangeOfUseLoginAsCitizen(username,password);
+
+		ToVerifyDashboard_SC_01_TC_01 dashboard=PageFactory.initElements(driver,ToVerifyDashboard_SC_01_TC_01.class);
+		dashboard.verifyDashboard();
+	}
+
+	@Test(priority=1,dataProvider ="citizen",description="verify change connection details tab")
+	public void NRDA_ChangeOfUse_Citizen_SC_02_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.ChangeOfUseLoginAsCitizen(username,password);
+
+		ToVerifyChangeConnectionDetailTab_SC_02_TC_01 changeconnectiontab=PageFactory.initElements(driver,ToVerifyChangeConnectionDetailTab_SC_02_TC_01.class);
+		changeconnectiontab.verifyChangeConnectionDetailTab();
+		changeconnectiontab.clickOnWaterAndSewerageConnectionImage();
+		changeconnectiontab.exitConnection();
+		changeconnectiontab.clickOnChangeConnectionDetails();
+		changeconnectiontab.verifyChangeConnectionDashboard();
+	}
+
+	@Test(priority=2,dataProvider ="citizen",description="verify connection details field")
+	public void NRDA_ChangeOfUse_Citizen_SC_02_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.ChangeOfUseLoginAsCitizen(username,password);
+
+		ToVerifyChangeConnectionDetailTab_SC_02_TC_01 changeconnectiontab=PageFactory.initElements(driver,ToVerifyChangeConnectionDetailTab_SC_02_TC_01.class);
+		changeconnectiontab.verifyChangeConnectionDetailTab();
+		changeconnectiontab.clickOnWaterAndSewerageConnectionImage();
+		changeconnectiontab.exitConnection();
+		changeconnectiontab.clickOnChangeConnectionDetails();
+
+		ToVerifyConnectionDetailsField_SC_02_TC_02 connectiondetails=PageFactory.initElements(driver,ToVerifyConnectionDetailsField_SC_02_TC_02.class);
+		connectiondetails.verifyConnectionDetailsField();
+	}
+
+	@Test(priority=3,dataProvider ="citizen",description="verify completetion certificate document")
+	public void NRDA_ChangeOfUse_Citizen_SC_02_TC_03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.ChangeOfUseLoginAsCitizen(username,password);
+
+		ToVerifyChangeConnectionDetailTab_SC_02_TC_01 changeconnectiontab=PageFactory.initElements(driver,ToVerifyChangeConnectionDetailTab_SC_02_TC_01.class);
+		changeconnectiontab.verifyChangeConnectionDetailTab();
+		changeconnectiontab.clickOnWaterAndSewerageConnectionImage();
+		changeconnectiontab.exitConnection();
+		changeconnectiontab.clickOnChangeConnectionDetails();
+
+		ToVerifyCompletionCertificateDocument_SC_02_TC_03 certificate=PageFactory.initElements(driver,ToVerifyCompletionCertificateDocument_SC_02_TC_03.class);
+		certificate.verifyCompletionCertificate();
+	}
+
+
+	@Test(priority=4,dataProvider ="citizen",description="verify other document")
+	public void NRDA_ChangeOfUse_Citizen_SC_02_TC_04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.ChangeOfUseLoginAsCitizen(username,password);
+
+		ToVerifyChangeConnectionDetailTab_SC_02_TC_01 changeconnectiontab=PageFactory.initElements(driver,ToVerifyChangeConnectionDetailTab_SC_02_TC_01.class);
+		changeconnectiontab.verifyChangeConnectionDetailTab();
+		changeconnectiontab.clickOnWaterAndSewerageConnectionImage();
+		changeconnectiontab.exitConnection();
+		changeconnectiontab.clickOnChangeConnectionDetails();
+
+		ToVerifyOtherDocument_SC_02_TC_04 otherdocument=PageFactory.initElements(driver,ToVerifyOtherDocument_SC_02_TC_04.class);
+		otherdocument.verifyOtherDocument();
+	}
+	
+	@Test(priority=5,dataProvider ="citizen",description="verify remarks")
+	public void NRDA_ChangeOfUse_Citizen_SC_02_TC_05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.ChangeOfUseLoginAsCitizen(username,password);
+
+		ToVerifyChangeConnectionDetailTab_SC_02_TC_01 changeconnectiontab=PageFactory.initElements(driver,ToVerifyChangeConnectionDetailTab_SC_02_TC_01.class);
+		changeconnectiontab.verifyChangeConnectionDetailTab();
+		changeconnectiontab.clickOnWaterAndSewerageConnectionImage();
+		changeconnectiontab.exitConnection();
+		changeconnectiontab.clickOnChangeConnectionDetails();
+
+		ToVerifyRemarks_SC_02_TC_05 remark=PageFactory.initElements(driver,ToVerifyRemarks_SC_02_TC_05.class);
+		remark.verifyRemarks();
+	}
+	
+	@Test(priority=6,dataProvider ="citizen",description="verify save as draft")
+	public void NRDA_ChangeOfUse_Citizen_SC_02_TC_06(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.ChangeOfUseLoginAsCitizen(username,password);
+
+		ToVerifyChangeConnectionDetailTab_SC_02_TC_01 changeconnectiontab=PageFactory.initElements(driver,ToVerifyChangeConnectionDetailTab_SC_02_TC_01.class);
+		changeconnectiontab.verifyChangeConnectionDetailTab();
+		changeconnectiontab.clickOnWaterAndSewerageConnectionImage();
+		changeconnectiontab.exitConnection();
+		changeconnectiontab.clickOnChangeConnectionDetails();
+		
+		ToVerifySaveAsDraft_SC_02_TC_06 saveasdraft=PageFactory.initElements(driver,ToVerifySaveAsDraft_SC_02_TC_06.class);
+		saveasdraft.verifySaveAsDraftFun();
+	}
+	
+	@Test(priority=7,dataProvider ="citizen",description="verify save as draft")
+	public void NRDA_ChangeOfUse_Citizen_SC_02_TC_08(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.ChangeOfUseLoginAsCitizen(username,password);
+
+		ToVerifyChangeConnectionDetailTab_SC_02_TC_01 changeconnectiontab=PageFactory.initElements(driver,ToVerifyChangeConnectionDetailTab_SC_02_TC_01.class);
+		changeconnectiontab.verifyChangeConnectionDetailTab();
+		changeconnectiontab.clickOnWaterAndSewerageConnectionImage();
+		changeconnectiontab.exitConnection();
+		changeconnectiontab.clickOnChangeConnectionDetails();
+		
+		ToVerifyClose_SC_02_TC_08 close=PageFactory.initElements(driver,ToVerifyClose_SC_02_TC_08.class);
+		close.verifyCloseFun();
+	}
+	
+	@Test(priority=8,dataProvider ="citizen",description="verify submit")
+	public void NRDA_ChangeOfUse_Citizen_SC_03_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.ChangeOfUseLoginAsCitizen(username,password);
+
+		ToVerifyChangeConnectionDetailTab_SC_02_TC_01 changeconnectiontab=PageFactory.initElements(driver,ToVerifyChangeConnectionDetailTab_SC_02_TC_01.class);
+		changeconnectiontab.verifyChangeConnectionDetailTab();
+		changeconnectiontab.clickOnWaterAndSewerageConnectionImage();
+		changeconnectiontab.exitConnection();
+		changeconnectiontab.clickOnChangeConnectionDetails();
+		
+		ToVerifySubmitFun_SC_03_TC_01 submit=PageFactory.initElements(driver,ToVerifySubmitFun_SC_03_TC_01.class);
+		submit.verifySubmitFun();
+	}
+}

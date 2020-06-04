@@ -1,0 +1,52 @@
+package HRMS_ERP_TRANSFER;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyHRManagerField_SC_03_TC_05 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	ExcelDataDriver excel=new ExcelDataDriver();
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "HR MANAGER".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'HR Manager')]/../following-sibling::td/div/div/input/following-sibling::span")
+	private WebElement clickonhrmanager;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "HR MANAGER".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'HR Manager')]/../following-sibling::td/div/div/input")
+	private WebElement hrmanager;
+	
+	
+	public void enterHRManagerField() throws InterruptedException
+	{
+		HighlightOnElement(clickonhrmanager);
+		Assert.assertTrue(clickonhrmanager.isEnabled());
+		Actions act=new Actions(driver);
+		act.click(clickonhrmanager).build().perform();
+		waitForSomeTime();
+		hrmanager.sendKeys("ga");
+		waitForSomeTime();
+		hrmanager.sendKeys(Keys.ENTER);
+	}
+}

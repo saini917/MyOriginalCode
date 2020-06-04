@@ -1,0 +1,53 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyTransferLink_SC_02_TC_02 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "TRANSFER LINK".
+	 * @author deepak.saini
+	 * @since 2017-12-06
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//header/nav/div/div/div/div/ul/li/a[contains(text(),'Transfer')]/span")
+	private WebElement transferdrop;
+	
+	@FindBy(xpath="//header/nav/div/div/div/div/ul/li/a[contains(text(),'Transfer')]/span/../following-sibling::ul/li/a/span")
+	private List<WebElement> displaylink;
+	
+	public void clickOnTransferLink() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(transferdrop));
+		HighlightOnElement(transferdrop);
+		Assert.assertTrue(transferdrop.isDisplayed());
+		Assert.assertTrue(transferdrop.isEnabled());
+		Actions translink=new Actions(driver);
+		translink.click(transferdrop).build().perform();
+	}
+	
+	public void verifyTransferDisplayLink()
+	{
+		for(WebElement display:displaylink)
+		{
+			HighlightOnElement(display);
+			Assert.assertTrue(display.isDisplayed());
+		}
+	}
+}
+
+

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="4" total="5" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Email ID:bh.test@gmail.com]]>
+    </line>
+    <line>
+      <![CDATA[Password:nrda@1]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_HRMS_VRS_6 Nov 01   11.40.58.png" alt=""/>]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+  </reporter-output>
+  <suite name="Suite" duration-ms="20818" started-at="2018-11-01T06:10:38Z" finished-at="2018-11-01T06:10:59Z">
+    <groups>
+    </groups>
+    <test name="LOGIN AS VRS EMPLOYEE" duration-ms="20818" started-at="2018-11-01T06:10:38Z" finished-at="2018-11-01T06:10:59Z">
+      <class name="HRMS_ERP_UAT_VRS_TEST.LoginAsEmployee">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_UAT_VRS_TEST.LoginAsEmployee@ae45eb6]" name="openBrowser" is-config="true" duration-ms="6387" started-at="2018-11-01T11:40:39Z" finished-at="2018-11-01T11:40:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="UAT_HRMS_VRS_6(java.lang.String, java.lang.String)[pri:5, instance:HRMS_ERP_UAT_VRS_TEST.LoginAsEmployee@ae45eb6]" name="UAT_HRMS_VRS_6" duration-ms="12400" started-at="2018-11-01T11:40:45Z" description="verify discard" data-provider="VRS EMPLOYEE" finished-at="2018-11-01T11:40:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[bh.test@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nrda@1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:bh.test@gmail.com]]>
+            </line>
+            <line>
+              <![CDATA[Password:nrda@1]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_HRMS_VRS_6 Nov 01   11.40.58.png" alt=""/>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- UAT_HRMS_VRS_6 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_UAT_VRS_TEST.LoginAsEmployee@ae45eb6]" name="logoutHRMS" is-config="true" duration-ms="967" started-at="2018-11-01T11:40:58Z" finished-at="2018-11-01T11:40:59Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+      </class> <!-- HRMS_ERP_UAT_VRS_TEST.LoginAsEmployee -->
+    </test> <!-- LOGIN AS VRS EMPLOYEE -->
+  </suite> <!-- Suite -->
+</testng-results>

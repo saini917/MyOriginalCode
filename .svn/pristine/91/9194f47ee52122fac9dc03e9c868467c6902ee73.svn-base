@@ -1,0 +1,72 @@
+package NRDA_NewConnection;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_03_TC_68 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Reset button"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="(//div[@id='form0:tabView']/div/div/span/center/table/tbody/tr/td/span/button/span[contains(text(),'Close')])[1]")
+	private WebElement closebtn;
+	
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Pop up label"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:confirmDlg']/div/div/div/center/label[contains(text(),'Are you sure you want to close form?')]")
+	private WebElement popup;
+	
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "click on Yes"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:confirmDlg']/div/div/div/center/table/tbody/tr/td/button/span[contains(text(),'Yes')]")
+	private WebElement yes;
+	
+	
+	public void verifyClickOnCloseBtn() throws InterruptedException
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,300)", "");
+
+		wait.until(ExpectedConditions.visibilityOf(closebtn));
+		wait.until(ExpectedConditions.elementToBeClickable(closebtn));
+		Assert.assertTrue(closebtn.isDisplayed());
+		HighlightOnElement(closebtn);
+		Assert.assertTrue(closebtn.isEnabled());
+		closebtn.click();
+		waitForSomeTime();
+		Reporter.log("Verify that as user click on 'Close' button , a Confirmation Dialog Box is opened",true);
+		Reporter.log(popup.getText(),true);
+		
+		wait.until(ExpectedConditions.visibilityOf(yes));
+		wait.until(ExpectedConditions.elementToBeClickable(yes));
+		yes.click();
+		Reporter.log("If selected 'Yes' then page will get re- direct to  Dashboard",true);
+		waitForSomeTime();
+	}
+}

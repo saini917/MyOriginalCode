@@ -1,0 +1,89 @@
+package NRDA_NewConnection;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_08_TC_14 extends CommonLibrary 
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on search".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Search')])[1]")
+	private WebElement searchbtn;
+	
+	public void clickOnSearchBtn() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(searchbtn));
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		Assert.assertTrue(searchbtn.isDisplayed());
+		HighlightOnElement(searchbtn);
+		Assert.assertTrue(searchbtn.isEnabled());
+		searchbtn.click();
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "display field".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//form[@id='inboxForm']/span/div/div/div/div/table/tbody/tr/td/label")
+	private List<WebElement> displaylist;
+	
+	@FindBy(xpath="(//form[@id='inboxForm']/span/div/div/div/div/center/table/tbody/tr/td/button/span)[3]")
+	private WebElement displaylist1;
+	
+	@FindBy(xpath="(//form[@id='inboxForm']/span/div/div/div/div/center/table/tbody/tr/td/button/span)[4]")
+	private WebElement displaylist2;
+	
+	@FindBy(xpath="(//form[@id='inboxForm']/span/div/div/div/div/center/table/tbody/tr/td/button/span)[5]")
+	private WebElement displaylist3;
+	
+	@FindBy(xpath="(//form[@id='inboxForm']/span/div/div/a/span)[4]")
+	private WebElement closepopup;
+	
+	public void verifyFileField() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(displaylist1));
+		Assert.assertTrue(displaylist1.isDisplayed());
+		HighlightOnElement(displaylist1);
+		
+		wait.until(ExpectedConditions.visibilityOf(displaylist2));
+		Assert.assertTrue(displaylist2.isDisplayed());
+		HighlightOnElement(displaylist2);
+		
+		wait.until(ExpectedConditions.visibilityOf(displaylist3));
+		Assert.assertTrue(displaylist3.isDisplayed());
+		HighlightOnElement(displaylist3);
+		Reporter.log("Expected result: \n Search \n Fill in Form \n Create New File",true);
+		
+		wait.until(ExpectedConditions.visibilityOf(closepopup));
+		wait.until(ExpectedConditions.elementToBeClickable(closepopup));
+		Assert.assertTrue(closepopup.isDisplayed());
+		HighlightOnElement(closepopup);
+		Assert.assertTrue(closepopup.isEnabled());
+		closepopup.click();
+		waitForSomeTime();
+	}
+
+}

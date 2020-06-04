@@ -1,0 +1,130 @@
+package WaterAndSewerageTransfer;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+
+
+public class ToVerifyWaterAndSewerageConnection extends CommonLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Application for water and sewerage connection under Water and Sewerage Connection".
+	 * @author deepak.saini
+	 * @since 2017-08-11
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/span/table/tbody/tr/td/div/h3/following-sibling::div/table/tbody/tr/td/span[contains(text(),'WATER AND SEWERAGE CONNECTION')]/../following-sibling::td/span/a/img[@src='/NRDAuthority/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	private WebElement toverifyNewconnection;
+
+
+	/***************************click on Application for water and sewerage connection*************************************************************************/
+	public void clickOnToVerifyNewConnection02() throws InterruptedException
+	{
+		Assert.assertEquals(true,toverifyNewconnection.isEnabled());
+		Assert.assertNotNull(toverifyNewconnection,"Click on Application of Water and Sewerage New connection link sucessfully");
+		HighlightOnElement(toverifyNewconnection);
+		toverifyNewconnection.click();
+		Reporter.log("Verify Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Select Associate Serivce Application for water and sewerage  new connection under Water and Sewerage Connection".
+	 * @author deepak.saini
+	 * @since 2017-08-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Apply New Water Connection')]")
+	private WebElement clickonapplyfornewconnection;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Proceed button".
+	 * @author deepak.saini
+	 * @since 2017-08-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Proceed')]")
+	private WebElement proceed;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on alert Yes/NO button".
+	 * @author deepak.saini
+	 * @since 2017-08-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:confirmDlg']/div[2]/div/div/center/table/tbody/tr/td/button")
+	private List<WebElement> button;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td/span/div/div/div/div/b")
+	private List<WebElement> displaylink;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td/span/div/div/div/ul/li/a")
+	private List<WebElement> displaylink1;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a")
+	private List<WebElement> displaylink2;
+
+
+
+	public void clickOnProceedBtn() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		Assert.assertEquals(true,clickonapplyfornewconnection.isEnabled());
+		Assert.assertNotNull(clickonapplyfornewconnection,"Click on Apply for new connection sucessfully");
+		HighlightOnElement(clickonapplyfornewconnection);
+		clickonapplyfornewconnection.click();//click on Associate Services dropdown
+		Reporter.log("Verify Apply for new connection is Present",true); //print for eclipse console 
+
+		waitForSomeTime();
+		HighlightOnElement(proceed);//click on proceed button
+		proceed.click();
+		waitForSomeTime();
+
+		for(int index=0;index<button.size();index++)
+		{
+			String buttone=button.get(index).getText();
+			System.out.println(buttone);
+			if( buttone.trim().equalsIgnoreCase("yes"))
+			{
+				button.get(index).click();
+				waitForSomeTime();
+			}
+		}
+
+		for(WebElement link:displaylink)
+		{
+			HighlightOnElement(link);
+			Assert.assertNotNull(link.isDisplayed());
+			Reporter.log("Expected result:"+link.getText(),true);
+		}
+
+		for(WebElement link1:displaylink1)
+		{
+			HighlightOnElement(link1);
+			Assert.assertNotNull(link1.isDisplayed());
+			Reporter.log("Expected result:"+link1.getText(),true);
+		}
+
+		for(WebElement link2:displaylink2)
+		{
+			HighlightOnElement(link2);
+			Assert.assertNotNull(link2.isDisplayed());
+			Reporter.log("Expected result:"+link2.getText(),true);
+		}
+	}
+
+
+}

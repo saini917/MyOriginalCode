@@ -1,0 +1,42 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyAreaField_SC_05_TC_06 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "AREA".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/input")
+	private WebElement area;
+
+	public void verifyArea() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf(area));
+		HighlightOnElement(area);
+		Assert.assertTrue(area.isDisplayed(),"AREA is displayed");
+		Assert.assertTrue(area.isEnabled(),"AREA  is enabled");
+		String are=excel.getExcelData(area,"Owner_Property_Details",1,23);
+		Reporter.log("AREA:"+are,true);
+		Reporter.log("Action is performed on Area",true);
+	}
+}

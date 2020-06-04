@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ 
+ 	<!-- LOGIN AS CITIZEN IN RECONNECTION MODULE-->
+ 			
+<test name="LOGIN AS CITIZEN ">
+	<classes>
+		<class name="NRDA_RECONNECTION.LoginAsCitizen">
+			<methods>
+       			<include name="NRDA_Reconnection_SC_01_TC_01"/>
+       			<include name="NRDA_Reconnection_SC_01_TC_02"/>
+       			
+       			<!-- citizen submit the reconnection request  -->
+       			<include name="NRDA_Reconnection_SC_01_TC_03"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ <!-- LOGIN AS JE IN RECONNECTION MODULE-->
+ 			
+<test name="LOGIN AS JE OFFICER Application Forward to FE">
+	<classes>
+		<class name="NRDA_RECONNECTION.LoginAsJE">
+			<methods>
+       			<include name="NRDA_Reconnection_SC_02_TC_01"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_02"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_03"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_04"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_05"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_06"/>>
+       			<include name="NRDA_Reconnection_SC_02_TC_07"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_08"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_09"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_13"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_14"/>
+       			<include name="NRDA_Reconnection_SC_02_TC_15"/>
+       			
+       			 <!--  JE submit the application  -->
+       			<include name="NRDA_Reconnection_SC_02_TC_10"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 
+ 
+ <!-- LOGIN AS FE IN RECONNECTION MODULE-->
+ 			
+<test name="LOGIN AS FE OFFICER to verify Connection">
+	<classes>
+		<class name="NRDA_RECONNECTION.LoginAsFE">
+			<methods>
+       			<include name="NRDA_Reconnection_SC_03_TC_01"/>
+       			<include name="NRDA_Reconnection_SC_03_TC_02"/>
+       			<include name="NRDA_Reconnection_SC_03_TC_03"/>
+       			<include name="NRDA_Reconnection_SC_03_TC_04"/>
+       			<include name="NRDA_Reconnection_SC_03_TC_05"/>
+       			<include name="NRDA_Reconnection_SC_03_TC_06"/>
+       			<include name="NRDA_Reconnection_SC_03_TC_07"/>
+       			<include name="NRDA_Reconnection_SC_03_TC_10"/>
+       			<include name="NRDA_Reconnection_SC_03_TC_11"/>
+       			<include name="NRDA_Reconnection_SC_03_TC_12"/>
+       			
+       			 <!--  FE verify the application  -->
+       			<include name="NRDA_Reconnection_SC_03_TC_08"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ <!-- LOGIN AS JE IN RECONNECTION MODULE-->
+ 			
+<test name="LOGIN AS JE OFFICER Application Forward to EE">
+	<classes>
+		<class name="NRDA_RECONNECTION.LoginAsJE">
+			<methods>
+       			<include name="NRDA_Reconnection_SC_04_TC_01"/>
+       			<include name="NRDA_Reconnection_SC_04_TC_02"/>
+       			<include name="NRDA_Reconnection_SC_04_TC_03"/>
+       			<include name="NRDA_Reconnection_SC_04_TC_04"/>
+       			<include name="NRDA_Reconnection_SC_04_TC_08"/>
+       			<include name="NRDA_Reconnection_SC_04_TC_09"/>
+       			<include name="NRDA_Reconnection_SC_04_TC_10"/>
+       			
+       			
+       			 <!--  JE forward application to EE  -->
+       			<include name="NRDA_Reconnection_SC_04_TC_05"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ <!-- LOGIN AS EE IN RECONNECTION MODULE-->
+ 			
+<test name="LOGIN AS FE OFFICER For Approval">
+	<classes>
+		<class name="NRDA_RECONNECTION.LoginAsEE">
+			<methods>
+       			<include name="NRDA_Reconnection_SC_05_TC_01"/>
+       			<include name="NRDA_Reconnection_SC_05_TC_02"/>
+       			<include name="NRDA_Reconnection_SC_05_TC_03"/>
+       			<include name="NRDA_Reconnection_SC_05_TC_04"/>
+       			<include name="NRDA_Reconnection_SC_05_TC_05"/>
+       			<include name="NRDA_Reconnection_SC_05_TC_09"/>
+       			<include name="NRDA_Reconnection_SC_05_TC_10"/>
+       			<include name="NRDA_Reconnection_SC_05_TC_11"/>
+       			
+       			 <!--  EE Approval application  -->
+       			<include name="NRDA_Reconnection_SC_05_TC_06"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 
+ <!-- LOGIN AS JE IN RECONNECTION MODULE-->
+ <test name="LOGIN AS JE OFFICER For Meter Installation">
+	<classes>
+		<class name="NRDA_RECONNECTION.LoginAsJE">
+			<methods>
+       			<include name="NRDA_Reconnection_SC_06_TC_01"/>
+       			<include name="NRDA_Reconnection_SC_06_TC_02"/>
+       			<include name="NRDA_Reconnection_SC_06_TC_04"/>
+       			<include name="NRDA_Reconnection_SC_06_TC_05"/>
+       			<include name="NRDA_Reconnection_SC_06_TC_06"/>
+       			<include name="NRDA_Reconnection_SC_06_TC_07"/>
+       			
+       			<!--  JE meter installation  forward to FE    -->
+       			<include name="NRDA_Reconnection_SC_06_TC_03"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 
+ <!-- LOGIN AS FE IN RECONNECTION MODULE-->
+ <test name="LOGIN AS FE OFFICER For Completed Installation">
+	<classes>
+		<class name="NRDA_RECONNECTION.LoginAsFE">
+			<methods>
+       			<include name="NRDA_Reconnection_SC_07_TC_01"/>
+       			<include name="NRDA_Reconnection_SC_07_TC_02"/>
+       			
+       			<!-- FE completed installation  -->
+       			
+       			<include name="NRDA_Reconnection_SC_07_TC_03"/>
+       			<include name="NRDA_Reconnection_SC_07_TC_04"/>
+       			<include name="NRDA_Reconnection_SC_07_TC_05"/>
+       			<include name="NRDA_Reconnection_SC_07_TC_06"/>
+       		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ </suite>

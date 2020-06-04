@@ -1,0 +1,197 @@
+package HRMS_ERP_CONFIGURATION_INVESTMENT_MASTER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_CONFIGURATION_Investment_Master_Discard_Fun_Sc_03 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Investment head input box".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_group o_inner_group']/tbody/tr[1]/td/label[contains(text(),'Investment Head')]/../following-sibling::td[1]/input")
+	private WebElement investment_head;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "description input box".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_group o_inner_group']/tbody/tr[2]/td/label[contains(text(),'Description')]/../following-sibling::td[1]/input")
+	private WebElement description;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on selection head dropdown".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_group o_inner_group']/tbody/tr[1]/td/label[contains(text(),'Section Head')]/../following-sibling::td/div/div/span")
+	private WebElement sectionheaddropdown;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "select value from selection head dropdown".
+	 * @author deepak.saini
+	 * @since 2017-10-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']/li/a")
+	private List<WebElement> selectsectionhead;
+
+	/****************************************************************************************************/
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discard button".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_buttons_edit']/button[contains(text(),' Discard')]")
+	private WebElement discardbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Ok button".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-content']/div[3]/button/span[contains(text(),'Ok')]")
+	private WebElement okbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Cancel button".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-content']/div[3]/button/span[contains(text(),'Cancel')]")
+	private WebElement cancelbtn;
+/********************************************************************************************************/
+
+	/*
+	 * This method is used to click on discard button
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	public void clickonDiscardButtonFunctionality()
+	{
+		HighlightOnElement(discardbtn);
+		discardbtn.click();
+		Reporter.log("click on discard button successfully",true);
+		log.info("To verify click on discard button successfully");
+	}
+	
+	/*
+	 * This method is used to click on Ok button
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	public void clickonOkButtonFunctionality()
+	{
+		try
+		{
+			HighlightOnElement(investment_head);
+			exceldata.getExcelData(investment_head,"Investment_Master_Data",2,1);
+			Reporter.log("enter the value in the Investment Head Input box successfuly",true);
+			log.info("To verify enter the value in the Investment Head Input box successfuly");
+
+			HighlightOnElement(description);
+			exceldata.getExcelData(description,"Investment_Master_Data",3,1);
+			Reporter.log("enter the Valid value in the Description Input box successfuly",true);
+			log.info("To verify enter the value in the Description Input box successfuly");
+
+			HighlightOnElement(sectionheaddropdown);
+			Actions act=new Actions(driver);
+			act.moveToElement(sectionheaddropdown).click();
+			act.perform();
+			Reporter.log("click on Section Head dropdown successfuly",true);
+			log.info("To verify click on Section Head dropdown successfuly");
+			for(int i=0;i<selectsectionhead.size();i++)
+			{
+				String value=selectsectionhead.get(i).getText();
+				if(value.equalsIgnoreCase("80C"))
+				{
+					selectsectionhead.get(i).click();
+					Reporter.log("select Section Head successfuly",true);
+					log.info("To verify select Section Head successfuly");
+				}
+			}
+		}
+		catch(Exception commonexcpection)
+		{
+			commonexcpection.printStackTrace();
+		}
+		clickonDiscardButtonFunctionality();
+		okbtn.click();
+		Reporter.log("click on Ok dropdown successfuly",true);
+		log.info("To verify click on Ok dropdown successfuly");
+	}
+	
+	/*
+	 * This method is used to click on Cancel button
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	public void clickonCancelButtonFunctionality()
+	{
+		try
+		{
+			HighlightOnElement(investment_head);
+			exceldata.getExcelData(investment_head,"Investment_Master_Data",2,1);
+			Reporter.log("enter the value in the Investment Head Input box successfuly",true);
+			log.info("To verify enter the value in the Investment Head Input box successfuly");
+
+			HighlightOnElement(description);
+			exceldata.getExcelData(description,"Investment_Master_Data",3,1);
+			Reporter.log("enter the Valid value in the Description Input box successfuly",true);
+			log.info("To verify enter the value in the Description Input box successfuly");
+
+			HighlightOnElement(sectionheaddropdown);
+			Actions act=new Actions(driver);
+			act.moveToElement(sectionheaddropdown).click();
+			act.perform();
+			Reporter.log("click on Section Head dropdown successfuly",true);
+			log.info("To verify click on Section Head dropdown successfuly");
+			for(int i=0;i<selectsectionhead.size();i++)
+			{
+				String value=selectsectionhead.get(i).getText();
+				if(value.equalsIgnoreCase("80C"))
+				{
+					selectsectionhead.get(i).click();
+					Reporter.log("select Section Head successfuly",true);
+					log.info("To verify select Section Head successfuly");
+				}
+			}
+		}
+		catch(Exception commonexcpection)
+		{
+			commonexcpection.printStackTrace();
+		}
+		clickonDiscardButtonFunctionality();
+		cancelbtn.click();
+		Reporter.log("click on Cancel dropdown successfuly",true);
+		log.info("To verify click on Cancel dropdown successfuly");
+	}
+
+}

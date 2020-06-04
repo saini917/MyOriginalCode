@@ -1,0 +1,54 @@
+package HRMS_ERP_TRANSFER;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyNewSection_SC_03_TC_04 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	ExcelDataDriver excel=new ExcelDataDriver();
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NEW SECTION".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'New Section')]/../following-sibling::td/div/div/input")
+	private WebElement newsection;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NEW SECTION VALUE".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'New Section')]/../following-sibling::td/div/div/input/following-sibling::span")
+	private WebElement newsectionvalue;
+	
+	public void enterNewSection() throws InterruptedException
+	{
+		HighlightOnElement(newsectionvalue);
+		Assert.assertTrue(newsectionvalue.isEnabled());
+		Actions act=new Actions(driver);
+		act.click(newsectionvalue).build().perform();
+		waitForSomeTime();
+		newsection.sendKeys("eg");
+		waitForSomeTime();
+		newsection.sendKeys(Keys.ENTER);
+	}
+
+	
+}

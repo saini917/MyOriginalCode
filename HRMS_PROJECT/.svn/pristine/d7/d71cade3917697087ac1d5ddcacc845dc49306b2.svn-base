@@ -1,0 +1,138 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Approval_Sc_22 extends WebdriverCommonDriverLibrary
+{
+
+	Logger log=Logger.getLogger("devpinoyLogger");
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	WebDriverWait wait = new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pending Rating Status".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_view_manager_content']/div/div/table/tbody/tr/th/span[@class='fa fa-caret-down']/../../../following-sibling::tbody/tr/td[contains(text(),'Pending Approval')]")
+	private WebElement getAcrStatusBeforeSubmit;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Edit Button".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button[contains(text(),'Edit')]")
+	private WebElement editbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Save Button".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Save')]")
+	private WebElement savebtn;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Error Message".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_notification_manager']/div/div/ul/li[contains(text(),\"Approver's Comment\")]")
+	private WebElement errormsg;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Select rating".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet']/div/table/tbody/tr/td/label[contains(text(),'Rating')]/../following-sibling::td/select")
+	private WebElement rating;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Reviewer Comment".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet']/div/table/tbody/tr/td/label[contains(text(),'Rating')]/../following-sibling::td/../following-sibling::tr/td/textarea[1]")
+	private WebElement approvercomment;
+	
+	public void clickOnEmployeePendingApproverStatusSC_22_TC_01() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(getAcrStatusBeforeSubmit));
+		HighlightOnElement(getAcrStatusBeforeSubmit);
+		Reporter.log("Expected result:"+getAcrStatusBeforeSubmit.getText(),true);
+		getAcrStatusBeforeSubmit.click();
+	}
+
+	public void clickOnEditbuttonSC_22_TC_01() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(editbtn));
+		HighlightOnElement(editbtn);
+		Reporter.log("Expected result:"+editbtn.getText(),true);
+		editbtn.click();
+		Reporter.log("click on edit button successfuly",true);
+	}
+	
+	public void clickOnSavebuttonInvalidDataSC_22_TC_01() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(savebtn));
+		HighlightOnElement(savebtn);
+		Reporter.log("Expected result:"+savebtn.getText(),true);
+		savebtn.click();
+		Reporter.log("click on save button successfuly",true);
+		
+		String actualValue="Approver's Comment";
+		Assert.assertEquals(actualValue,errormsg.getText(),"Matched");
+		Reporter.log("Expected result:"+errormsg.getText(),true);
+	}
+	
+	public void clickOnSavebuttonValidDataSC_22_TC_02() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		clickOnEditbuttonSC_22_TC_01();
+		
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,400)", "");
+		
+		wait.until(ExpectedConditions.elementToBeClickable(rating));
+		HighlightOnElement(rating);
+		SelectVisibleText(rating,"Average");
+		
+		exceldata.getExcelData(approvercomment,"Approver_Comment",0,0);
+		wait.until(ExpectedConditions.elementToBeClickable(savebtn));
+		HighlightOnElement(savebtn);
+		Reporter.log("Expected result:"+savebtn.getText(),true);
+		savebtn.click();
+		Reporter.log("click on save button succesfully",true);
+	}
+	
+}

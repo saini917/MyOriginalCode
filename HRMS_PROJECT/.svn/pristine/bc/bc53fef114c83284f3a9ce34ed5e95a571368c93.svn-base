@@ -1,0 +1,96 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyEffectiveDate_SC_02_TC_08 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "EFFECTIVE DATE".
+	 * @author deepak.saini
+	 * @since 2017-12-06
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet']/table/tbody/tr/td/label[contains(text(),'Effective Date')]/../following-sibling::td/div/span")
+	private WebElement effective_date_drop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "YEAR HEAD".
+	 * @author deepak.saini
+	 * @since 2017-12-06
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='datepicker-days']/table/thead/tr/th[@class='picker-switch']")
+	private WebElement clickOnYearHead;
+
+	public void verifyEffectiveDate() throws InterruptedException
+	{
+		HighlightOnElement(effective_date_drop);
+		Assert.assertTrue(effective_date_drop.isEnabled());
+		Actions effective_drop=new Actions(driver);
+		effective_drop.click(effective_date_drop).build().perform();
+
+		HighlightOnElement(clickOnYearHead);
+		clickOnYearHead.click();
+		String selectyear=Integer.toString(2018);
+
+		while (true) 
+		{
+			if(selectyear.equals(driver.findElement(By.xpath("//div[@class='datepicker-months']/table/thead/tr/th[@class='picker-switch']")).getText())) //get all year
+			{
+				try
+				{
+					List<WebElement> allmonth=driver.findElements(By.xpath("//div[@class='datepicker-months']/table/tbody/tr/td/span"));//get all month
+					for(int j=0;j<allmonth.size();j++)
+					{
+						String Selectedmonth=allmonth.get(j).getText();
+						if(Selectedmonth.equalsIgnoreCase("Jan"))
+						{
+							allmonth.get(j).click();
+							List<WebElement> alldate=driver.findElements(By.xpath("html/body/div[5]/div/div[1]/table/tbody/tr/td"));//get all date
+							for(int k=0;k<alldate.size();k++)
+							{
+								String selectedDate=alldate.get(k).getText();
+								if(selectedDate.equalsIgnoreCase("15"))
+								{
+									alldate.get(k).click();
+									break;
+								}
+							}
+						}
+					}
+				}
+				catch(Exception execption)
+				{
+					execption.getStackTrace();
+				}
+				break;
+			}
+			else
+			{
+				driver.findElement(By.xpath("html/body/div[5]/div/div[2]/table/thead/tr/th[3]")).click();// For Forward Year
+				//driver.findElement(By.xpath("html/body/div[5]/div/div[2]/table/thead/tr/th[1]")).click();//For Backbard year
+			}
+
+		}
+
+	}
+}

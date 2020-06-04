@@ -1,0 +1,61 @@
+package NRDA_NewConnection;
+
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_08_TC_13 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Submit".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@id='inboxForm:Nb']/div/center/button/span[contains(text(),'Submit')]")
+	private WebElement submit;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "get error message ".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-growl-message']/span[contains(text(),'Action required !')]")
+	private WebElement errormessage;
+
+	public void verifySelectAction() throws InterruptedException
+	{	
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
+		waitForSomeTime();
+		submit.click();
+		Reporter.log("click on Submit button succesfully",true);
+		waitForSomeTime();
+
+		wait.until(ExpectedConditions.visibilityOf(errormessage));
+		HighlightOnElement(errormessage);
+		String expected=errormessage.getText();
+		String actual="Action required !";
+		Assert.assertEquals(actual, expected);
+		Reporter.log("Error Message:"+expected,true);
+		waitForSomeTime();
+	}
+
+
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<test name="login as admin to check Caste module">
+	<classes>
+		<class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module">
+			<methods>
+       			<include name="verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="login as admin to check Category module">
+	<classes>
+		<class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module">
+			<methods>
+       			<include name="verifyHRMSLoginPageHRMS_EMP_CT_CR_TC_01"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ </suite>

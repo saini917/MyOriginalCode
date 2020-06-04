@@ -1,0 +1,757 @@
+package WaterAndSewerage_PropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyAddressOfSecondOwner_SC_03_TC_10;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyAreaField_SC_05_TC_06;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyCloseButton_SC_05_TC_14;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyCloseButton_SC_07_TC_02;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyConstructionType_SC_05_04;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyCorrespondenceAddress_SC_04_TC_07;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyDistrictField_SC_04_TC_03;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyDraftedApplicationMenu_SC_06_TC_01;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyEmailId_SC_03_TC_05;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyFinancialYearField_SC_03_TC_02;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyFloorNumberField_SC_05_TC_05;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyMobileNumber_SC_03_TC_04;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyMuncipalityField_SC_04_TC_04;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyNameOfOwner_SC_03_TC_06;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyNameOfPropertyField_SC_03_TC_03;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyNameOfSecondOwner_SC_03_TC_09;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyNameOfSpouse_SC_03_TC_07;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyNext_SC_03_TC_11;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyOwnerType_SC_03_TC_08;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyProceedFun_SC_06_TC_02;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyPropertyAddress_SC_04_TC_01;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyPropertyBuilding_SC_05_01;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyPropertyUnitField_SC_05_03;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyPropertyUsesType_SC_05_02;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyResetButton_SC_05_TC_13;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyResetButton_SC_06_TC_05;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySaveAsDraft_SC_05_TC_15;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySearchFun_SC_06_04;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySector_SC_04_TC_05;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyStateField_SC_04_02;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySubmitButtonWithoutData_SC_05_TC_10a;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySubmitWithData_SC_05_TC_11;
+import WaterAndSeweragePropertyTaxManagement.ToVerifySubmittedApplication_SC_07_TC_01;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyWard_SC_04_TC_06;
+import WaterAndSeweragePropertyTaxManagement.ToVerifyYearOfEstablishment_SC_05_TC_07;
+import WaterAndSeweragePropertyTaxManagement.ToverifyNewAssessmentDashboard_SC_02_TC_01;
+
+@Listeners(GenericLibrary.ListenerDriver.class)
+public class WaterAndSewerage_Property_Assessment_Citizen_Module extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		WebElement logoutdrop=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		wait.until(ExpectedConditions.visibilityOf(logoutdrop));
+		wait.until(ExpectedConditions.elementToBeClickable(logoutdrop));
+		Actions action = new Actions(driver);
+		action.moveToElement(logoutdrop).build().perform();
+		//Reporter.log("Action is performed on Logout dropdown successfully",true);
+
+		WebElement logout=driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
+		Actions action1 = new Actions(driver);
+		action1.moveToElement(logout).build().perform();
+		//Reporter.log("Action is performed on Logout button successfully",true);
+
+		driver.close();
+		Reporter.log("Action is performed on browser closed successfully",true);
+	}
+
+	@DataProvider(name="citizen")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"Property_Tax_LoginAsCitizen");
+	}
+
+	@Test(priority=1,dataProvider ="citizen",description="verify new assessment dashboard")
+	public void NRDA_PropertyTax_Citizen_SC_02_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+	}
+
+	@Test(priority=2,dataProvider ="citizen",description="verify financial year")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+	}
+
+	@Test(priority=3,dataProvider ="citizen",description="verify name of property")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+
+		ToVerifyNameOfPropertyField_SC_03_TC_03 nameofproperty=PageFactory.initElements(driver,ToVerifyNameOfPropertyField_SC_03_TC_03.class);
+		nameofproperty.verifyNameOfProperty();
+	}
+
+	@Test(priority=4,dataProvider ="citizen",description="verify mobile number4")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+
+		ToVerifyNameOfPropertyField_SC_03_TC_03 nameofproperty=PageFactory.initElements(driver,ToVerifyNameOfPropertyField_SC_03_TC_03.class);
+		nameofproperty.verifyNameOfProperty();
+
+		ToVerifyMobileNumber_SC_03_TC_04 mobileno=PageFactory.initElements(driver,ToVerifyMobileNumber_SC_03_TC_04.class);
+		mobileno.verifyMobileNumber();
+	}
+
+	@Test(priority=5,dataProvider ="citizen",description="verify email")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+
+		ToVerifyNameOfPropertyField_SC_03_TC_03 nameofproperty=PageFactory.initElements(driver,ToVerifyNameOfPropertyField_SC_03_TC_03.class);
+		nameofproperty.verifyNameOfProperty();
+
+		ToVerifyMobileNumber_SC_03_TC_04 mobileno=PageFactory.initElements(driver,ToVerifyMobileNumber_SC_03_TC_04.class);
+		mobileno.verifyMobileNumber();
+
+		ToVerifyEmailId_SC_03_TC_05 email=PageFactory.initElements(driver,ToVerifyEmailId_SC_03_TC_05.class);
+		email.verifyEmail();
+	}
+
+	@Test(priority=6,dataProvider ="citizen",description="verify name of owner")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_06(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+
+		ToVerifyNameOfPropertyField_SC_03_TC_03 nameofproperty=PageFactory.initElements(driver,ToVerifyNameOfPropertyField_SC_03_TC_03.class);
+		nameofproperty.verifyNameOfProperty();
+
+		ToVerifyMobileNumber_SC_03_TC_04 mobileno=PageFactory.initElements(driver,ToVerifyMobileNumber_SC_03_TC_04.class);
+		mobileno.verifyMobileNumber();
+
+		ToVerifyEmailId_SC_03_TC_05 email=PageFactory.initElements(driver,ToVerifyEmailId_SC_03_TC_05.class);
+		email.verifyEmail();
+
+		ToVerifyNameOfOwner_SC_03_TC_06 nameofowner=PageFactory.initElements(driver,ToVerifyNameOfOwner_SC_03_TC_06.class);
+		nameofowner.verifyNameOfOwner();
+	}
+
+	@Test(priority=7,dataProvider ="citizen",description="verify name of spouse")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_07(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+
+		ToVerifyNameOfPropertyField_SC_03_TC_03 nameofproperty=PageFactory.initElements(driver,ToVerifyNameOfPropertyField_SC_03_TC_03.class);
+		nameofproperty.verifyNameOfProperty();
+
+		ToVerifyMobileNumber_SC_03_TC_04 mobileno=PageFactory.initElements(driver,ToVerifyMobileNumber_SC_03_TC_04.class);
+		mobileno.verifyMobileNumber();
+
+		ToVerifyEmailId_SC_03_TC_05 email=PageFactory.initElements(driver,ToVerifyEmailId_SC_03_TC_05.class);
+		email.verifyEmail();
+
+		ToVerifyNameOfOwner_SC_03_TC_06 nameofowner=PageFactory.initElements(driver,ToVerifyNameOfOwner_SC_03_TC_06.class);
+		nameofowner.verifyNameOfOwner();
+
+		ToVerifyNameOfSpouse_SC_03_TC_07 nameofspouse=PageFactory.initElements(driver,ToVerifyNameOfSpouse_SC_03_TC_07.class);
+		nameofspouse.verifyNameOfSpouse();
+	}
+
+	@Test(priority=8,dataProvider ="citizen",description="verify owner type")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_08(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+
+		ToVerifyNameOfPropertyField_SC_03_TC_03 nameofproperty=PageFactory.initElements(driver,ToVerifyNameOfPropertyField_SC_03_TC_03.class);
+		nameofproperty.verifyNameOfProperty();
+
+		ToVerifyMobileNumber_SC_03_TC_04 mobileno=PageFactory.initElements(driver,ToVerifyMobileNumber_SC_03_TC_04.class);
+		mobileno.verifyMobileNumber();
+
+		ToVerifyEmailId_SC_03_TC_05 email=PageFactory.initElements(driver,ToVerifyEmailId_SC_03_TC_05.class);
+		email.verifyEmail();
+
+		ToVerifyNameOfOwner_SC_03_TC_06 nameofowner=PageFactory.initElements(driver,ToVerifyNameOfOwner_SC_03_TC_06.class);
+		nameofowner.verifyNameOfOwner();
+
+		ToVerifyNameOfSpouse_SC_03_TC_07 nameofspouse=PageFactory.initElements(driver,ToVerifyNameOfSpouse_SC_03_TC_07.class);
+		nameofspouse.verifyNameOfSpouse();
+
+		ToVerifyOwnerType_SC_03_TC_08 ownertype=PageFactory.initElements(driver,ToVerifyOwnerType_SC_03_TC_08.class);
+		ownertype.verifySingleOwnerType();
+		ownertype.verifyJointHoldingOwnerType();
+	}
+
+	@Test(priority=9,dataProvider ="citizen",description="verify name of second owner")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_09(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+
+		ToVerifyNameOfPropertyField_SC_03_TC_03 nameofproperty=PageFactory.initElements(driver,ToVerifyNameOfPropertyField_SC_03_TC_03.class);
+		nameofproperty.verifyNameOfProperty();
+
+		ToVerifyMobileNumber_SC_03_TC_04 mobileno=PageFactory.initElements(driver,ToVerifyMobileNumber_SC_03_TC_04.class);
+		mobileno.verifyMobileNumber();
+
+		ToVerifyEmailId_SC_03_TC_05 email=PageFactory.initElements(driver,ToVerifyEmailId_SC_03_TC_05.class);
+		email.verifyEmail();
+
+		ToVerifyNameOfOwner_SC_03_TC_06 nameofowner=PageFactory.initElements(driver,ToVerifyNameOfOwner_SC_03_TC_06.class);
+		nameofowner.verifyNameOfOwner();
+
+		ToVerifyNameOfSpouse_SC_03_TC_07 nameofspouse=PageFactory.initElements(driver,ToVerifyNameOfSpouse_SC_03_TC_07.class);
+		nameofspouse.verifyNameOfSpouse();
+
+		ToVerifyOwnerType_SC_03_TC_08 ownertype=PageFactory.initElements(driver,ToVerifyOwnerType_SC_03_TC_08.class);
+		ownertype.verifySingleOwnerType();
+		ownertype.verifyJointHoldingOwnerType();
+
+		ToVerifyNameOfSecondOwner_SC_03_TC_09 nameofsecondowner=PageFactory.initElements(driver,ToVerifyNameOfSecondOwner_SC_03_TC_09.class);
+		nameofsecondowner.verifyNameOfSecondOwner();
+	}
+
+	@Test(priority=10,dataProvider ="citizen",description="verify address of second owner")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_10(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+
+		ToVerifyNameOfPropertyField_SC_03_TC_03 nameofproperty=PageFactory.initElements(driver,ToVerifyNameOfPropertyField_SC_03_TC_03.class);
+		nameofproperty.verifyNameOfProperty();
+
+		ToVerifyMobileNumber_SC_03_TC_04 mobileno=PageFactory.initElements(driver,ToVerifyMobileNumber_SC_03_TC_04.class);
+		mobileno.verifyMobileNumber();
+
+		ToVerifyEmailId_SC_03_TC_05 email=PageFactory.initElements(driver,ToVerifyEmailId_SC_03_TC_05.class);
+		email.verifyEmail();
+
+		ToVerifyNameOfOwner_SC_03_TC_06 nameofowner=PageFactory.initElements(driver,ToVerifyNameOfOwner_SC_03_TC_06.class);
+		nameofowner.verifyNameOfOwner();
+
+		ToVerifyNameOfSpouse_SC_03_TC_07 nameofspouse=PageFactory.initElements(driver,ToVerifyNameOfSpouse_SC_03_TC_07.class);
+		nameofspouse.verifyNameOfSpouse();
+
+		ToVerifyOwnerType_SC_03_TC_08 ownertype=PageFactory.initElements(driver,ToVerifyOwnerType_SC_03_TC_08.class);
+		ownertype.verifySingleOwnerType();
+		ownertype.verifyJointHoldingOwnerType();
+
+		ToVerifyNameOfSecondOwner_SC_03_TC_09 nameofsecondowner=PageFactory.initElements(driver,ToVerifyNameOfSecondOwner_SC_03_TC_09.class);
+		nameofsecondowner.verifyNameOfSecondOwner();
+
+		ToVerifyAddressOfSecondOwner_SC_03_TC_10 addressofsecondowner=PageFactory.initElements(driver,ToVerifyAddressOfSecondOwner_SC_03_TC_10.class);
+		addressofsecondowner.verifyAddressOfSecondOwner();
+	}
+
+	@Test(priority=11,dataProvider ="citizen",description="verify next button")
+	public void NRDA_PropertyTax_Citizen_SC_03_TC_11(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToverifyNewAssessmentDashboard_SC_02_TC_01 propertytaxdrop=PageFactory.initElements(driver,ToverifyNewAssessmentDashboard_SC_02_TC_01.class);
+		propertytaxdrop.verifyNewAssessmentDashboard();
+
+		ToVerifyFinancialYearField_SC_03_TC_02 financialyear=PageFactory.initElements(driver,ToVerifyFinancialYearField_SC_03_TC_02.class);
+		financialyear.verifyFinancialYear();
+
+		ToVerifyNameOfPropertyField_SC_03_TC_03 nameofproperty=PageFactory.initElements(driver,ToVerifyNameOfPropertyField_SC_03_TC_03.class);
+		nameofproperty.verifyNameOfProperty();
+
+		ToVerifyMobileNumber_SC_03_TC_04 mobileno=PageFactory.initElements(driver,ToVerifyMobileNumber_SC_03_TC_04.class);
+		mobileno.verifyMobileNumber();
+
+		ToVerifyEmailId_SC_03_TC_05 email=PageFactory.initElements(driver,ToVerifyEmailId_SC_03_TC_05.class);
+		email.verifyEmail();
+
+		ToVerifyNameOfOwner_SC_03_TC_06 nameofowner=PageFactory.initElements(driver,ToVerifyNameOfOwner_SC_03_TC_06.class);
+		nameofowner.verifyNameOfOwner();
+
+		ToVerifyNameOfSpouse_SC_03_TC_07 nameofspouse=PageFactory.initElements(driver,ToVerifyNameOfSpouse_SC_03_TC_07.class);
+		nameofspouse.verifyNameOfSpouse();
+
+		ToVerifyOwnerType_SC_03_TC_08 ownertype=PageFactory.initElements(driver,ToVerifyOwnerType_SC_03_TC_08.class);
+		ownertype.verifySingleOwnerType();
+		ownertype.verifyJointHoldingOwnerType();
+
+		ToVerifyNameOfSecondOwner_SC_03_TC_09 nameofsecondowner=PageFactory.initElements(driver,ToVerifyNameOfSecondOwner_SC_03_TC_09.class);
+		nameofsecondowner.verifyNameOfSecondOwner();
+
+		ToVerifyAddressOfSecondOwner_SC_03_TC_10 addressofsecondowner=PageFactory.initElements(driver,ToVerifyAddressOfSecondOwner_SC_03_TC_10.class);
+		addressofsecondowner.verifyAddressOfSecondOwner();
+
+		ToVerifyNext_SC_03_TC_11 nextbtn=PageFactory.initElements(driver,ToVerifyNext_SC_03_TC_11.class);
+		nextbtn.clickOnNextButton();
+	}
+
+	@Test(priority=12,dataProvider ="citizen",description="verify property address tab")
+	public void NRDA_PropertyTax_Citizen_SC_04_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyAddress_SC_04_TC_01 propertyAddressDashbaord=PageFactory.initElements(driver,ToVerifyPropertyAddress_SC_04_TC_01.class);
+		propertyAddressDashbaord.clickOnPropertyAddress();
+	}
+
+	@Test(priority=13,dataProvider ="citizen",description="verify state field")
+	public void NRDA_PropertyTax_Citizen_SC_04_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyAddress_SC_04_TC_01 propertyAddressDashbaord=PageFactory.initElements(driver,ToVerifyPropertyAddress_SC_04_TC_01.class);
+		propertyAddressDashbaord.clickOnPropertyAddress();
+
+		ToVerifyStateField_SC_04_02 state=PageFactory.initElements(driver,ToVerifyStateField_SC_04_02.class);
+		state.verifyStateField();
+	}
+
+	@Test(priority=14,dataProvider ="citizen",description="verify district field")
+	public void NRDA_PropertyTax_Citizen_SC_04_TC_03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyAddress_SC_04_TC_01 propertyAddressDashbaord=PageFactory.initElements(driver,ToVerifyPropertyAddress_SC_04_TC_01.class);
+		propertyAddressDashbaord.clickOnPropertyAddress();
+
+		ToVerifyStateField_SC_04_02 state=PageFactory.initElements(driver,ToVerifyStateField_SC_04_02.class);
+		state.verifyStateField();
+
+		ToVerifyDistrictField_SC_04_TC_03 district=PageFactory.initElements(driver,ToVerifyDistrictField_SC_04_TC_03.class);
+		district.verifyDistrictField();
+	}
+
+	@Test(priority=15,dataProvider ="citizen",description="verify municipipility field")
+	public void NRDA_PropertyTax_Citizen_SC_04_TC_04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyAddress_SC_04_TC_01 propertyAddressDashbaord=PageFactory.initElements(driver,ToVerifyPropertyAddress_SC_04_TC_01.class);
+		propertyAddressDashbaord.clickOnPropertyAddress();
+
+		ToVerifyStateField_SC_04_02 state=PageFactory.initElements(driver,ToVerifyStateField_SC_04_02.class);
+		state.verifyStateField();
+
+		ToVerifyDistrictField_SC_04_TC_03 district=PageFactory.initElements(driver,ToVerifyDistrictField_SC_04_TC_03.class);
+		district.verifyDistrictField();
+
+		ToVerifyMuncipalityField_SC_04_TC_04 ulb=PageFactory.initElements(driver,ToVerifyMuncipalityField_SC_04_TC_04.class);
+		ulb.verifyMunicipilityField();
+	}
+
+	@Test(priority=16,dataProvider ="citizen",description="verify sector field")
+	public void NRDA_PropertyTax_Citizen_SC_04_TC_05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyAddress_SC_04_TC_01 propertyAddressDashbaord=PageFactory.initElements(driver,ToVerifyPropertyAddress_SC_04_TC_01.class);
+		propertyAddressDashbaord.clickOnPropertyAddress();
+
+		ToVerifyStateField_SC_04_02 state=PageFactory.initElements(driver,ToVerifyStateField_SC_04_02.class);
+		state.verifyStateField();
+
+		ToVerifyDistrictField_SC_04_TC_03 district=PageFactory.initElements(driver,ToVerifyDistrictField_SC_04_TC_03.class);
+		district.verifyDistrictField();
+
+		ToVerifyMuncipalityField_SC_04_TC_04 ulb=PageFactory.initElements(driver,ToVerifyMuncipalityField_SC_04_TC_04.class);
+		ulb.verifyMunicipilityField();
+
+		ToVerifySector_SC_04_TC_05 sector=PageFactory.initElements(driver,ToVerifySector_SC_04_TC_05.class);
+		sector.verifySectorField();
+	}
+
+	@Test(priority=17,dataProvider ="citizen",description="verify ward field")
+	public void NRDA_PropertyTax_Citizen_SC_04_TC_06(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyAddress_SC_04_TC_01 propertyAddressDashbaord=PageFactory.initElements(driver,ToVerifyPropertyAddress_SC_04_TC_01.class);
+		propertyAddressDashbaord.clickOnPropertyAddress();
+
+		ToVerifyStateField_SC_04_02 state=PageFactory.initElements(driver,ToVerifyStateField_SC_04_02.class);
+		state.verifyStateField();
+
+		ToVerifyDistrictField_SC_04_TC_03 district=PageFactory.initElements(driver,ToVerifyDistrictField_SC_04_TC_03.class);
+		district.verifyDistrictField();
+
+		ToVerifyMuncipalityField_SC_04_TC_04 ulb=PageFactory.initElements(driver,ToVerifyMuncipalityField_SC_04_TC_04.class);
+		ulb.verifyMunicipilityField();
+
+		ToVerifySector_SC_04_TC_05 sector=PageFactory.initElements(driver,ToVerifySector_SC_04_TC_05.class);
+		sector.verifySectorField();
+
+		ToVerifyWard_SC_04_TC_06 ward=PageFactory.initElements(driver,ToVerifyWard_SC_04_TC_06.class);
+		ward.verifyWardField();
+	}
+
+	@Test(priority=18,dataProvider ="citizen",description="verify corresppondence address")
+	public void NRDA_PropertyTax_Citizen_SC_04_TC_07(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyAddress_SC_04_TC_01 propertyAddressDashbaord=PageFactory.initElements(driver,ToVerifyPropertyAddress_SC_04_TC_01.class);
+		propertyAddressDashbaord.clickOnPropertyAddress();
+
+		ToVerifyStateField_SC_04_02 state=PageFactory.initElements(driver,ToVerifyStateField_SC_04_02.class);
+		state.verifyStateField();
+
+		ToVerifyDistrictField_SC_04_TC_03 district=PageFactory.initElements(driver,ToVerifyDistrictField_SC_04_TC_03.class);
+		district.verifyDistrictField();
+
+		ToVerifyMuncipalityField_SC_04_TC_04 ulb=PageFactory.initElements(driver,ToVerifyMuncipalityField_SC_04_TC_04.class);
+		ulb.verifyMunicipilityField();
+
+		ToVerifySector_SC_04_TC_05 sector=PageFactory.initElements(driver,ToVerifySector_SC_04_TC_05.class);
+		sector.verifySectorField();
+
+		ToVerifyWard_SC_04_TC_06 ward=PageFactory.initElements(driver,ToVerifyWard_SC_04_TC_06.class);
+		ward.verifyWardField();
+
+		ToVerifyCorrespondenceAddress_SC_04_TC_07 coraddress=PageFactory.initElements(driver,ToVerifyCorrespondenceAddress_SC_04_TC_07.class);
+		coraddress.verifyCorrespondenceAddressField();
+	}
+
+	@Test(priority=19,dataProvider ="citizen",description="verify property building tab")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyBuilding_SC_05_01 propertybuilding=PageFactory.initElements(driver,ToVerifyPropertyBuilding_SC_05_01.class);
+		propertybuilding.clickOnPropertyBuilding();
+	}
+
+	@Test(priority=20,dataProvider ="citizen",description="verify property user type")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyBuilding_SC_05_01 propertybuilding=PageFactory.initElements(driver,ToVerifyPropertyBuilding_SC_05_01.class);
+		propertybuilding.clickOnPropertyBuilding();
+
+		ToVerifyPropertyUsesType_SC_05_02 usestype=PageFactory.initElements(driver,ToVerifyPropertyUsesType_SC_05_02.class);
+		usestype.verifyPropertyUsesType();
+	}
+
+	@Test(priority=21,dataProvider ="citizen",description="verify property unit")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyBuilding_SC_05_01 propertybuilding=PageFactory.initElements(driver,ToVerifyPropertyBuilding_SC_05_01.class);
+		propertybuilding.clickOnPropertyBuilding();
+
+		/*	ToVerifyPropertyUsesType_SC_05_02 usestype=PageFactory.initElements(driver,ToVerifyPropertyUsesType_SC_05_02.class);
+		usestype.verifyPropertyUsesType();*/
+
+		ToVerifyPropertyUnitField_SC_05_03 unittype=PageFactory.initElements(driver,ToVerifyPropertyUnitField_SC_05_03.class);
+		unittype.verifyPropertyUnit();
+	}
+
+	@Test(priority=22,dataProvider ="citizen",description="verify construction type")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyBuilding_SC_05_01 propertybuilding=PageFactory.initElements(driver,ToVerifyPropertyBuilding_SC_05_01.class);
+		propertybuilding.clickOnPropertyBuilding();
+
+		/*ToVerifyPropertyUsesType_SC_05_02 usestype=PageFactory.initElements(driver,ToVerifyPropertyUsesType_SC_05_02.class);
+		usestype.verifyPropertyUsesType();
+
+		ToVerifyPropertyUnitField_SC_05_03 unittype=PageFactory.initElements(driver,ToVerifyPropertyUnitField_SC_05_03.class);
+		unittype.verifyPropertyUnit();*/
+
+		ToVerifyConstructionType_SC_05_04 constype=PageFactory.initElements(driver,ToVerifyConstructionType_SC_05_04.class);
+		constype.verifyConstructionsType();
+	}
+
+	@Test(priority=23,dataProvider ="citizen",description="verify floor number")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyBuilding_SC_05_01 propertybuilding=PageFactory.initElements(driver,ToVerifyPropertyBuilding_SC_05_01.class);
+		propertybuilding.clickOnPropertyBuilding();
+
+		/*ToVerifyPropertyUsesType_SC_05_02 usestype=PageFactory.initElements(driver,ToVerifyPropertyUsesType_SC_05_02.class);
+		usestype.verifyPropertyUsesType();
+
+		ToVerifyPropertyUnitField_SC_05_03 unittype=PageFactory.initElements(driver,ToVerifyPropertyUnitField_SC_05_03.class);
+		unittype.verifyPropertyUnit();
+
+		ToVerifyConstructionType_SC_05_04 constype=PageFactory.initElements(driver,ToVerifyConstructionType_SC_05_04.class);
+		constype.verifyConstructionsType();*/
+
+		ToVerifyFloorNumberField_SC_05_TC_05 floornumber=PageFactory.initElements(driver,ToVerifyFloorNumberField_SC_05_TC_05.class);
+		floornumber.verifyFloorNumber();
+	}
+
+	@Test(priority=24,dataProvider ="citizen",description="verify area")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_06(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyBuilding_SC_05_01 propertybuilding=PageFactory.initElements(driver,ToVerifyPropertyBuilding_SC_05_01.class);
+		propertybuilding.clickOnPropertyBuilding();
+
+		/*ToVerifyPropertyUsesType_SC_05_02 usestype=PageFactory.initElements(driver,ToVerifyPropertyUsesType_SC_05_02.class);
+		usestype.verifyPropertyUsesType();
+
+		ToVerifyPropertyUnitField_SC_05_03 unittype=PageFactory.initElements(driver,ToVerifyPropertyUnitField_SC_05_03.class);
+		unittype.verifyPropertyUnit();
+
+		ToVerifyConstructionType_SC_05_04 constype=PageFactory.initElements(driver,ToVerifyConstructionType_SC_05_04.class);
+		constype.verifyConstructionsType();
+
+		ToVerifyFloorNumberField_SC_05_TC_05 floornumber=PageFactory.initElements(driver,ToVerifyFloorNumberField_SC_05_TC_05.class);
+		floornumber.verifyFloorNumber();*/
+
+		ToVerifyAreaField_SC_05_TC_06 areafield=PageFactory.initElements(driver,ToVerifyAreaField_SC_05_TC_06.class);
+		areafield.verifyArea();
+	}
+
+	@Test(priority=25,dataProvider ="citizen",description="verify year of establishment")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_07(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyPropertyBuilding_SC_05_01 propertybuilding=PageFactory.initElements(driver,ToVerifyPropertyBuilding_SC_05_01.class);
+		propertybuilding.clickOnPropertyBuilding();
+
+		/*ToVerifyPropertyUsesType_SC_05_02 usestype=PageFactory.initElements(driver,ToVerifyPropertyUsesType_SC_05_02.class);
+		usestype.verifyPropertyUsesType();
+
+		ToVerifyPropertyUnitField_SC_05_03 unittype=PageFactory.initElements(driver,ToVerifyPropertyUnitField_SC_05_03.class);
+		unittype.verifyPropertyUnit();
+
+		ToVerifyConstructionType_SC_05_04 constype=PageFactory.initElements(driver,ToVerifyConstructionType_SC_05_04.class);
+		constype.verifyConstructionsType();
+
+		ToVerifyFloorNumberField_SC_05_TC_05 floornumber=PageFactory.initElements(driver,ToVerifyFloorNumberField_SC_05_TC_05.class);
+		floornumber.verifyFloorNumber();
+
+		ToVerifyAreaField_SC_05_TC_06 areafield=PageFactory.initElements(driver,ToVerifyAreaField_SC_05_TC_06.class);
+		areafield.verifyArea();*/
+
+		ToVerifyYearOfEstablishment_SC_05_TC_07 yearestb=PageFactory.initElements(driver,ToVerifyYearOfEstablishment_SC_05_TC_07.class);
+		yearestb.verifyYearOfEstablishment();
+	}
+
+
+	@Test(priority=25,dataProvider ="citizen",description="verify submit action without data")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_10a(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifySubmitButtonWithoutData_SC_05_TC_10a submitwithoutdata=PageFactory.initElements(driver,ToVerifySubmitButtonWithoutData_SC_05_TC_10a.class);
+		submitwithoutdata.verifySubmitFunWithoutData();
+	}
+
+	@Test(priority=26,dataProvider ="citizen",description="verify submit action with data")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_11(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifySubmitWithData_SC_05_TC_11 submitwithdata=PageFactory.initElements(driver,ToVerifySubmitWithData_SC_05_TC_11.class);
+		submitwithdata.clickOnSubmitWithValidData();
+	}
+
+	@Test(priority=27,dataProvider ="citizen",description="verify reset action")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_13(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyResetButton_SC_05_TC_13 reset=PageFactory.initElements(driver,ToVerifyResetButton_SC_05_TC_13.class);
+		reset.verifyResetButon();
+	}
+
+	@Test(priority=28,dataProvider ="citizen",description="verify close action")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_14(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyCloseButton_SC_05_TC_14 close=PageFactory.initElements(driver,ToVerifyCloseButton_SC_05_TC_14.class);
+		close.verifyCloseButon();
+	}
+
+	@Test(priority=29,dataProvider ="citizen",description="verify save as draft action")
+	public void NRDA_PropertyTax_Citizen_SC_05_TC_15(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifySaveAsDraft_SC_05_TC_15 draft=PageFactory.initElements(driver,ToVerifySaveAsDraft_SC_05_TC_15.class);
+		draft.verifySaveAsDraftButton();
+	}
+
+	@Test(priority=30,dataProvider ="citizen",description="verify draft application action")
+	public void NRDA_PropertyTax_Citizen_SC_06_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyDraftedApplicationMenu_SC_06_TC_01 draftedapp=PageFactory.initElements(driver,ToVerifyDraftedApplicationMenu_SC_06_TC_01.class);
+		draftedapp.verifyDraftedApplicationMenu();
+	}
+
+	@Test(priority=31,dataProvider ="citizen",description="verify proceed button action")
+	public void NRDA_PropertyTax_Citizen_SC_06_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyProceedFun_SC_06_TC_02 proceed=PageFactory.initElements(driver,ToVerifyProceedFun_SC_06_TC_02.class);
+		proceed.verifyProceedFun();
+	}
+	
+	/*@Test(priority=32,dataProvider ="citizen",description="verify delete action")
+	public void NRDA_PropertyTax_Citizen_SC_06_TC_03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyDeleteFunc_SC_06_TC_03 delete=PageFactory.initElements(driver,ToVerifyDeleteFunc_SC_06_TC_03.class);
+		delete.verifyDeleteFun();
+	}*/
+	
+	@Test(priority=33,dataProvider ="citizen",description="verify search action")
+	public void NRDA_PropertyTax_Citizen_SC_06_TC_04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifySearchFun_SC_06_04 searchinputbox=PageFactory.initElements(driver,ToVerifySearchFun_SC_06_04.class);
+		searchinputbox.verifySearchButtonFun();
+	}
+	
+	@Test(priority=34,dataProvider ="citizen",description="verify reset action")
+	public void NRDA_PropertyTax_Citizen_SC_06_TC_05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyResetButton_SC_06_TC_05 resetbtn=PageFactory.initElements(driver,ToVerifyResetButton_SC_06_TC_05.class);
+		resetbtn.verifyResetButton();
+	}
+	
+	@Test(priority=35,dataProvider ="citizen",description="verify submitted application action")
+	public void NRDA_PropertyTax_Citizen_SC_07_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifySubmittedApplication_SC_07_TC_01 submitApp=PageFactory.initElements(driver,ToVerifySubmittedApplication_SC_07_TC_01.class);
+		submitApp.verifySubmitApplication();
+	}
+	
+	@Test(priority=36,dataProvider ="citizen",description="verify close action")
+	public void NRDA_PropertyTax_Citizen_SC_07_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+
+		ToVerifyCloseButton_SC_07_TC_02 close=PageFactory.initElements(driver,ToVerifyCloseButton_SC_07_TC_02.class);
+		close.verifyCloseButton();
+	}
+	
+	
+
+}

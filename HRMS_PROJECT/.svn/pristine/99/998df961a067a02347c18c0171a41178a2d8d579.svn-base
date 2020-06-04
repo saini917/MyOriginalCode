@@ -1,0 +1,245 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Admin_Sc_04 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Create button"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//button[contains(text(),' Create')]")
+	private WebElement createbtn;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Description"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'Description')]/../following-sibling::td/input")
+	private WebElement description;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'ACR Initiation Date')]/../following-sibling::td/div/span")
+	private WebElement ACR_Initiation_Date_drop;
+
+	//@FindBy(xpath="//div[@class='bootstrap-datetimepicker-widget dropdown-menu top picker-open']/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	@FindBy(xpath="html/body/div[5]/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	private WebElement clickonACRInitiatormonthhead;
+
+	@FindBy(xpath="html/body/div[5]/div/div[2]/table/tbody/tr/td/span")
+	private List<WebElement> selectmonth;
+
+	@FindBy(xpath="html/body/div[5]/div/div[1]/table/tbody/tr/td")
+	private List<WebElement> selectdate;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'ACR Submission Date')]/../following-sibling::td/div/span")
+	private WebElement ACR_Submission_Date_drop;
+
+	@FindBy(xpath="html/body/div[6]/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	private WebElement clickonACRSubmissionmonthhead;
+
+	@FindBy(xpath="html/body/div[6]/div/div[2]/table/tbody/tr/td/span")
+	private List<WebElement> selectmonthsubmission;
+
+	@FindBy(xpath="//html/body/div[6]/div/div[1]/table/tbody/tr/td")
+	private List<WebElement> selectdatesubmission;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'Year')]/../following-sibling::td/select")
+	private WebElement year;
+
+
+	@FindBy(xpath="//div[@class='o_group']/table/tbody/tr/td/div/div[@class='o_list_editable']/div/table/thead/tr/th[contains(text(),'Employee Name')]/../../following-sibling::tbody/tr/td/a[contains(text(),'Add an item')]")
+	private WebElement addanitem;
+
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[1]/div/input")
+	private WebElement employee_name;
+
+
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[2]/div/input")
+	private WebElement controlling_officer_name;
+
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[3]/div/input")
+	private WebElement reviewer_name;
+
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[4]/div/input")
+	private WebElement approver_name;
+
+	@FindBy(xpath="//div/button[contains(text(),'Discard')]")
+	private WebElement discardbtn;
+	
+	@FindBy(xpath="//div[@class='modal-dialog']/div/div[contains(text(),'The record has been modified, your changes will be discarded. Are you sure you want to leave this page ?')]")
+	private WebElement messOfDiscardPopUp;
+	
+	@FindBy(xpath="//div[@class='modal-dialog']/div/div/button/span[contains(text(),'Ok')]")
+	private WebElement okbtn;
+
+	public void clickOnDiscardButonWithValidData() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(createbtn);
+		createbtn.click();
+		Reporter.log("click on Create button successfully",true);
+		waitForDomElement();
+
+		HighlightOnElement(description);
+		String descriptioning=exceldata.getExcelData(description,"Appraisal_Data",2,3);
+		Reporter.log("Description:"+descriptioning,true);
+
+		HighlightOnElement(ACR_Initiation_Date_drop);
+		ACR_Initiation_Date_drop.click();
+		Reporter.log("click on ACR Initiation Date dropdown successfuly",true);
+
+		HighlightOnElement(clickonACRInitiatormonthhead);
+		Actions action=new Actions(driver);
+		action.click(clickonACRInitiatormonthhead).perform();
+		Reporter.log("click on ACR INITIATOR Month Head successfuly",true);
+
+		for(WebElement month:selectmonth)
+		{
+			try
+			{
+				String all_month=month.getText();
+				if(all_month.equalsIgnoreCase("Jun"))
+				{
+					HighlightOnElement(month);
+					month.click();
+					for(WebElement date:selectdate)
+					{
+						String all_date=date.getText();
+						if(all_date.equalsIgnoreCase("10"))
+						{
+							HighlightOnElement(date);
+							date.click();
+						}
+					}
+				}
+
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		HighlightOnElement(ACR_Submission_Date_drop);
+		ACR_Submission_Date_drop.click();
+		Reporter.log("click on ACR Submission Date dropdown successfuly",true);
+
+		HighlightOnElement(clickonACRSubmissionmonthhead);
+		Actions action2=new Actions(driver);
+		action2.click(clickonACRSubmissionmonthhead).perform();
+		Reporter.log("click on ACR SUBMISSION Month Head successfuly",true);
+
+		for(WebElement monthsubmission:selectmonthsubmission)
+		{
+			try
+			{
+				String all_month_submission=monthsubmission.getText();
+				if(all_month_submission.equalsIgnoreCase("Jun"))
+				{
+					HighlightOnElement(monthsubmission);
+					monthsubmission.click();
+					for(WebElement submisiondate:selectdatesubmission)
+					{
+						String all_date=submisiondate.getText();
+						if(all_date.equalsIgnoreCase("15"))
+						{
+							HighlightOnElement(submisiondate);
+							submisiondate.click();
+						}
+					}
+				}
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		HighlightOnElement(year);
+		year.click();
+		Reporter.log("click on year successfully",true);
+		waitForDomElement();
+		SelectVisibleText(year,"2015");
+		Reporter.log("year selected successfully",true);
+
+		HighlightOnElement(addanitem);
+		addanitem.click();
+		Reporter.log("click on Add an item successfully",true);
+		waitForDomElement();
+
+		HighlightOnElement(employee_name);
+		employee_name.click();
+		waitForSomeTime();
+		employee_name.sendKeys("Su");
+		waitForSomeTime();
+		employee_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		HighlightOnElement(controlling_officer_name);
+		controlling_officer_name.click();
+		waitForSomeTime();
+		controlling_officer_name.clear();
+		controlling_officer_name.sendKeys("chetan");
+		waitForSomeTime();
+		controlling_officer_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		HighlightOnElement(reviewer_name);
+		reviewer_name.click();
+		waitForSomeTime();
+		reviewer_name.clear();
+		reviewer_name.sendKeys("AkJha");
+		waitForSomeTime();
+		reviewer_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		HighlightOnElement(approver_name);
+		approver_name.click();
+		waitForSomeTime();
+		approver_name.clear();
+		approver_name.sendKeys("Ak Jabar");
+		waitForSomeTime();
+		approver_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+		
+		HighlightOnElement(discardbtn);
+		discardbtn.click();
+		Reporter.log("click on discard button successfully",true);
+		
+		String actualValue="The record has been modified, your changes will be discarded. Are you sure you want to leave this page ?";
+		Assert.assertEquals(actualValue,messOfDiscardPopUp.getText(),"Matched");
+		Reporter.log("Expected result:"+messOfDiscardPopUp.getText(),true);
+		
+		
+		HighlightOnElement(okbtn);
+		 okbtn.click();
+		 Reporter.log("click on OK Button successfully",true);
+		 
+		 String actualTitle="Initiate Employee Appraisal - Software";
+		 Assert.assertEquals(actualTitle,driver.getTitle(),"Matched");
+		 Reporter.log("Page Redirected Successfully:"+driver.getTitle(),true);
+	}
+
+}

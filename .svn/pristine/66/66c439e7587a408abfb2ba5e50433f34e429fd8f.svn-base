@@ -1,0 +1,300 @@
+package WaterAndSewerage_Transfer;
+
+import java.awt.AWTException;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageDisconnection.ToverifyDisConnectionAsWaterandSewerage;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+import WaterAndSewerageTransfer.WaterAndSewerageTransferLoginAs_Citizen;
+
+/**
+ * @author Sarvesh.Nellore
+ * @Date: 07-10-2017
+ * @Purpose: 
+ */
+public class WaterAndSewerageTransferLoginAsCitizen extends URLPageWSNRDAScript
+{
+
+
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebElement web1=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		Actions action = new Actions(driver);
+		action.moveToElement(web1).build().perform();
+		waitForSomeTime();
+		waitForSomeTime();
+		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+		waitForSomeTime();
+		driver.close();
+
+	}
+
+	@DataProvider(name="citizen")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"Citizen Credentials");
+	}
+
+		/*@Test(dataProvider ="citizen",description="VerifytheTransfer_Icon01",priority=1)
+		public void NRDA_Transfer_SC_01_TC_01(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyAllConnectionDetailsTab01();
+		 }
+		
+		
+		@Test(dataProvider ="citizen",description="toverifyFiledsinNewconsumerDetailsTab02",priority=2)
+		public void NRDA_Transfer_SC_01_TC_02(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifyFiledsinNewconsumerDetailsTab02();
+		 }
+		
+		@Test(dataProvider ="citizen",description="toverifythe ConsumerId Text Field",priority=2)
+		public void NRDA_Transfer_SC_01_TC_03(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifyconsumertextfield();
+		 }
+		
+		@Test(dataProvider ="citizen",description="toverifybackbuttonfunctionality",priority=4)
+		public void NRDA_Transfer_SC_01_TC_04(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifybackbuttonfunctionality();
+		 }
+		
+		
+		@Test(dataProvider ="citizen",description="toverifySaveAsDraftbuttonfunctionality",priority=5)
+		public void NRDA_Transfer_SC_01_TC_05(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifyconsumertextfield();
+			Transfer.toverifySaveAsDraftbuttonfunctionality();
+		 }
+		
+		@Test(dataProvider ="citizen",description="toverifyClosebuttonfunctionality",priority=6)
+		public void NRDA_Transfer_SC_01_TC_06(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifyconsumertextfield();
+			Transfer.toverifyClosebuttonfunctionality();
+		 }
+		
+		
+		@Test(dataProvider ="citizen",description="toverifySubmitbuttonfunctionality",priority=7)
+		public void NRDA_Transfer_SC_01_TC_07(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifyconsumertextfield();
+			Transfer.toverifySubmitbuttonfunctionality();
+			Transfer.verifyapplicationinPendingPayments08();
+		 }
+		
+		
+		@Test(dataProvider ="citizen",description="toverifyPaymentModeDropdownfunctionality",priority=8)
+		public void NRDA_Transfer_SC_01_TC_08(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifyconsumertextfield();
+			Transfer.toverifySubmitbuttonfunctionality();
+			//Transfer.verifyapplicationinPendingPayments08();
+			Transfer.toverifypaymentmodeDropdownfunctionality();
+		 }
+
+		@Test(dataProvider ="citizen",description="toverifyMakePaymentButtonfunctionality",priority=9)
+		public void NRDA_Transfer_SC_01_TC_09(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifyconsumertextfield();
+			Transfer.toverifySubmitbuttonfunctionality();
+			//Transfer.verifyapplicationinPendingPayments08();
+			Transfer.toverifyMakePaymentButtonfunctionality();
+		 }*/
+		
+		/*@Test(dataProvider ="citizen",description="toverifyMakePaymentmode onlinefunctionality",priority=10)
+		public void NRDA_Transfer_SC_01_TC_10(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifyconsumertextfield();
+			Transfer.toverifySubmitbuttonfunctionality();
+			Transfer.verifyapplicationinPendingPayments08();
+			Transfer.toverifyMakePaymentButtonfunctionality();
+			Transfer.applicationSubmitMakePaymentWith_ValidData12();
+			Transfer.verifyDownloadReciept13();
+		 }*/
+		
+		
+		/*@Test(dataProvider ="citizen",description="toverifyMakePaymentmode Offline functionality",priority=11)
+		public void NRDA_Transfer_SC_01_TC_11(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+		 {
+			WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			logina_citizen.loginAsCitizen(username, password);
+			
+			
+			WaterAndSewerageConnection watersewerage=PageFactory.initElements(driver,WaterAndSewerageConnection.class);
+			watersewerage.waterAndSewerageConnection();
+			watersewerage.toVerifyOptions01();
+
+			ToVerifyWaterAndSewerageConnection newconnection=PageFactory.initElements(driver,ToVerifyWaterAndSewerageConnection.class);
+			newconnection.clickOnToVerifyNewConnection02();
+
+			WaterAndSewerageTransferLoginAs_Citizen Transfer=PageFactory.initElements(driver, WaterAndSewerageTransferLoginAs_Citizen.class);
+			Transfer.toverifyTransfer_Icon_TC_01();
+			Transfer.toverifyNewConsumerDetailsTab02();
+			Transfer.toverifyconsumertextfield();
+			Transfer.toverifySubmitbuttonfunctionality();
+			//Transfer.verifyapplicationinPendingPayments08();
+			Transfer.verifyGenerateChallanButtonSelectedPaymentasOffline17();
+			
+		 }
+	*/
+	
+	
+	
+
+}

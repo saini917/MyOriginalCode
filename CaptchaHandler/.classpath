@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/deepak.saini/Downloads/selenium-java-4.0.0-alpha-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/deepak.saini/Downloads/tess4j-4.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/deepak.saini/Downloads/testng-6.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/deepak.saini/Downloads/selenium-server-4.0.0-alpha-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/deepak.saini/Downloads/selenium-api-4.0.0-alpha-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/deepak.saini/Downloads/selenium-chrome-driver-4.0.0-alpha-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/deepak.saini/Downloads/selenium-shutterbug-0.9.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/deepak.saini/Downloads/jcommander-1.58.jar"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

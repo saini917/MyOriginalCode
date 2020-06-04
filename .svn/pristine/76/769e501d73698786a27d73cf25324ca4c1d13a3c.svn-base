@@ -1,0 +1,89 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifySearchFun_SC_13_TC_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT SECTOR".
+	 * @author deepak.saini
+	 * @since 2017-12-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/input[@name='inboxForm:j_id285185885_7a711bc2_focus']/../following-sibling::div/span")
+	private WebElement sector;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT WARD".
+	 * @author deepak.saini
+	 * @since 2017-12-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/input[@name='inboxForm:ward_focus']/../following-sibling::div/span")
+	private WebElement ward;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT YEAR".
+	 * @author deepak.saini
+	 * @since 2017-12-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/input[@name='inboxForm:j_id285185885_7a711a4f_focus']/../following-sibling::div/span")
+	private WebElement year;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SEEARCH BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-12-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+	
+	
+	public void verifySearchFun() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(sector));
+		HighlightOnElement(sector);
+		Assert.assertTrue(sector.isDisplayed(),"SECTOR is displayed");
+		Assert.assertTrue(sector.isEnabled(),"SECTOR is enabled");
+		sector.click();
+		selectValueFromDropdown("Sector 1");
+		
+		wait.until(ExpectedConditions.elementToBeClickable(ward));
+		HighlightOnElement(ward);
+		Assert.assertTrue(ward.isDisplayed(),"WARD is displayed");
+		Assert.assertTrue(ward.isEnabled(),"WARD is enabled");
+		ward.click();
+		selectValueFromDropdown("12");
+		
+		
+		wait.until(ExpectedConditions.elementToBeClickable(year));
+		HighlightOnElement(year);
+		Assert.assertTrue(year.isDisplayed(),"YEAR is displayed");
+		Assert.assertTrue(year.isEnabled(),"YEAR is enabled");
+		year.click();
+		selectValueFromDropdown("2018");
+		
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		HighlightOnElement(searchbtn);
+		Assert.assertTrue(searchbtn.isDisplayed(),"SERACH BUTTON is displayed");
+		Assert.assertTrue(searchbtn.isEnabled(),"SERACH BUTTON is enabled");
+		searchbtn.click();
+		waitForSomeTime();
+	}	
+
+}

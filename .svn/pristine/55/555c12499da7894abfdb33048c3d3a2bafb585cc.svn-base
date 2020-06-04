@@ -1,0 +1,54 @@
+package HRMS_ERP_TRANSFER;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Reporter;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyACRLink_SC_02_TC_01 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discussion icon".
+	 * @author deepak.saini
+	 * @since 2017-12-06
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='navbar-header']/a/i")
+	private WebElement discussicon;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Employee icon".
+	 * @author deepak.saini
+	 * @since 2017-12-06
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//img[@class='app-drawer-icon-app img-rounded' and @title='ACR']")
+	private WebElement acr;
+	
+	/****************************************************************************************************/
+	
+	public void clickOnDiscussIcon()
+	{
+		HighlightOnElement(discussicon);
+		discussicon.click();
+		//Reporter.log("click on discuss image successfully");
+		log.info("To Verify click on discuss button sucessfully");
+	}
+	
+	public void clickOnACR()
+	{
+		HighlightOnElement(acr);
+		acr.click();
+		//Reporter.log("click on Employee image successfully",true);
+		log.info("To Verify click on Start Up image successfully");
+	}
+	
+	
+}

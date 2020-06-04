@@ -1,0 +1,134 @@
+﻿package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifySearchFun_SC_06_04 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DRAFTED APPLICATION MENU".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/b[contains(text(),'Application/आवेदन')]/../following-sibling::ul/li/a[contains(text(),'Drafted Application/प्रारूपित आवेदन')]")
+	private WebElement draftedapplicationmenu;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY ASSESSMENT DROPDOWN".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT')]/../span")
+	private WebElement propertyassessmentdrop;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SEARCH INPUT BOX".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/table/tbody/tr/td/span[contains(text(),'Enter Application Number : ')]/../following-sibling::td/input")
+	private WebElement searchinputbox;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SEARCH BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/table/tbody/tr/td/span[contains(text(),'Enter Application Number : ')]/../following-sibling::td/button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "RESET BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/table/tbody/tr/td/span[contains(text(),'Enter Application Number : ')]/../following-sibling::td/button/span[contains(text(),'Reset')]")
+	private WebElement resetbtn;
+	
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT')]/../span")
+	private WebElement propertyassessmentdrop1;
+	
+	public void verifySearchButtonFun() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(draftedapplicationmenu));
+		HighlightOnElement(draftedapplicationmenu);
+		Assert.assertTrue(draftedapplicationmenu.isDisplayed(),"DRAFTED APPLICATION MENU is displayed");
+		Assert.assertTrue(draftedapplicationmenu.isEnabled(),"DRAFTED APPLICATION MENU is enabled");
+		Reporter.log("Expected result:"+draftedapplicationmenu.getText(),true);
+		Actions draftedmenu=new Actions(driver);
+		draftedmenu.click(draftedapplicationmenu).build().perform();
+		Reporter.log("Action is performed on Draft Aplication menu",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(propertyassessmentdrop));
+		HighlightOnElement(propertyassessmentdrop);
+		Assert.assertTrue(propertyassessmentdrop.isDisplayed(),"PROPERTY ASSESSMENT DROPDOWN is displayed");
+		Assert.assertTrue(propertyassessmentdrop.isEnabled(),"PROPERTY ASSESSMENT DROPDOWN is enabled");
+		propertyassessmentdrop.click();
+		
+		HighlightOnElement(searchinputbox);
+		Assert.assertTrue(searchinputbox.isDisplayed(),"SEARCH INPUT BOX is displayed");
+		Assert.assertTrue(searchinputbox.isEnabled(),"SEARCH INPUT BOX is enabled");
+		String invalidapp=excel.getExcelData(searchinputbox,"PropertyTax_Application_Num",0,9);
+		Reporter.log("INVALID APPLICATION:"+invalidapp,true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		HighlightOnElement(searchbtn);
+		Assert.assertTrue(searchbtn.isDisplayed(),"SEARCH BUTTON is displayed");
+		Assert.assertTrue(searchbtn.isEnabled(),"SEARCH BUTTON is enabled");
+		searchbtn.click();
+		waitForSomeTime();
+		wait.until(ExpectedConditions.elementToBeClickable(resetbtn));
+		resetbtn.click();
+		waitForSomeTime();
+		//acceptAlert();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(draftedapplicationmenu));
+		Actions draftedmenu1=new Actions(driver);
+		draftedmenu1.click(draftedapplicationmenu).build().perform();
+		waitForSomeTime();
+		
+		wait.until(ExpectedConditions.visibilityOf(searchinputbox));
+		HighlightOnElement(searchinputbox);
+		Assert.assertTrue(searchinputbox.isDisplayed(),"SEARCH INPUT BOX is displayed");
+		Assert.assertTrue(searchinputbox.isEnabled(),"SEARCH INPUT BOX is enabled");
+		String validapp=excel.getExcelData(searchinputbox,"PropertyTax_Application_Num",0,1);
+		Reporter.log("VALID APPLICATION:"+validapp,true);
+		Reporter.log("Action is performed on Search Input Box",true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		HighlightOnElement(searchbtn);
+		Assert.assertTrue(searchbtn.isDisplayed(),"SEARCH BUTTON is displayed");
+		Assert.assertTrue(searchbtn.isEnabled(),"SEARCH BUTTON is enabled");
+		searchbtn.click();
+		Reporter.log("Action is performed on Search Button",true);
+		
+		
+		wait.until(ExpectedConditions.elementToBeClickable(propertyassessmentdrop1));
+		propertyassessmentdrop1.click();
+	}
+}

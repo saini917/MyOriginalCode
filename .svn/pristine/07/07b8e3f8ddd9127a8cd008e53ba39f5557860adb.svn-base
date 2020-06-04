@@ -1,0 +1,67 @@
+package WaterAndSewerageTransfer;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+
+
+/**
+ * @author deepak.saini
+ * @since 2017-08-11
+ */
+public class WaterAndSewerageConnection extends CommonLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Water and Sewerage Connection".
+	 * @author deepak.saini
+	 * @since 2017-08-11
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//a[contains(text(),'WATER AND SEWERAGE SECTION')]")
+	private WebElement waterseweargeconnection;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "verify all options under Water and Sewerage Connection".
+	 * @author deepak.saini
+	 * @since 2017-08-11
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/span/table/tbody/tr/td/div/div[3]/table/tbody/tr/td[1]/span")
+	private List<WebElement> verifyoptions;
+	
+/***********************This method is used to click on  Water and Sewerage Connection 
+ * @throws InterruptedException ********************************************************************************/	
+	public void waterAndSewerageConnection() throws InterruptedException
+	{
+		Assert.assertEquals(true,waterseweargeconnection.isEnabled());
+		Assert.assertNotNull(waterseweargeconnection,"Click on waterseweargeconnection link sucessfully");
+		waterseweargeconnection.click();
+		log.info("Step6: Click on Water and Sewerage Connection link Successfully");
+		Reporter.log("Verify Water and Sewerage Connection link is Present",true); //print for eclipse console 
+		waitForSomeTime();
+	}
+/***************************************this method is used to get all options under Water and Sewerage Connection
+ * @throws InterruptedException *************************/	
+	public void toVerifyOptions01() throws InterruptedException
+	{
+		for(int i=0;i<verifyoptions.size();i++)
+		{
+			String s=verifyoptions.get(i).getText();
+			Reporter.log("Verify the Options available Under Water and Sewerage is Presents:"+s, true);
+		}
+		waitForSomeTime();
+	}
+	
+	
+	
+
+}

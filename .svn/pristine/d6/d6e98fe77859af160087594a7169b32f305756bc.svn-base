@@ -1,0 +1,30 @@
+package HRMS_ERP_TRANSFER;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifySubmitForApproval_SC_03_TC_09 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	ExcelDataDriver excel=new ExcelDataDriver();
+	
+	@FindBy(xpath="//button/span[contains(text(),'Submit For Approval')]")
+	private WebElement submitforapproval;
+	
+	public void verifySubmitForApproval()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(submitforapproval));
+		HighlightOnElement(submitforapproval);
+		Assert.assertTrue(submitforapproval.isDisplayed());
+		Assert.assertTrue(submitforapproval.isEnabled());
+		submitforapproval.click();
+	}
+}

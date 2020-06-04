@@ -1,0 +1,94 @@
+package HRMS_ERP_TRANSFER;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyApprovedByEstablishmentManager_SC_04_TC_01 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "APPROVE BY ESTABLISHMENT MANAGER".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Approve by Establishment Manager')]")
+	private WebElement approvebtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "EDIT".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button[contains(text(),'Edit')]")
+	private WebElement editbtn;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "GM INPUT".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'GM')]/../following-sibling::td/div/div/input")
+	private WebElement gminput;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "GM DROP".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'GM')]/../following-sibling::td/div/div/input/following-sibling::span")
+	private WebElement gmdrop;
+	
+	
+	public void clickOnApproveByEstablishmentManager()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(approvebtn));
+		HighlightOnElement(approvebtn);
+		Assert.assertTrue(approvebtn.isDisplayed());
+		Assert.assertTrue(approvebtn.isEnabled());
+		approvebtn.click();
+	}
+	
+	public void editBtn()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(editbtn));
+		HighlightOnElement(editbtn);
+		Assert.assertTrue(editbtn.isDisplayed());
+		Assert.assertTrue(editbtn.isEnabled());
+		editbtn.click();
+	}
+	
+	public void verifyGM() throws InterruptedException
+	{
+		HighlightOnElement(gmdrop);
+		Assert.assertTrue(gmdrop.isDisplayed());
+		Assert.assertTrue(gmdrop.isEnabled());
+		Actions act=new Actions(driver);
+		act.click(gmdrop).build().perform();
+		waitForSomeTime();
+		gminput.sendKeys("an");
+		waitForSomeTime();
+		gminput.sendKeys(Keys.ENTER);
+		
+	}
+	
+}

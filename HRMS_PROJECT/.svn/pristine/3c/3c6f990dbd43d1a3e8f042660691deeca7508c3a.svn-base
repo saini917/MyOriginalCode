@@ -1,0 +1,38 @@
+package HRMS_ERP_TRANSFER;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyRemark_SC_03_TC_06 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	ExcelDataDriver excel=new ExcelDataDriver();
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "REMARKS".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'Remark')]/../following-sibling::td/textarea[@name='remark']")
+	private WebElement remarks;
+	
+	public void verifyRemark() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(remarks));
+		HighlightOnElement(remarks);
+		excel.getExcelData(remarks,"HRMS_Transfer_Data",3,1);
+	}
+}

@@ -1,0 +1,61 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyForwardFun_SC_08_TC_10 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT  FORWARD ACTION".
+	 * @author deepak.saini
+	 * @since 2017-11-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/table/tbody/tr/td/form/span/span/div/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Select Action')]/../following-sibling::td/div/div/span")
+	private WebElement selectforwardactiondrop;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT TAX SEC NAME".
+	 * @author deepak.saini
+	 * @since 2017-11-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/table/tbody/tr/td/form/span/span/div/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Select Action')]/../following-sibling::td/span/div/div/span")
+	private WebElement selecttaxsec;
+	
+	public void verifyForwardFun() throws InterruptedException
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,130)", "");
+		
+		wait.until(ExpectedConditions.elementToBeClickable(selectforwardactiondrop));
+		HighlightOnElement(selectforwardactiondrop);
+		Assert.assertTrue(selectforwardactiondrop.isDisplayed(),"SELECT ACTION IS DISPLAYED");
+		Assert.assertTrue(selectforwardactiondrop.isEnabled(),"SELECT ACTION IS ENABLED");
+		selectforwardactiondrop.click();
+		selectValueFromDropdown("Forward");
+		Reporter.log("Action is performed on Forward",true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(selecttaxsec));
+		HighlightOnElement(selecttaxsec);
+		Assert.assertTrue(selecttaxsec.isDisplayed(),"SELECT SEC NAME IS DISPLAYED");
+		Assert.assertTrue(selecttaxsec.isEnabled(),"SELECT SEC NAME IS ENABLED");
+		selecttaxsec.click();
+		selectValueFromDropdown("Rahul Singh (TAX-SECRETARY)");
+		Reporter.log("Action is performed on select name of Secretary",true);
+	}
+
+}

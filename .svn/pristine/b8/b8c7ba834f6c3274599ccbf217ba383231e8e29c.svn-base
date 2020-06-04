@@ -1,0 +1,46 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyTaxOfficerDashboard_SC_08_TC_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Dispaly app link".
+	 * @author deepak.saini
+	 * @since 2017-11-27
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr/td/form/div/ul/li/a")
+	private List<WebElement> homepagedisplaylink;
+	
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/ul/li/a")
+	private List<WebElement>  homepagedisplaylink1;
+
+	public void verifyDisplayLink01() throws InterruptedException
+	{
+		for(WebElement display:homepagedisplaylink)
+		{
+			HighlightOnElement(display);
+			Assert.assertNotNull(display.isDisplayed(),"Test case pass");
+		}
+		waitForDomElement();
+		
+		for(WebElement display1:homepagedisplaylink1)
+		{
+			HighlightOnElement(display1);
+			Assert.assertNotNull(display1.isDisplayed(),"Test case pass");
+		}
+		waitForDomElement();
+		Reporter.log("All Element are displayed on Tax Officer Dashboard",true);
+	}
+}

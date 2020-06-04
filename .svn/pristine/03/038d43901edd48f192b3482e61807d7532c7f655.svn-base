@@ -1,0 +1,119 @@
+package WaterAndSeweragePRO;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyWaterAndSeweragePRO_SECTION_Sc_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Dispaly app link".
+	 * @author deepak.saini
+	 * @since 2017-11-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr/td/form/div/ul/li/a")
+	private List<WebElement> homepagedisplaylink;
+
+	public void verifyDisplayLink01() throws InterruptedException
+	{
+		for(WebElement display:homepagedisplaylink)
+		{
+			HighlightOnElement(display);
+			Assert.assertNotNull(display.isDisplayed(),"Test case pass");
+		}
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pending Application".
+	 * @author deepak.saini
+	 * @since 2017-11-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr/td/form/div/ul/li[2]")
+	private WebElement pending_application;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Enter Application Number".
+	 * @author deepak.saini
+	 * @since 2017-11-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/div/table/tbody/tr/td[contains(text(),'Enter Application Number')]")
+	private WebElement enterapplicationnumber;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Search Input box".
+	 * @author deepak.saini
+	 * @since 2017-11-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/div/table/tbody/tr/td[contains(text(),'Enter Application Number')]/following-sibling::td/input")
+	private WebElement serachinputbox;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Advertising and Publication".
+	 * @author deepak.saini
+	 * @since 2017-11-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/div/div/h3/a")
+	private WebElement ADVERTISEMENTPUBLICATION;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New Application,RTI,Meeting Management".
+	 * @author deepak.saini
+	 * @since 2017-11-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/h3/a")
+	private List<WebElement> elementlink;
+
+	public void clickOnPendingApplication02() throws InterruptedException
+	{
+		HighlightOnElement(pending_application);
+		Assert.assertTrue(pending_application.isDisplayed());
+		Assert.assertTrue(pending_application.isEnabled());
+		pending_application.click();
+		Reporter.log("click on Pending Application successfully",true);
+		waitForSomeTime();
+
+		HighlightOnElement(enterapplicationnumber);
+		Reporter.log("Expected result:"+enterapplicationnumber.getText(),true);
+		HighlightOnElement(serachinputbox);
+		Assert.assertTrue(serachinputbox.isDisplayed());
+		Reporter.log("Search box is displayed",true);
+		
+		HighlightOnElement(ADVERTISEMENTPUBLICATION);
+		Assert.assertTrue(ADVERTISEMENTPUBLICATION.isDisplayed());
+		Reporter.log("Expected result:"+ADVERTISEMENTPUBLICATION.getText(),true);
+		
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,100)", "");
+		for(WebElement link:elementlink)
+		{
+			HighlightOnElement(link);
+			Assert.assertTrue(link.isDisplayed());
+			Reporter.log("Expected result:"+link.getText(),true);
+			waitForSomeTime();
+		}
+		jse.executeScript("window.scrollBy(0,-100)", "");
+	}
+}

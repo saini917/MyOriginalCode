@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<listeners>
+		<listener class-name="GenericLibrary.ExtentReport"/>
+</listeners>
+ 
+ <test name="LOGIN AS BA FM">
+	<classes>
+		<class name="HRMS_ERP_UAT_BUDGET_ALLOCATION.LoginAsFM">
+			<methods>
+       			   <include name="UAT_Finance_BA_01"/>
+       			<include name="UAT_Finance_BA_02"/>  
+       			 <include name="UAT_Finance_BA_03"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+  <test name="LOGIN AS BA HOD">
+	<classes>
+		<class name="HRMS_ERP_UAT_BUDGET_ALLOCATION.LoginAsHOD">
+			<methods>
+       				<include name="UAT_Finance_BA_01"/>
+       				<include name="UAT_Finance_BA_02"/>
+       				<include name="UAT_Finance_BA_03"/>
+       				<include name="UAT_Finance_BA_04"/>
+       				<include name="UAT_Finance_BA_05"/>
+       			 	<include name="UAT_Finance_BA_06"/> 
+       			 	<include name="UAT_Finance_BA_07"/>
+       			 	<include name="UAT_Finance_BA_08"/>
+       			 	<include name="UAT_Finance_BA_09"/>
+       			 	<include name="UAT_Finance_BA_10"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> 
+ 
+ <!-- <test name="LOGIN AS BA FM">
+	<classes>
+		<class name="HRMS_ERP_UAT_BUDGET_ALLOCATION.LoginAsFM">
+			<methods>
+       			   <include name="UAT_Finance_BA_11"/>
+       			<include name="UAT_Finance_BA_12"/>  
+       			 <include name="UAT_Finance_BA_13"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+  <!-- <test name="LOGIN AS BA CEO">
+	<classes>
+		<class name="HRMS_ERP_UAT_BUDGET_ALLOCATION.LoginAsCEO">
+			<methods>
+       			   <include name="UAT_Finance_BA_14"/>
+       			<include name="UAT_Finance_BA_15"/> 
+       			<include name="UAT_Finance_BA_16"/>  
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>  -->
+ 
+ <test name="LOGIN AS BA BOD">
+	<classes>
+		<class name="HRMS_ERP_UAT_BUDGET_ALLOCATION.LoginAsBOD">
+			<methods>
+       			   <include name="UAT_Finance_BA_17"/>
+       			<include name="UAT_Finance_BA_18"/> 
+       			<include name="UAT_Finance_BA_19"/> 
+       			<include name="UAT_Finance_BA_20"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

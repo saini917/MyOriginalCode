@@ -1,0 +1,37 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifySubmitFun_SC_09_TC_15 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT SUBMIT ACTION".
+	 * @author deepak.saini
+	 * @since 2017-11-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Submit')])[1]")
+	private WebElement submitbtn;
+	
+	public void verifySubmitFuc()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(submitbtn));
+		HighlightOnElement(submitbtn);
+		Assert.assertTrue(submitbtn.isDisplayed(),"SUBMIT BUTON IS DISPLAYED");
+		Assert.assertTrue(submitbtn.isEnabled(),"SUBMIT BUTON IS ENABLED");
+		//Reporter.log("Expected result:"+submitbtn.getText(),true);
+		submitbtn.click();
+		//Reporter.log("Action is performed on Submit button",true);
+		
+	}
+}

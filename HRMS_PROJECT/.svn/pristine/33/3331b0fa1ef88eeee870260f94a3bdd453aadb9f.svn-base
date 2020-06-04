@@ -1,0 +1,44 @@
+package HRMS_ERP_TRANSFER;
+
+import java.awt.AWTException;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyAddFun_SC_02_TC_18 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ADD".
+	 * @author deepak.saini
+	 * @since 2017-12-11
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Attachment(s)')]/span/../following-sibling::ul/li/div/form/span")
+	private WebElement addlink;
+	
+	
+	public void verifyAddFun() throws InterruptedException, AWTException
+	{
+		fluentWait(addlink);
+		wait.until(ExpectedConditions.elementToBeClickable(addlink));
+		HighlightOnElement(addlink);
+		Assert.assertTrue(addlink.isEnabled());
+		Actions clickonadd=new Actions(driver);
+		clickonadd.click(addlink).build().perform();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\HRMS_PROJECT\\src\\test\\resources\\HRMS_IMAGE\\ExcelFormat.xlsx");
+		waitForSomeTime();
+	}
+}

@@ -1,0 +1,42 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifySendBackFun_SC_09_TC_14 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT SEND BACK ACTION".
+	 * @author deepak.saini
+	 * @since 2017-11-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/table/tbody/tr/td/form/span/span/div/div/div/div/center/table/tbody/tr/td/label[contains(text(),'Select Action')]/../following-sibling::td/div/div/span")
+	private WebElement selectforwardactiondrop;
+	
+	public void verifySendBackFun() throws InterruptedException
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,130)", "");
+		
+		wait.until(ExpectedConditions.elementToBeClickable(selectforwardactiondrop));
+		HighlightOnElement(selectforwardactiondrop);
+		Assert.assertTrue(selectforwardactiondrop.isDisplayed(),"SELECT SEND BACK ACTION IS DISPLAYED");
+		Assert.assertTrue(selectforwardactiondrop.isEnabled(),"SELECT SEND BACK ACTION IS ENABLED");
+		selectforwardactiondrop.click();
+		selectValueFromDropdown("Send Back");
+		//Reporter.log("Action is performed on Verified",true);
+		
+	}
+}

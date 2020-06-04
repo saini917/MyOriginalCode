@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module">
+        <methods>
+          <include name="verifyHRMSClickOnInvestmentGroupHRMS_EMP_IM_CR_TC_01_2"/>
+          <include name="verifyHRMSLoginPageHRMS_EMP_IM_CR_TC_01"/>
+        </methods>
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

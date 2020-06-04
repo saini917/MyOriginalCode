@@ -1,0 +1,71 @@
+package HRMS_ERP_Management_Script;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import GenericLibrary.ExcelDataDriver;
+import HRMS_ERP_CONFIGURATION_EMPLOYEE_GRADE.HRMS_ERP_Configuration_Employee_Grade_Sc_01;
+import HRMS_URL_Page.HRMS_URL;
+import LoginPageHRMS_UserLibrary.LoginPageHRMS_JavaFile;
+
+public class HRMS_ERP_Configuration_Employee_Grade_Module extends HRMS_URL
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\HRMS_PROJECT\\src\\test\\resources\\HRMS_TESTDATA\\HRMS_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutHRMS() throws InterruptedException
+	{
+		WebElement Administrator=driver.findElement(By.xpath("//ul[@class='nav navbar-nav navbar-right oe_user_menu_placeholder']/li/a/span[2]"));
+		HighlightOnElement(Administrator);
+		Administrator.click();
+		Reporter.log("click on Administrator menu successfully",true);
+		log.info("To verify click on Administrator menu successfully");
+
+		WebElement logoutbtn=driver.findElement(By.xpath("//a[contains(text(),'Log out')]"));
+		HighlightOnElement(logoutbtn);
+		logoutbtn.click();
+		Reporter.log("click on Logout buton succesfully",true);
+		log.info("To verify click on Logout button succesfully");
+
+		driver.close();
+		Reporter.log("Browser closed successfully",true);
+		log.info("To verify Browser closed successfully");
+	}
+
+	@DataProvider(name="admin")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"HRMS_Login_Credentials");
+	}
+
+	@Test(priority=1,description="HRMS_EMP_EG_CR_TC_01 and HRMS_EMP_EG_CR_TC_01.1",dataProvider="admin")
+	public void verifyHRMSLoginPageHRMS_EMP_EG_CR_TC_01(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+	}
+
+	@Test(priority=2,description="HRMS_EMP_EG_CR_TC_01.2",dataProvider="admin")
+	public void verifyHRMSClickOnEmployeeGradeHRMS_EMP_EG_CR_TC_01_2(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Employee_Grade_Sc_01 employee_grade=PageFactory.initElements(driver,HRMS_ERP_Configuration_Employee_Grade_Sc_01.class);
+		employee_grade.clickOnDiscussIcon();
+		employee_grade.clickOnEmployeeIcon();
+		employee_grade.clickOnConfigurationDropdown();
+		employee_grade.clickOnEmployeeGrade();
+	}
+}

@@ -1,0 +1,51 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyGenerateBillFun_SC_12_TC_04 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "GENERATE PROPERTY BILL".
+	 * @author deepak.saini
+	 * @since 2017-11-30
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//button/span[contains(text(),'Generate Property Bill')]")
+	private WebElement generatebill;
+
+	public void verifyGenerateBill()
+	{
+		List<WebElement> allrows = driver.findElements(By.xpath("//div[@class='wrapper']/table/tbody/tr/td/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/table/tbody/tr")); //for all row
+		for (int row=1; row<=allrows.size(); row++) 
+		{
+			String name =driver.findElement(By.xpath("//div[@class='wrapper']/table/tbody/tr/td/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/table/tbody/tr["+row+"]/td[2]")).getText(); //for get second column data
+			if(name.trim().equalsIgnoreCase("FPAFC2711170157"))
+			{
+				WebElement checkbox = driver.findElement(By.xpath("//div[@class='wrapper']/table/tbody/tr/td/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/table/tbody/tr["+row+"]/td[1]/input"));//click on particular application number
+				checkbox.click();
+			}
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(generatebill));
+		HighlightOnElement(generatebill);
+		Assert.assertTrue(generatebill.isDisplayed(),"GENERATE PROPERTY BILL is displayed");
+		Assert.assertTrue(generatebill.isEnabled(),"GENERATE PROPERTY BILL is enabled");
+		generatebill.click();
+	}
+}
+
+

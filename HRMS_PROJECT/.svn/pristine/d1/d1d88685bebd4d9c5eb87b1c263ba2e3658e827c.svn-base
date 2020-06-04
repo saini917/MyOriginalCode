@@ -1,0 +1,120 @@
+package HRMS_ERP_CONFIGURATION_CATEGORY;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_CONFIGURATION_Category_Discard_Fun_Sc_03 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Category input box".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_group o_inner_group']/tbody/tr/td/label/../following-sibling::td/input")
+	private WebElement categoryinputbox;
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discard button".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_buttons_edit']/button[contains(text(),' Discard')]")
+	private WebElement discardbtn;
+
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Ok Button".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-content']/div[3]/button/span[contains(text(),'Ok')]")
+	private WebElement okbtn;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Cancel Button".
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='modal-content']/div[3]/button/span[contains(text(),'Cancel')]")
+	private WebElement cancelbtn;
+/***********************************************************************************************************/
+	
+	
+	/*
+	 * This method is used to click on Discard button
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	public void clickonDiscardButtonFunctionality() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		try
+		{
+			HighlightOnElement(categoryinputbox);
+			exceldata.getExcelData(categoryinputbox, "Category_Data",6,2);
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+		discardbtn.click();
+	}
+
+	/*
+	 * This method is used to click on Ok button
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	public void clickonOkButtonFunctionality() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		try
+		{
+			HighlightOnElement(categoryinputbox);
+			exceldata.getExcelData(categoryinputbox, "Category_Data",6,2);
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+		okbtn.click();
+	}
+
+	/*
+	 * This method is used to click on Cancel button
+	 * @author deepak.saini
+	 * @since 2017-10-26
+	 */
+	public void clickonCancelButtonFunctionality() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		try
+		{
+			HighlightOnElement(categoryinputbox);
+			exceldata.getExcelData(categoryinputbox, "Category_Data",6,2);
+		}
+		catch(Exception stException)
+		{
+			stException.getMessage();
+		}
+		cancelbtn.click();
+	}
+
+}

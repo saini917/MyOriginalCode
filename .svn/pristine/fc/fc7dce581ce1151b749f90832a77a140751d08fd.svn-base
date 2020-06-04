@@ -1,0 +1,41 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyNext_SC_03_TC_11 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SECOND OWNER".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	//@FindBy(xpath="//table[@id='form0:tabView:j_id1542663399_1b335b9f']/tbody/tr/td/span/button/span[contains(text(),'Next')]")
+	@FindBy(xpath="(//button/span[contains(text(),'Next')])[2]")
+	private WebElement nextbtn;
+	
+	public void clickOnNextButton()
+	{
+		HighlightOnElement(nextbtn);
+		Assert.assertTrue(nextbtn.isDisplayed(),"NEXT button is displayed");
+		Assert.assertTrue(nextbtn.isEnabled(),"NEXT button is enabled");
+		Reporter.log("Expected result:"+nextbtn.getText(),true);
+		nextbtn.click();
+		Reporter.log("Action is performed on Next button",true);
+	}
+}
+
+	
+	
+

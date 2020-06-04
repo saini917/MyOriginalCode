@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Test Automation Suite]">
+  <test name="App Test(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.verbose.VerboseClass">
+        <methods>
+          <include name="FBTitleTest"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.verbose.VerboseClass -->
+    </classes>
+  </test> <!-- App Test(failed) -->
+</suite> <!-- Failed suite [Test Automation Suite] -->

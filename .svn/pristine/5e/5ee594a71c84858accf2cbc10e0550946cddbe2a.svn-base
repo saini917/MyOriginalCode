@@ -1,0 +1,90 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Employee_Sc_26 extends WebdriverCommonDriverLibrary
+{
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Get ACR Status".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped']/tbody/tr/td[contains(text(),'Swati')]/following-sibling::td[contains(text(),'Completed')]")
+	private WebElement EmployeeACRStatus;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Edit button".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button[contains(text(),'Edit')]")
+	private WebElement editbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Edit button".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button[contains(text(),'Discard')]")
+	private WebElement discardbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Accept By Employee button".
+	 * @author deepak.saini
+	 * @since 2017-11-16
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Accept by Employee')]")
+	private WebElement acceptbyEmployee;
+	
+	
+	public void clickOnEmployeeCompleteStatus()
+	{
+		wait.until(ExpectedConditions.visibilityOf(EmployeeACRStatus));
+		HighlightOnElement(EmployeeACRStatus);
+		Reporter.log("Employee ACR Status:"+EmployeeACRStatus.getText(),true);
+		EmployeeACRStatus.click();
+	}
+	
+	public void clickOnEditButton()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(editbtn));
+		HighlightOnElement(editbtn);
+		Reporter.log("Expected result:"+editbtn.getText(),true);
+		editbtn.click();
+		Reporter.log("click on Edit button successfully",true);
+	}
+	
+	public void clickOnDiscardButton()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(discardbtn));
+		HighlightOnElement(discardbtn);
+		Reporter.log("Expected result:"+discardbtn.getText(),true);
+		discardbtn.click();
+		Reporter.log("click on Discard button successfully",true);
+	}
+	
+	public void clickOnAcceptByEmployeeButton()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(acceptbyEmployee));
+		HighlightOnElement(acceptbyEmployee);
+		Reporter.log("Expected result:"+acceptbyEmployee.getText(),true);
+		acceptbyEmployee.click();
+		Reporter.log("click on Accept By Employee button successfully",true);
+	}
+}

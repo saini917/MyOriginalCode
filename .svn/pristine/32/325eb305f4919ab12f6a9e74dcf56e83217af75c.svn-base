@@ -1,0 +1,131 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyPropertyAddress_SC_04_TC_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY TAX MANAGEMENT dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PROPERTY TAX MANAGEMENT')]/preceding-sibling::span")
+	private WebElement PropertyTaxdrop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY ASSESSMENT IMAGE".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PROPERTY TAX MANAGEMENT')]/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'PROPERTY ASSESSMENT')]/../following-sibling::td/span/a/img[@src='/NRDAuthority1/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	private WebElement propertyassessment;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROCEED Button".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Proceed')]")
+	private WebElement proceedbtn;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NEW APPLICATION Button".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:confirmDlg']/div/div/div/div/div/button/span[contains(text(),'New Application')]")
+	private WebElement newApplication;
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY ADDRESS".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]")
+	private WebElement propertyaddresstab;
+	
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label")
+	private List<WebElement> propertyaddressdashboard;
+	
+	public void clickOnPropertyAddress() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(PropertyTaxdrop));
+		HighlightOnElement(PropertyTaxdrop);
+		Assert.assertTrue(PropertyTaxdrop.isDisplayed(),"PROPERTY TAX MANAGEMENT is displayed");
+		Assert.assertTrue(PropertyTaxdrop.isEnabled(),"PROPERTY TAX MANAGEMENT is enabled");
+		Actions propertytax=new Actions(driver);
+		propertytax.click(PropertyTaxdrop).perform();
+		Reporter.log("Action is performed on Property Tax Management dropdown",true);
+
+		HighlightOnElement(propertyassessment);
+		Assert.assertTrue(propertyassessment.isDisplayed(),"PROPERTY TAX MANAGEMENT IMAGE is displayed");
+		Assert.assertTrue(propertyassessment.isEnabled(),"PROPERTY TAX MANAGEMENT IMAGE is enabled");
+		propertyassessment.click();
+		Reporter.log("Action is performed on Property Tax Management Image",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(proceedbtn));
+		HighlightOnElement(proceedbtn);
+		Assert.assertTrue(proceedbtn.isDisplayed(),"PROCEED BUTTON is displayed");
+		Assert.assertTrue(proceedbtn.isEnabled(),"PROCEED BUTTON is enabled");
+		Reporter.log("Expected result:"+proceedbtn.getText(),true);
+		Actions proceed=new Actions(driver);
+		proceed.click(proceedbtn).perform();
+		Reporter.log("Action is performed on Proceed button",true);
+
+		try
+		{
+		//wait.until(ExpectedConditions.visibilityOf(newApplication));
+		wait.until(ExpectedConditions.elementToBeClickable(newApplication));
+		HighlightOnElement(newApplication);
+		Assert.assertTrue(newApplication.isDisplayed(),"NEW APPLICATION BUTTON is displayed");
+		Assert.assertTrue(newApplication.isEnabled(),"NEW APPLICATION BUTTON is enabled");
+		Reporter.log("Expected result:"+newApplication.getText(),true);
+		Actions newapplication=new Actions(driver);
+		newapplication.click(newApplication).perform();
+		Reporter.log("Action is performed on New Application button",true);
+		}
+		catch (StaleElementReferenceException st)
+		{
+			st.printStackTrace();
+		}
+		
+		wait.until(ExpectedConditions.elementToBeClickable(propertyaddresstab));
+		HighlightOnElement(propertyaddresstab);
+		Assert.assertTrue(propertyaddresstab.isDisplayed(),"PROPERTY ADDRESS FILED is displayed");
+		Assert.assertTrue(propertyaddresstab.isEnabled(),"PROPERTY ADDRESS is enabled");
+		Reporter.log("Expected result:"+propertyaddresstab.getText(),true);
+		Actions address=new Actions(driver);
+		address.click(propertyaddresstab).build().perform();
+		Reporter.log("Action is performed on Property Address tab",true);
+		waitForSomeTime();
+		for(WebElement dash:propertyaddressdashboard)
+		{
+			Assert.assertNotEquals(dash.isDisplayed(),"PROPERTY ADDRESS DASHBOARD IS DISPLAYED");
+			HighlightOnElement(dash);
+		}
+		Reporter.log("Property Address Dashboard Field is Displayed",true);
+	}
+}

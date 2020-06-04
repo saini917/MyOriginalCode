@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Rest API(failed)">
+    <classes>
+      <class name="tests.Basics1">
+        <methods>
+          <include name="postData"/>
+        </methods>
+      </class> <!-- tests.Basics1 -->
+      <class name="tests.Basics3">
+        <methods>
+          <include name="postData"/>
+        </methods>
+      </class> <!-- tests.Basics3 -->
+      <class name="tests.Basics8">
+        <methods>
+          <include name="getLatestTweet"/>
+          <include name="deleteTweet"/>
+          <include name="createTweet"/>
+        </methods>
+      </class> <!-- tests.Basics8 -->
+      <class name="tests.Basics2">
+        <methods>
+          <include name="addAndDeletePlace"/>
+          <include name="getData"/>
+        </methods>
+      </class> <!-- tests.Basics2 -->
+      <class name="tests.Basics5">
+        <methods>
+          <include name="jiraAPI"/>
+          <include name="getData"/>
+        </methods>
+      </class> <!-- tests.Basics5 -->
+      <class name="tests.Basics7">
+        <methods>
+          <include name="getData"/>
+          <include name="jiraAPI"/>
+        </methods>
+      </class> <!-- tests.Basics7 -->
+      <class name="tests.Basics6">
+        <methods>
+          <include name="getData"/>
+          <include name="jiraAPI"/>
+        </methods>
+      </class> <!-- tests.Basics6 -->
+    </classes>
+  </test> <!-- Rest API(failed) -->
+</suite> <!-- Failed suite [Suite] -->

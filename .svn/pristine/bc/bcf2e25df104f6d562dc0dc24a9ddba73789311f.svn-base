@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithBlankUIDPassCredentials">
+        <methods>
+          <include name="logoutWS"/>
+          <include name="openBrowser"/>
+        </methods>
+      </class> <!-- WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithBlankUIDPassCredentials -->
+      <class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithInvalidUIDPasCredentials">
+        <methods>
+          <include name="verifyLoginAsPropertyTaxWithInvalidUIDPassCredentials_SC_01_TC_05"/>
+        </methods>
+      </class> <!-- WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithInvalidUIDPasCredentials -->
+      <class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_New_Assessment_Citizen_Module">
+        <methods>
+          <include name="verifyNewAssessmentDashboard_PropertyTax_Citizen_SC_02_TC_01"/>
+          <include name="verifyFinancialYear_PropertyTax_Citizen_SC_03_TC_02"/>
+        </methods>
+      </class> <!-- WaterAndSewerage_PropertyTaxManagement.WaterAndSewerage_New_Assessment_Citizen_Module -->
+      <class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithValidCredentials">
+        <methods>
+          <include name="verifyLoginAsPropertyTaxWithValidCredentials_SC_01_TC_01"/>
+        </methods>
+      </class> <!-- WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithValidCredentials -->
+      <class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithBlankCredentials">
+        <methods>
+          <include name="verifyLoginAsPropertyTaxWithBlankPassCredentials_SC_01_TC_02"/>
+        </methods>
+      </class> <!-- WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithBlankCredentials -->
+      <class name="WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithInValidCredentials">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="verifyLoginAsPropertyTaxWithInValidPassCredentials_SC_01_TC_03"/>
+        </methods>
+      </class> <!-- WaterAndSewerage_PropertyTaxManagement.WaterAndSewerageLoginAsCitizenPropertyTaxWithInValidCredentials -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

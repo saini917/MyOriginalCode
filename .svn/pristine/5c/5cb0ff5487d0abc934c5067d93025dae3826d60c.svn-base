@@ -1,0 +1,296 @@
+package NRDA_NewConnection;
+
+
+import java.io.IOException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+@Listeners(GenericLibrary.ListenerDriver.class)
+public class LoginAsEE extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebElement web1=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		Actions action = new Actions(driver);
+		action.moveToElement(web1).build().perform();
+		waitForSomeTime();
+
+		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+		driver.close();
+
+	}
+	@DataProvider(name="Executive engineer")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"Executive Engineer Credentials");
+	}
+	
+	@Test(priority=1,dataProvider ="Executive engineer",description="Home Page")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_01 homedisplay=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_01.class);
+		homedisplay.verifyDisplayLink();
+	}
+
+	@Test(priority=2,dataProvider ="Executive engineer",description="Statistics display")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_02 statistics=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_02.class);
+		statistics.verifyDisplayLink();
+	}
+
+	@Test(priority=3,dataProvider ="Executive engineer",description="Approved count")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_03 approved=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_03.class);
+		approved.verifyApproveCount();
+		approved.verifyAction();
+		//approved.verifyPagination();
+	}
+
+	@Test(priority=4,dataProvider ="Executive engineer",description="Pending count")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_04 pending=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_04.class);
+		pending.verifyPendingCount();
+		pending.verifyAction();
+		//pending.verifyPagination();
+	}
+	
+	@Test(priority=5,dataProvider ="Executive engineer",description="Reject count")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_05 reject=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_05.class);
+		reject.verifyRejectCount();
+		reject.verifyAction();
+		//reject.verifyPagination();
+	}
+	
+	@Test(priority=7,dataProvider ="Executive engineer",description="Pending home page Display")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_07(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		display.verifyApplicationMenu();
+		display.verifyNewApplication();
+		display.verifyRTIQuestion();
+		display.verifyAction();
+	}
+
+	@Test(priority=8,dataProvider ="Executive engineer",description="invalid application number")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_08(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_08 invalid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_08.class);
+		invalid.enterCustomerID();
+		invalid.clickOnSearchBtn();
+		invalid.getErrorMsg();
+	}
+	
+	@Test(priority=9,dataProvider ="Executive engineer",description="blank application number")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_09(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_08 invalid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_08.class);
+		invalid.clickOnSearchBtn();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_09 blank=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_09.class);
+		blank.getErrorMsg();
+	}
+	
+	@Test(priority=10,dataProvider ="Executive engineer",description="reset")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_10(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_08 invalid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_08.class);
+		invalid.enterCustomerID();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_10 reset=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_10.class);
+		reset.clickOnResetBtn();
+	}
+	
+	@Test(priority=11,dataProvider ="Executive engineer",description="Valid")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_11(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_11 valid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_11.class);
+		valid.validEnterCustomerID();
+		valid.clickOnSearchBtn();
+		valid.verifyDisplayList();
+	}
+	
+	@Test(priority=12,dataProvider ="Executive engineer",description="Action")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_12(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_11 valid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_11.class);
+		valid.validEnterCustomerID();
+		valid.clickOnSearchBtn();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_12 action=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_12.class);
+		action.clickOnActionImg();
+		action.verifyDisplayList();
+	}
+	
+	@Test(priority=13,dataProvider ="Executive engineer",description="map")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_13(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_11 valid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_11.class);
+		valid.validEnterCustomerID();
+		valid.clickOnSearchBtn();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_12 action=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_12.class);
+		action.clickOnActionImg();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_13 map=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_13.class);
+		map.clickOnMap();
+	}
+	
+	@Test(priority=14,dataProvider ="Executive engineer",description="without action")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_14(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_11 valid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_11.class);
+		valid.validEnterCustomerID();
+		valid.clickOnSearchBtn();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_12 action=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_12.class);
+		action.clickOnActionImg();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_14 withoutaction=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_14.class);
+		withoutaction.clickOnSubmit();
+		withoutaction.getErrormsg();
+	}
+	
+	@Test(priority=15,dataProvider ="Executive engineer",description="blank comment")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_15(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_11 valid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_11.class);
+		valid.validEnterCustomerID();
+		valid.clickOnSearchBtn();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_12 action=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_12.class);
+		action.clickOnActionImg();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_15 blankcomment=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_15.class);
+		blankcomment.verifyBlankComment();
+		blankcomment.clickOnSubmit();
+		blankcomment.getErrorMsg();
+	}
+	
+	@Test(priority=17,dataProvider ="Executive engineer",description="Submit")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_16(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_11 valid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_11.class);
+		valid.validEnterCustomerID();
+		valid.clickOnSearchBtn();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_12 action=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_12.class);
+		action.clickOnActionImg();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_16 approve=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_16.class);
+		approve.verifyApproveByEE();
+		approve.enterComment();
+		approve.uploadDoc();
+		approve.clickOnSubmit();
+	}
+	
+	@Test(priority=16,dataProvider ="Executive engineer",description="close")
+	public void NRDA_Sewerage_New_Connection_SC_10_TC_19(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_07 display=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_07.class);
+		display.clickOnPendingApplication();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_11 valid=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_11.class);
+		valid.validEnterCustomerID();
+		valid.clickOnSearchBtn();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_12 action=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_12.class);
+		action.clickOnActionImg();
+		
+		ToVerifyConnectionDetailsTab_SC_10_TC_19 close=PageFactory.initElements(driver,ToVerifyConnectionDetailsTab_SC_10_TC_19.class);
+		close.clickOnClose();
+	}
+}

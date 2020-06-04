@@ -1,0 +1,35 @@
+package HRMS_ERP_TRANSFER;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyYear_SC_02_TC_09 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "YEAR".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet']/table/tbody/tr/td/label[contains(text(),'Year')]/../following-sibling::td/select")
+	private WebElement year;
+	
+	public void verifyYear() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(year));
+		HighlightOnElement(year);
+		year.click();
+		waitForDomElement();
+		SelectVisibleText(year,"2017");
+	}
+}

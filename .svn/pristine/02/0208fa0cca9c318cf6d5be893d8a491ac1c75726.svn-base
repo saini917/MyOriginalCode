@@ -1,0 +1,75 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyEdit_SC_06_TC_04 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	public void verifySelectCheckbox()
+	{
+		List<WebElement> allrows = driver.findElements(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Approved by HR')]/../../following-sibling::tbody[1]/tr"));
+		//Reporter.log("Total rows :" +allrows.size(),true);
+		for(int row=1;row<=allrows.size();row++)
+		{
+			String name = driver.findElement(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Approved by HR')]/../../following-sibling::tbody[1]/tr["+row+"]/td[6]")).getText();
+			//Reporter.log(name,true);
+			if(name.equalsIgnoreCase("Kamesh kaur"))
+			{
+				WebElement checkbox = driver.findElement(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Approved by HR')]/../../following-sibling::tbody[1]/tr["+row+"]/td[6]/preceding-sibling::td[4]"));
+				checkbox.click();
+				WebElement status = driver.findElement(By.xpath("//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Approved by HR')]/../../following-sibling::tbody[1]/tr["+row+"]/td[10]"));
+				status.click();
+				break;
+			}
+		}
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "EDIT".
+	 * @author deepak.saini
+	 * @since 2017-12-13
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button[contains(text(),'Edit')]")
+	private WebElement editbtn;
+	
+	public void verifyEditBtn()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(editbtn));
+		HighlightOnElement(editbtn);
+		Assert.assertTrue(editbtn.isDisplayed());
+		Assert.assertTrue(editbtn.isEnabled());
+		editbtn.click();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CEO INPUT BOX".
+	 * @author deepak.saini
+	 * @since 2017-12-13
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_group o_inner_group o_group_col_12']/tbody/tr/td/label[contains(text(),'CEO')]/../following-sibling::td/div/div/input")
+	private WebElement ceoinputbox;
+	
+	public void verifyCEOInputBox()
+	{
+		HighlightOnElement(ceoinputbox);
+		Assert.assertTrue(ceoinputbox.isDisplayed());
+	}
+	
+}

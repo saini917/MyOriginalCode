@@ -1,0 +1,59 @@
+package NRDA_NewConnection;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_10_TC_10 extends CommonLibrary 
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Enter Value in the search box".
+	 * @author deepak saini
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[contains(text(),'Enter Application / Reference Number')]/following-sibling::td/input")
+	private WebElement entervalueinsearchbox;
+	
+	/*****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Search button".
+	 * @author deepak saini
+	 * @since 2017-09-21
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//table[@class='ui-panelgrid ui-widget']/tbody/tr/td[contains(text(),'Enter Application / Reference Number')]/following-sibling::td/button/span[contains(text(),'Reset')]")
+	private WebElement resetbtn;
+
+	public void clickOnResetBtn() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(resetbtn));
+		wait.until(ExpectedConditions.elementToBeClickable(resetbtn));
+		HighlightOnElement(resetbtn);
+		resetbtn.click();
+		Reporter.log("Click on Reset button",true);
+		waitForSomeTime();
+		verifyFieldReset();
+	}
+	
+	public void verifyFieldReset()
+	{
+		HighlightOnElement(entervalueinsearchbox);
+		String empty=entervalueinsearchbox.getAttribute("value");
+		Assert.assertTrue(empty.isEmpty(),"Test case pass");
+		Reporter.log("Entered data should get reset",true);
+	}
+
+}

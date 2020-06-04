@@ -1,0 +1,91 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyDashboardPendingPropertyBill_SC_12_TC_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PENDING PROPERTY BILL".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr/td/form/div/ul/li[13]")
+	private WebElement pendingpropertybill;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/span[contains(text(),'Generate Property Tax Bill')]")
+	private WebElement display;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/input")
+	private List<WebElement> displaydrop;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/table/thead/tr/th/span")
+	private List<WebElement> display1;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "GENERATE PROPERTY BILL BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Generate Property Bill')]")
+	private WebElement generatebillbutton;
+
+
+	public void clickOnPendingPropertyBill()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(pendingpropertybill));
+		HighlightOnElement(pendingpropertybill);
+		Assert.assertTrue(pendingpropertybill.isDisplayed(),"PENDING PROPERTY BILL is displayed");
+		Assert.assertTrue(pendingpropertybill.isEnabled(),"PENDING PROPERTY BILL is enabled");
+		Actions pendingproperty=new Actions(driver);
+		pendingproperty.click(pendingpropertybill).build().perform();
+		//Reporter.log("Action is performed on Pending Property Bill,true");
+	}
+
+	public void verifyDashboardPendingPropertyBill()
+	{
+
+		wait.until(ExpectedConditions.visibilityOf(display));
+		HighlightOnElement(display);
+		Assert.assertTrue(display.isDisplayed(),"GENERATE PROPERTY TAX BILL is displayed");
+
+		if(displaydrop.size()==3)
+		{
+			Assert.assertTrue(true);
+		}
+		else
+		{
+			Assert.assertTrue(false);
+		}
+		for(WebElement dispdrop:displaydrop)
+		{
+			wait.until(ExpectedConditions.visibilityOfAllElements(displaydrop));
+			HighlightOnElement(dispdrop);
+			Assert.assertTrue(dispdrop.isDisplayed(),"GENERATE PROPERTY TAX BILL DROPDOWN is displayed");
+		}
+
+		for(WebElement dishhead:display1)
+		{
+			wait.until(ExpectedConditions.visibilityOf(dishhead));
+			HighlightOnElement(dishhead);
+			Assert.assertTrue(dishhead.isDisplayed(),"GENERATE PROPERTY TAX BILL is displayed");
+		}
+		wait.until(ExpectedConditions.visibilityOf(generatebillbutton));
+		HighlightOnElement(generatebillbutton);
+		Assert.assertTrue(generatebillbutton.isDisplayed(),"GENERATE PROPERTY BILL BUTTON is displayed");
+	}
+}

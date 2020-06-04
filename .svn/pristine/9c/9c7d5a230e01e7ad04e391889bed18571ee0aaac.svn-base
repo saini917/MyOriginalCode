@@ -1,0 +1,681 @@
+﻿package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifySubmitWithData_SC_05_TC_11 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/*
+	 * This is the xpath of the WebElement "PROPERTY TAX MANAGEMENT dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PROPERTY TAX MANAGEMENT')]/preceding-sibling::span")
+	private WebElement PropertyTaxdrop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY ASSESSMENT IMAGE".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	//@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PROPERTY TAX MANAGEMENT')]/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'PROPERTY ASSESSMENT')]/../following-sibling::td/span/a/img[@src='/NRDAuthority1/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PROPERTY TAX MANAGEMENT')]/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'PROPERTY ASSESSMENT')]/../following-sibling::td/span/a/img[@src='/NRDAuthority/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	private WebElement propertyassessment;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROCEED Button".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Proceed')]")
+	private WebElement proceedbtn;
+
+	/****************************************************************************************************/
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NEW APPLICATION Button".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:confirmDlg']/div/div/div/div/div/button/span[contains(text(),'New Application')]")
+	private WebElement newApplication;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NEW ASSESSMENT RADIO Button".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/span/table/tbody/tr/td/label[contains(text(),'New Assessment')]/../input")
+	private WebElement newAssessmentRadiobtn;
+
+	/**
+	 * @throws InterruptedException 
+	 * @throws IOException 
+	 * @throws InvalidFormatException 
+	 * @throws EncryptedDocumentException **************************************************************************************************/
+	public void clickOnSubmitWithValidData() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(PropertyTaxdrop));
+		HighlightOnElement(PropertyTaxdrop);
+		Assert.assertTrue(PropertyTaxdrop.isDisplayed(),"PROPERTY TAX MANAGEMENT is displayed");
+		Assert.assertTrue(PropertyTaxdrop.isEnabled(),"PROPERTY TAX MANAGEMENT is enabled");
+		Actions propertytax=new Actions(driver);
+		propertytax.click(PropertyTaxdrop).perform();
+		Reporter.log("Action is performed on Property Tax Management dropdown",true);
+
+		HighlightOnElement(propertyassessment);
+		Assert.assertTrue(propertyassessment.isDisplayed(),"PROPERTY TAX MANAGEMENT IMAGE is displayed");
+		Assert.assertTrue(propertyassessment.isEnabled(),"PROPERTY TAX MANAGEMENT IMAGE is enabled");
+		propertyassessment.click();
+		Reporter.log("Action is performed on Property Tax Management Image",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(proceedbtn));
+		HighlightOnElement(proceedbtn);
+		Assert.assertTrue(proceedbtn.isDisplayed(),"PROCEED BUTTON is displayed");
+		Assert.assertTrue(proceedbtn.isEnabled(),"PROCEED BUTTON is enabled");
+		Reporter.log("Expected result:"+proceedbtn.getText(),true);
+		Actions proceed=new Actions(driver);
+		proceed.click(proceedbtn).perform();
+		Reporter.log("Action is performed on Proceed button",true);
+
+		try
+		{
+			//wait.until(ExpectedConditions.visibilityOf(newApplication));
+			wait.until(ExpectedConditions.elementToBeClickable(newApplication));
+			HighlightOnElement(newApplication);
+			Assert.assertTrue(newApplication.isDisplayed(),"NEW APPLICATION BUTTON is displayed");
+			Assert.assertTrue(newApplication.isEnabled(),"NEW APPLICATION BUTTON is enabled");
+			Reporter.log("Expected result:"+newApplication.getText(),true);
+			Actions newapplication=new Actions(driver);
+			newapplication.click(newApplication).perform();
+			Reporter.log("Action is performed on New Application button",true);
+		}
+		catch (StaleElementReferenceException st)
+		{
+			st.printStackTrace();
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newAssessmentRadiobtn));
+		HighlightOnElement(newAssessmentRadiobtn);
+		Assert.assertTrue(newAssessmentRadiobtn.isDisplayed(),"NEW ASSESSMENT RADIO BUTTON is displayed");
+		Assert.assertTrue(newAssessmentRadiobtn.isEnabled(),"NEW ASSESSMENT RADIO BUTTON is enabled");
+		newAssessmentRadiobtn.click();
+		Reporter.log("Action is performed on New Assessment Radio button",true);
+		verifyFinancialYear();
+		verifyNameOfProperty();
+		verifyMobileNumber();
+		verifyEmail();
+		verifyNameOfOwner();
+		verifyNameOfSpouse();
+		verifyJointHoldingOwnerType();
+		verifyNameOfSecondOwner();
+		verifyAddressOfSecondOwner();
+		clickOnNextButton();
+		verifyStateField();
+		verifyDistrictField();
+		verifyMunicipilityField();
+		verifySectorField();
+		verifyWardField();
+		verifyCorrespondenceAddressField();
+		clickOnPropertyAddressNextButton();
+		verifyPropertyUsesType();
+		verifyPropertyUnit();
+		verifyConstructionsType();
+		verifyFloorNumber();
+		verifyArea();
+		verifyYearOfEstablishment();
+		clickOnSubmitButton();
+	}
+
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "FINANCIAL YEAR dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Financial Year')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement financialyear;
+
+	public void verifyFinancialYear() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(financialyear));
+		HighlightOnElement(financialyear);
+		Assert.assertTrue(financialyear.isDisplayed(),"FINANCIAL YEAR is displayed");
+		Assert.assertTrue(financialyear.isEnabled(),"FINANCIAL YEAR is enabled");
+		SelectVisibleText(financialyear,"2017-2018");
+		Reporter.log("Action is performed on Financial Year dropdown",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF PROPERTY".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name Of Property')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement nameofproperty;
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name Of Property')]")
+	private WebElement clickonany;
+
+	public void verifyNameOfProperty() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		waitForSomeTime();
+		HighlightOnElement(nameofproperty);
+		Assert.assertTrue(nameofproperty.isDisplayed(),"NAME OF PROPERTY FILED is displayed");
+		Assert.assertTrue(nameofproperty.isEnabled(),"NAME OF PROPERTY FILED is enabled");
+		/*String value=excel.getExcelData(nameofproperty,"Owner_Property_Details",1,9);
+		Reporter.log("Expected result:"+value,true);
+		clickonany.click();
+		acceptAlert();
+		Reporter.log("Action is performed on Wrong Name of Property pop up",true);*/
+		String value1=excel.getExcelData(nameofproperty,"Owner_Property_Details",1,2);
+		Reporter.log("Expected result:"+value1,true);
+		Reporter.log("Action is performed on Name of Property field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "MOBILE NUMBER dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Mobile No.')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement mobileno;
+
+	public void verifyMobileNumber() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(mobileno);
+		Assert.assertTrue(mobileno.isDisplayed(),"MOBILE NUMBER FILED is displayed");
+		Assert.assertTrue(mobileno.isEnabled(),"MOBILE NUMBER FILED is enabled");
+		/*String value=excel.getExcelData(mobileno,"Owner_Property_Details",1,10);
+		Reporter.log("Expected result:"+value,true);
+		clickonany.click();
+		acceptAlert();
+		Reporter.log("Action is performed on Wrong Mobile Number Pop up",true);*/
+		String value1=excel.getExcelData(mobileno,"Owner_Property_Details",1,3);
+		Reporter.log("Expected result:"+value1,true);
+		Reporter.log("Action is performed on Mobile Number field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "EMAIL".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Email')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement email;
+
+	public void verifyEmail() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(email);
+		Assert.assertTrue(email.isDisplayed(),"EMAIL FILED is displayed");
+		Assert.assertTrue(email.isEnabled(),"EMAIL FILED is enabled");
+		/*String value=excel.getExcelData(email,"Owner_Property_Details",1,11);
+		Reporter.log("Expected result:"+value,true);
+		clickonany.click();
+		acceptAlert();
+		Reporter.log("Action is performed on Wrong Email Pop up",true);*/
+		String value1=excel.getExcelData(email,"Owner_Property_Details",1,4);
+		Reporter.log("Expected result:"+value1,true);
+		Reporter.log("Action is performed on email field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF OWNER".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name Of Owner')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement nameofowner;
+
+	public void verifyNameOfOwner() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(nameofowner);
+		Assert.assertTrue(nameofowner.isDisplayed(),"NAME OF OWNER FILED is displayed");
+		Assert.assertTrue(nameofowner.isEnabled(),"NAME OF OWNER FILED is enabled");
+		/*String value=excel.getExcelData(nameofowner,"Owner_Property_Details",1,12);
+		Reporter.log("Expected result:"+value,true);
+		clickonany.click();
+		acceptAlert();
+		Reporter.log("Action is performed on Wrong Name Of Owner Pop up",true);*/
+		String value1=excel.getExcelData(nameofowner,"Owner_Property_Details",1,5);
+		Reporter.log("Expected result:"+value1,true);
+		Reporter.log("Action is performed on Name Of Owner field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SPOUSE".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name of Spouse')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement nameofspouse;
+
+	public void verifyNameOfSpouse() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(nameofspouse);
+		Assert.assertTrue(nameofspouse.isDisplayed(),"NAME OF SPOUSE FILED is displayed");
+		Assert.assertTrue(nameofspouse.isEnabled(),"NAME OF SPOUSE FILED is enabled");
+		String value1=excel.getExcelData(nameofspouse,"Owner_Property_Details",1,6);
+		Reporter.log("Expected result:"+value1,true);
+		Reporter.log("Action is performed on Name Of Spouse field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SPOUSE".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Owner Type')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement ownertype;
+
+	public void verifyJointHoldingOwnerType() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		HighlightOnElement(ownertype);
+		Assert.assertTrue(ownertype.isDisplayed(),"OWNER TYPE FILED is displayed");
+		Assert.assertTrue(ownertype.isEnabled(),"OWNER TYPE FILED is enabled");
+		SelectVisibleText(ownertype,"Joint Holding");
+		Reporter.log("Action is performed on Owner Type Joint Holding field",true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SECOND OWNER".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name Of Second Owner/Occupier')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+	private WebElement nameofsecondowner;
+
+	public void verifyNameOfSecondOwner() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(nameofsecondowner);
+		Assert.assertTrue(nameofsecondowner.isDisplayed(),"NAME OF SECOND OWNER FILED is displayed");
+		Assert.assertTrue(nameofsecondowner.isEnabled(),"NAME OF SECOND OWNER FILED is enabled");
+		String value1=excel.getExcelData(nameofsecondowner,"Owner_Property_Details",1,7);
+		Reporter.log("Expected result:"+value1,true);
+		Reporter.log("Action is performed on Name Of Second Owner field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SECOND OWNER".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Address of Second Owner/Occupier')]/../../../../../../following-sibling::td/table/tbody/tr/td/textarea")
+	private WebElement addressofsecondowner;
+
+	public void verifyAddressOfSecondOwner() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(addressofsecondowner);
+		Assert.assertTrue(addressofsecondowner.isDisplayed(),"ADDRESS OF SECOND OWNER FILED is displayed");
+		Assert.assertTrue(addressofsecondowner.isEnabled(),"ADDRESS OF SECOND OWNER FILED is enabled");
+		String value1=excel.getExcelData(addressofsecondowner,"Owner_Property_Details",1,8);
+		Reporter.log("Expected result:"+value1,true);
+		Reporter.log("Action is performed on Address Of Second Owner field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NAME OF SECOND OWNER".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	//@FindBy(xpath="//table[@id='form0:tabView:j_id1542663399_1b335b9f']/tbody/tr/td/span/button/span[contains(text(),'Next')]")
+	@FindBy(xpath="(//button/span[contains(text(),'Next')])[1]")
+	private WebElement nextbtn;
+
+	public void clickOnNextButton()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(nextbtn));
+		HighlightOnElement(nextbtn);
+		Assert.assertTrue(nextbtn.isDisplayed(),"NEXT button is displayed");
+		Assert.assertTrue(nextbtn.isEnabled(),"NEXT button is enabled");
+		Reporter.log("Expected result:"+nextbtn.getText(),true);
+		nextbtn.click();
+		Reporter.log("Action is performed on Next button",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "STATE FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'State')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement statefiled;
+
+	public void verifyStateField() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(statefiled));
+		HighlightOnElement(statefiled);
+		Assert.assertTrue(statefiled.isDisplayed(),"STATE FIELD IS DISPLAYED");
+		Assert.assertTrue(statefiled.isEnabled(),"STATE FIELD IS ENABLED");
+		SelectVisibleText(statefiled,"Chhattisgarh/छत्तीसगढ़");
+		Reporter.log("action is performed on State Field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DISTRICT FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'District')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement districtfiled;
+
+	public void verifyDistrictField() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(districtfiled));
+		HighlightOnElement(districtfiled);
+		Assert.assertTrue(districtfiled.isDisplayed(),"DISTRICT FIELD IS DISPLAYED");
+		Assert.assertTrue(districtfiled.isEnabled(),"DISTRICT FIELD IS ENABLED");
+		SelectVisibleText(districtfiled,"BILASPUR/बिलासपुर");
+		Reporter.log("action is performed on District Field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "MUNICIPILITY/ULB FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Municipality/ULB')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement municipilityfield;
+
+	public void verifyMunicipilityField() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(municipilityfield));
+		HighlightOnElement(municipilityfield);
+		Assert.assertTrue(municipilityfield.isDisplayed(),"MUNICIPILITY/ULB FIELD IS DISPLAYED");
+		Assert.assertTrue(municipilityfield.isEnabled(),"MUNICIPILITY/ULB FIELD IS ENABLED");
+		SelectVisibleText(municipilityfield,"Rajim");
+		Reporter.log("action is performed on Municipility/ulb Field",true);
+	}
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SECTOR FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Sector')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement Sectorfield;
+
+	public void verifySectorField() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(Sectorfield));
+		HighlightOnElement(Sectorfield);
+		Assert.assertTrue(Sectorfield.isDisplayed(),"SECTOR FIELD IS DISPLAYED");
+		Assert.assertTrue(Sectorfield.isEnabled(),"SECTOR FIELD IS ENABLED");
+		SelectVisibleText(Sectorfield,"Sector 1");
+		Reporter.log("action is performed on Sector Field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "WARD FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Ward')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement wardfield;
+
+	public void verifyWardField() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(wardfield));
+		HighlightOnElement(wardfield);
+		Assert.assertTrue(wardfield.isDisplayed(),"WARD FIELD IS DISPLAYED");
+		Assert.assertTrue(wardfield.isEnabled(),"WARD FIELD IS ENABLED");
+		SelectVisibleText(wardfield,"12");
+		Reporter.log("action is performed on Ward Field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CORRESPONDENCE ADDRESS FIELD".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Address')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Correspondence Address')]/../../../../../../following-sibling::td/table/tbody/tr/td/textarea")
+	private WebElement correspondenceaddressfield;
+
+	public void verifyCorrespondenceAddressField() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf( correspondenceaddressfield));
+		HighlightOnElement( correspondenceaddressfield);
+		Assert.assertTrue( correspondenceaddressfield.isDisplayed(),"CORRESPONDENCE ADDRESS FIELD IS DISPLAYED");
+		Assert.assertTrue( correspondenceaddressfield.isEnabled(),"CORRESPONDENCE ADDRESS FIELD IS ENABLED");
+		String corAdd=excel.getExcelData(correspondenceaddressfield,"Owner_Property_Details",1,19);	
+		Reporter.log("CORRESPONDENCE ADDRES:"+corAdd,true);
+		Reporter.log("action is performed on Correspondence Address Field",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY ADDRESS NEXT BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="(//button/span[contains(text(),'Next')])[2]")
+	private WebElement propertyaddressnext;
+
+	public void clickOnPropertyAddressNextButton()
+	{
+		wait.until(ExpectedConditions.visibilityOf(propertyaddressnext));
+		HighlightOnElement(propertyaddressnext);
+		Assert.assertTrue(propertyaddressnext.isDisplayed(),"NEXT button is displayed");
+		Assert.assertTrue(propertyaddressnext.isEnabled(),"NEXT button is enabled");
+		Reporter.log("Expected result:"+propertyaddressnext.getText(),true);
+		propertyaddressnext.click();
+		Reporter.log("Action is performed on Next button",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY USES TYPE".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/select[@title='Property Uses Type']")
+	private WebElement propertyusestype;
+
+	public void verifyPropertyUsesType() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(propertyusestype));
+		HighlightOnElement(propertyusestype);
+		Assert.assertTrue(propertyusestype.isDisplayed(),"PROPERTY USES TYPE is displayed");
+		Assert.assertTrue(propertyusestype.isEnabled(),"PROPERTY USES TYPE is enabled");
+		SelectVisibleText(propertyusestype,"Commercial");
+		Reporter.log("Action is performed on Property Uses type",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY UNIT".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/select[@title='Property Unit']")
+	private WebElement propertyunit;
+
+	public void verifyPropertyUnit() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(propertyunit));
+		HighlightOnElement(propertyunit);
+		Assert.assertTrue(propertyunit.isDisplayed(),"PROPERTY UNIT  is displayed");
+		Assert.assertTrue(propertyunit.isEnabled(),"PROPERTY UNIT  is enabled");
+		SelectVisibleText(propertyunit,"Hotel/Other");
+		Reporter.log("Action is performed on Property Unit type",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CONSTRUCTION TYPE".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/select[@title='Constructions Type']")
+	private WebElement constructiontype;
+
+	public void verifyConstructionsType() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(constructiontype));
+		HighlightOnElement(constructiontype);
+		Assert.assertTrue(constructiontype.isDisplayed(),"CONSTRUCTIONS TYPE  is displayed");
+		Assert.assertTrue(constructiontype.isEnabled(),"CONSTRUCTIONS TYPE  is enabled");
+		SelectVisibleText(constructiontype,"PUCCA BUILDING");
+		Reporter.log("Action is performed on Constructions type",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "FLOOR NUMBER".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/select[@title='Floor Number']")
+	private WebElement floornumber;
+
+	public void verifyFloorNumber() throws InterruptedException
+	{
+		try
+		{
+			wait.until(ExpectedConditions.visibilityOf(floornumber));
+			wait.until(ExpectedConditions.elementToBeClickable(floornumber));
+			HighlightOnElement(floornumber);
+			Assert.assertTrue(floornumber.isDisplayed(),"FLOOR NUMBER is displayed");
+			Assert.assertTrue(floornumber.isEnabled(),"FLOOR NUMBER  is enabled");
+			SelectVisibleText(floornumber,"FLOOR117");
+			Reporter.log("Action is performed on Floor Number",true);
+		}
+		catch(StaleElementReferenceException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "AREA".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/input")
+	private WebElement area;
+
+	public void verifyArea() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf(area));
+		HighlightOnElement(area);
+		Assert.assertTrue(area.isDisplayed(),"AREA is displayed");
+		Assert.assertTrue(area.isEnabled(),"AREA  is enabled");
+		String are=excel.getExcelData(area,"Owner_Property_Details",1,23);
+		Reporter.log("AREA:"+are,true);
+		Reporter.log("Action is performed on Area",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "YEAR OF ESTABLISHMENT".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/select[@title='Year Of Establishment']")
+	private WebElement yearofestablishment;
+
+	public void verifyYearOfEstablishment() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(yearofestablishment));
+		HighlightOnElement(yearofestablishment);
+		Assert.assertTrue(yearofestablishment.isDisplayed(),"YEAR OF ESTABLISHMENT  is displayed");
+		Assert.assertTrue(yearofestablishment.isEnabled(),"YEAR OF ESTABLISHMENT  is enabled");
+		SelectVisibleText(yearofestablishment,"2001 and beyond");
+		Reporter.log("Action is performed on Year Of Establishment type",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SUBMIT BUTTON WITHOUT ENTERING DATA".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Submit')]")
+	private WebElement submitbtn;
+
+	/****************************************************************************************************/
+	public void clickOnSubmitButton()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(submitbtn));
+		HighlightOnElement(submitbtn);
+		Assert.assertTrue(submitbtn.isDisplayed(),"SUBMIT BUTTON IS DISPLAYED");
+		Assert.assertTrue(submitbtn.isEnabled(),"SUBMIT BUTTON IS ENABLED");
+		Reporter.log("Expected result:"+submitbtn.getText());
+		submitbtn.click();
+		Reporter.log("Action is performed on Submit button",true);
+	}
+}

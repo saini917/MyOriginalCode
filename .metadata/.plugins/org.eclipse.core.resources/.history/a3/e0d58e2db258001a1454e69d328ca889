@@ -1,0 +1,24 @@
+package com.coachingProgram;
+
+public class DuplicateLongestString {
+
+	static String str = "abcdabcdbadc";
+	static int count;
+
+	public static void main(String[] args) {
+			char[] ch = str.toCharArray();
+			int len = ch.length;
+			for (int j = 0; j < len; j++) {
+				for (int k = j + 1; k < len - 1; k++) {
+					if (ch[j] == ch[k + 1]) {
+						System.out.print(ch[j]);
+						count++;
+						break;
+					}
+
+				}
+			}
+
+		}
+	}
+

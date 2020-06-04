@@ -1,0 +1,131 @@
+package NRDA_MeterTesting;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+
+@Listeners(GenericLibrary.ListenerDriver.class)
+public class LoginAsCitizen extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		WebElement logoutdrop=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		wait.until(ExpectedConditions.visibilityOf(logoutdrop));
+		wait.until(ExpectedConditions.elementToBeClickable(logoutdrop));
+		Actions action = new Actions(driver);
+		action.moveToElement(logoutdrop).build().perform();
+
+		WebElement logout=driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
+		Actions action1 = new Actions(driver);
+		action1.moveToElement(logout).build().perform();
+		Reporter.log("Action is performed on Logout button successfully",true);
+
+		driver.close();
+		Reporter.log("Action is performed on browser closed successfully",true);
+	}
+
+	@DataProvider(name="citizen")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"Citizen");
+	}
+
+	@Test(priority=0,dataProvider ="citizen",description="verify dashboard")
+	public void NRDA_MeterTesting_Citizen_SC_01_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.loginAsCitizen(username,password);
+		
+		ToVerifyMeterTesting_SC_01_TC_01 display=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_01.class);
+		display.clickOnWaterAndSewerageConnection();
+		display.toVerifyOptions01();
+		display.verifyOnOffLineForm();
+	}
+	
+	@Test(priority=1,dataProvider ="citizen",description="verify online form")
+	public void NRDA_MeterTesting_Citizen_SC_01_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.loginAsCitizen(username,password);
+		
+		ToVerifyMeterTesting_SC_01_TC_01 display=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_01.class);
+		display.clickOnWaterAndSewerageConnection();
+		
+		ToVerifyMeterTesting_SC_01_TC_02 online=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_02.class);
+		online.clickOnMeterTesting();
+		online.clickOnProceed();
+		online.verifyDisplayList();
+		online.verifyDisplayButtonList();
+	}
+	
+	@Test(priority=2,dataProvider ="citizen",description="verify reset")
+	public void NRDA_MeterTesting_Citizen_SC_01_TC_03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.loginAsCitizen(username,password);
+		
+		ToVerifyMeterTesting_SC_01_TC_01 display=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_01.class);
+		display.clickOnWaterAndSewerageConnection();
+		
+		ToVerifyMeterTesting_SC_01_TC_02 online=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_02.class);
+		online.clickOnMeterTesting();
+		online.clickOnProceed();
+		
+		ToVerifyMeterTesting_SC_01_TC_03 reset=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_03.class);
+		reset.enterConsumerID();
+		reset.enterApplicationNo();
+		reset.enterConsumerName();
+		reset.selectConnectionType();
+		reset.enterMeterNo();
+		reset.enterService();
+		reset.enterMobileNo();
+		reset.clickOnReset();
+		reset.verifyFieldReset();
+	}
+	
+	@Test(priority=3,dataProvider ="citizen",description="verify save as draft")
+	public void NRDA_MeterTesting_Citizen_SC_01_TC_04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_citizen.loginAsCitizen(username,password);
+		
+		ToVerifyMeterTesting_SC_01_TC_01 display=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_01.class);
+		display.clickOnWaterAndSewerageConnection();
+		
+		ToVerifyMeterTesting_SC_01_TC_02 online=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_02.class);
+		online.clickOnMeterTesting();
+		online.clickOnProceed();
+		
+		ToVerifyMeterTesting_SC_01_TC_03 reset=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_03.class);
+		reset.enterConsumerID();
+		reset.enterApplicationNo();
+		reset.enterConsumerName();
+		reset.selectConnectionType();
+		reset.enterMeterNo();
+		reset.enterService();
+		reset.enterMobileNo();
+		
+		ToVerifyMeterTesting_SC_01_TC_04 draft=PageFactory.initElements(driver,ToVerifyMeterTesting_SC_01_TC_04.class);
+		draft.clickOnSaveAsDraft();
+	}
+
+}

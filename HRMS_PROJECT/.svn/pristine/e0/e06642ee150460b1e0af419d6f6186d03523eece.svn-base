@@ -1,0 +1,3521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="34" passed="34">
+  <reporter-output>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Caste button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Cast dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Caste button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Cast dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[Caste Name:Brahmin]]>
+    </line>
+    <line>
+      <![CDATA[click on Category dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[select Category successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on save button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Caste button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Cast dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[Caste Name:!@#$%^]]>
+    </line>
+    <line>
+      <![CDATA[click on save button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Caste button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Cast dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[Caste Name:]]>
+    </line>
+    <line>
+      <![CDATA[click on save button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Caste button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Cast dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Caste button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Cast dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[Caste Name:Brahmin]]>
+    </line>
+    <line>
+      <![CDATA[click on Caste Category dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[select Caste Category successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Caste button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Cast dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[Caste Name:Brahmin]]>
+    </line>
+    <line>
+      <![CDATA[click on Caste Category dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[select Caste Category successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Category button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Category dashboard]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Category button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Category dashboard]]>
+    </line>
+    <line>
+      <![CDATA[Category:Handicapped]]>
+    </line>
+    <line>
+      <![CDATA[click on Save button succesfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Category button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Category dashboard]]>
+    </line>
+    <line>
+      <![CDATA[Category:!@#$%^]]>
+    </line>
+    <line>
+      <![CDATA[click on Save button succesfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Category button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Category dashboard]]>
+    </line>
+    <line>
+      <![CDATA[Category:]]>
+    </line>
+    <line>
+      <![CDATA[click on Save button succesfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Category button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Category dashboard]]>
+    </line>
+    <line>
+      <![CDATA[click on Discard button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Category button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Category dashboard]]>
+    </line>
+    <line>
+      <![CDATA[click on Discard button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Ok button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Category button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Category dashboard]]>
+    </line>
+    <line>
+      <![CDATA[click on Discard button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Cancel button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee Group button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Employee Group dashboard ]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee Group button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Employee Group dashboard ]]>
+    </line>
+    <line>
+      <![CDATA[Employee Group:class6]]>
+    </line>
+    <line>
+      <![CDATA[click on save button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee Group button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Employee Group dashboard ]]>
+    </line>
+    <line>
+      <![CDATA[Employee Group:!@#$%^]]>
+    </line>
+    <line>
+      <![CDATA[click on save button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee Group button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Employee Group dashboard ]]>
+    </line>
+    <line>
+      <![CDATA[Employee Group:]]>
+    </line>
+    <line>
+      <![CDATA[click on save button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee Group button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Employee Group dashboard ]]>
+    </line>
+    <line>
+      <![CDATA[click on Discard button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee Group button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Employee Group dashboard ]]>
+    </line>
+    <line>
+      <![CDATA[Employee Group:class6]]>
+    </line>
+    <line>
+      <![CDATA[click on Discard button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Ok button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee Group button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Employee Group dashboard ]]>
+    </line>
+    <line>
+      <![CDATA[Employee Group:class6]]>
+    </line>
+    <line>
+      <![CDATA[click on Discard button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Cancel button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Investment Master button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Investment Master button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[Investment Head:8000CCCC]]>
+    </line>
+    <line>
+      <![CDATA[Description:cont to PICC]]>
+    </line>
+    <line>
+      <![CDATA[click on Section Head dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[select Section Head successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on save button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Investment Master button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[Description:cont to Lpppp]]>
+    </line>
+    <line>
+      <![CDATA[click on Section Head dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on save button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Investment Master button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[Investment Head:Infrastructure Bond 800CCCF]]>
+    </line>
+    <line>
+      <![CDATA[click on Section Head dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[select Section Head successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on save button sucessfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Investment Master button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discard button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Investment Master button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[enter the value in the Investment Head Input box successfuly]]>
+    </line>
+    <line>
+      <![CDATA[enter the Valid value in the Description Input box successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on Section Head dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[select Section Head successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on discard button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Ok dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Investment Master button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+    </line>
+    <line>
+      <![CDATA[enter the value in the Investment Head Input box successfuly]]>
+    </line>
+    <line>
+      <![CDATA[enter the Valid value in the Description Input box successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on Section Head dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on discard button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Cancel dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee Grade button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Name:Gazetted]]>
+    </line>
+    <line>
+      <![CDATA[Name:Non Gazetted]]>
+    </line>
+    <line>
+      <![CDATA[Name: ]]>
+    </line>
+    <line>
+      <![CDATA[Name: ]]>
+    </line>
+    <line>
+      <![CDATA[Description:Gazetted]]>
+    </line>
+    <line>
+      <![CDATA[Description:non Gazetted]]>
+    </line>
+    <line>
+      <![CDATA[Description: ]]>
+    </line>
+    <line>
+      <![CDATA[Description: ]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed successfully]]>
+    </line>
+  </reporter-output>
+  <suite name="Suite" duration-ms="880852" started-at="2017-10-27T12:29:13Z" finished-at="2017-10-27T12:43:54Z">
+    <groups>
+    </groups>
+    <test name="login as admin to check Caste module" duration-ms="203581" started-at="2017-10-27T12:29:13Z" finished-at="2017-10-27T12:32:37Z">
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="openBrowser" is-config="true" duration-ms="6614" started-at="2017-10-27T17:59:14Z" finished-at="2017-10-27T17:59:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01(java.lang.String, java.lang.String)[pri:1, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01" duration-ms="7364" started-at="2017-10-27T17:59:21Z" description="HRMS_EMP_C_CR_TC_01 and HRMS_EMP_C_CR_TC_01.1" data-provider="admin" finished-at="2017-10-27T17:59:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="logoutHRMS" is-config="true" duration-ms="1177" started-at="2017-10-27T17:59:28Z" finished-at="2017-10-27T17:59:29Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="openBrowser" is-config="true" duration-ms="5389" started-at="2017-10-27T17:59:29Z" finished-at="2017-10-27T17:59:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSClickOnCasteHRMS_EMP_C_CR_TC_01_2(java.lang.String, java.lang.String)[pri:2, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="verifyHRMSClickOnCasteHRMS_EMP_C_CR_TC_01_2" duration-ms="17311" started-at="2017-10-27T17:59:35Z" description="HRMS_EMP_C_CR_TC_01.2" data-provider="admin" finished-at="2017-10-27T17:59:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Caste button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Cast dashboard successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSClickOnCasteHRMS_EMP_C_CR_TC_01_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="logoutHRMS" is-config="true" duration-ms="1100" started-at="2017-10-27T17:59:52Z" finished-at="2017-10-27T17:59:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="openBrowser" is-config="true" duration-ms="5272" started-at="2017-10-27T17:59:53Z" finished-at="2017-10-27T17:59:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnCasteValidDataHRMS_EMP__C_CR_TC_02(java.lang.String, java.lang.String)[pri:3, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="verifySaveFunctionaltyOnCasteValidDataHRMS_EMP__C_CR_TC_02" duration-ms="24234" started-at="2017-10-27T17:59:58Z" description="HRMS_EMP__C_CR_TC_02" data-provider="admin" finished-at="2017-10-27T18:00:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Caste button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Cast dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[Caste Name:Brahmin]]>
+            </line>
+            <line>
+              <![CDATA[click on Category dropdown successfuly]]>
+            </line>
+            <line>
+              <![CDATA[select Category successfuly]]>
+            </line>
+            <line>
+              <![CDATA[click on save button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnCasteValidDataHRMS_EMP__C_CR_TC_02 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="logoutHRMS" is-config="true" duration-ms="1164" started-at="2017-10-27T18:00:23Z" finished-at="2017-10-27T18:00:24Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="openBrowser" is-config="true" duration-ms="5128" started-at="2017-10-27T18:00:24Z" finished-at="2017-10-27T18:00:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnCasteInvalidDataHRMS_EMP__C_CR_TC_02_1(java.lang.String, java.lang.String)[pri:4, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="verifySaveFunctionaltyOnCasteInvalidDataHRMS_EMP__C_CR_TC_02_1" duration-ms="23577" started-at="2017-10-27T18:00:29Z" description="HRMS_EMP__C_CR_TC_02.1" data-provider="admin" finished-at="2017-10-27T18:00:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Caste button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Cast dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[Caste Name:!@#$%^]]>
+            </line>
+            <line>
+              <![CDATA[click on save button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnCasteInvalidDataHRMS_EMP__C_CR_TC_02_1 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="logoutHRMS" is-config="true" duration-ms="1163" started-at="2017-10-27T18:00:53Z" finished-at="2017-10-27T18:00:54Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="openBrowser" is-config="true" duration-ms="5468" started-at="2017-10-27T18:00:54Z" finished-at="2017-10-27T18:00:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnCasteBlankDataHRMS_EMP__C_CR_TC_02_2(java.lang.String, java.lang.String)[pri:5, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="verifySaveFunctionaltyOnCasteBlankDataHRMS_EMP__C_CR_TC_02_2" duration-ms="23224" started-at="2017-10-27T18:00:59Z" description="HRMS_EMP__C_CR_TC_02.2" data-provider="admin" finished-at="2017-10-27T18:01:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Caste button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Cast dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[Caste Name:]]>
+            </line>
+            <line>
+              <![CDATA[click on save button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnCasteBlankDataHRMS_EMP__C_CR_TC_02_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="logoutHRMS" is-config="true" duration-ms="1205" started-at="2017-10-27T18:01:23Z" finished-at="2017-10-27T18:01:24Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="openBrowser" is-config="true" duration-ms="5453" started-at="2017-10-27T18:01:24Z" finished-at="2017-10-27T18:01:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyDiscardFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03(java.lang.String, java.lang.String)[pri:6, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="verifyDiscardFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03" duration-ms="17043" started-at="2017-10-27T18:01:29Z" description="HRMS_EMP__C_CR_TC_03" data-provider="admin" finished-at="2017-10-27T18:01:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Caste button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Cast dashboard successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyDiscardFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="logoutHRMS" is-config="true" duration-ms="1283" started-at="2017-10-27T18:01:46Z" finished-at="2017-10-27T18:01:48Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="openBrowser" is-config="true" duration-ms="5502" started-at="2017-10-27T18:01:48Z" finished-at="2017-10-27T18:01:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyOkFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03_1(java.lang.String, java.lang.String)[pri:7, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="verifyOkFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03_1" duration-ms="18311" started-at="2017-10-27T18:01:53Z" description="HRMS_EMP__C_CR_TC_03.1" data-provider="admin" finished-at="2017-10-27T18:02:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Caste button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Cast dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[Caste Name:Brahmin]]>
+            </line>
+            <line>
+              <![CDATA[click on Caste Category dropdown successfuly]]>
+            </line>
+            <line>
+              <![CDATA[select Caste Category successfuly]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyOkFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03_1 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="logoutHRMS" is-config="true" duration-ms="1259" started-at="2017-10-27T18:02:11Z" finished-at="2017-10-27T18:02:13Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="openBrowser" is-config="true" duration-ms="5420" started-at="2017-10-27T18:02:13Z" finished-at="2017-10-27T18:02:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyCancelFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03_2(java.lang.String, java.lang.String)[pri:8, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="verifyCancelFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03_2" duration-ms="18477" started-at="2017-10-27T18:02:18Z" description="HRMS_EMP__C_CR_TC_03.2" data-provider="admin" finished-at="2017-10-27T18:02:37Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Caste button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Cast dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[Caste Name:Brahmin]]>
+            </line>
+            <line>
+              <![CDATA[click on Caste Category dropdown successfuly]]>
+            </line>
+            <line>
+              <![CDATA[select Caste Category successfuly]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyCancelFunctionaltyOnCasteHRMS_EMP__C_CR_TC_03_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module@528931cf]" name="logoutHRMS" is-config="true" duration-ms="498" started-at="2017-10-27T18:02:37Z" finished-at="2017-10-27T18:02:37Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Caste_Module -->
+    </test> <!-- login as admin to check Caste module -->
+    <test name="login as admin to check Category module" duration-ms="204937" started-at="2017-10-27T12:32:37Z" finished-at="2017-10-27T12:36:02Z">
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="openBrowser" is-config="true" duration-ms="5657" started-at="2017-10-27T18:02:37Z" finished-at="2017-10-27T18:02:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSLoginPageHRMS_EMP_CT_CR_TC_01(java.lang.String, java.lang.String)[pri:1, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="verifyHRMSLoginPageHRMS_EMP_CT_CR_TC_01" duration-ms="7294" started-at="2017-10-27T18:02:43Z" description="HRMS_EMP_CT_CR_TC_01 and HRMS_EMP_CT_CR_TC_01.1" data-provider="admin" finished-at="2017-10-27T18:02:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSLoginPageHRMS_EMP_CT_CR_TC_01 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="logoutHRMS" is-config="true" duration-ms="1279" started-at="2017-10-27T18:02:50Z" finished-at="2017-10-27T18:02:51Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="openBrowser" is-config="true" duration-ms="5552" started-at="2017-10-27T18:02:51Z" finished-at="2017-10-27T18:02:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSClickOnCategoryHRMS_EMP_CT_CR_TC_01_2(java.lang.String, java.lang.String)[pri:2, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="verifyHRMSClickOnCategoryHRMS_EMP_CT_CR_TC_01_2" duration-ms="17225" started-at="2017-10-27T18:02:57Z" description="HRMS_EMP_CT_CR_TC_01.2" data-provider="admin" finished-at="2017-10-27T18:03:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Category button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Category dashboard]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSClickOnCategoryHRMS_EMP_CT_CR_TC_01_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="logoutHRMS" is-config="true" duration-ms="1348" started-at="2017-10-27T18:03:14Z" finished-at="2017-10-27T18:03:16Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="openBrowser" is-config="true" duration-ms="5478" started-at="2017-10-27T18:03:16Z" finished-at="2017-10-27T18:03:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnCategoryValidDataHRMS_EMP_CT_CR_TC_02(java.lang.String, java.lang.String)[pri:3, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="verifySaveFunctionaltyOnCategoryValidDataHRMS_EMP_CT_CR_TC_02" duration-ms="23469" started-at="2017-10-27T18:03:21Z" description="HRMS_EMP_CT_CR_TC_02" data-provider="admin" finished-at="2017-10-27T18:03:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Category button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Category dashboard]]>
+            </line>
+            <line>
+              <![CDATA[Category:Handicapped]]>
+            </line>
+            <line>
+              <![CDATA[click on Save button succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnCategoryValidDataHRMS_EMP_CT_CR_TC_02 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="logoutHRMS" is-config="true" duration-ms="1330" started-at="2017-10-27T18:03:45Z" finished-at="2017-10-27T18:03:46Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="openBrowser" is-config="true" duration-ms="5460" started-at="2017-10-27T18:03:46Z" finished-at="2017-10-27T18:03:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnCategoryInvalidDataHRMS_EMP_CT_CR_TC_02_1(java.lang.String, java.lang.String)[pri:4, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="verifySaveFunctionaltyOnCategoryInvalidDataHRMS_EMP_CT_CR_TC_02_1" duration-ms="23760" started-at="2017-10-27T18:03:51Z" description="HRMS_EMP_CT_CR_TC_02.1" data-provider="admin" finished-at="2017-10-27T18:04:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Category button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Category dashboard]]>
+            </line>
+            <line>
+              <![CDATA[Category:!@#$%^]]>
+            </line>
+            <line>
+              <![CDATA[click on Save button succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnCategoryInvalidDataHRMS_EMP_CT_CR_TC_02_1 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="logoutHRMS" is-config="true" duration-ms="1346" started-at="2017-10-27T18:04:15Z" finished-at="2017-10-27T18:04:16Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="openBrowser" is-config="true" duration-ms="5587" started-at="2017-10-27T18:04:16Z" finished-at="2017-10-27T18:04:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_02_2(java.lang.String, java.lang.String)[pri:5, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="verifySaveFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_02_2" duration-ms="23229" started-at="2017-10-27T18:04:22Z" description="HRMS_EMP_CT_CR_TC_02.2" data-provider="admin" finished-at="2017-10-27T18:04:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Category button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Category dashboard]]>
+            </line>
+            <line>
+              <![CDATA[Category:]]>
+            </line>
+            <line>
+              <![CDATA[click on Save button succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_02_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="logoutHRMS" is-config="true" duration-ms="2355" started-at="2017-10-27T18:04:45Z" finished-at="2017-10-27T18:04:48Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="openBrowser" is-config="true" duration-ms="5740" started-at="2017-10-27T18:04:48Z" finished-at="2017-10-27T18:04:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyDiscardFunctionaltyOnCategoryHRMS_EMP_CT_CR_TC_03(java.lang.String, java.lang.String)[pri:6, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="verifyDiscardFunctionaltyOnCategoryHRMS_EMP_CT_CR_TC_03" duration-ms="17152" started-at="2017-10-27T18:04:53Z" description="HRMS_EMP_CT_CR_TC_03" data-provider="admin" finished-at="2017-10-27T18:05:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Category button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Category dashboard]]>
+            </line>
+            <line>
+              <![CDATA[click on Discard button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyDiscardFunctionaltyOnCategoryHRMS_EMP_CT_CR_TC_03 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="logoutHRMS" is-config="true" duration-ms="1731" started-at="2017-10-27T18:05:11Z" finished-at="2017-10-27T18:05:12Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="openBrowser" is-config="true" duration-ms="5523" started-at="2017-10-27T18:05:12Z" finished-at="2017-10-27T18:05:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyOkFunctionaltyOnCategoryHRMS_EMP_CT_CR_TC_03_1(java.lang.String, java.lang.String)[pri:7, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="verifyOkFunctionaltyOnCategoryHRMS_EMP_CT_CR_TC_03_1" duration-ms="17582" started-at="2017-10-27T18:05:18Z" description="HRMS_EMP_CT_CR_TC_03.1" data-provider="admin" finished-at="2017-10-27T18:05:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Category button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Category dashboard]]>
+            </line>
+            <line>
+              <![CDATA[click on Discard button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Ok button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyOkFunctionaltyOnCategoryHRMS_EMP_CT_CR_TC_03_1 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="logoutHRMS" is-config="true" duration-ms="1295" started-at="2017-10-27T18:05:35Z" finished-at="2017-10-27T18:05:37Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="openBrowser" is-config="true" duration-ms="5594" started-at="2017-10-27T18:05:37Z" finished-at="2017-10-27T18:05:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyCancelFunctionaltyOnCategoryHRMS_EMP_CT_CR_TC_03_2(java.lang.String, java.lang.String)[pri:8, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="verifyCancelFunctionaltyOnCategoryHRMS_EMP_CT_CR_TC_03_2" duration-ms="17383" started-at="2017-10-27T18:05:42Z" description="HRMS_EMP_CT_CR_TC_03.2" data-provider="admin" finished-at="2017-10-27T18:06:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Category button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Category dashboard]]>
+            </line>
+            <line>
+              <![CDATA[click on Discard button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Cancel button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyCancelFunctionaltyOnCategoryHRMS_EMP_CT_CR_TC_03_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module@2173f6d9]" name="logoutHRMS" is-config="true" duration-ms="2296" started-at="2017-10-27T18:06:00Z" finished-at="2017-10-27T18:06:02Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module -->
+    </test> <!-- login as admin to check Category module -->
+    <test name="login as admin to check Employee Group module" duration-ms="224634" started-at="2017-10-27T12:36:02Z" finished-at="2017-10-27T12:39:47Z">
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="openBrowser" is-config="true" duration-ms="5764" started-at="2017-10-27T18:06:02Z" finished-at="2017-10-27T18:06:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSLoginPageHRMS_EMP_EGP_CR_TC_01(java.lang.String, java.lang.String)[pri:1, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="verifyHRMSLoginPageHRMS_EMP_EGP_CR_TC_01" duration-ms="7549" started-at="2017-10-27T18:06:08Z" description="HRMS_EMP_EGP_CR_TC_01 and HRMS_EMP_EGP_CR_TC_01.1" data-provider="admin" finished-at="2017-10-27T18:06:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSLoginPageHRMS_EMP_EGP_CR_TC_01 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="logoutHRMS" is-config="true" duration-ms="1388" started-at="2017-10-27T18:06:15Z" finished-at="2017-10-27T18:06:17Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="openBrowser" is-config="true" duration-ms="5482" started-at="2017-10-27T18:06:17Z" finished-at="2017-10-27T18:06:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSClickOnEmployeeGroupHRMS_EMP_EGP_CR_TC_01_2(java.lang.String, java.lang.String)[pri:2, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="verifyHRMSClickOnEmployeeGroupHRMS_EMP_EGP_CR_TC_01_2" duration-ms="17214" started-at="2017-10-27T18:06:22Z" description="HRMS_EMP_EGP_CR_TC_01.2" data-provider="admin" finished-at="2017-10-27T18:06:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee Group button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Employee Group dashboard ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSClickOnEmployeeGroupHRMS_EMP_EGP_CR_TC_01_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="logoutHRMS" is-config="true" duration-ms="1282" started-at="2017-10-27T18:06:40Z" finished-at="2017-10-27T18:06:41Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="openBrowser" is-config="true" duration-ms="5632" started-at="2017-10-27T18:06:41Z" finished-at="2017-10-27T18:06:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnEmployeeGroupValidDataHRMS_EMP_EGP_CR_TC_02(java.lang.String, java.lang.String)[pri:3, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="verifySaveFunctionaltyOnEmployeeGroupValidDataHRMS_EMP_EGP_CR_TC_02" duration-ms="26591" started-at="2017-10-27T18:06:46Z" description="HRMS_EMP_EGP_CR_TC_02" data-provider="admin" finished-at="2017-10-27T18:07:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee Group button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Employee Group dashboard ]]>
+            </line>
+            <line>
+              <![CDATA[Employee Group:class6]]>
+            </line>
+            <line>
+              <![CDATA[click on save button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnEmployeeGroupValidDataHRMS_EMP_EGP_CR_TC_02 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="logoutHRMS" is-config="true" duration-ms="1382" started-at="2017-10-27T18:07:13Z" finished-at="2017-10-27T18:07:14Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="openBrowser" is-config="true" duration-ms="5463" started-at="2017-10-27T18:07:14Z" finished-at="2017-10-27T18:07:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnEmployeeGroupInvalidDataHRMS_EMP_EGP_CR_TC_02_1(java.lang.String, java.lang.String)[pri:4, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="verifySaveFunctionaltyOnEmployeeGroupInvalidDataHRMS_EMP_EGP_CR_TC_02_1" duration-ms="26413" started-at="2017-10-27T18:07:20Z" description="HRMS_EMP_EGP_CR_TC_02.1" data-provider="admin" finished-at="2017-10-27T18:07:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee Group button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Employee Group dashboard ]]>
+            </line>
+            <line>
+              <![CDATA[Employee Group:!@#$%^]]>
+            </line>
+            <line>
+              <![CDATA[click on save button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnEmployeeGroupInvalidDataHRMS_EMP_EGP_CR_TC_02_1 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="logoutHRMS" is-config="true" duration-ms="2327" started-at="2017-10-27T18:07:46Z" finished-at="2017-10-27T18:07:49Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="openBrowser" is-config="true" duration-ms="5730" started-at="2017-10-27T18:07:49Z" finished-at="2017-10-27T18:07:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnEmployeeGroupBlankDataHRMS_EMP_EGP_CR_TC_02_2(java.lang.String, java.lang.String)[pri:5, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="verifySaveFunctionaltyOnEmployeeGroupBlankDataHRMS_EMP_EGP_CR_TC_02_2" duration-ms="23203" started-at="2017-10-27T18:07:54Z" description="HRMS_EMP_EGP_CR_TC_02.2" data-provider="admin" finished-at="2017-10-27T18:08:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee Group button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Employee Group dashboard ]]>
+            </line>
+            <line>
+              <![CDATA[Employee Group:]]>
+            </line>
+            <line>
+              <![CDATA[click on save button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnEmployeeGroupBlankDataHRMS_EMP_EGP_CR_TC_02_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="logoutHRMS" is-config="true" duration-ms="1370" started-at="2017-10-27T18:08:18Z" finished-at="2017-10-27T18:08:19Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="openBrowser" is-config="true" duration-ms="5565" started-at="2017-10-27T18:08:19Z" finished-at="2017-10-27T18:08:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyDiscardFunctionaltyOnEmployeeGroupHRMS_EMP_EGP_CR_TC_03(java.lang.String, java.lang.String)[pri:6, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="verifyDiscardFunctionaltyOnEmployeeGroupHRMS_EMP_EGP_CR_TC_03" duration-ms="17322" started-at="2017-10-27T18:08:25Z" description="HRMS_EMP_EGP_CR_TC_03" data-provider="admin" finished-at="2017-10-27T18:08:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee Group button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Employee Group dashboard ]]>
+            </line>
+            <line>
+              <![CDATA[click on Discard button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyDiscardFunctionaltyOnEmployeeGroupHRMS_EMP_EGP_CR_TC_03 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="logoutHRMS" is-config="true" duration-ms="1344" started-at="2017-10-27T18:08:42Z" finished-at="2017-10-27T18:08:43Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="openBrowser" is-config="true" duration-ms="5547" started-at="2017-10-27T18:08:43Z" finished-at="2017-10-27T18:08:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyOkFunctionaltyOnEmployeeGroupHRMS_EMP_EGP_CR_TC_03_1(java.lang.String, java.lang.String)[pri:7, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="verifyOkFunctionaltyOnEmployeeGroupHRMS_EMP_EGP_CR_TC_03_1" duration-ms="23591" started-at="2017-10-27T18:08:49Z" description="HRMS_EMP_EGP_CR_TC_03.1" data-provider="admin" finished-at="2017-10-27T18:09:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee Group button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Employee Group dashboard ]]>
+            </line>
+            <line>
+              <![CDATA[Employee Group:class6]]>
+            </line>
+            <line>
+              <![CDATA[click on Discard button sucessfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Ok button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyOkFunctionaltyOnEmployeeGroupHRMS_EMP_EGP_CR_TC_03_1 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="logoutHRMS" is-config="true" duration-ms="2514" started-at="2017-10-27T18:09:12Z" finished-at="2017-10-27T18:09:15Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="openBrowser" is-config="true" duration-ms="5697" started-at="2017-10-27T18:09:15Z" finished-at="2017-10-27T18:09:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyCancelFunctionaltyOnEmployeeGroupHRMS_EMP_EGP_CR_TC_03_2(java.lang.String, java.lang.String)[pri:8, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="verifyCancelFunctionaltyOnEmployeeGroupHRMS_EMP_EGP_CR_TC_03_2" duration-ms="23464" started-at="2017-10-27T18:09:21Z" description="HRMS_EMP_EGP_CR_TC_03.2" data-provider="admin" finished-at="2017-10-27T18:09:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee Group button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Employee Group dashboard ]]>
+            </line>
+            <line>
+              <![CDATA[Employee Group:class6]]>
+            </line>
+            <line>
+              <![CDATA[click on Discard button sucessfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Cancel button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyCancelFunctionaltyOnEmployeeGroupHRMS_EMP_EGP_CR_TC_03_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@42f93a98]" name="logoutHRMS" is-config="true" duration-ms="2536" started-at="2017-10-27T18:09:44Z" finished-at="2017-10-27T18:09:47Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module -->
+    </test> <!-- login as admin to check Employee Group module -->
+    <test name="login as admin to check Investment Master module" duration-ms="212089" started-at="2017-10-27T12:39:47Z" finished-at="2017-10-27T12:43:19Z">
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="openBrowser" is-config="true" duration-ms="5821" started-at="2017-10-27T18:09:47Z" finished-at="2017-10-27T18:09:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSLoginPageHRMS_EMP_IM_CR_TC_01(java.lang.String, java.lang.String)[pri:1, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="verifyHRMSLoginPageHRMS_EMP_IM_CR_TC_01" duration-ms="7477" started-at="2017-10-27T18:09:53Z" description="HRMS_EMP_IM_CR_TC_01 and HRMS_EMP_IM_CR_TC_01.1" data-provider="admin" finished-at="2017-10-27T18:10:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSLoginPageHRMS_EMP_IM_CR_TC_01 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="logoutHRMS" is-config="true" duration-ms="1502" started-at="2017-10-27T18:10:00Z" finished-at="2017-10-27T18:10:02Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="openBrowser" is-config="true" duration-ms="5515" started-at="2017-10-27T18:10:02Z" finished-at="2017-10-27T18:10:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSClickOnInvestmentMasterHRMS_EMP_IM_CR_TC_01_2(java.lang.String, java.lang.String)[pri:2, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="verifyHRMSClickOnInvestmentMasterHRMS_EMP_IM_CR_TC_01_2" duration-ms="17263" started-at="2017-10-27T18:10:07Z" description="HRMS_EMP_IM_CR_TC_01.2" data-provider="admin" finished-at="2017-10-27T18:10:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Investment Master button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSClickOnInvestmentMasterHRMS_EMP_IM_CR_TC_01_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="logoutHRMS" is-config="true" duration-ms="2341" started-at="2017-10-27T18:10:24Z" finished-at="2017-10-27T18:10:27Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="openBrowser" is-config="true" duration-ms="5639" started-at="2017-10-27T18:10:27Z" finished-at="2017-10-27T18:10:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionalityOnInvestmentMasterValidDataHRMS_EMP_IM_CR_TC_02(java.lang.String, java.lang.String)[pri:3, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="verifySaveFunctionalityOnInvestmentMasterValidDataHRMS_EMP_IM_CR_TC_02" duration-ms="24231" started-at="2017-10-27T18:10:32Z" description="HRMS_EMP_IM_CR_TC_02" data-provider="admin" finished-at="2017-10-27T18:10:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Investment Master button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[Investment Head:8000CCCC]]>
+            </line>
+            <line>
+              <![CDATA[Description:cont to PICC]]>
+            </line>
+            <line>
+              <![CDATA[click on Section Head dropdown successfuly]]>
+            </line>
+            <line>
+              <![CDATA[select Section Head successfuly]]>
+            </line>
+            <line>
+              <![CDATA[click on save button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionalityOnInvestmentMasterValidDataHRMS_EMP_IM_CR_TC_02 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="logoutHRMS" is-config="true" duration-ms="2575" started-at="2017-10-27T18:10:57Z" finished-at="2017-10-27T18:10:59Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="openBrowser" is-config="true" duration-ms="6486" started-at="2017-10-27T18:10:59Z" finished-at="2017-10-27T18:11:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionalityOnInvestmentBlankDataHRMS_EMP_IM_CR_TC_02_1(java.lang.String, java.lang.String)[pri:4, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="verifySaveFunctionalityOnInvestmentBlankDataHRMS_EMP_IM_CR_TC_02_1" duration-ms="23508" started-at="2017-10-27T18:11:06Z" description="HRMS_EMP_IM_CR_TC_02.1" data-provider="admin" finished-at="2017-10-27T18:11:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Investment Master button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[Description:cont to Lpppp]]>
+            </line>
+            <line>
+              <![CDATA[click on Section Head dropdown successfuly]]>
+            </line>
+            <line>
+              <![CDATA[click on save button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionalityOnInvestmentBlankDataHRMS_EMP_IM_CR_TC_02_1 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="logoutHRMS" is-config="true" duration-ms="2327" started-at="2017-10-27T18:11:29Z" finished-at="2017-10-27T18:11:32Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="openBrowser" is-config="true" duration-ms="5676" started-at="2017-10-27T18:11:32Z" finished-at="2017-10-27T18:11:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionalityOnDescriptionBlankDataHRMS_EMP_IM_CR_TC_02_2(java.lang.String, java.lang.String)[pri:5, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="verifySaveFunctionalityOnDescriptionBlankDataHRMS_EMP_IM_CR_TC_02_2" duration-ms="24415" started-at="2017-10-27T18:11:37Z" description="HRMS_EMP_IM_CR_TC_02.2" data-provider="admin" finished-at="2017-10-27T18:12:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Investment Master button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[Investment Head:Infrastructure Bond 800CCCF]]>
+            </line>
+            <line>
+              <![CDATA[click on Section Head dropdown successfuly]]>
+            </line>
+            <line>
+              <![CDATA[select Section Head successfuly]]>
+            </line>
+            <line>
+              <![CDATA[click on save button sucessfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionalityOnDescriptionBlankDataHRMS_EMP_IM_CR_TC_02_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="logoutHRMS" is-config="true" duration-ms="2633" started-at="2017-10-27T18:12:02Z" finished-at="2017-10-27T18:12:04Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="openBrowser" is-config="true" duration-ms="5485" started-at="2017-10-27T18:12:04Z" finished-at="2017-10-27T18:12:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyDiscardFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03(java.lang.String, java.lang.String)[pri:6, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="verifyDiscardFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03" duration-ms="17079" started-at="2017-10-27T18:12:10Z" description="HRMS_EMP_IM_CR_TC_03" data-provider="admin" finished-at="2017-10-27T18:12:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Investment Master button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discard button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyDiscardFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="logoutHRMS" is-config="true" duration-ms="1202" started-at="2017-10-27T18:12:27Z" finished-at="2017-10-27T18:12:28Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="openBrowser" is-config="true" duration-ms="5260" started-at="2017-10-27T18:12:28Z" finished-at="2017-10-27T18:12:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyOkFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_1(java.lang.String, java.lang.String)[pri:7, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="verifyOkFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_1" duration-ms="18667" started-at="2017-10-27T18:12:33Z" description="HRMS_EMP_IM_CR_TC_03.1" data-provider="admin" finished-at="2017-10-27T18:12:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Investment Master button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[enter the value in the Investment Head Input box successfuly]]>
+            </line>
+            <line>
+              <![CDATA[enter the Valid value in the Description Input box successfuly]]>
+            </line>
+            <line>
+              <![CDATA[click on Section Head dropdown successfuly]]>
+            </line>
+            <line>
+              <![CDATA[select Section Head successfuly]]>
+            </line>
+            <line>
+              <![CDATA[click on discard button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Ok dropdown successfuly]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyOkFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_1 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="logoutHRMS" is-config="true" duration-ms="1201" started-at="2017-10-27T18:12:52Z" finished-at="2017-10-27T18:12:53Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="openBrowser" is-config="true" duration-ms="5345" started-at="2017-10-27T18:12:53Z" finished-at="2017-10-27T18:12:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyCancelFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_2(java.lang.String, java.lang.String)[pri:7, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="verifyCancelFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_2" duration-ms="17898" started-at="2017-10-27T18:12:59Z" description="HRMS_EMP_IM_CR_TC_03.2" data-provider="admin" finished-at="2017-10-27T18:13:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Investment Master button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Investment Master dashboard successfully]]>
+            </line>
+            <line>
+              <![CDATA[enter the value in the Investment Head Input box successfuly]]>
+            </line>
+            <line>
+              <![CDATA[enter the Valid value in the Description Input box successfuly]]>
+            </line>
+            <line>
+              <![CDATA[click on Section Head dropdown successfuly]]>
+            </line>
+            <line>
+              <![CDATA[click on discard button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Cancel dropdown successfuly]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyCancelFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module@27808f31]" name="logoutHRMS" is-config="true" duration-ms="2291" started-at="2017-10-27T18:13:17Z" finished-at="2017-10-27T18:13:19Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Investment_Master_Module -->
+    </test> <!-- login as admin to check Investment Master module -->
+    <test name="login as admin to check Employee Grade module" duration-ms="35498" started-at="2017-10-27T12:43:19Z" finished-at="2017-10-27T12:43:54Z">
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Grade_Module">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Grade_Module@58c1670b]" name="openBrowser" is-config="true" duration-ms="5612" started-at="2017-10-27T18:13:19Z" finished-at="2017-10-27T18:13:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSLoginPageHRMS_EMP_EG_CR_TC_01(java.lang.String, java.lang.String)[pri:1, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Grade_Module@58c1670b]" name="verifyHRMSLoginPageHRMS_EMP_EG_CR_TC_01" duration-ms="7949" started-at="2017-10-27T18:13:24Z" description="HRMS_EMP_EG_CR_TC_01 and HRMS_EMP_EG_CR_TC_01.1" data-provider="admin" finished-at="2017-10-27T18:13:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSLoginPageHRMS_EMP_EG_CR_TC_01 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Grade_Module@58c1670b]" name="logoutHRMS" is-config="true" duration-ms="1146" started-at="2017-10-27T18:13:32Z" finished-at="2017-10-27T18:13:34Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Grade_Module@58c1670b]" name="openBrowser" is-config="true" duration-ms="5248" started-at="2017-10-27T18:13:34Z" finished-at="2017-10-27T18:13:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSClickOnEmployeeGradeHRMS_EMP_EG_CR_TC_01_2(java.lang.String, java.lang.String)[pri:2, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Grade_Module@58c1670b]" name="verifyHRMSClickOnEmployeeGradeHRMS_EMP_EG_CR_TC_01_2" duration-ms="14277" started-at="2017-10-27T18:13:39Z" description="HRMS_EMP_EG_CR_TC_01.2" data-provider="admin" finished-at="2017-10-27T18:13:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee Grade button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Name:Gazetted]]>
+            </line>
+            <line>
+              <![CDATA[Name:Non Gazetted]]>
+            </line>
+            <line>
+              <![CDATA[Name: ]]>
+            </line>
+            <line>
+              <![CDATA[Name: ]]>
+            </line>
+            <line>
+              <![CDATA[Description:Gazetted]]>
+            </line>
+            <line>
+              <![CDATA[Description:non Gazetted]]>
+            </line>
+            <line>
+              <![CDATA[Description: ]]>
+            </line>
+            <line>
+              <![CDATA[Description: ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSClickOnEmployeeGradeHRMS_EMP_EG_CR_TC_01_2 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Grade_Module@58c1670b]" name="logoutHRMS" is-config="true" duration-ms="1224" started-at="2017-10-27T18:13:53Z" finished-at="2017-10-27T18:13:54Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton succesfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Grade_Module -->
+    </test> <!-- login as admin to check Employee Grade module -->
+  </suite> <!-- Suite -->
+</testng-results>

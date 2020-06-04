@@ -1,0 +1,9 @@
+package com.utility;
+/*
+  @ this represents the global variable
+ */
+public interface GlobalVariable {
+	String url = "https://agrichain.com/qa/input";
+	String browser = "chrome";
+
+}

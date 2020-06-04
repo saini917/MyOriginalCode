@@ -1,0 +1,46 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyFloorNumberField_SC_05_TC_05 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "FLOOR NUMBER".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/select[@title='Floor Number']")
+	private WebElement floornumber;
+
+	public void verifyFloorNumber() throws InterruptedException
+	{
+		try
+		{
+			wait.until(ExpectedConditions.visibilityOf(floornumber));
+			wait.until(ExpectedConditions.elementToBeClickable(floornumber));
+			HighlightOnElement(floornumber);
+			Assert.assertTrue(floornumber.isDisplayed(),"FLOOR NUMBER is displayed");
+			Assert.assertTrue(floornumber.isEnabled(),"FLOOR NUMBER  is enabled");
+			SelectVisibleText(floornumber,"FLOOR117");
+			Reporter.log("Action is performed on Floor Number",true);
+		}
+		catch(StaleElementReferenceException e)
+		{
+			e.printStackTrace();
+		}
+	}
+}

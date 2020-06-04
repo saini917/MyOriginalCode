@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="login as admin to check Employee module(failed)">
+    <classes>
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Employee_Module">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="logoutHRMS"/>
+          <include name="verifyHRMSClickOnEmployeeCreateHRMS_EMP_EMP_CR_TC_01" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Employee_Module -->
+    </classes>
+  </test> <!-- login as admin to check Employee module(failed) -->
+</suite> <!-- Failed suite [Suite] -->

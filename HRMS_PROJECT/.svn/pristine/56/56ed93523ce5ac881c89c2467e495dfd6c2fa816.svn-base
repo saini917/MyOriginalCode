@@ -1,0 +1,52 @@
+<table border='1'>
+<tr>
+<th>Class name</th>
+<th>Method name</th>
+<th>Groups</th>
+</tr><tr>
+<td>HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module</td>
+<td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr>
+<td align='center' colspan='3'>@Test</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifySaveFunctionaltyOnEmployeeGroupInvalidDataHRMS_EMP_C_CR_TC_02_1</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifyHRMSClickOnEmployeeGroupHRMS_EMP_C_CR_TC_01_2</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifySaveFunctionaltyOnEmployeeGroupValidDataHRMS_EMP_C_CR_TC_02</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifySaveFunctionaltyOnEmployeeGroupBlankDataHRMS_EMP_C_CR_TC_02_2</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td align='center' colspan='3'>@BeforeClass</td>
+</tr>
+<tr>
+<td align='center' colspan='3'>@BeforeMethod</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>openBrowser</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td align='center' colspan='3'>@AfterMethod</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>logoutWS</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td align='center' colspan='3'>@AfterClass</td>
+</tr>
+</table>

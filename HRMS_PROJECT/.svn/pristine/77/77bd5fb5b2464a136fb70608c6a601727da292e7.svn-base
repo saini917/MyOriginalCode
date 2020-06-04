@@ -1,0 +1,79 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Admin_Sc_05 extends WebdriverCommonDriverLibrary
+{
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Initiator Employee Appraisal Table"
+	 * @author deepak.saini
+	 * @since 2017-11-14
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_main_content']/div/div/div/div/table/tbody")
+	private WebElement mytable;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Checkbox"
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_main_content']/div/div/div/div/table/tbody/tr/td/div/input")
+	private List<WebElement> checkboxlist;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Action Dropdown"
+	 * @author deepak.saini
+	 * @since 2017-11-15
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_main']/div/div/div/div/div/div/button[contains(text(),'Action')]/span")
+	private WebElement Actiondrop;
+	
+	@FindBy(xpath="//div[@class='o_main']/div/div/div/div/div/div/button[contains(text(),'Action')]/span/../following-sibling::ul/li/a[contains(text(),'Delete')]")
+	private WebElement Actiondeletebtn;
+	
+	public void verifyDeleteBtnFunc() throws InterruptedException
+	{
+		List < WebElement > rows_table = mytable.findElements(By.tagName("tr"));
+		int rows_count = rows_table.size();
+		for (int row = 0; row < rows_count; row++) 
+		{
+			List < WebElement > Columns_row = rows_table.get(row).findElements(By.tagName("td"));
+			int columns_count = Columns_row.size();
+			for (int column = 0; column <columns_count; column++) 
+			{
+				String celltext = Columns_row.get(column).getText();
+				if(celltext.equalsIgnoreCase("ACR for Month Feb"))
+				{
+					Reporter.log("Expected result:"+celltext,true);
+					checkboxlist.get(row).click();
+				}
+			}
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(Actiondrop));
+		HighlightOnElement(Actiondrop);
+		Actiondrop.click();
+		Reporter.log("click on Action button successfully",true);
+		wait.until(ExpectedConditions.elementToBeClickable(Actiondeletebtn));
+		HighlightOnElement(Actiondeletebtn);
+		Actiondeletebtn.click();
+		Reporter.log("click on Delete button under Action Dropdown successfully",true);
+		acceptAlert();
+	}
+
+}

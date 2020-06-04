@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<test name="LOGIN AS H.O.D TO VERIFY LOGIN CREDENTIALS">
+	<classes>
+		<class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+			<methods>
+       			<include name="HRMS_EMP_EMP_TR_SC_01_TC_01"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS H.O.D TO VERIFY ACR LINK">
+	<classes>
+		<class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+			<methods>
+       			<include name="HRMS_EMP_EMP_TR_SC_02_TC_01"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS H.O.D TO VERIFY TRANSFER LINK">
+	<classes>
+		<class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+			<methods>
+       			<include name="HRMS_EMP_EMP_TR_SC_02_TC_02"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS H.O.D TO VERIFY TRANSFER INITIATOR">
+	<classes>
+		<class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+			<methods>
+       			<include name="HRMS_EMP_EMP_TR_SC_02_TC_03"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS H.O.D TO VERIFY CREATE BUTTON">
+	<classes>
+		<class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+			<methods>
+       			<include name="HRMS_EMP_EMP_TR_SC_02_TC_04"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS H.O.D TO VERIFY DESCRIPTION FIELD">
+	<classes>
+		<class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+			<methods>
+       			<include name="HRMS_EMP_EMP_TR_SC_02_TC_05"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS H.O.D TO VERIFY SANCTION ORDER NO FIELD">
+	<classes>
+		<class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+			<methods>
+       			<include name="HRMS_EMP_EMP_TR_SC_02_TC_06"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS H.O.D TO VERIFY CREATE DATE">
+	<classes>
+		<class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+			<methods>
+       			<include name="HRMS_EMP_EMP_TR_SC_02_TC_07"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS H.O.D TO VERIFY EFFECTIVE DATE">
+	<classes>
+		<class name="HRMS_ERP_TRANSFER_SCRIPT.HRMS_ERP_Transfer_HOD_Module">
+			<methods>
+       			<include name="HRMS_EMP_EMP_TR_SC_02_TC_08"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ </suite>
+ 

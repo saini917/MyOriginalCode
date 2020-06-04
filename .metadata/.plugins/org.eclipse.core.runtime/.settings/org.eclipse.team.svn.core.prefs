@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/409c24c0ae58001a14d5a48ea90bf1a1=409c24c0ae58001a14d5a48ea90bf1a1;https\://192.168.158.22/svn/Automation-NRDA/NRDA_PROJECT;https\://192.168.158.22/svn/Automation-NRDA/NRDA_PROJECT;branches;tags;trunk;true;;;;false;;;0
+repositories/80170ba6ae58001a14d5a48ea90bf1a1=80170ba6ae58001a14d5a48ea90bf1a1;https\://192.168.158.22/svn/Automation-NRDA/HRMS_PROJECT;https\://192.168.158.22/svn/Automation-NRDA/HRMS_PROJECT;branches;tags;trunk;true;;;;false;;;0

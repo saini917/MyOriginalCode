@@ -1,0 +1,79 @@
+package NRDA_NewConnection;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_03_TC_70 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	
+
+	
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Application Status"
+	 * @author deepak saini
+	 * @Date: 02-01-2018
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='leftCol']/span/div/div/div/ul/li/a[contains(text(),'Application Status/आवेदन की स्थिति')]")
+	private WebElement applicationstatus;
+	
+	public void clickOnApplicationStatus() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(applicationstatus));
+		wait.until(ExpectedConditions.elementToBeClickable(applicationstatus));
+		HighlightOnElement(applicationstatus);
+		applicationstatus.click();
+		waitForSomeTime();
+		Reporter.log("Go to Application Status  , will view 3 icons i.e Submitted , Drafted , Transfered Applications \n  Go to Drafted applications > Water & Sewerage connection",true);
+	}
+	
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "click on drafted application drop"
+	 * @author deepak saini
+	 * @Date: 02-01-2018
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/div/h3/a[contains(text(),'Drafted Applications')]/preceding-sibling::span")
+	private WebElement draftedApplicationdrop;
+	
+	public void clickOnDraftedApplication()
+	{
+		wait.until(ExpectedConditions.visibilityOf(draftedApplicationdrop));
+		wait.until(ExpectedConditions.elementToBeClickable(draftedApplicationdrop));
+		HighlightOnElement(draftedApplicationdrop);
+		Actions act=new Actions(driver);
+		act.click(draftedApplicationdrop).build().perform();
+		Reporter.log("Go to Drafted applications > Water & Sewerage connection",true);
+	}
+	
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "water and sewrage connection"
+	 * @author deepak saini
+	 * @Date: 02-01-2018
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/div/h3/a[contains(text(),'Drafted Applications')]/preceding-sibling::span/../following-sibling::div/div/h3/a[contains(text(),'WATER AND SEWERAGE CONNECTION')]")
+	private WebElement waterandsewerge;
+	
+	public void verifyWaterAndSewerageConnectionExit()
+	{
+		wait.until(ExpectedConditions.visibilityOf(waterandsewerge));
+		wait.until(ExpectedConditions.elementToBeClickable(waterandsewerge));
+		HighlightOnElement(waterandsewerge);
+		Reporter.log("1. Verify that a succesfull message is shown in an application. \n 2. User should be able to trace the drafted application under 'Drafted Application' menu. \n i.e Application Status > Drafted Application > Water & Sewerage connection",true);
+	}
+} 

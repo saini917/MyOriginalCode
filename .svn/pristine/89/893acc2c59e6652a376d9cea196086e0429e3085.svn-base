@@ -1,0 +1,1008 @@
+package WaterAndSewerageTransfer;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+/**
+ * @author Sarvesh.Nellore
+ * @Date: 07-10-2017
+ * @Purpose: WATER AND SEWERAGE TRANSFER LOGIN AS CITIZEN
+ */
+public class WaterAndSewerageTransferLoginAs_Citizen extends CommonLibrary
+	{
+
+		ExcelDataDriver excel=new ExcelDataDriver();
+		Logger log=Logger.getLogger("devpinoyLogger");
+	
+		/****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "DisConnection_Icon"
+		 * @author sarvesh.nellore
+		 * @Date: 25-09-2016
+		 */
+		/****************************************************************************************************/	
+		@FindBy(xpath="//img[@src='/NRDAuthority1/resources/images/transfer.png']")
+		private WebElement Transfer_Icon;
+
+		public void toverifyTransfer_Icon01() throws InterruptedException
+		{
+			waitForSomeTime();
+			HighlightOnElement(Transfer_Icon);
+			Assert.assertEquals(true,Transfer_Icon.isEnabled());
+			Assert.assertNotNull(Transfer_Icon,"Click on Transfer_Icon in Application of Water and Sewerage sucessfully");
+			Transfer_Icon.click();
+			waitForSomeTime();
+			Reporter.log(" To Verify Transfer_Icon Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+		}
+		
+		
+		public void toverifyTransfer_Icon_TC_01() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+		{
+			waitForSomeTime();
+			String Application_Number=excel.getExcelData1("Transfer", 0, 1);
+			System.out.println("Application NumberIs:"+Application_Number );
+			List<WebElement> allpages = driver.findElements(By.xpath("//div[@class='ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-overlay-visible']/div[2]/div/div/div/div[2]/span[4]/span"));
+			System.out.println("Total pages :" +allpages.size());
+			    
+			    boolean check = true;
+			    for(int i=1; i<=(allpages.size()); i++)
+			        {
+			    	List<WebElement> allrows = driver.findElements(By.xpath("//div[@class='ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-overlay-visible']/div[2]/div/div/div/div[1]/table/tbody/tr"));
+			            for(int row=1; row<=allrows.size(); row++)
+			                {
+			                    System.out.println("Total rows :" +allrows.size()); 
+			                    String name = driver.findElement(By.xpath("//div[@class='ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-overlay-visible']/div[2]/div/div/div/div[1]/table/tbody/tr["+row+"]/td[2]")).getText();
+			                    //System.out.println(name);
+			                    System.out.println("Row loop");
+			                    if(name.equals(Application_Number))
+			                        {
+			                            WebElement ApplicationNumber = driver.findElement(By.xpath("//div[@class='ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-overlay-visible']/div[2]/div/div/div/div[1]/table/tbody/tr["+row+"]/td[6]/a[@title='Transfer']"));
+			                            ApplicationNumber.click();
+			                            System.out.println("Element  exist");
+			                            check = false;
+			                            break;
+			                        }
+			                    else
+			                    {
+			                        System.out.println("Element doesn't exist");
+			                    }
+			               
+			                }
+
+			       
+			            if(check)
+			            {
+			            allpages.get(i).click();
+			            waitForSomeTime();
+			            }
+			      
+			           
+			        }
+			    waitForSomeTime();
+			    waitForSomeTime();
+		
+		}	
+		
+		
+		
+		
+		
+		
+
+		/*****************************************************************************************************/
+		/**
+		 * This is the xpath of the WebElement "MultipleDetailsTab".
+		 * @author Sarvesh.Nellore
+		 * @since 25-09-2016
+		 */
+		/*****************************************************************************************************/
+		@FindBy(xpath="//*[@id='form0:tabView']/ul/li/a")
+		private List<WebElement> MultipleDetailsTab;
+
+		public void toverifyAllConnectionDetailsTab01() throws InterruptedException
+
+		{
+
+			waitForSomeTime();
+			waitForSomeTime();
+			//HighlightOnElement1(MultipleDetailsTab);
+
+			for(WebElement multipleDetailsList:MultipleDetailsTab)
+			{
+				if(multipleDetailsList.isDisplayed())
+
+				{
+					HighlightOnElement(multipleDetailsList);
+					String MenuDetails=multipleDetailsList.getText();
+					Reporter.log("Menu list on New Application:"+MenuDetails,true);
+				}
+				
+
+			}
+			waitForSomeTime();
+
+		}
+		
+		
+		@FindBy(xpath="//a[contains(.,'New Consumer Details / नए किरायेदार का विवरण')]")
+		private WebElement NewConsumerDetailTab;
+		
+		
+		@FindBy(xpath="//span[@id='form0:tabView:id_panel_APPOUPLOADPHOTO']/div/div/label")
+		private WebElement applicant_photo;
+		
+		
+		@FindBy(xpath="(//input[@title='Aadhar Number' and@type='text'])[2]")
+		private WebElement Aadhaar_Number;
+		
+	
+		@FindBy(xpath="//html/body/form/div[1]/table/tbody/tr/td[2]/span/span/span/div/div[2]/div/div/div[5]/table/tbody/tr/td/table/tbody/tr[2]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/select")
+		private WebElement applicant_title;
+
+		
+		@FindBy(xpath="(//input[@title='First Name' and@type='text'])[2]")
+		private WebElement First_Name;
+		
+		
+		
+		@FindBy(xpath="(//input[@title='Middle Name' and@type='text'])[2]")
+		private WebElement Middle_Name;
+		
+		
+		@FindBy(xpath="(//input[@title='Last Name' and@type='text'])[2]")
+		private WebElement Last_Name;
+		
+		
+		@FindBy(xpath="(//input[@title='Mobile No.' and@type='text'])")
+		private WebElement Mobile_Number;
+		
+		
+		@FindBy(xpath="(//input[@title='E-Mail' and@type='text'])[2]")
+		private WebElement Email;
+				
+		@FindBy(xpath="//table [@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[9]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+		private WebElement ReciptLeaseRent;
+		
+		
+		@FindBy(xpath="//table [@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[8]/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+		private WebElement PropertyOwnerShipProof;
+		
+		@FindBy(xpath="//table [@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[8]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+		private WebElement Other_Document;
+		
+	
+		@FindBy(xpath="//table [@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[6]/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+		private WebElement NocFrom_Owner;
+	
+		@FindBy(xpath="//table [@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[7]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+		private WebElement Applicant_IDproof;
+		
+		@FindBy(xpath="(//table [@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[2]/td[1]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label)[1]")
+		private WebElement Applicant_IDproof_oldConsumer;
+		
+		@FindBy(xpath="(//table [@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label)[1]")
+		private WebElement Applicant_Addressproof_oldConsumer;
+		
+		
+		@FindBy(xpath="//table [@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr[7]/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td/span/div/div[1]/label")
+		private WebElement Applicant_Addressproof;
+		
+		@FindBy(xpath="//button[@title='Save application' and@type='submit']")
+		private WebElement SubmitButton;
+		
+		
+		
+		@FindBy(xpath="(//button[@title='Draft application' and@type='submit'])[5]")
+		private WebElement SaveAsDraft_Button;
+		
+	
+		@FindBy(xpath="(//button[@title='Go to previous page' and@type='button'])[5]")
+		private WebElement Back_Button;
+		
+
+		@FindBy(xpath="(//button[@title='Close application' and@type='submit'])[5]")
+		private WebElement Close_Button;
+		
+
+		@FindBy(xpath="//table[@style='width: 100%;border-collapse: collapse;border: 0;']/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td[1]/table/tbody/tr/td/span/label")
+		private List<WebElement> AllFields;
+		
+		
+		public void toverifyNewConsumerDetailsTab02() throws InterruptedException
+		{
+			waitForSomeTime();
+			HighlightOnElement(NewConsumerDetailTab);
+			Assert.assertEquals(true,NewConsumerDetailTab.isEnabled());
+			Assert.assertNotNull(NewConsumerDetailTab,"Click on NewConsumerDetailTab in Application of Water and Sewerage sucessfully");
+			NewConsumerDetailTab.click();
+			waitForSomeTime();
+			Reporter.log(" To Verify NewConsumerDetailTab Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+			waitForelementPresent(Consumer_Id);
+			HighlightOnElement(Consumer_Id);
+		}
+		
+		@FindBy(xpath="//input[@title='Consumer Id' and@role='textbox']")
+		private WebElement Consumer_Id;
+		
+		@FindBy(xpath="(//img[@src='/NRDAuthority/javax.faces.resource/images/search-aadhar.png.xhtml'])[2]")
+		private WebElement ConsumerSearchField;
+		
+		
+		public void toverifyconsumertextfield() throws InterruptedException
+		{
+			HighlightOnElement(Consumer_Id);
+			Reporter.log(" To Verify Consumer_Id Link in Application of Water&Sewerage  Present",true); 
+			Consumer_Id.sendKeys("1120170039");
+			HighlightOnElement(ConsumerSearchField);
+			Reporter.log(" To Verify ConsumerSearchField  in Application of Water&Sewerage  Present",true); 
+			ConsumerSearchField.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			VerifyTextField(First_Name);
+			VerifyTextField(Last_Name);
+			VerifyTextField(Middle_Name);
+			VerifyTextField(Mobile_Number);
+			VerifyTextField(Email);
+			waitForSomeTime();
+		
+		}
+		
+		@FindBy(xpath="//a[contains(.,'Old Consumer Document / पुराने किरायेदार का दस्तावेज')]")
+		private WebElement OldConsumerDocument;
+		
+		
+		public void toverifybackbuttonfunctionality() throws InterruptedException
+		{
+			HighlightOnElement(Back_Button);
+			Reporter.log(" To Verify Back_Button  in Application of Water&Sewerage  Present",true); 
+			Back_Button.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			HighlightOnElement(OldConsumerDocument);
+			Reporter.log(" To Verify OldConsumerDocument  in Application of Water&Sewerage  Present",true);
+			
+			
+		}
+		
+		
+		public void toverifySaveAsDraftbuttonfunctionality() throws InterruptedException
+		{
+			HighlightOnElement(SaveAsDraft_Button);
+			Reporter.log(" To Verify SaveAsDraft_Button  in Application of Water&Sewerage  Present",true); 
+			SaveAsDraft_Button.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			
+		}
+		
+		
+		public void toverifyClosebuttonfunctionality() throws InterruptedException
+		{
+			HighlightOnElement(Close_Button);
+			Reporter.log(" To Verify Close_Button  in Application of Water&Sewerage  Present",true); 
+			Close_Button.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			clickonPopup_YESButton();
+			
+		}
+		
+		
+		
+		public void toverifySubmitbuttonfunctionality() throws InterruptedException, AWTException
+		{
+			ScroolDown();
+			HighlightOnElement(Applicant_IDproof);
+			Assert.assertNotNull(Applicant_IDproof,"Click on Click on uploading document as ReceiptLeaseRent in Application of Water and Sewerage New connection sucessfully");
+			Applicant_IDproof.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+			Reporter.log("Applicant_IDproof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			ScroolDown();
+			waitForSomeTime();
+			HighlightOnElement(Applicant_Addressproof);
+			Assert.assertNotNull(Applicant_Addressproof,"Click on Click on uploading document as ReceiptLeaseRent in Application of Water and Sewerage New connection sucessfully");
+			Applicant_Addressproof.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+			Reporter.log("Applicant_Addressproof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			
+			HighlightOnElement(OldConsumerDocument);
+			OldConsumerDocument.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			
+			HighlightOnElement(Applicant_Addressproof_oldConsumer);
+			Assert.assertNotNull(Applicant_Addressproof_oldConsumer,"Click on Click on uploading document as ReceiptLeaseRent in Application of Water and Sewerage New connection sucessfully");
+			Applicant_Addressproof_oldConsumer.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+			Reporter.log("Applicant_Addressproof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			HighlightOnElement(Applicant_IDproof_oldConsumer);
+			Assert.assertNotNull(Applicant_IDproof_oldConsumer,"Click on Click on uploading document as ReceiptLeaseRent in Application of Water and Sewerage New connection sucessfully");
+			Applicant_IDproof_oldConsumer.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+			Reporter.log("Applicant_IDproof_oldConsumer Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			
+			HighlightOnElement(NewConsumerDetailTab);
+			NewConsumerDetailTab.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			ScroolDown();
+			HighlightOnElement(SubmitButton);
+			Reporter.log(" To Verify SubmitButton  in Application of Water&Sewerage  Present",true); 
+			SubmitButton.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			clickonPopup_YESButton();
+			
+		}
+		
+		
+		public void saveApplicationNumberIntoExcelSheet() throws EncryptedDocumentException, InvalidFormatException, IOException
+		{
+			HighlightOnElement(Application_Number);
+			String ApllicationNumber1=Application_Number.getText();
+			excel.updateexcelData(ApllicationNumber1);
+			System.out.println("Apploication Number is:  "+ ApllicationNumber1 );
+			
+			
+		}
+		
+		
+		
+		public void toverifyFiledsinNewconsumerDetailsTab02() throws InterruptedException
+		{
+			waitForSomeTime();
+			for(WebElement AllFieldsList :AllFields)
+			{
+				if(AllFieldsList.isDisplayed())
+
+				{
+					HighlightOnElement(AllFieldsList);
+					String MenuDetails=AllFieldsList.getText();
+					Reporter.log("Fields list on NewConsumerDetails Tab:"+MenuDetails,true);
+
+				}
+
+
+			}
+			ScroolDown();
+
+			HighlightOnElement(SubmitButton);
+			Assert.assertEquals(true,SubmitButton.isDisplayed());
+			Reporter.log(" To Verify Submit Button in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(SaveAsDraft_Button);
+			Assert.assertEquals(true,SaveAsDraft_Button.isDisplayed());
+			Reporter.log(" To Verify SaveAsDraft Button  in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(Back_Button);
+			Assert.assertEquals(true,Back_Button.isDisplayed());
+			Reporter.log(" To Verify Back_Button  in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(Close_Button);
+			Assert.assertEquals(true,Close_Button.isDisplayed());
+			Reporter.log(" To Verify Close Button in Application of Water&Sewerage link is Present",true); //print for eclipse console
+			ScroolUp();
+		}
+		
+		
+		
+		
+		
+		
+
+		public void toFillNewConsumerDetailsWithValidData() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+		
+		{
+			HighlightOnElement(Aadhaar_Number);
+			Assert.assertEquals(true,Aadhaar_Number.isEnabled());
+			Assert.assertNotNull(Aadhaar_Number,"Click on Aadhaar_Number in Application of Water and Sewerage sucessfully");
+			excel.getExcelData(Aadhaar_Number, "NewConsumerDetails", 1, 2);
+			waitForSomeTime();
+			Reporter.log(" To Verify Aadhaar_Number Field in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			HighlightOnElement(applicant_photo);
+			applicant_photo.click();//click on applicant photo icon
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+			waitForSomeTime();
+			
+			Assert.assertEquals(true,applicant_title.isEnabled());
+			Assert.assertNotNull(applicant_title,"Click on Title dropdown sucessfully");
+			HighlightOnElement(applicant_title);
+			applicant_title.click();
+			SelectVisibleText(applicant_title,"Mr / श्री");//select Title
+			log.info("To Verify Click on Title dropdown sucessfully sucessfully");
+			waitForSomeTime();
+			waitForSomeTime();
+			
+			Assert.assertEquals(true,First_Name.isEnabled());
+			Assert.assertNotNull(First_Name,"Enter the value in first name textbox sucessfully");
+			HighlightOnElement(First_Name);
+			//excel.getExcelData(First_Name, "NewConsumerDetails",1,3);
+			String firstname=excel.getExcelData(First_Name, "NewConsumerDetails",1,3);//fetch first name
+			Reporter.log(firstname,true);
+			log.info("To Verify enter the value in first name textbox sucessfully");
+			
+			Assert.assertEquals(true,Last_Name.isEnabled());
+			Assert.assertNotNull(Last_Name,"Enter the value in last name textbox sucessfully");
+			HighlightOnElement(Last_Name);
+			//excel.getExcelData(Last_Name, "NewConsumerDetails",1,5);
+			String lastname=excel.getExcelData(Last_Name, "NewConsumerDetails",1,5);//fetch last name
+			Reporter.log(lastname,true);
+			log.info("To Verify enter the value in last name textbox sucessfully");
+			
+			Assert.assertEquals(true,Middle_Name.isEnabled());
+			Assert.assertNotNull(Middle_Name,"Enter the value in last name textbox sucessfully");
+			HighlightOnElement(Middle_Name);
+			//excel.getExcelData(Middle_Name, "NewConsumerDetails",1,4);
+			String middlename=excel.getExcelData(Middle_Name, "NewConsumerDetails",1,4);//fetch last name
+			Reporter.log(middlename,true);
+			log.info("To Verify enter the value in middle name textbox sucessfully");
+			
+			Assert.assertEquals(true,Mobile_Number.isEnabled());
+			Assert.assertNotNull(Mobile_Number,"Enter the value in last name textbox sucessfully");
+			HighlightOnElement(Mobile_Number);
+			//excel.getExcelData(Mobile_Number, "NewConsumerDetails",1,6);
+			String MobileNumber=excel.getExcelData(Mobile_Number, "NewConsumerDetails",1,6);//fetch last name
+			Reporter.log(MobileNumber,true);
+			log.info("To Verify enter the value in mobile number textbox sucessfully");
+			
+			
+			Assert.assertEquals(true,Email.isEnabled());
+			Assert.assertNotNull(Email,"Enter the value in last name textbox sucessfully");
+			HighlightOnElement(Email);
+			excel.getExcelData(Email, "NewConsumerDetails",1,7);
+			//String Email=excel.getExcelData(Email, "NewConsumerDetails",1,7);//fetch last name
+			//Reporter.log(Email,true);
+			log.info("To Verify enter the value in email textbox sucessfully");
+			
+			
+			waitForSomeTime();
+			Assert.assertEquals(true,NocFrom_Owner.isEnabled());
+			Assert.assertNotNull(NocFrom_Owner,"Click on Click on uploading document as NOC_FromOwner in  Water and Sewerage New connection sucessfully");
+			HighlightOnElement(NocFrom_Owner);
+			NocFrom_Owner.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\download.jpg");
+			Reporter.log("NOCFromOwner Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+
+
+			Assert.assertEquals(true,Applicant_IDproof.isEnabled());
+			Assert.assertNotNull(Applicant_IDproof,"Click on Click on uploading document as ApplicantIDProof in Application of Water and Sewerage New connection sucessfully");
+			HighlightOnElement(Applicant_IDproof);
+			Applicant_IDproof.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+			Reporter.log("ApplicantIDProof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+			waitForSomeTime();
+
+			Assert.assertEquals(true,Applicant_Addressproof.isEnabled());
+			Assert.assertNotNull(Applicant_Addressproof,"Click on Click on uploading document as ApplicantAddressProof in Application of Water and Sewerage New connection sucessfully");	
+			HighlightOnElement(Applicant_Addressproof);
+			Applicant_Addressproof.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+			Reporter.log("Applicant AddressProof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+			waitForSomeTime();
+
+			Assert.assertEquals(true,Other_Document.isEnabled());
+			Assert.assertNotNull(Other_Document,"Click on Click on uploading document as OtherDocuments in Application of Water and Sewerage New connection sucessfully");
+			HighlightOnElement(Other_Document); 
+			Other_Document.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur2.jpg");
+			Reporter.log("Other Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+			waitForSomeTime();
+
+			Assert.assertEquals(true,PropertyOwnerShipProof.isEnabled());
+			Assert.assertNotNull(PropertyOwnerShipProof,"Click on Click on uploading document as PropertyOwnerShip Proof in Application of Water and Sewerage New connection sucessfully");
+			HighlightOnElement(PropertyOwnerShipProof);
+			PropertyOwnerShipProof.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur.jpg");
+			Reporter.log("PropertyOwnershipProof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+			waitForSomeTime();
+
+			Assert.assertEquals(true,ReciptLeaseRent.isEnabled());
+			Assert.assertNotNull(ReciptLeaseRent,"Click on Click on uploading document as ReceiptLeaseRent in Application of Water and Sewerage New connection sucessfully");
+			HighlightOnElement(ReciptLeaseRent);
+			ReciptLeaseRent.click();
+			waitForSomeTime();
+			UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+			Reporter.log("ReceiptLeaseRent Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+			waitForSomeTime();
+			waitForSomeTime();
+			
+			
+			
+			
+		}
+		
+
+		public void toverifytheFunctionalityofSaveAsDraftButton() throws InterruptedException
+		
+		{
+			HighlightOnElement(SaveAsDraft_Button);
+			Assert.assertEquals(true,SaveAsDraft_Button.isEnabled());
+			Assert.assertNotNull(SaveAsDraft_Button,"Click on SaveAsDraft_Button in Application of Water and Sewerage sucessfully");
+			SaveAsDraft_Button.click();
+			waitForSomeTime();
+			Reporter.log(" To Verify SaveAsDraft_Button Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+		
+		}
+		
+		/****************************************************************************************************/
+		/*
+		 * This is the xpath of the WebElement "Drafted Application"
+		 * @author sarvesh.nellore5
+		 * @Date: 16-08-2017
+		 */
+		/****************************************************************************************************/		
+		@FindBy(xpath="//ul/li[3]/a[contains(.,'Drafted Application/प्रारूपित आवेदन')]")
+		private WebElement DraftedApplication_Link;
+
+		
+		/****************************************************************************************************/
+		/*
+		 * This is the xpath of the WebElement "Drafted Application in WATER AND SEWERAGE CONNECTION-1"
+		 * @author sarvesh.nellore5
+		 * @Date: 16-08-2017
+		 */
+		/****************************************************************************************************/		
+		@FindBy(xpath="//a[contains(.,'WATER CONNECTION TRANSFER FORM ')]")
+		private WebElement WaterConnectionTransform_Link;
+
+		
+		public void ToVerifyApplicationInDraft() throws InterruptedException
+
+		{
+			waitForSomeTime();
+			waitForSomeTime();
+			HighlightOnElement(DraftedApplication_Link);
+			Assert.assertEquals(true,DraftedApplication_Link.isEnabled());
+			DraftedApplication_Link.click();
+			Reporter.log("Click on Drafted Application link is Present",true); //print for eclipse console
+			waitForSomeTime();
+			waitForSomeTime();
+			HighlightOnElement(WaterConnectionTransform_Link);
+			Assert.assertEquals(true,WaterConnectionTransform_Link.isEnabled());
+			WaterConnectionTransform_Link.click();
+			Reporter.log(" To Verify Water&Sewerage Connection-1 In Drafted Application  is Present",true);//print for eclipse console
+			waitForSomeTime();
+			waitForSomeTime();
+		}
+		
+		
+		public void toverifytheFunctionalityofCloseButton() throws InterruptedException
+		
+		{
+			HighlightOnElement(Close_Button);
+			Assert.assertEquals(true,Close_Button.isEnabled());
+			Assert.assertNotNull(Close_Button,"Click on SaveAsDraft_Button in Application of Water and Sewerage sucessfully");
+			Close_Button.click();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			waitForSomeTime();
+			Reporter.log(" To Verify Close_Button Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+		
+		}
+		
+		/****************************************************************************************************/
+		  /**
+		    * This is the xpath of the WebElement "click on alert Yes/NO button".
+		    * @author deepak.saini
+		    * @since 2017-08-16
+		    */
+		/****************************************************************************************************/
+		@FindBy(xpath="//div[@id='form0:confirmDlg']/div[2]/div/div/center/table/tbody/tr/td/button")
+		private List<WebElement> button;
+		
+		 public void clickonPopup_YESButton() throws InterruptedException
+			
+		   {
+			
+			for(int index=0;index<button.size();index++)
+			   {
+				String buttone=button.get(index).getText();
+				System.out.println(buttone);
+				
+				if( buttone.trim().equalsIgnoreCase("yes"))
+				   {
+					button.get(index).click();
+					  waitForSomeTime();
+					Reporter.log("Verify Yes Button In POP-UP Of Application In Water&Sewerage New Connection  is Present",true);
+				   }
+			   }
+			  waitForSomeTime();
+		      waitForSomeTime();
+			  waitForSomeTime();
+		   }
+		 /****************************************************************************************************/
+			/*
+			 * This is the xpath of the WebElement "Water and Sewerage Connection".
+			 * @author deepak.saini
+			 * @since 2017-08-11
+			 */
+			/*****************************************************************************************************/
+			@FindBy(xpath="//a[contains(text(),'WATER AND SEWERAGE CONNECTION')]")
+			private WebElement waterseweargeconnection;
+		
+		
+			public void waterAndSewerageConnection() throws InterruptedException
+			{
+				Assert.assertEquals(true,waterseweargeconnection.isEnabled());
+				Assert.assertNotNull(waterseweargeconnection,"Click on waterseweargeconnection link sucessfully");
+				
+				HighlightOnElement(waterseweargeconnection);
+				Reporter.log("Verify Water and Sewerage Connection link is Present",true); //print for eclipse console 
+				waitForSomeTime();
+			}
+		
+		
+		
+			public void toverifytheFunctionalityofSubmit_Button() throws InterruptedException
+			
+			{
+				HighlightOnElement(SubmitButton);
+				Assert.assertEquals(true,SubmitButton.isEnabled());
+				Assert.assertNotNull(SubmitButton,"Click on SaveAsDraft_Button in Application of Water and Sewerage sucessfully");
+				SubmitButton.click();
+				waitForSomeTime();
+				waitForSomeTime();
+				waitForSomeTime();
+				waitForSomeTime();
+				Reporter.log(" To Verify SubmitButton Link in Application of Water&Sewerage link is Present",true); //print for eclipse console
+
+			
+			}
+			
+			/****************************************************************************************************/
+			/*
+			 * This is the xpath of the WebElement "HomePageMenu".
+			 * @author birbal.tahim
+			 * @since 2017-09-06
+			 */
+			/*****************************************************************************************************/
+			@FindBy(xpath="//table/tbody/tr/td[1]/label")
+			private List <WebElement> All_Fields ;
+			
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "Make Payment"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="//button[contains(.,'Make Payment') and@type='submit']")
+			private WebElement MakePayment_Button;
+
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "Application Number"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="(//table/tbody/tr/td[2]/label)[1]")
+			private WebElement Application_Number;
+			
+			
+			public void verifyapplicationinPendingPayments08() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+			{
+				waitForSomeTime();
+				HighlightOnElement(Application_Number);
+				String ApllicationNumber=Application_Number.getText().trim();
+				excel.updateExcelData2(ApllicationNumber);
+				Reporter.log("Apploication Number is:  "+ ApllicationNumber,true);
+				for(WebElement AllFieldsList :All_Fields)
+				{
+					if(AllFieldsList.isDisplayed())
+
+					{
+						HighlightOnElement(AllFieldsList);
+						String MenuDetails=AllFieldsList.getText();
+						Reporter.log("Fields list on HomePage Is:"+MenuDetails,true);
+
+					}
+
+
+				}
+				waitForSomeTime();
+				waitForSomeTime();
+				waitForSomeTime();
+				
+
+			}
+			
+			
+			@FindBy(xpath="//span[contains(.,'WATER CONNECTION TRANSFER FORM')]/../following-sibling::div[1]/table[1]/tbody/tr/td/select")
+			private WebElement SelectPaymentMode;
+			
+			public void  toverifypaymentmodeDropdownfunctionality() throws InterruptedException
+			{
+				
+				HighlightOnElement(SelectPaymentMode);
+				waitForSomeTime();
+				SelectVisibleText(SelectPaymentMode, "--- Select ---");
+				waitForSomeTime();
+				
+				
+			}
+			
+			
+			public void  toverifyMakePaymentButtonfunctionality() throws InterruptedException
+			{
+				
+				HighlightOnElement(SelectPaymentMode);
+				waitForSomeTime();
+				SelectVisibleText(SelectPaymentMode, "Pay Online");
+				waitForSomeTime();
+				HighlightOnElement(MakePayment_Button);
+				Assert.assertEquals(true,MakePayment_Button.isDisplayed());
+				System.out.println(" To Verify MakePayment Button of Water&Sewerage link is Present" ); //print for eclipse console
+				waitForSomeTime();
+				
+			}
+			
+			
+			
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "Card Number"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="//input[@id='ccard_number' and @type='text']")
+			private WebElement Card_Number;
+
+
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "Card On Name"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="//input[@id='cname_on_card' and@type='text']")
+			private WebElement Cardon_Name;
+
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "CVV Number"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="//input[@id='ccvv_number' and @type='password']")
+			private WebElement Cvv_Number;
+
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "ExperidateMonth"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="//select[@id='cexpiry_date_month']")
+			private WebElement Card_ExpiryMonth;
+
+
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "ExperidateYear"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="//select[@id='cexpiry_date_year']")
+			private WebElement Card_ExpiryYear;
+
+
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "PayNow Button"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="//input[@id='pay_button' and @type='submit']")
+			private WebElement PayNow_Button;
+
+
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "BackTo_PreviousPage"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="//a[contains(.,'Click here to go back')]")
+			private WebElement BackTo_PreviousPage;
+			
+			public void  applicationSubmitMakePaymentWith_ValidData12() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+			{
+				try
+				{
+					waitForSomeTime();
+					Assert.assertEquals(true,MakePayment_Button.isEnabled());
+					HighlightOnElement(MakePayment_Button);
+					MakePayment_Button.click();
+					Reporter.log("MakePayment Button  Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+					waitForSomeTime();
+					waitForSomeTime();
+					waitForSomeTime();
+
+					waitForSomeTime();
+					Assert.assertEquals(true,Card_Number.isEnabled());
+					HighlightOnElement(Card_Number);
+					excel.getExcelData(Card_Number, "Card Details", 1, 1);
+					Reporter.log("Card Number on  Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+					waitForSomeTime();
+
+					waitForSomeTime();
+					Assert.assertEquals(true,Cardon_Name.isEnabled());
+					HighlightOnElement(Cardon_Name);
+					excel.getExcelData(Cardon_Name, "Card Details", 1, 2);
+					Reporter.log("Card on Name Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+					waitForSomeTime();	
+
+					waitForSomeTime();
+					Assert.assertEquals(true,Cvv_Number.isEnabled());
+					HighlightOnElement(Cvv_Number);
+					excel.getExcelData(Cvv_Number, "Card Details", 1, 3);
+					Reporter.log("CVV Number on  Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+					waitForSomeTime();
+
+					waitForSomeTime();
+					Assert.assertEquals(true,Card_ExpiryMonth.isEnabled());
+					HighlightOnElement(Card_ExpiryMonth);
+					SelectVisibleText(Card_ExpiryMonth, "May (5)");
+					Reporter.log("Card_ExpiryMonth Dropdown on  Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+					waitForSomeTime();
+					waitForSomeTime();
+					Assert.assertEquals(true,Card_ExpiryYear.isEnabled());
+					HighlightOnElement(Card_ExpiryYear);
+					SelectByValue(Card_ExpiryYear, "2020");
+					Reporter.log("Card_ExpiryYear Dropdown on  Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+					waitForSomeTime();	
+
+
+					waitForSomeTime();
+					Assert.assertEquals(true,PayNow_Button.isEnabled());
+					HighlightOnElement(PayNow_Button);
+					PayNow_Button.click();
+					Reporter.log("PayNow_Button Button on  Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+					waitForSomeTime();
+					waitForSomeTime();
+					waitForSomeTime();
+					waitForSomeTime();
+				
+
+				}
+				catch(Exception ex)
+				{
+					ex.getMessage();
+				}
+
+			}
+			
+			
+			/****************************************************************************************************/
+			/**
+			 * This is the xpath of the WebElement "BackTo_PreviousPage"
+			 * @author sarvesh.nellore
+			 * @Date: 12-09-2017
+			 */
+			/****************************************************************************************************/	
+			@FindBy(xpath="//button[contains(.,'Download Receipt') and@role='button']")
+			private WebElement DownloadReceipt;
+			
+			public void verifyDownloadReciept13() throws InterruptedException
+			
+			{
+				HighlightOnElement(DownloadReceipt);
+				Assert.assertTrue(DownloadReceipt.isEnabled());
+				waitForSomeTime();
+				waitForSomeTime();
+				DownloadReceipt.click();
+				Reporter.log(" To Verify Download Reciept button of Water&Sewerage link is Present",true); //print for eclipse console
+				waitForSomeTime();
+				waitForSomeTime();
+		
+		
+			}
+			
+			
+			@FindBy(xpath="//span[contains(.,'WATER CONNECTION TRANSFER FORM')]/../following-sibling::div[1]/table[1]/tbody/tr[7]/td/select")
+			private WebElement SelectChallan;
+			
+			@FindBy(xpath="//button[contains(.,'Generate Challan')]")
+			private WebElement Generate_Challan;
+			
+			
+			
+			public void  verifyGenerateChallanButtonSelectedPaymentasOffline17() throws InterruptedException
+			{
+				
+				waitForSomeTime();
+				waitForSomeTime();
+				HighlightOnElement(SelectPaymentMode);
+				SelectVisibleText(SelectPaymentMode, "Pay Offline");
+				waitForSomeTime();
+				HighlightOnElement(SelectChallan);
+				SelectVisibleText(SelectChallan, "Via Challan@Bank");
+				waitForSomeTime();
+				waitForSomeTime();
+				HighlightOnElement(Generate_Challan);
+				Generate_Challan.click();
+				waitForSomeTime();
+				
+				
+				
+				
+			}
+			
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+}

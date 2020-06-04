@@ -1,0 +1,71 @@
+﻿package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyResetButton_SC_06_TC_05 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DRAFTED APPLICATION MENU".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/b[contains(text(),'Application/आवेदन')]/../following-sibling::ul/li/a[contains(text(),'Drafted Application/प्रारूपित आवेदन')]")
+	private WebElement draftedapplicationmenu;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SEARCH INPUT BOX".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/table/tbody/tr/td/span[contains(text(),'Enter Application Number : ')]/../following-sibling::td/input")
+	private WebElement searchinputbox;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "RESET BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/table/tbody/tr/td/span[contains(text(),'Enter Application Number : ')]/../following-sibling::td/button/span[contains(text(),'Reset')]")
+	private WebElement resetbtn;
+	
+	public void verifyResetButton() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(draftedapplicationmenu));
+		HighlightOnElement(draftedapplicationmenu);
+		Assert.assertTrue(draftedapplicationmenu.isDisplayed(),"DRAFTED APPLICATION MENU is displayed");
+		Assert.assertTrue(draftedapplicationmenu.isEnabled(),"DRAFTED APPLICATION MENU is enabled");
+		Actions draftedmenu=new Actions(driver);
+		draftedmenu.click(draftedapplicationmenu).build().perform();
+		
+		wait.until(ExpectedConditions.visibilityOf(searchinputbox));
+		excel.getExcelData(searchinputbox,"PropertyTax_Application_Num",0,9);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(resetbtn));
+		HighlightOnElement(resetbtn);
+		Assert.assertTrue(resetbtn.isDisplayed(),"RESET BUTTON is displayed");
+		Assert.assertTrue(resetbtn.isEnabled(),"RESET BUTTON is enabled");
+		resetbtn.click();
+		Reporter.log("Action is performed on Reset Button",true);
+	}
+}

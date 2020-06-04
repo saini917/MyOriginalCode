@@ -1,0 +1,85 @@
+package NRDA_NewConnection;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+
+public class ToVerifyConnectionDetailsTab_SC_03_TC_27 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Connection details tab".
+	 * @author deepak.saini
+	 * @since 2017-08-18
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//a[contains(text(),'Connection Details / कनेक्शन विवरण')]")
+	private WebElement connection_details_tab;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement " to get All field label name under connection details tab".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:tabView']/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label")
+	private List<WebElement> field_label_name;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Reset".
+	 * @author deepak.saini
+	 * @since 2017-08-30
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Reset')])[3]")
+	private WebElement reset;
+
+	public void clickOnResetButton() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(reset));
+		HighlightOnElement(reset);
+		Assert.assertTrue(reset.isDisplayed());
+		Assert.assertTrue(reset.isEnabled());
+		//Reporter.log("Reset Button is Present",true);
+		reset.click();
+		waitForSomeTime();
+	}
+
+	public void clickOnConnectionDetails() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(connection_details_tab));
+		Assert.assertTrue(connection_details_tab.isDisplayed());
+		Assert.assertTrue(connection_details_tab.isEnabled());
+		HighlightOnElement(connection_details_tab);
+		connection_details_tab.click();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,400)", "");
+		waitForSomeTime();
+	}
+	
+	public void verifyConnectionDetailsTab()
+	{
+		for(WebElement list:field_label_name)
+		{
+			HighlightOnElement(list);
+			Assert.assertNotNull(list.isDisplayed());
+		}
+	}
+
+}

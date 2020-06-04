@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<listeners>
+		<listener class-name="GenericLibrary.ExtentReport"/>
+</listeners>
+
+<test name="LOGIN AS VRS EMPLOYEE">
+	<classes>
+		<class name="HRMS_ERP_UAT_VRS_TEST.LoginAsEmployee">
+			<methods>
+       			 <include name="UAT_HRMS_VRS_1"/>
+       			<include name="UAT_HRMS_VRS_2"/> 
+       			<include name="UAT_HRMS_VRS_3"/>
+       			<include name="UAT_HRMS_VRS_4"/>
+       			<include name="UAT_HRMS_VRS_5"/>
+       			<include name="UAT_HRMS_VRS_6"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS VRS CO(Manager of Employee)">
+	<classes>
+		<class name="HRMS_ERP_UAT_VRS_TEST.LoginAsCO">
+			<methods>
+       			  <include name="UAT_HRMS_VRS_7"/> 
+       			<include name="UAT_HRMS_VRS_8"/> 
+       			 <include name="UAT_HRMS_VRS_9"/>    
+       			<include name="UAT_HRMS_VRS_10"/> 
+       			<include name="UAT_HRMS_VRS_11"/> 
+       			 <include name="UAT_HRMS_VRS_12"/>
+       			<include name="UAT_HRMS_VRS_13"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS VRS HRManager">
+	<classes>
+		<class name="HRMS_ERP_UAT_VRS_TEST.LoginAsHRManager">
+			<methods>
+       			  <include name="UAT_HRMS_VRS_14"/>
+       			 <include name="UAT_HRMS_VRS_15"/> 
+       			<include name="UAT_HRMS_VRS_16"/>
+       			 <include name="UAT_HRMS_VRS_17"/>  
+       			<include name="UAT_HRMS_VRS_18"/>  
+       			  <include name="UAT_HRMS_VRS_19"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ <test name="LOGIN AS VRS CEO">
+	<classes>
+		<class name="HRMS_ERP_UAT_VRS_TEST.LoginAsCEO">
+			<methods>
+       			  <include name="UAT_HRMS_VRS_20"/>
+       			  <include name="UAT_HRMS_VRS_21"/> 
+       			<include name="UAT_HRMS_VRS_22"/>
+       			 <include name="UAT_HRMS_VRS_23"/>  
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="LOGIN AS VRS EMPLOYEE STATUS">
+	<classes>
+		<class name="HRMS_ERP_UAT_VRS_TEST.LoginAsEmployee">
+			<methods>
+       			  <include name="UAT_HRMS_VRS_24"/>
+       			  <include name="UAT_HRMS_VRS_25"/> 
+       			<include name="UAT_HRMS_VRS_26"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

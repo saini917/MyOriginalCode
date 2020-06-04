@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	
+ <test name="login as SUB-ENGINEER OFFICER to create request">
+	<classes>
+		<class name="NRDA_PRO.LoginAsSubEngineerOfficer">
+			<methods>
+				<include name="NRDA_PRO_SC_01_TC_01"/>
+				<include name="NRDA_PRO_SC_01_TC_03"/>
+				<include name="NRDA_PRO_SC_01_TC_04"/>
+				<include name="NRDA_PRO_SC_01_TC_05"/>
+				<include name="NRDA_PRO_SC_01_TC_06"/>
+				<include name="NRDA_PRO_SC_01_TC_07"/>
+				<include name="NRDA_PRO_SC_01_TC_10"/>
+				<include name="NRDA_PRO_SC_01_TC_11"/>
+				<include name="NRDA_PRO_SC_01_TC_12"/>
+				<include name="NRDA_PRO_SC_01_TC_13"/>
+				<include name="NRDA_PRO_SC_01_TC_14"/>
+				<include name="NRDA_PRO_SC_01_TC_15"/>
+				<include name="NRDA_PRO_SC_01_TC_16"/>
+				<include name="NRDA_PRO_SC_01_TC_17"/>
+				<include name="NRDA_PRO_SC_01_TC_18"/>
+				<include name="NRDA_PRO_SC_01_TC_19"/>
+				<include name="NRDA_PRO_SC_01_TC_20"/>
+				
+				<!-- Application submit   -->	
+				<include name="NRDA_PRO_SC_01_TC_21"/>	
+				<include name="NRDA_PRO_SC_01_TC_22"/>		
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 							<!--  Login As Estate Manager PRO  -->
+ 							
+ <test name="login as Manager PRO Officer">
+	<classes>
+		<class name="NRDA_PRO.LoginAsMPROofficer">
+			<methods>
+				<include name="NRDA_PRO_SC_02_TC_01"/>
+				<include name="NRDA_PRO_SC_02_TC_03"/>
+				<include name="NRDA_PRO_SC_02_TC_04"/>
+				<include name="NRDA_PRO_SC_02_TC_05"/>
+				<include name="NRDA_PRO_SC_02_TC_06"/>
+				<include name="NRDA_PRO_SC_02_TC_07"/>
+				<include name="NRDA_PRO_SC_02_TC_08"/>
+				<include name="NRDA_PRO_SC_02_TC_09"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <!--  Login As PRO MANAGER ADMIN  -->
+ 
+ <test name="login as Admin Manager PRO Officer">
+	<classes>
+		<class name="NRDA_PRO.LoginAsADMINMANAGERPROofficer">
+			<methods>
+				<include name="NRDA_PRO_SC_03_TC_01"/>
+				<include name="NRDA_PRO_SC_03_TC_03"/>
+				<include name="NRDA_PRO_SC_03_TC_04"/>
+				<include name="NRDA_PRO_SC_03_TC_05"/>
+				<include name="NRDA_PRO_SC_03_TC_06"/>
+				<include name="NRDA_PRO_SC_03_TC_07"/>
+				<include name="NRDA_PRO_SC_03_TC_08"/>
+				<include name="NRDA_PRO_SC_03_TC_09"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ <!--  Login As PRO Consultant  -->
+ 
+ <test name="login as Consultant PRO Officer">
+	<classes>
+		<class name="NRDA_PRO.LoginAsConsultantOfficer">
+			<methods>
+				<include name="NRDA_PRO_SC_04_TC_01"/>
+				<include name="NRDA_PRO_SC_04_TC_03"/>
+				<include name="NRDA_PRO_SC_04_TC_04"/>
+				<include name="NRDA_PRO_SC_04_TC_05"/>
+				<include name="NRDA_PRO_SC_04_TC_06"/>
+				<include name="NRDA_PRO_SC_04_TC_07"/>
+				<include name="NRDA_PRO_SC_04_TC_08"/>
+				<include name="NRDA_PRO_SC_04_TC_09"/>
+				<include name="NRDA_PRO_SC_04_TC_10"/>
+				<include name="NRDA_PRO_SC_04_TC_11"/>
+				<include name="NRDA_PRO_SC_04_TC_12"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 							<!--  Login As PRO MANAGER ADMIN  -->
+ 							
+ <test name="login as Admin Manager PRO Officer Application forward to CEO">
+	<classes>
+		<class name="NRDA_PRO.LoginAsADMINMANAGERPROofficer">
+			<methods>
+				<include name="NRDA_PRO_SC_05_TC_01"/>
+				<include name="NRDA_PRO_SC_05_TC_03"/>
+				<include name="NRDA_PRO_SC_05_TC_04"/>
+				<include name="NRDA_PRO_SC_05_TC_05"/>
+				<include name="NRDA_PRO_SC_05_TC_06"/>
+				<include name="NRDA_PRO_SC_05_TC_07"/>
+				<include name="NRDA_PRO_SC_05_TC_08"/>
+				<include name="NRDA_PRO_SC_05_TC_09"/>
+				<include name="NRDA_PRO_SC_05_TC_10"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 
+ 							<!-- Login As CEO PRO for Approval -->
+ 							
+ <test name="login as CEO PRO Officer For Approval">
+	<classes>
+		<class name="NRDA_PRO.LoginAsCEOPROOfficer">
+			<methods>
+				<include name="NRDA_PRO_SC_06_TC_01"/>
+				<include name="NRDA_PRO_SC_06_TC_03"/>
+				<include name="NRDA_PRO_SC_06_TC_04"/>
+				<include name="NRDA_PRO_SC_06_TC_05"/>
+				<include name="NRDA_PRO_SC_06_TC_06"/>
+				<include name="NRDA_PRO_SC_06_TC_07"/>
+				<include name="NRDA_PRO_SC_06_TC_08"/>
+				<include name="NRDA_PRO_SC_06_TC_09"/>
+				<include name="NRDA_PRO_SC_06_TC_10"/>
+			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 
+ <!-- Login As DEO PRO Officer -->
+ 							
+ <test name="login as DEO PRO Officer Forward to PRO Manager">
+	<classes>
+		<class name="NRDA_PRO.LoginAsDEO">
+			<methods>
+				<include name="NRDA_PRO_SC_07_TC_01"/>
+				<include name="NRDA_PRO_SC_07_TC_03"/>
+				<include name="NRDA_PRO_SC_07_TC_04"/>
+				<include name="NRDA_PRO_SC_07_TC_05"/>
+				<include name="NRDA_PRO_SC_07_TC_06"/>
+				<include name="NRDA_PRO_SC_07_TC_07"/>
+				<include name="NRDA_PRO_SC_07_TC_08"/>
+				<include name="NRDA_PRO_SC_07_TC_09"/>
+				<include name="NRDA_PRO_SC_07_TC_10"/>
+				<include name="NRDA_PRO_SC_07_TC_11"/>
+				<include name="NRDA_PRO_SC_07_TC_12"/>
+				<include name="NRDA_PRO_SC_07_TC_13"/>
+				<include name="NRDA_PRO_SC_07_TC_14"/>
+				<include name="NRDA_PRO_SC_07_TC_15"/>
+				<include name="NRDA_PRO_SC_07_TC_16"/>
+			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 							<!--  Login As Manager PRO  -->
+ 							
+ <test name="login as Admin Manager PRO Officer forward to Finance Manager ">
+	<classes>
+		<class name="NRDA_PRO.LoginAsADMINMANAGERPROofficer">
+			<methods>
+				<include name="NRDA_PRO_SC_08_TC_01"/>
+				<include name="NRDA_PRO_SC_08_TC_03"/>
+				<include name="NRDA_PRO_SC_08_TC_04"/>
+				<include name="NRDA_PRO_SC_08_TC_05"/>
+				<include name="NRDA_PRO_SC_08_TC_06"/>
+				<include name="NRDA_PRO_SC_08_TC_07"/>
+				<include name="NRDA_PRO_SC_08_TC_08"/>
+				<include name="NRDA_PRO_SC_08_TC_09"/>
+				<include name="NRDA_PRO_SC_08_TC_10"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 
+ 						<!--  Login As Finance PRO forward to Finanace GM  -->
+ 							
+ <test name="login as Finance PRO Officer">
+	<classes>
+		<class name="NRDA_PRO.LoginAsFINANCEPROofficer">
+			<methods>
+				<include name="NRDA_PRO_SC_09_TC_01"/>
+				<include name="NRDA_PRO_SC_09_TC_03"/>
+				<include name="NRDA_PRO_SC_09_TC_04"/>
+				<include name="NRDA_PRO_SC_09_TC_05"/>
+				<include name="NRDA_PRO_SC_09_TC_06"/>
+				<include name="NRDA_PRO_SC_09_TC_07"/>
+				<include name="NRDA_PRO_SC_09_TC_08"/>
+				<include name="NRDA_PRO_SC_09_TC_09"/>
+				<include name="NRDA_PRO_SC_09_TC_10"/>
+				<include name="NRDA_PRO_SC_09_TC_11"/>
+				<include name="NRDA_PRO_SC_09_TC_12"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ 					<!--  Login As Finance General Manager PRO  -->
+ 							
+ <test name="login as General Manager PRO Officer">
+	<classes>
+		<class name="NRDA_PRO.LoginAsGMPROofficer">
+			<methods>
+				<include name="NRDA_PRO_SC_10_TC_01"/>
+				<include name="NRDA_PRO_SC_10_TC_03"/>
+				<include name="NRDA_PRO_SC_10_TC_04"/>
+				<include name="NRDA_PRO_SC_10_TC_05"/>
+				<include name="NRDA_PRO_SC_10_TC_06"/>
+				<include name="NRDA_PRO_SC_10_TC_07"/>
+				<include name="NRDA_PRO_SC_10_TC_08"/>
+				<include name="NRDA_PRO_SC_10_TC_09"/>
+				<include name="NRDA_PRO_SC_10_TC_10"/>
+				<include name="NRDA_PRO_SC_10_TC_11"/>
+				<include name="NRDA_PRO_SC_10_TC_12"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ <!--  Login As Finance General Manager PRO  -->
+ 							
+ <test name="login as CEO for Final Approval">
+	<classes>
+		<class name="NRDA_PRO.LoginAsCEOPROOfficer">
+			<methods>
+				<include name="NRDA_PRO_SC_11_TC_01"/>
+				<include name="NRDA_PRO_SC_11_TC_03"/>
+				<include name="NRDA_PRO_SC_11_TC_04"/>
+				<include name="NRDA_PRO_SC_11_TC_05"/>
+				<include name="NRDA_PRO_SC_11_TC_06"/>
+				<include name="NRDA_PRO_SC_11_TC_07"/>
+				<include name="NRDA_PRO_SC_11_TC_08"/>
+				<include name="NRDA_PRO_SC_11_TC_09"/>
+				<include name="NRDA_PRO_SC_11_TC_10"/>
+				<include name="NRDA_PRO_SC_11_TC_11"/>
+				<include name="NRDA_PRO_SC_11_TC_12"/>
+				<include name="NRDA_PRO_SC_11_TC_13"/>
+				<include name="NRDA_PRO_SC_11_TC_14"/>
+				</methods>
+ 		</class>
+ 	</classes>
+ </test>
+
+ 
+ </suite>

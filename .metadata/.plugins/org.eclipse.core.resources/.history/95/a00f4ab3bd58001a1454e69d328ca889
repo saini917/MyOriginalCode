@@ -1,0 +1,32 @@
+package com.LoginTest;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import com.utility.BrowserLaunching;
+import com.utility.GlobalVariable;
+
+
+@Listeners(com.utility.Screenshot.class)
+public class LoginTest extends BrowserLaunching{
+	
+	/*****************************************************************************************************************/
+	/**
+	 *  BeforeMethod annotation is used to open Url of application 
+	 * 	@author deepak.saini
+	 * @throws InterruptedException 
+	 *  @since 2017-08-03 
+	 */
+	/****************************************************************************************************************/
+	@BeforeMethod
+	public void openBrowser()
+	{	
+		BrowserLaunching.getBrowser(GlobalVariable.browser).navigate().to(GlobalVariable.url);
+	}
+	
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException{
+		driver.close();
+	}
+
+}

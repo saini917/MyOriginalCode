@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<listeners>
+		<listener class-name="GenericLibrary.ExtentReport"/>
+</listeners>
+
+ <!--<test name="LOGIN AS NRDA Officer">
+	<classes>
+		<class name="HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsOfficer">
+			<methods>
+       			    <include name="UAT_Finance_GM_01"/>
+       			 <include name="UAT_Finance_GM_02"/>  
+       			 <include name="UAT_Finance_GM_03"/>
+       			 <include name="UAT_Finance_GM_04"/>
+       			 <include name="UAT_Finance_GM_05"/> 
+       			    <include name="UAT_Finance_GM_06"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+ 
+ <!-- <test name="LOGIN AS FM">
+	<classes>
+		<class name="HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsFM">
+			<methods>
+       			  <include name="UAT_Finance_GM_07"/>
+       			 <include name="UAT_Finance_GM_08"/>  
+       			 <include name="UAT_Finance_GM_09"/>
+       			 <include name="UAT_Finance_GM_10"/>
+       			 <include name="UAT_Finance_GM_11"/> 
+       			  <include name="UAT_Finance_GM_12"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+ <!-- <test name="LOGIN AS CEO">
+	<classes>
+		<class name="HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsCEO">
+			<methods>
+       			  <include name="UAT_Finance_GM_13"/>
+       			 <include name="UAT_Finance_GM_14"/>  
+       			 <include name="UAT_Finance_GM_15"/>
+       			 <include name="UAT_Finance_GM_16"/>
+       			 <include name="UAT_Finance_GM_17"/> 
+       			  <include name="UAT_Finance_GM_18"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+ <test name="LOGIN AS Account Manager">
+	<classes>
+		<class name="HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM">
+			<methods>
+       			  <include name="UAT_Finance_GM_19"/>
+       			 <include name="UAT_Finance_GM_20"/>  
+       			 <include name="UAT_Finance_GM_21"/>
+       			 <include name="UAT_Finance_GM_22"/>
+       			 <include name="UAT_Finance_GM_23"/> 
+       			  <include name="UAT_Finance_GM_24"/>
+       			   <include name="UAT_Finance_GM_25"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

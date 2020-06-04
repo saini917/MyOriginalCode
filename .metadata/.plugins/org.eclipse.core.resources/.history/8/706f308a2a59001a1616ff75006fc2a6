@@ -1,0 +1,16 @@
+package com.coachingProgram;
+
+public class Uniqueletter {
+	static String str = "67512356478927364545689999000";
+
+	public static void main(String[] args) {
+		for(int i=0;i<str.length();i++){
+		char ch=str.charAt(i);
+		System.out.print("char:" +ch);
+		String current=Character.toString(ch);
+		System.out.print("current:"+current);
+		}
+
+	}
+
+}

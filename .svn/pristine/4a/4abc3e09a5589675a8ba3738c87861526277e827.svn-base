@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<test name="LOGIN AS CITIZEN ">
+	<classes>
+		<class name="NRDA_NegativeCases.LoginAsNegativeValue">
+			<methods>
+       			<include name="NRDA_Sewerage_New_Connection_Negative_SC_02_TC_02"/>
+       			<include name="NRDA_Sewerage_New_Connection_Negative_SC_02_TC_03"/>
+       			<include name="NRDA_Sewerage_New_Connection_Negative_SC_02_TC_04"/>
+       			<include name="NRDA_Sewerage_New_Connection_Negative_SC_02_TC_05"/>
+       			<include name="NRDA_Sewerage_New_Connection_Negative_SC_02_TC_06"/>
+       			<include name="NRDA_Sewerage_New_Connection_Negative_SC_02_TC_07"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+</suite>

@@ -1,0 +1,262 @@
+package NRDA_NewConnection;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyBuildingDetailsTab_SC_03_TC_24 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Property ID radio button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Property ID')]/../../../../../../following-sibling::td/table/tbody/tr/td/a/img")
+	private WebElement propertyid;
+
+	public void validPropertyID() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(propertyid));
+		HighlightOnElement(propertyid);
+		Assert.assertTrue(propertyid.isDisplayed());
+		Assert.assertTrue(propertyid.isEnabled());
+		propertyid.click();
+		Reporter.log("Click on Property ID",true);
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click Property ID radio button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/table/tbody/tr/td/table/tbody/tr/td/label[contains(text(),'Property ID')]/../preceding-sibling::td/div/div/span")
+	private WebElement clickonpropertyID;
+
+	public void clickOnPropertyId() throws InterruptedException
+	{
+		HighlightOnElement(clickonpropertyID);
+		Assert.assertTrue(clickonpropertyID.isDisplayed());
+		Assert.assertTrue(clickonpropertyID.isEnabled());
+		Actions act=new Actions(driver);
+		act.click(clickonpropertyID).build().perform();
+		Reporter.log("Property ID Radio button:",true);
+		waitForSomeTime();
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "enter Property ID ".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/table/tbody/tr/td/label[contains(text(),'Enter Property ID : ')]/../following-sibling::td/input")
+	private WebElement enterid;
+
+	public void enterPropertyID() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf(enterid));
+		HighlightOnElement(enterid);
+		Assert.assertTrue(enterid.isDisplayed());
+		Assert.assertTrue(enterid.isEnabled());
+		excel.getExcelData(enterid,"Building Details",1,4);
+		Reporter.log("Enter detail",true);
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Search button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/center/button/span[contains(text(),'Search')]")
+	private WebElement searchbutton;
+
+	public void clickOnSearchButton() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(searchbutton));
+		HighlightOnElement(searchbutton);
+		Assert.assertTrue(searchbutton.isDisplayed());
+		Assert.assertTrue(searchbutton.isEnabled());
+		searchbutton.click();
+		Reporter.log("Click on Search",true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Fill in Form button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/center/button/span[contains(text(),'Fill in Form')]")
+	private WebElement filinform;
+
+	public void clickOnFillInFormButton() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(filinform));
+		HighlightOnElement(filinform);
+		Assert.assertTrue(filinform.isDisplayed());
+		Assert.assertTrue(filinform.isEnabled());
+		filinform.click();
+		Reporter.log("Select the result record \n Click on Fill in Form",true);
+		waitForSomeTime();
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Fill in Form button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:propertydlg']/div/div/div/center/table/tbody/tr/td/button/span[contains(text(),'Yes')]")
+	private WebElement popupmessage;
+
+	public void clickOnPopUpMessageWindow() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(popupmessage));
+		HighlightOnElement(popupmessage);
+		Assert.assertTrue(popupmessage.isDisplayed());
+		Assert.assertTrue(popupmessage.isEnabled());
+		popupmessage.click();
+		Reporter.log("This Property already assigned to another user.Do you want assign this Property Id",true);
+		Reporter.log("click on Yes button:"+popupmessage.getText(),true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Corresspondence address".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Is Correspondence Address Same as above?')]/../../../../../../following-sibling::td/table/tbody/tr/td/select")
+	private WebElement correspondenceAddress;
+
+	public void selectCorresspondenceAddress() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(correspondenceAddress));
+		waitForSomeTime();
+		HighlightOnElement(correspondenceAddress);
+		Assert.assertTrue(correspondenceAddress.isDisplayed());
+		Assert.assertTrue(correspondenceAddress.isEnabled());
+		SelectVisibleText(correspondenceAddress,"Yes");
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "HouseNumber_Field"
+	 * @author sarvesh.nellore5
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/		
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'House Number')]/../../../../../../following-sibling::td/table/tbody/tr/td/input)[1]")
+	private WebElement HouseNumber_Field1;	
+
+
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Floor_Field"
+	 * @author sarvesh.nellore5
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/		
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Floor')]/../../../../../../following-sibling::td/table/tbody/tr/td/input)[1]")
+	private WebElement Floor_Field1;
+
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Pincode_Field"
+	 * @author sarvesh.nellore5
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/		
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Pin Code')]/../../../../../../following-sibling::td/table/tbody/tr/td/input)[1]")
+	private WebElement Pincode_Field1;
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "HouseNumber_Field"
+	 * @author sarvesh.nellore5
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/		
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'House Number')]/../../../../../../following-sibling::td/table/tbody/tr/td/input)[2]")
+	private WebElement HouseNumber2_Field;	
+
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Floor_Field"
+	 * @author sarvesh.nellore5
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/		
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Floor')]/../../../../../../following-sibling::td/table/tbody/tr/td/input)[2]")
+	private WebElement Floor2_Field;	
+
+
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Pincode_Field"
+	 * @author sarvesh.nellore5
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/		
+	@FindBy(xpath="(//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Pin Code')]/../../../../../../following-sibling::td/table/tbody/tr/td/input)[2]")
+	private WebElement Pincode2_Field;
+	
+	public void VerifyBuildingDetailsAsTenant() throws InterruptedException
+	{
+		//Comparing HouseNumber Field
+		String HouseActual_Text=HouseNumber_Field1.getAttribute("value");
+		String HouseExpected_Text=HouseNumber2_Field.getAttribute("value");
+		Assert.assertEquals(HouseExpected_Text,HouseActual_Text);
+		HighlightOnElement(HouseNumber2_Field);
+		HighlightOnElement(HouseNumber_Field1);
+		Reporter.log("Both House Numbers are same",true);
+		waitForSomeTime();
+		
+		//Comparing Floor Field
+		String FloorActual_Value=Floor_Field1.getAttribute("value");
+		String FloorExpected_Value=Floor2_Field.getAttribute("value");
+		Assert.assertEquals(FloorExpected_Value,FloorActual_Value);
+		HighlightOnElement(Floor2_Field);
+		HighlightOnElement(Floor_Field1);
+		Reporter.log("Both Floor Values are same",true);
+		waitForSomeTime();
+		
+		//Comparing Floor Field
+		String PincodeActual_Value=Pincode_Field1.getAttribute("value");
+		String PincodeExpected_Value=Pincode2_Field.getAttribute("value");
+		Assert.assertEquals(PincodeExpected_Value,PincodeActual_Value);
+		HighlightOnElement(Pincode2_Field);
+		HighlightOnElement(Pincode_Field1);
+		Reporter.log("Both Pincode Values are same",true);
+		waitForSomeTime();
+	}
+}

@@ -1,0 +1,36 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifySelectCheckbox_SC_06_TC_02 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	public void verifySelectCheckbox()
+	{
+		List<WebElement> allrows = driver.findElements(By.xpath("//table/tbody/tr"));
+		//Reporter.log("Total rows :" +allrows.size(),true);
+		for(int row=1;row<=allrows.size();row++)
+		{
+			String name = driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td[4]")).getText();
+			//Reporter.log(name,true);
+			if(name.equalsIgnoreCase("15/01/2018"))
+			{
+				WebElement date = driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td[4]"));
+				date.click();
+				break;
+			}
+
+		}
+	}
+}
+

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<!--<test name="login as Admin to check Performance appraisal module">
+	<classes>
+		<class name="HRMS_ERP_PERFORMANCE_APPRAISAL_SCRIPT.HRMS_ERP_Performance_Appraisal_Admin_Module">
+			<methods>
+       			<include name="verifyHRMSLoginPageHRMS_Admin_Appraisal_SC_01_TC_01"/>
+       			<include name="verifyHRMSCreateAppraisalInitiatorHRMS_Admin_Appraisal_SC_02_TC_01"/>
+       			<include name="verifyHRMSSaveFunWithValidDataHRMS_Admin_Appraisal_SC_03_TC_01"/>
+       			<include name="verifyHRMSSaveFunWithInValidDataHRMS_Admin_Appraisal_SC_03_TC_02"/>
+       			<include name="verifyHRMSDiscardFunWithInValidDataHRMS_Admin_Appraisal_SC_04_TC_01"/>
+       			<include name="verifyHRMSDeleteFunHRMS_Admin_Appraisal_SC_05_TC_01"/>
+       			<include name="verifyHRMSSaveFunWithValidDataHRMS_Admin_Appraisal_SC_03_TC_01"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ <test name="login as Employee to check Performance appraisal module">
+	<classes>
+		<class name="HRMS_ERP_PERFORMANCE_APPRAISAL_SCRIPT.HRMS_ERP_Performance_Appraisal_Employee_Module">
+			<methods>
+       			<include name="verifyHRMSLoginPageHRMS_Employee_Appraisal_SC_06_TC_01"/>
+       			<include name="verifyEditAndSaveHRMSLoginPageHRMS_Employee_Appraisal_SC_07_TC_01"/>
+       			<include name="verifyDiscardHRMSLoginPageHRMS_Employee_Appraisal_SC_08_TC_01"/>
+       			<include name="verifySubmitACRHRMSLoginPageHRMS_Employee_Appraisal_SC_09_TC_01"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ 
+ 
+ <test name="login as Rater to check Performance appraisal module">
+	<classes>
+		<class name="HRMS_ERP_PERFORMANCE_APPRAISAL_SCRIPT.HRMS_ERP_Performance_Appraisal_Rater_Module">
+			<methods>
+       			<include name="verifyAwaitingRaterRequestHRMS_Rater_Appraisal_SC_11_TC_01"/>
+       			<include name="verifyAttachmentHRMS_Rater_Appraisal_SC_12_TC_01"/>
+       			<include name="verifyEdiAndSaveWithInvalidDataHRMS_Rater_Appraisal_SC_13_TC_01"/>
+       			<include name="verifySubmitRatingFuncDataHRMS_Rater_Appraisal_SC_14_TC_01"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ <!--<test name="login as Reviewer to check Performance appraisal module">
+	<classes>
+		<class name="HRMS_ERP_PERFORMANCE_APPRAISAL_SCRIPT.HRMS_ERP_Performance_Appraisal_Reviewer_Module">
+			<methods>
+       			<include name="verifyAwaitingReviewRequestHRMS_Reviewer_Appraisal_SC_15_TC_01"/>
+       			<include name="verifyReviewerAttachmentHRMS_Reviewer_Appraisal_SC_16_TC_01"/>
+       			<include name="verifyActionHRMS_Reviewer_Appraisal_SC_17_TC_01"/>
+       			<include name="verifyEditAndSaveWithInvalidDataHRMS_Reviewer_Appraisal_SC_18_TC_01"/>
+       			<include name="verifyEditAndSaveWithValidDataHRMS_Reviewer_Appraisal_SC_18_TC_02"/>
+       			<include name="verifyDiscardHRMS_Reviewer_Appraisal_SC_19_TC_01"/>
+       			<include name="verifySubmitReviewHRMS_Reviewer_Appraisal_SC_20_TC_01"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ <test name="login as Approver to check Performance appraisal module">
+	<classes>
+		<class name="HRMS_ERP_PERFORMANCE_APPRAISAL_SCRIPT.HRMS_ERP_Performance_Appraisal_Approval_Module">
+			<methods>
+       			<!--<include name="verifyAwaitingApproveFuncHRMS_Approver_Appraisal_SC_21_TC_01"/>
+       			<include name="verifyEditAndSaveWithInvalidDataHRMS_Approver_Appraisal_SC_22_TC_01"/>
+       			<include name="verifyEditAndSaveWithValidDataHRMS_Approver_Appraisal_SC_22_TC_02"/>-->
+       			<include name="verifyDiscardHRMS_Approver_Appraisal_SC_23_TC_01"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

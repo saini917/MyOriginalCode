@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[click on Application Status menu]]>
+    </line>
+    <line>
+      <![CDATA[Status:AMOUNT PAID]]>
+    </line>
+  </reporter-output>
+  <suite name="Suite" duration-ms="62805" started-at="2018-01-08T06:10:50Z" finished-at="2018-01-08T06:11:53Z">
+    <groups>
+    </groups>
+    <test name="New Connection again login as Citizen pending for payment 3500" duration-ms="62805" started-at="2018-01-08T06:10:50Z" finished-at="2018-01-08T06:11:53Z">
+      <class name="NRDA_NewConnection.LoginAsCitizen">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:NRDA_NewConnection.LoginAsCitizen@86be70a]" name="openBrowser" is-config="true" duration-ms="8284" started-at="2018-01-08T11:40:51Z" finished-at="2018-01-08T11:41:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="NRDA_Sewerage_New_Connection_SC_07_TC_11(java.lang.String, java.lang.String)[pri:58, instance:NRDA_NewConnection.LoginAsCitizen@86be70a]" name="NRDA_Sewerage_New_Connection_SC_07_TC_11" duration-ms="44688" started-at="2018-01-08T11:41:00Z" description="payment 3500 and check the application status " data-provider="citizen" finished-at="2018-01-08T11:41:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ankit.sharma@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Vijay@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[click on Application Status menu]]>
+            </line>
+            <line>
+              <![CDATA[Status:AMOUNT PAID]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- NRDA_Sewerage_New_Connection_SC_07_TC_11 -->
+        <test-method status="PASS" signature="logoutWS()[pri:0, instance:NRDA_NewConnection.LoginAsCitizen@86be70a]" name="logoutWS" is-config="true" duration-ms="8908" started-at="2018-01-08T11:41:44Z" finished-at="2018-01-08T11:41:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutWS -->
+      </class> <!-- NRDA_NewConnection.LoginAsCitizen -->
+    </test> <!-- New Connection again login as Citizen pending for payment 3500 -->
+  </suite> <!-- Suite -->
+</testng-results>

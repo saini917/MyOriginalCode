@@ -1,0 +1,37 @@
+package HRMS_ERP_TRANSFER;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifyDeleteRejectEmployee_SC_02_TC_14 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DELETE REJECTED EMPLOYEES".
+	 * @author deepak.saini
+	 * @since 2017-12-08
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Delete Rejected Employees')]")
+	private WebElement deleteemployees;
+	
+	public void clickOnDeleteRejectedEmployees()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(deleteemployees));
+		HighlightOnElement(deleteemployees);
+		Assert.assertTrue(deleteemployees.isDisplayed());
+		Assert.assertTrue(deleteemployees.isEnabled());
+		deleteemployees.click();
+	}
+}

@@ -1,0 +1,39 @@
+package NRDA_NewConnection;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_08_TC_10 extends CommonLibrary 
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "get error message".
+	 * @author deepak saini
+	 * @since 2017-09-22
+	 */
+	/*****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-growl-message']/span[contains(text(),'Please enter Application Number !')]")
+	private WebElement getmessage;
+	public void getErrorMsg() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(getmessage));
+		HighlightOnElement(getmessage);
+		String Expected=getmessage.getText();
+		String Actual="Please enter Application Number !";
+		Assert.assertEquals(Actual, Expected);
+		Reporter.log("Expected result:"+Expected,true);
+		waitForSomeTime();
+	}
+}

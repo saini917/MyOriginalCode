@@ -1,0 +1,107 @@
+package NRDA_NewConnection;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyBuildingDetailsTab_SC_03_TC_10 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Property ID input box".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/table/tbody/tr/td/label[contains(text(),'Enter Property ID :')]/../following-sibling::td/input")
+	private WebElement propertyidinputbox;
+	
+	public void enterPropertyID() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf(propertyidinputbox));
+		Assert.assertTrue(propertyidinputbox.isDisplayed());
+		HighlightOnElement(propertyidinputbox);
+		Assert.assertTrue(propertyidinputbox.isEnabled());
+		excel.getExcelData(propertyidinputbox,"Building Details",1,4);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Serach".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/center/button/span[contains(text(),'Search')]")
+	private WebElement search;
+	
+	public void clickOnSearchButton() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(search));
+		wait.until(ExpectedConditions.elementToBeClickable(search));
+		Assert.assertTrue(search.isDisplayed());
+		HighlightOnElement(search);
+		Assert.assertTrue(search.isEnabled());
+		search.click();
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "View Result".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/div/div/table/thead/tr/th/span")
+	private List<WebElement> displaylist;
+	
+	public void viewResult() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		for(WebElement list:displaylist)
+		{
+			HighlightOnElement(list);
+			Assert.assertTrue(list.isDisplayed());
+			waitForSomeTime();
+		}
+	}
+	
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "close".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/a/span")
+	private WebElement close;
+	
+	public void closeWindow() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(close));
+		wait.until(ExpectedConditions.elementToBeClickable(close));
+		Assert.assertTrue(close.isDisplayed());
+		HighlightOnElement(close);
+		Assert.assertTrue(close.isEnabled());
+		close.click();
+		waitForSomeTime();
+	}
+	
+}

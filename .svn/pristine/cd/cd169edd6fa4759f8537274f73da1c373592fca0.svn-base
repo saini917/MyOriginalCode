@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:admin]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on ACR image successfully]]>
+    </line>
+    <line>
+      <![CDATA[Expected result:Appraisals]]>
+    </line>
+    <line>
+      <![CDATA[click on Appraisal dropdown successfully]]>
+    </line>
+    <line>
+      <![CDATA[Expected result:Appraisal Initiator]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Description:ACR for Month Jan]]>
+    </line>
+    <line>
+      <![CDATA[click on ACR Initiation Date dropdown successfuly]]>
+    </line>
+    <line>
+      <![CDATA[click on ACR INITIATOR Month Head successfuly]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="28761" started-at="2017-11-02T04:35:47Z" finished-at="2017-11-02T04:36:16Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="28761" started-at="2017-11-02T04:35:47Z" finished-at="2017-11-02T04:36:16Z">
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Performance_Appraisal_Module">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Performance_Appraisal_Module@305fd85d]" name="openBrowser" is-config="true" duration-ms="6922" started-at="2017-11-02T10:05:48Z" finished-at="2017-11-02T10:05:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSSaveFunWithValidDataHRMS_Admin_Appraisal_SC_03_TC_01(java.lang.String, java.lang.String)[pri:3, instance:HRMS_ERP_Management_Script.HRMS_ERP_Performance_Appraisal_Module@305fd85d]" name="verifyHRMSSaveFunWithValidDataHRMS_Admin_Appraisal_SC_03_TC_01" duration-ms="21211" started-at="2017-11-02T10:05:55Z" description="HRMS_Admin_Appraisal_SC_03_TC_01" data-provider="admin" finished-at="2017-11-02T10:06:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:admin]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on ACR image successfully]]>
+            </line>
+            <line>
+              <![CDATA[Expected result:Appraisals]]>
+            </line>
+            <line>
+              <![CDATA[click on Appraisal dropdown successfully]]>
+            </line>
+            <line>
+              <![CDATA[Expected result:Appraisal Initiator]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Description:ACR for Month Jan]]>
+            </line>
+            <line>
+              <![CDATA[click on ACR Initiation Date dropdown successfuly]]>
+            </line>
+            <line>
+              <![CDATA[click on ACR INITIATOR Month Head successfuly]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSSaveFunWithValidDataHRMS_Admin_Appraisal_SC_03_TC_01 -->
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Performance_Appraisal_Module -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

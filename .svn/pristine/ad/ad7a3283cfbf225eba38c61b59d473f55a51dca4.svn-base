@@ -1,0 +1,116 @@
+package HRMS_ERP_TRANSFER;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifySectionTransferLink_SC_03_TC_01 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SECTION TRANSFER".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//header/nav/div/div/div/div/ul/li/a[contains(text(),'Transfer')]/span/../following-sibling::ul/li/a/span[contains(text(),'Section Transfer')]")
+	private WebElement sectiontransferr;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CLICK ON APPROVED ARROW".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Approved by HR')]/span[@class='fa fa-caret-right']")
+	private WebElement clickonapproved;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "APPROVED LIST".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Approved by HR')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr/td")
+	private List<WebElement> approvedlist;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CLICK ON INITIAL ARROW".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Initial')]/span[@class='fa fa-caret-right']")
+	private WebElement clickoninitial;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "INITIAL LIST".
+	 * @author deepak.saini
+	 * @since 2017-12-12
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table[@class='o_list_view table table-condensed table-striped o_list_view_grouped']/tbody/tr/th[contains(text(),'Initial')]/span[@class='fa fa-caret-down']/../../../following-sibling::tbody[1]/tr/td")
+	private List<WebElement> initiallist;
+
+	public void verifySectionTransfer() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(sectiontransferr));
+		HighlightOnElement( sectiontransferr);
+		Assert.assertTrue( sectiontransferr.isDisplayed());
+		Assert.assertTrue( sectiontransferr.isEnabled());
+		sectiontransferr.click();
+		waitForSomeTime();
+	}
+	public void approverList() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(clickonapproved));
+		HighlightOnElement(clickonapproved);
+		Assert.assertTrue(clickonapproved.isDisplayed());
+		Assert.assertTrue(clickonapproved.isEnabled());
+		Actions approve=new Actions(driver);
+		approve.click(clickonapproved).build().perform();
+		waitForSomeTime();
+		for(WebElement applist:approvedlist)
+		{
+			wait.until(ExpectedConditions.visibilityOfAllElements(approvedlist));
+			HighlightOnElement(applist);
+			Assert.assertTrue(applist.isDisplayed());
+		}
+	}
+
+	public void clickOnInitial() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(clickoninitial));
+		HighlightOnElement(clickoninitial);
+		Assert.assertTrue(clickoninitial.isDisplayed());
+		Assert.assertTrue(clickoninitial.isEnabled());
+		Actions approve=new Actions(driver);
+		approve.click(clickoninitial).build().perform();
+		waitForSomeTime();
+	}
+	
+	public void intialList()
+	{
+		for(WebElement inilist:initiallist)
+		{
+			wait.until(ExpectedConditions.visibilityOfAllElements(initiallist));
+			HighlightOnElement(inilist);
+			Assert.assertTrue(inilist.isDisplayed());
+		}
+	}
+}

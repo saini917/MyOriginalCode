@@ -1,0 +1,226 @@
+
+	/*
+	
+
+	@Test(priority=2,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationWithInvalidApplicationNumber_09_TC_03(String username,String password) throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+
+		ToVerifyThePendingApplicationLinkFE PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkFE.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		ToVerifySearchFunctionalityFELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityFELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		Searchbox.verifyInvalidApplicationNumberSearch();
+
+		ToVerifyTheForwardActionFromJE forward=PageFactory.initElements(driver, ToVerifyTheForwardActionFromJE.class);
+		forward.selectForwardAction();
+	}
+
+	@Test(priority=3,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationWithBlankApplicationNumberAsFE_09_TC_04(String username,String password) throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+
+		ToVerifyThePendingApplicationLinkFE PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkFE.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		
+		ToVerifySearchFunctionalityFELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityFELogin.class);;
+		Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+
+	}
+
+	@Test(priority=4,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationWithValidApplicationNumberAsFE_09_TC_05(String username,String password) throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+		
+		ToVerifyThePendingApplicationLinkFE PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkFE.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		
+		ToVerifySearchFunctionalityFELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityFELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+		Searchbox.verifyValidApplicationNumberSearch();
+
+
+	}
+
+	@Test(priority=5,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationActionLinkAsFE_09_TC_06(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+
+		ToVerifyThePendingApplicationLinkFE PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkFE.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		
+		ToVerifySearchFunctionalityFELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityFELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+		Searchbox.verifyValidApplicationNumberSearch();
+		Searchbox.clickAction();
+		
+		ToVerifyTheForwardActionFromJE JESubmit=PageFactory.initElements(driver, ToVerifyTheForwardActionFromJE.class);
+		JESubmit.BlankActionvalidation();
+}
+
+	@Test(priority=6,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationSubmitwithBlankSelectAction_08_TC_07(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+
+		ToVerifyThePendingApplicationLinkFE PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkFE.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		
+		ToVerifySearchFunctionalityFELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityFELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+		Searchbox.verifyValidApplicationNumberSearch();
+		Searchbox.clickAction();
+		
+		ToVerifyTheActionPageFromFE FESubmit=PageFactory.initElements(driver, ToVerifyTheActionPageFromFE.class);
+		//JESubmit.verifyBlankUserValidation();
+		FESubmit.BlankActionvalidation();
+	}
+
+	@Test(priority=7,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationSubmitwithBlankUserAsFE_09_TC_08(String username,String password) throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+
+		ToVerifyThePendingApplicationLinkFE PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkFE.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		
+		ToVerifySearchFunctionalityFELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityFELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+		Searchbox.verifyValidApplicationNumberSearch();
+		Searchbox.clickAction();
+		
+		ToVerifyTheActionPageFromFE FESubmit=PageFactory.initElements(driver, ToVerifyTheActionPageFromFE.class);
+		FESubmit.BlankActionvalidation();
+	}
+
+	@Test(priority=8,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationSubmitwithValidUserAsFE_09_TC_08(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+
+		ToVerifyThePendingApplicationLinkJELogin PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkJELogin.class);
+		PendingApplication.clickOnPendingApplicationlink05();
+		
+		ToVerifySearchFunctionalityJELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityJELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+		Searchbox.verifyValidApplicationNumberSearch();
+		Searchbox.clickAction();
+		
+		ToVerifyTheForwardActionFromJE JESubmit=PageFactory.initElements(driver, ToVerifyTheForwardActionFromJE.class);
+		JESubmit.verifyBlankCommentvalidation();
+	}
+	public void toVerifyPendingApplicationViewPropertyMapLink_09_TC_09(String username,String password)
+	{
+
+	}
+
+
+	@Test(priority=9,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationWithBlankCommentTextbox_09_TC_010(String username,String password) throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException, AWTException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+
+		ToVerifyThePendingApplicationLinkFE PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkFE.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		
+		ToVerifySearchFunctionalityFELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityFELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+		Searchbox.verifyValidApplicationNumberSearch();
+		Searchbox.clickAction();
+		
+		ToVerifyTheActionPageFromFE FESubmit=PageFactory.initElements(driver, ToVerifyTheActionPageFromFE.class);
+		FESubmit.selectForwardAction();
+		FESubmit.verifyBlankCommentvalidation();
+		//JESubmit.verifyBlankUserValidation();
+	}
+
+	@Test(priority=10,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationForwardSelect_09_TC_011(String username,String password) throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException, AWTException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+		
+		ToVerifyTheDashboardFE Pendingcount=PageFactory.initElements(driver, ToVerifyTheDashboardFE.class);
+		Pendingcount.beforeSubmitGetStatus();
+		
+		ToVerifyThePendingApplicationLinkFE PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkFE.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		
+		ToVerifySearchFunctionalityFELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityFELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+		Searchbox.verifyValidApplicationNumberSearch();
+		Searchbox.clickAction();
+		
+		ToVerifyTheActionPageFromFE FESubmit=PageFactory.initElements(driver, ToVerifyTheActionPageFromFE.class);
+		FESubmit.selectForwardAction();
+		FESubmit.selectForwardAction();
+		
+		//ToVerifyTheDashboardFE Pendingcount=PageFactory.initElements(driver, ToVerifyTheDashboardFE.class);
+		waitForSomeTime();
+		Pendingcount.clickOnHome();
+		waitForSomeTime();
+		Pendingcount.afterSubmitGetStatus();
+		Pendingcount.comparecount();
+	}
+
+	@Test(priority=11,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationRejectSelect_08_TC_012(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+
+		ToVerifyThePendingApplicationLinkJELogin PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkJELogin.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		
+		ToVerifySearchFunctionalityJELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityJELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+		Searchbox.verifyValidApplicationNumberSearch();
+		Searchbox.clickAction();
+		
+		ToVerifyTheForwardActionFromJE JESubmit=PageFactory.initElements(driver, ToVerifyTheForwardActionFromJE.class);
+		JESubmit.selectRejectAction();
+	}
+
+	@Test(priority=12,dataProvider ="Field engineer")
+	public void toVerifyPendingApplicationSentBackSelect_09_TC_012(String username,String password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException, AWTException
+	{
+		LoginPageWS_JavaFile logina_citizen=PageFactory.initElements(driver,LoginPageWS_JavaFile.class);
+		logina_citizen.loginAsFE(username, password);
+
+		ToVerifyThePendingApplicationLinkFE PendingApplication=PageFactory.initElements(driver, ToVerifyThePendingApplicationLinkFE.class);
+		PendingApplication.clickOnPendingApplicationlink();
+		
+		ToVerifySearchFunctionalityFELogin Searchbox=PageFactory.initElements(driver, ToVerifySearchFunctionalityFELogin.class);;
+		//Searchbox.verifyblankApplicationNumberSearch();
+		//Searchbox.verifyInvalidApplicationNumberSearch();
+		Searchbox.verifyValidApplicationNumberSearch();
+		Searchbox.clickAction();
+		
+		ToVerifyTheActionPageFromFE FESubmit=PageFactory.initElements(driver, ToVerifyTheActionPageFromFE.class);
+		FESubmit.selectForwardAction();
+		//FESubmit.selectForwardAction();
+		
+		//ToVerifyTheDashboardFE Pendingcount=PageFactory.initElements(driver, ToVerifyTheDashboardFE.class); 
+		FESubmit.selectSendBackAction();
+	}*/

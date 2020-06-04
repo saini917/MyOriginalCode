@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/rest-assured-3.1.1-dist (1)/rest-assured-3.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/rest-assured-3.1.1-dist (1)/docs/json-path-3.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/rest-assured-3.1.1-dist (1)/docs/json-path-3.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/rest-assured-3.1.1-dist (1)/docs/rest-assured-3.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/rest-assured-3.1.1-dist (1)/docs/rest-assured-3.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/rest-assured-3.1.1-dist (1)/docs/rest-assured-common-3.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/rest-assured-3.1.1-dist (1)/docs/rest-assured-common-3.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/rest-assured-3.1.1-dist (1)/docs/xml-path-3.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/rest-assured-3.1.1-dist (1)/docs/xml-path-3.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/json-path-3.1.1-dist/json-path-3.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/json-path-3.1.1-dist/docs/json-path-3.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/json-path-3.1.1-dist/docs/json-path-3.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/json-path-3.1.1-dist/docs/rest-assured-common-3.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/json-path-3.1.1-dist/docs/rest-assured-common-3.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/xml-path-3.1.1-dist/xml-path-3.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/xml-path-3.1.1-dist/docs/rest-assured-common-3.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/xml-path-3.1.1-dist/docs/rest-assured-common-3.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/xml-path-3.1.1-dist/docs/xml-path-3.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/xml-path-3.1.1-dist/docs/xml-path-3.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/json-schema-validator-3.1.1-dist/json-schema-validator-3.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/json-schema-validator-3.1.1-dist/docs/json-schema-validator-3.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/json-schema-validator-3.1.1-dist/docs/json-schema-validator-3.1.1-sources.jar"/>
+	<classpathentry kind="con" path="org.testng"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/groovy-all-3.0.0-alpha-3-groovydoc.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/groovy-2.4.12.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/groovy-json-2.4.12.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/groovy-xml-2.4.12.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/fluent-hc-4.5.6.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/httpclient-4.5.6.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/httpclient-cache-4.5.6.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/httpclient-win-4.5.6.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/httpcore-4.4.10.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/httpmime-4.5.6.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/jna-4.4.0.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpclient/httpcomponents-client-4.5.6-bin/httpcomponents-client-4.5.6/lib/jna-platform-4.4.0.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpcore/httpcomponents-core-4.4.10-bin/httpcomponents-core-4.4.10/lib/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpcore/httpcomponents-core-4.4.10-bin/httpcomponents-core-4.4.10/lib/httpcore-4.4.10.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpcore/httpcomponents-core-4.4.10-bin/httpcomponents-core-4.4.10/lib/httpcore-ab-4.4.10.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/httpcore/httpcomponents-core-4.4.10-bin/httpcomponents-core-4.4.10/lib/httpcore-nio-4.4.10.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/commons-lang3-3.0.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/scribejava-apis-2.5.3.jar"/>
+	<classpathentry kind="lib" path="D:/Webservices/udmey/Rest_Assured_jar/scribejava-core-2.5.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

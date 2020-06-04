@@ -1,0 +1,115 @@
+package HRMS_ERP_TRANSFER;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifySanctionOrderNo_SC_02_TC_06 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SANCTION ORDER NUMBER".
+	 * @author deepak.saini
+	 * @since 2017-12-06
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet']/table/tbody/tr/td/label[contains(text(),'Sanction Order No')]/../following-sibling::td/input[@class='o_form_input o_form_field']")
+	private WebElement sanctionorderno;
+	
+	public void verifySanctionField() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,1);
+	}
+	
+	public void verifySanctionField1() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,2);
+	}
+	
+	public void verifySanctionField2() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,3);
+	}
+	
+	public void verifySanctionField3() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,4);
+	}
+	
+	public void verifySanctionField4() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,5);
+	}
+	public void verifySanctionField5() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,6);
+	}
+	public void verifySanctionField6() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,7);
+	}
+	public void verifySanctionField7() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,9);
+	}
+	public void verifySanctionField8() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,10);
+	}
+	
+	public void verifySanctionField9() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,11);
+	}
+	public void verifySanctionField10() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,12);
+	}
+	public void verifySanctionField11() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,13);
+	}
+	public void verifySanctionField12() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,14);
+	}
+}

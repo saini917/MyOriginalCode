@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
+  <reporter-output>
+    <line>
+      <![CDATA[Email ID:office_sup@gmail.com]]>
+    </line>
+    <line>
+      <![CDATA[Password:nrda@1]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_19 Dec 19   15.59.10.png" alt=""/>]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:office_sup@gmail.com]]>
+    </line>
+    <line>
+      <![CDATA[Password:nrda@1]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_20 Dec 19   15.59.52.png" alt=""/>]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:office_sup@gmail.com]]>
+    </line>
+    <line>
+      <![CDATA[Password:nrda@1]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_21 Dec 19   16.00.37.png" alt=""/>]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:office_sup@gmail.com]]>
+    </line>
+    <line>
+      <![CDATA[Password:nrda@1]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_22 Dec 19   16.01.43.png" alt=""/>]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:office_sup@gmail.com]]>
+    </line>
+    <line>
+      <![CDATA[Password:nrda@1]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_23 Dec 19   16.03.00.png" alt=""/>]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:office_sup@gmail.com]]>
+    </line>
+    <line>
+      <![CDATA[Password:nrda@1]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_25 Dec 19   16.03.59.png" alt=""/>]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:office_sup@gmail.com]]>
+    </line>
+    <line>
+      <![CDATA[Password:nrda@1]]>
+    </line>
+    <line>
+      <![CDATA[click on Login button successfully]]>
+    </line>
+    <line>
+      <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_24 Dec 19   16.05.16.png" alt=""/>]]>
+    </line>
+    <line>
+      <![CDATA[click on Administrator menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Logout buton successfully]]>
+    </line>
+    <line>
+      <![CDATA[Browser closed succesfully]]>
+    </line>
+  </reporter-output>
+  <suite name="Suite" duration-ms="383272" started-at="2018-12-19T10:28:53Z" finished-at="2018-12-19T10:35:16Z">
+    <groups>
+    </groups>
+    <test name="LOGIN AS Account Manager" duration-ms="383272" started-at="2018-12-19T10:28:53Z" finished-at="2018-12-19T10:35:16Z">
+      <class name="HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="openBrowser" is-config="true" duration-ms="5910" started-at="2018-12-19T15:58:54Z" finished-at="2018-12-19T15:59:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="UAT_Finance_GM_19(java.lang.String, java.lang.String)[pri:1, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="UAT_Finance_GM_19" duration-ms="10218" started-at="2018-12-19T15:59:00Z" description="login verify" data-provider="AM" finished-at="2018-12-19T15:59:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[office_sup@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nrda@1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:office_sup@gmail.com]]>
+            </line>
+            <line>
+              <![CDATA[Password:nrda@1]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_19 Dec 19   15.59.10.png" alt=""/>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- UAT_Finance_GM_19 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="logoutHRMS" is-config="true" duration-ms="3019" started-at="2018-12-19T15:59:10Z" finished-at="2018-12-19T15:59:13Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="openBrowser" is-config="true" duration-ms="5188" started-at="2018-12-19T15:59:14Z" finished-at="2018-12-19T15:59:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="UAT_Finance_GM_20(java.lang.String, java.lang.String)[pri:2, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="UAT_Finance_GM_20" duration-ms="32565" started-at="2018-12-19T15:59:19Z" description="verify Administrative Aproval" data-provider="AM" finished-at="2018-12-19T15:59:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[office_sup@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nrda@1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:office_sup@gmail.com]]>
+            </line>
+            <line>
+              <![CDATA[Password:nrda@1]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_20 Dec 19   15.59.52.png" alt=""/>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- UAT_Finance_GM_20 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="logoutHRMS" is-config="true" duration-ms="581" started-at="2018-12-19T15:59:52Z" finished-at="2018-12-19T15:59:52Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="openBrowser" is-config="true" duration-ms="4978" started-at="2018-12-19T15:59:53Z" finished-at="2018-12-19T15:59:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="UAT_Finance_GM_21(java.lang.String, java.lang.String)[pri:3, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="UAT_Finance_GM_21" duration-ms="39319" started-at="2018-12-19T15:59:57Z" description="verify grant installation" data-provider="AM" finished-at="2018-12-19T16:00:37Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[office_sup@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nrda@1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:office_sup@gmail.com]]>
+            </line>
+            <line>
+              <![CDATA[Password:nrda@1]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_21 Dec 19   16.00.37.png" alt=""/>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- UAT_Finance_GM_21 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="logoutHRMS" is-config="true" duration-ms="3156" started-at="2018-12-19T16:00:37Z" finished-at="2018-12-19T16:00:40Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="openBrowser" is-config="true" duration-ms="5139" started-at="2018-12-19T16:00:40Z" finished-at="2018-12-19T16:00:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="UAT_Finance_GM_22(java.lang.String, java.lang.String)[pri:4, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="UAT_Finance_GM_22" duration-ms="57393" started-at="2018-12-19T16:00:46Z" description="verify edit" data-provider="AM" finished-at="2018-12-19T16:01:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[office_sup@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nrda@1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:office_sup@gmail.com]]>
+            </line>
+            <line>
+              <![CDATA[Password:nrda@1]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_22 Dec 19   16.01.43.png" alt=""/>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- UAT_Finance_GM_22 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="logoutHRMS" is-config="true" duration-ms="10765" started-at="2018-12-19T16:01:43Z" finished-at="2018-12-19T16:01:54Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="openBrowser" is-config="true" duration-ms="4556" started-at="2018-12-19T16:01:54Z" finished-at="2018-12-19T16:01:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="UAT_Finance_GM_23(java.lang.String, java.lang.String)[pri:5, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="UAT_Finance_GM_23" duration-ms="60546" started-at="2018-12-19T16:01:59Z" description="verify save" data-provider="AM" finished-at="2018-12-19T16:02:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[office_sup@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nrda@1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:office_sup@gmail.com]]>
+            </line>
+            <line>
+              <![CDATA[Password:nrda@1]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_23 Dec 19   16.03.00.png" alt=""/>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- UAT_Finance_GM_23 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="logoutHRMS" is-config="true" duration-ms="569" started-at="2018-12-19T16:03:00Z" finished-at="2018-12-19T16:03:00Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="openBrowser" is-config="true" duration-ms="4902" started-at="2018-12-19T16:03:00Z" finished-at="2018-12-19T16:03:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="UAT_Finance_GM_25(java.lang.String, java.lang.String)[pri:6, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="UAT_Finance_GM_25" duration-ms="53922" started-at="2018-12-19T16:03:05Z" description="verify revert" data-provider="AM" finished-at="2018-12-19T16:03:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[office_sup@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nrda@1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:office_sup@gmail.com]]>
+            </line>
+            <line>
+              <![CDATA[Password:nrda@1]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_25 Dec 19   16.03.59.png" alt=""/>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- UAT_Finance_GM_25 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="logoutHRMS" is-config="true" duration-ms="2852" started-at="2018-12-19T16:03:59Z" finished-at="2018-12-19T16:04:02Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="openBrowser" is-config="true" duration-ms="4952" started-at="2018-12-19T16:04:02Z" finished-at="2018-12-19T16:04:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="UAT_Finance_GM_24(java.lang.String, java.lang.String)[pri:7, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="UAT_Finance_GM_24" duration-ms="68184" started-at="2018-12-19T16:04:07Z" description="verify approve" data-provider="AM" finished-at="2018-12-19T16:05:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[office_sup@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[nrda@1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:office_sup@gmail.com]]>
+            </line>
+            <line>
+              <![CDATA[Password:nrda@1]]>
+            </line>
+            <line>
+              <![CDATA[click on Login button successfully]]>
+            </line>
+            <line>
+              <![CDATA[<img src="file://C:\ILFS\NRDA\workspace\NRDA_FRAMEWORK\HRMS_PROJECT\Success_ScreenShot\UAT_Finance_GM_24 Dec 19   16.05.16.png" alt=""/>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- UAT_Finance_GM_24 -->
+        <test-method status="PASS" signature="logoutHRMS()[pri:0, instance:HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM@ae45eb6]" name="logoutHRMS" is-config="true" duration-ms="634" started-at="2018-12-19T16:05:16Z" finished-at="2018-12-19T16:05:16Z">
+          <reporter-output>
+            <line>
+              <![CDATA[click on Administrator menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Logout buton successfully]]>
+            </line>
+            <line>
+              <![CDATA[Browser closed succesfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- logoutHRMS -->
+      </class> <!-- HRMS_ERP_UAT_GRANT_MANAGEMENT.LoginAsAM -->
+    </test> <!-- LOGIN AS Account Manager -->
+  </suite> <!-- Suite -->
+</testng-results>

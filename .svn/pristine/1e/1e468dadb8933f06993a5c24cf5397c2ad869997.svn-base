@@ -1,0 +1,124 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class HRMS_ERP_Performance_Appraisal_Admin_Sc_02 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discussion icon".
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='navbar-header']/a/i")
+	private WebElement discussicon;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACR icon".
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//img[@class='app-drawer-icon-app img-rounded' and @title='ACR']")
+	private WebElement Acricon;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Apprasial text".
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='container-fluid']/div[2]/div[1]/div/ul//li/a[contains(text(),'Appraisals')]")
+	private WebElement appraisaltext;
+	
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Apprasial dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='container-fluid']/div[2]/div[1]/div/ul//li/a[contains(text(),'Appraisals')]/span")
+	private WebElement appraisaldrop;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Apprasial Initiator".
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='container-fluid']/div[2]/div[1]/div/ul//li/a[contains(text(),'Appraisals')]/span/../following-sibling::ul/li/a/span[contains(text(),'Appraisal Initiator')]")
+	private WebElement appraisalInitiator;
+	
+	/****************************************************************************************************/
+	
+	/*
+	 * This method is used to click on Discuss icon
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnDiscussIcon()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(discussicon));
+		HighlightOnElement(discussicon);
+		discussicon.click();
+		Reporter.log("click on discuss image successfully",true);
+		log.info("To Verify click on discuss button sucessfully");
+	}
+	
+	/*
+	 * This method is used to click on Employee icon
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnAcrIcon() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(Acricon));
+		HighlightOnElement(Acricon);
+		Acricon.click();
+		Reporter.log("click on ACR image successfully",true);
+		log.info("To Verify click on ACR image successfully");
+	}
+	
+	public void getAppraisalText()
+	{
+		wait.until(ExpectedConditions.visibilityOf(appraisaltext));
+		HighlightOnElement(appraisaltext);
+		String appraisal=appraisaltext.getText();
+		Reporter.log("Expected result:"+appraisal,true);
+	}
+	
+	public void clickOnAppraisal() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(appraisaldrop));
+		HighlightOnElement(appraisaldrop);
+		appraisaldrop.click();
+		Reporter.log("click on Appraisal dropdown successfully",true);
+	}
+	
+	public void clickOnAppraisalInitiator() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(appraisalInitiator));
+		HighlightOnElement(appraisalInitiator);
+		String intiator=appraisalInitiator.getText();
+		Reporter.log("Expected result:"+intiator,true);
+		appraisalInitiator.click();
+	}
+	
+
+}

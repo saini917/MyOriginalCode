@@ -1,0 +1,40 @@
+package WaterAndSewerage_PropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+
+public class WaterAndSewerageLoginAsCitizenPropertyTaxWithInvalidUIDPasCredentials extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+	
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		driver.close();
+		Reporter.log("Action is performed on browser closed successfully",true);
+	}
+	
+	@DataProvider(name="citizen")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"Property_Tax_LoginAsInvalUIPass");
+	}
+	
+	@Test(priority=2,dataProvider ="citizen",description="NRDA_Water & Sewerage_SC_01_TC_05")
+	public void verifyLoginAsPropertyTaxWithInvalidUIDPassCredentials_SC_01_TC_05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsCtizenPropertyTax(username, password);
+	}
+}

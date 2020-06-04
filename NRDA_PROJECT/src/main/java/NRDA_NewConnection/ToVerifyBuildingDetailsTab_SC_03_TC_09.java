@@ -1,0 +1,162 @@
+package NRDA_NewConnection;
+
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+
+public class ToVerifyBuildingDetailsTab_SC_03_TC_09 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Property ID ICon".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-tabs-panels']/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Property ID')]/../../../../../../following-sibling::td/table/tbody/tr/td/a/img")
+	private WebElement propertyidicon;
+
+	public void clickOnPropertyIDIcon() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(propertyidicon));
+		Assert.assertTrue(propertyidicon.isDisplayed());
+		Assert.assertTrue(propertyidicon.isEnabled());
+		propertyidicon.click();
+		Reporter.log("Go to 'Property ID' field , click on icon shown below",true);
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "display list".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/table/tbody/tr/td/label[@style='margin-left:20px;']")
+	private List<WebElement> display;
+	
+	public void verifyDisplayList()
+	{
+		for(WebElement list:display)
+		{
+			Assert.assertTrue(list.isDisplayed());
+			HighlightOnElement(list);
+		}
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click Property ID radio button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/table/tbody/tr/td/table/tbody/tr/td/label[contains(text(),'Property ID')]/../preceding-sibling::td/div/div[2]")
+	private WebElement clickonpropertyID;
+
+	public void clickOnPropertyId() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(clickonpropertyID));
+		HighlightOnElement(clickonpropertyID);
+		Assert.assertTrue(clickonpropertyID.isDisplayed());
+		Assert.assertTrue(clickonpropertyID.isEnabled());
+		Actions act=new Actions(driver);
+		act.click(clickonpropertyID).build().perform();
+		Reporter.log("Property ID Radio button:",true);
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Enter Property ID".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/table/tbody/tr/td/label[contains(text(),'Enter Property ID :')]")
+	private WebElement enterpropertyid;
+
+	public void enterPropertyId() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(enterpropertyid));
+		HighlightOnElement(enterpropertyid);
+		Assert.assertTrue(enterpropertyid.isDisplayed());
+		Assert.assertTrue(enterpropertyid.isEnabled());
+		Reporter.log("Enter Property ID:",true);
+		waitForSomeTime();
+	}
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Search button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/center/button/span[contains(text(),'Search')]")
+	private WebElement searchbutton;
+
+	public void verifyRadioField() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(searchbutton));
+		HighlightOnElement(searchbutton);
+		Assert.assertTrue(searchbutton.isDisplayed());
+		Reporter.log(searchbutton.getText(),true);
+		waitForSomeTime();
+	}
+
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/div/div/table/thead/tr/th/following-sibling::th/span")
+	private List<WebElement> detailsradiobutton;
+
+	public void verifyDetailsRadio() throws InterruptedException
+	{
+		for(WebElement radiodetails:detailsradiobutton)
+		{
+			HighlightOnElement(radiodetails);
+			Assert.assertTrue(radiodetails.isDisplayed());
+			Reporter.log("Other Details radio button",true);
+			Reporter.log(radiodetails.getText(),true);
+			waitForSomeTime();
+		}
+	}
+
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/center/button/span[contains(text(),'Fill in Form')]")
+	private WebElement fillinform;
+
+	public void verifyFillInFormButton()
+	{
+		HighlightOnElement(fillinform);
+		Assert.assertTrue(fillinform.isDisplayed());
+		Reporter.log(fillinform.getText(),true);
+	}
+
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/a/span")
+	private WebElement closewindow;
+
+	public void closeWindow() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(closewindow));
+		HighlightOnElement(closewindow);
+		Assert.assertTrue(closewindow.isDisplayed());
+		Assert.assertTrue(closewindow.isEnabled());
+		closewindow.click();
+		waitForSomeTime();
+	}
+}

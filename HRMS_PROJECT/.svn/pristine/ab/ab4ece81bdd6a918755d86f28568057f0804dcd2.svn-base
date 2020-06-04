@@ -1,0 +1,38 @@
+package HRMS_ERP_TRANSFER;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifySanctionOrderNo_SC_02_TC_06 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SANCTION ORDER NUMBER".
+	 * @author deepak.saini
+	 * @since 2017-12-06
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet']/table/tbody/tr/td/label[contains(text(),'Sanction Order No')]/../following-sibling::td/input[@class='o_form_input o_form_field']")
+	private WebElement sanctionorderno;
+	
+	public void verifySanctionField() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		HighlightOnElement(sanctionorderno);
+		Assert.assertTrue(sanctionorderno.isEnabled());
+		excel.getExcelData(sanctionorderno,"HRMS_Transfer_Data",1,1);
+	}
+}

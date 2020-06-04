@@ -1,0 +1,22 @@
+<PlaceAddRequest>
+  <location>
+   <lat>-33.8669710</lat>
+   <lng>151.1958750</lng>
+ </location>
+ <accuracy>50</accuracy>
+ <name>Google Shoes!</name>
+ <phone_number>(02) 93744000</phone_number>
+ <address> gurgaon</address>
+ <type>shoe_store</type>
+ <website>http://www.google.com.au</website>
+ <language>en-AU</language>
+</PlaceAddRequest>
+
+
+
+<PlaceAddResponse>
+<status>OK</status>
+<reference><gdihowjdoibjkhf_dbhefheukuhuehf_dgytbe2fgike_dyegwbkejbiuwh_dhwidueeb/reference>
+<place_id>ufywnfwlkjpwmqelhfoweflvkdjokppefefjelfjelfwelkjhel</place_id>
+<scope>APP</scope>
+</PlaceAddResponse>

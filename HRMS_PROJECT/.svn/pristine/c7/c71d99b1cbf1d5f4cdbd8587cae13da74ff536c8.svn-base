@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Category button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Email ID:admin]]>
+    </line>
+    <line>
+      <![CDATA[Password:Nrda@1234567]]>
+    </line>
+    <line>
+      <![CDATA[click on discuss image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Employee image successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Configuration menu successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Category button successfully]]>
+    </line>
+    <line>
+      <![CDATA[click on Create button successfully]]>
+    </line>
+    <line>
+      <![CDATA[Form is redirect on Employee Group dashboard ]]>
+    </line>
+    <line>
+      <![CDATA[Employee Group:class6]]>
+    </line>
+    <line>
+      <![CDATA[click on save button succesfully:]]>
+    </line>
+  </reporter-output>
+  <suite name="Suite" duration-ms="68428" started-at="2017-10-26T13:07:00Z" finished-at="2017-10-26T13:08:08Z">
+    <groups>
+    </groups>
+    <test name="login as admin to check Employee Group module" duration-ms="68428" started-at="2017-10-26T13:07:00Z" finished-at="2017-10-26T13:08:08Z">
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@5faeada1]" name="openBrowser" is-config="true" duration-ms="6933" started-at="2017-10-26T18:37:00Z" finished-at="2017-10-26T18:37:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01(java.lang.String, java.lang.String)[pri:1, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@5faeada1]" name="verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01" duration-ms="7358" started-at="2017-10-26T18:37:07Z" description="HRMS_EMP_EGP_CR_TC_01 and HRMS_EMP_EGP_CR_TC_01.1" data-provider="admin" finished-at="2017-10-26T18:37:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSLoginPageHRMS_EMP_C_CR_TC_01 -->
+        <test-method status="PASS" signature="logoutWS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@5faeada1]" name="logoutWS" is-config="true" duration-ms="1501" started-at="2017-10-26T18:37:14Z" finished-at="2017-10-26T18:37:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutWS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@5faeada1]" name="openBrowser" is-config="true" duration-ms="6096" started-at="2017-10-26T18:37:16Z" finished-at="2017-10-26T18:37:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifyHRMSClickOnEmployeeGroupHRMS_EMP_C_CR_TC_01_2(java.lang.String, java.lang.String)[pri:2, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@5faeada1]" name="verifyHRMSClickOnEmployeeGroupHRMS_EMP_C_CR_TC_01_2" duration-ms="15580" started-at="2017-10-26T18:37:22Z" description="HRMS_EMP_EGP_CR_TC_01.2" data-provider="admin" finished-at="2017-10-26T18:37:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Category button successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyHRMSClickOnEmployeeGroupHRMS_EMP_C_CR_TC_01_2 -->
+        <test-method status="PASS" signature="logoutWS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@5faeada1]" name="logoutWS" is-config="true" duration-ms="1450" started-at="2017-10-26T18:37:38Z" finished-at="2017-10-26T18:37:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutWS -->
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@5faeada1]" name="openBrowser" is-config="true" duration-ms="5887" started-at="2017-10-26T18:37:39Z" finished-at="2017-10-26T18:37:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="verifySaveFunctionaltyOnEmployeeGroupValidDataHRMS_EMP_C_CR_TC_02(java.lang.String, java.lang.String)[pri:3, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@5faeada1]" name="verifySaveFunctionaltyOnEmployeeGroupValidDataHRMS_EMP_C_CR_TC_02" duration-ms="21298" started-at="2017-10-26T18:37:45Z" description="HRMS_EMP_EGP_CR_TC_02" data-provider="admin" finished-at="2017-10-26T18:38:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nrda@1234567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Email ID:admin]]>
+            </line>
+            <line>
+              <![CDATA[Password:Nrda@1234567]]>
+            </line>
+            <line>
+              <![CDATA[click on discuss image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Employee image successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Configuration menu successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Category button successfully]]>
+            </line>
+            <line>
+              <![CDATA[click on Create button successfully]]>
+            </line>
+            <line>
+              <![CDATA[Form is redirect on Employee Group dashboard ]]>
+            </line>
+            <line>
+              <![CDATA[Employee Group:class6]]>
+            </line>
+            <line>
+              <![CDATA[click on save button succesfully:]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySaveFunctionaltyOnEmployeeGroupValidDataHRMS_EMP_C_CR_TC_02 -->
+        <test-method status="PASS" signature="logoutWS()[pri:0, instance:HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module@5faeada1]" name="logoutWS" is-config="true" duration-ms="1539" started-at="2017-10-26T18:38:06Z" finished-at="2017-10-26T18:38:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutWS -->
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Employee_Group_Module -->
+    </test> <!-- login as admin to check Employee Group module -->
+  </suite> <!-- Suite -->
+</testng-results>

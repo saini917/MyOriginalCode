@@ -1,0 +1,63 @@
+package NRDA_NewConnection;
+
+import java.awt.AWTException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyConnectionDetailsTab_SC_03_TC_61 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Upload document Details".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//a[contains(text(),'Upload Document / अपलोड दस्तावेज़')]")
+	private WebElement uploaddocumenttab;
+
+	public void clickOnUploadDocumentDetails() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(uploaddocumenttab));
+		Assert.assertTrue(uploaddocumenttab.isDisplayed());
+		Assert.assertTrue(uploaddocumenttab.isEnabled());
+		uploaddocumenttab.click();
+		Reporter.log("Go to 'Upload Documents' tab",true);
+		waitForSomeTime();
+	}
+	/****************************************************************************************************/
+	/**
+	 * This is the xpath of the WebElement "Uploading Documents Link"
+	 * @author sarvesh.nellore
+	 * @Date: 16-08-2017
+	 */
+	/****************************************************************************************************/	
+	@FindBy(xpath="//div[@id='form0:Nb']/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label")
+	private List<WebElement> uploaddocumentlabel;
+
+	public void verifyUploadDocumentField() throws InterruptedException
+	{
+		Reporter.log(" Verify that the following fields are shown :-",true);
+		for(WebElement list:uploaddocumentlabel)
+		{
+			HighlightOnElement(list);
+			Assert.assertNotNull(list.isDisplayed());
+		}
+		Reporter.log("NOC From Owner \n Applicant ID Proof \n Applicant Address proof \n Other Document \n Receipt lease Rent \n Property ownership Proof",true);
+		waitForSomeTime();
+	}
+}

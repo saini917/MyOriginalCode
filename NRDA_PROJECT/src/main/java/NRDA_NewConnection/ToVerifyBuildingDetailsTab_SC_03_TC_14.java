@@ -1,0 +1,94 @@
+package NRDA_NewConnection;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+
+public class ToVerifyBuildingDetailsTab_SC_03_TC_14 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Owner Name Inputbox ".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	//@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/table/tbody/tr/td/label[contains(text(),'Property building Name')]/../following-sibling::td/input")
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/table/tbody/tr/td/label[contains(text(),'Owner Name')]/../following-sibling::td/input")
+	private WebElement propertybuildingname;
+
+	public void verifyOwnerDetails() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(propertybuildingname));
+		HighlightOnElement(propertybuildingname);
+		excel.getExcelData(propertybuildingname,"Building Details",2,10);
+		Reporter.log("Enter details",true);
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Search button".
+	 * @author deepak.saini
+	 * @since 2017-08-22
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/center/button/span[contains(text(),'Search')]")
+	private WebElement searchbutton;
+	public void clickOnSearch() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(searchbutton));
+		HighlightOnElement(searchbutton);
+		Assert.assertTrue(searchbutton.isDisplayed());
+		Assert.assertTrue(searchbutton.isEnabled());
+		searchbutton.click();
+		Reporter.log("Click on Search",true);
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/div/div/span/div/div/table/tbody/tr/td/following-sibling::td/label")
+	private List<WebElement> result;
+
+	public void viewResult()
+	{
+		Reporter.log("User should be able to view the results as:" ,true);
+		for(WebElement res:result)
+		{
+			HighlightOnElement(res);
+			Assert.assertTrue(res.isDisplayed());
+			Reporter.log(res.getText(),true);
+		}
+		Reporter.log("User can select 1 record shown from multiple results",true);
+	}
+
+	@FindBy(xpath="//div[@id='form0:dlg_propertySearch']/div/a/span")
+	private WebElement closewindow;
+
+	public void closeWindow() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(closewindow));
+		HighlightOnElement(closewindow);
+		Assert.assertTrue(closewindow.isDisplayed());
+		Assert.assertTrue(closewindow.isEnabled());
+		closewindow.click();
+		waitForSomeTime();
+	}
+}

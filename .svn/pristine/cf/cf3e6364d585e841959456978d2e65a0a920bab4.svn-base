@@ -1,0 +1,139 @@
+﻿package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyCloseButton_SC_07_TC_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "DRAFTED APPLICATION MENU".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/b[contains(text(),'Application/आवेदन')]/../following-sibling::ul/li/a[contains(text(),'Submitted Application/प्रस्तुत आवेदन')]")
+	private WebElement submittedapplicationmenu;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SEARCH INPUT BOX".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/table/tbody/tr/td/span[contains(text(),'Enter Application Number : ')]/../following-sibling::td/input")
+	private WebElement searchinputbox;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SEARCH BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/div/table/tbody/tr/td/span[contains(text(),'Enter Application Number : ')]/../following-sibling::td/button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+	
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 1')]/../span")
+	private WebElement propertyassessmentdrop1;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "APPICATION STATUS".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 1')]/../span/../following-sibling::div/div/div/table/tbody/tr/td/span[contains(text(),'PENDING')]")
+	private WebElement checkstatus;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ACTION IMAGE".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 1')]/../span/../following-sibling::div/div/div/table/tbody/tr/td/a/img[@src='/NRDAuthority/resources/images/view-icon.png']")
+	private WebElement action;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CLOSE BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-11-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Close')]")
+	private WebElement close;
+	
+	
+	/**
+	 * @throws IOException 
+	 * @throws InvalidFormatException 
+	 * @throws EncryptedDocumentException **************************************************************************************************/
+	
+	public void verifyCloseButton() throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(submittedapplicationmenu));
+		HighlightOnElement(submittedapplicationmenu);
+		Assert.assertTrue(submittedapplicationmenu.isDisplayed(),"DRAFTED APPLICATION MENU is displayed");
+		Assert.assertTrue(submittedapplicationmenu.isEnabled(),"DRAFTED APPLICATION MENU is enabled");
+		Reporter.log("Expected result:"+submittedapplicationmenu.getText(),true);
+		Actions submitapp=new Actions(driver);
+		submitapp.click(submittedapplicationmenu).build().perform();
+		Reporter.log("Action is performed on Submitted Application Menu",true);
+		
+		wait.until(ExpectedConditions.visibilityOf(searchinputbox));
+		HighlightOnElement(searchinputbox);
+		Assert.assertTrue(searchinputbox.isDisplayed(),"SEARCH INPUT BOX is displayed");
+		Assert.assertTrue(searchinputbox.isEnabled(),"SEARCH INPUT BOX is enabled");
+		String validapp=excel.getExcelData(searchinputbox,"PropertyTax_Application_Num",0,1);
+		Reporter.log("VALID APPLICATION:"+validapp,true);
+		Reporter.log("Action is performed on Search Input Box",true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		HighlightOnElement(searchbtn);
+		Assert.assertTrue(searchbtn.isDisplayed(),"SEARCH BUTTON is displayed");
+		Assert.assertTrue(searchbtn.isEnabled(),"SEARCH BUTTON is enabled");
+		searchbtn.click();
+		Reporter.log("Action is performed on Search Button",true);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(propertyassessmentdrop1));
+		propertyassessmentdrop1.click();
+		
+		
+		wait.until(ExpectedConditions.elementToBeClickable(action));
+		HighlightOnElement(action);
+		Assert.assertTrue(action.isDisplayed());
+		Assert.assertTrue(action.isEnabled());
+		action.click();
+		Reporter.log("Action is performed on Action Button",true);
+		
+		
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,400)", "");
+		wait.until(ExpectedConditions.elementToBeClickable(close));
+		HighlightOnElement(close);
+		Assert.assertTrue(close.isDisplayed());
+		Assert.assertTrue(close.isEnabled());
+		close.click();
+		Reporter.log("Action is performed on Close Button",true);
+	}
+}

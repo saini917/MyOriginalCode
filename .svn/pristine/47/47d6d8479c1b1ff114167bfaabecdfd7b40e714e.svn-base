@@ -1,0 +1,47 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyNameOfPropertyField_SC_03_TC_03 extends CommonLibrary
+	{
+		ExcelDataDriver excel=new ExcelDataDriver();
+		WebDriverWait wait=new WebDriverWait(driver,40);
+		/****************************************************************************************************/
+		/*
+		 * This is the xpath of the WebElement "NAME OF PROPERTY".
+		 * @author deepak.saini
+		 * @since 2017-11-23
+		 */
+		/****************************************************************************************************/
+		@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name Of Property')]/../../../../../../following-sibling::td/table/tbody/tr/td/input")
+		private WebElement nameofproperty;
+		
+		@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Name Of Property')]")
+		private WebElement clickonany;
+		
+		public void verifyNameOfProperty() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+		{
+			waitForSomeTime();
+			HighlightOnElement(nameofproperty);
+			Assert.assertTrue(nameofproperty.isDisplayed(),"NAME OF PROPERTY FILED is displayed");
+			Assert.assertTrue(nameofproperty.isEnabled(),"NAME OF PROPERTY FILED is enabled");
+			String value=excel.getExcelData(nameofproperty,"Owner_Property_Details",1,9);
+			Reporter.log("Expected result:"+value,true);
+			clickonany.click();
+			acceptAlert();
+			Reporter.log("Action is performed on Wrong Name of Property pop up",true);
+			String value1=excel.getExcelData(nameofproperty,"Owner_Property_Details",1,2);
+			Reporter.log("Expected result:"+value1,true);
+			Reporter.log("Action is performed on Name of Property field",true);
+		}
+}

@@ -1,0 +1,32 @@
+package com.coachingProgram;
+
+public class MixNumberLetter {
+
+	static String s = "zwa123absr@$%%%%^";
+	static String l="";
+	static String num="";
+	static int d;
+	static boolean symbol;
+
+	public static void main(String[] args) {
+
+		for (int i = 0; i < s.length(); i++) {
+			char[] ch = s.toCharArray();
+			if (Character.isLetter(ch[i])) {
+                 l+=ch[i];
+			}
+			else if(Character.isDigit(ch[i])){
+				 num+=ch[i];
+				 d=Integer.parseInt(num);	
+			}
+			else if(Character.isSpaceChar(ch[i])){
+				
+				 
+			}
+		}
+		
+		System.out.println(l + "," +d);
+
+	}
+
+}

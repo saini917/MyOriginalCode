@@ -1,0 +1,151 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyCloseButton_SC_05_TC_14 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/*
+	 * This is the xpath of the WebElement "PROPERTY TAX MANAGEMENT dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PROPERTY TAX MANAGEMENT')]/preceding-sibling::span")
+	private WebElement PropertyTaxdrop;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY ASSESSMENT IMAGE".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	//@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PROPERTY TAX MANAGEMENT')]/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'PROPERTY ASSESSMENT')]/../following-sibling::td/span/a/img[@src='/NRDAuthority1/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	@FindBy(xpath="//table/tbody/tr/td/div/h3/a[contains(text(),'PROPERTY TAX MANAGEMENT')]/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'PROPERTY ASSESSMENT')]/../following-sibling::td/span/a/img[@src='/NRDAuthority/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	private WebElement propertyassessment;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROCEED Button".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Proceed')]")
+	private WebElement proceedbtn;
+
+	/****************************************************************************************************/
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NEW APPLICATION Button".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:confirmDlg']/div/div/div/div/div/button/span[contains(text(),'New Application')]")
+	private WebElement newApplication;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "NEW ASSESSMENT RADIO Button".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/div/span/table/tbody/tr/td/label[contains(text(),'New Assessment')]/../input")
+	private WebElement newAssessmentRadiobtn;
+
+	/**
+	 * @throws InterruptedException 
+	 * @throws IOException 
+	 * @throws InvalidFormatException 
+	 * @throws EncryptedDocumentException **************************************************************************************************/
+	public void verifyCloseButon() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(PropertyTaxdrop));
+		HighlightOnElement(PropertyTaxdrop);
+		Assert.assertTrue(PropertyTaxdrop.isDisplayed(),"PROPERTY TAX MANAGEMENT is displayed");
+		Assert.assertTrue(PropertyTaxdrop.isEnabled(),"PROPERTY TAX MANAGEMENT is enabled");
+		Actions propertytax=new Actions(driver);
+		propertytax.click(PropertyTaxdrop).perform();
+		Reporter.log("Action is performed on Property Tax Management dropdown",true);
+
+		HighlightOnElement(propertyassessment);
+		Assert.assertTrue(propertyassessment.isDisplayed(),"PROPERTY TAX MANAGEMENT IMAGE is displayed");
+		Assert.assertTrue(propertyassessment.isEnabled(),"PROPERTY TAX MANAGEMENT IMAGE is enabled");
+		propertyassessment.click();
+		Reporter.log("Action is performed on Property Tax Management Image",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(proceedbtn));
+		HighlightOnElement(proceedbtn);
+		Assert.assertTrue(proceedbtn.isDisplayed(),"PROCEED BUTTON is displayed");
+		Assert.assertTrue(proceedbtn.isEnabled(),"PROCEED BUTTON is enabled");
+		Reporter.log("Expected result:"+proceedbtn.getText(),true);
+		Actions proceed=new Actions(driver);
+		proceed.click(proceedbtn).perform();
+		Reporter.log("Action is performed on Proceed button",true);
+
+		try
+		{
+			//wait.until(ExpectedConditions.visibilityOf(newApplication));
+			wait.until(ExpectedConditions.elementToBeClickable(newApplication));
+			HighlightOnElement(newApplication);
+			Assert.assertTrue(newApplication.isDisplayed(),"NEW APPLICATION BUTTON is displayed");
+			Assert.assertTrue(newApplication.isEnabled(),"NEW APPLICATION BUTTON is enabled");
+			Reporter.log("Expected result:"+newApplication.getText(),true);
+			Actions newapplication=new Actions(driver);
+			newapplication.click(newApplication).perform();
+			Reporter.log("Action is performed on New Application button",true);
+		}
+		catch (StaleElementReferenceException st)
+		{
+			st.printStackTrace();
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(newAssessmentRadiobtn));
+		HighlightOnElement(newAssessmentRadiobtn);
+		Assert.assertTrue(newAssessmentRadiobtn.isDisplayed(),"NEW ASSESSMENT RADIO BUTTON is displayed");
+		Assert.assertTrue(newAssessmentRadiobtn.isEnabled(),"NEW ASSESSMENT RADIO BUTTON is enabled");
+		newAssessmentRadiobtn.click();
+		Reporter.log("Action is performed on New Assessment Radio button",true);
+		clickOnCloseButton();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "CLOSE BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-11-23
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Close')])[1]")
+	private WebElement closebtn;
+
+	public void clickOnCloseButton()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(closebtn));
+		HighlightOnElement(closebtn);
+		Assert.assertTrue(closebtn.isDisplayed(),"CLOSE button is displayed");
+		Assert.assertTrue(closebtn.isEnabled(),"CLOSE button is enabled");
+		Reporter.log("Expected result:"+closebtn.getText(),true);
+		closebtn.click();
+		Reporter.log("Action is performed on Close button",true);
+	}
+}

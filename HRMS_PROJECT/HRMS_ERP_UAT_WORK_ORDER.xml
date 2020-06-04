@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<listeners>
+		<listener class-name="GenericLibrary.ExtentReport"/>
+</listeners>
+
+   <!-- <test name="LOGIN AS WO Technical Officer">
+	<classes>
+		<class name="HRMS_ERP_UAT_WORK_ORDER.LoginAsHOD">
+			<methods>
+					 <include name="UAT_Finance_WO_01"/> 
+       				 <include name="UAT_Finance_WO_02"/>  
+       			 	<include name="UAT_Finance_WO_03"/>
+       			 	<include name="UAT_Finance_WO_04"/>
+       			 	<include name="UAT_Finance_WO_05"/>  
+       			 	<include name="UAT_Finance_WO_06"/> 
+       			 	<include name="UAT_Finance_WO_07"/>
+       			 	<include name="UAT_Finance_WO_08"/> 
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>--> 
+ 
+ 
+ 
+ <!-- <test name="LOGIN AS WO HOD Officer">
+	<classes>
+		<class name="HRMS_ERP_UAT_WORK_ORDER.LoginAsHOD">
+			<methods>
+					 <include name="UAT_Finance_WO_09"/>
+       			 	<include name="UAT_Finance_WO_10"/>
+       			 	<include name="UAT_Finance_WO_11"/>
+       			 	<include name="UAT_Finance_WO_12"/>
+       			 	<include name="UAT_Finance_WO_13"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test> -->
+ 
+ 
+<test name="LOGIN AS WO CEO Officer">
+	<classes>
+		<class name="HRMS_ERP_UAT_WORK_ORDER.LoginAsCEO">
+			<methods>
+					 <include name="UAT_Finance_WO_14"/>
+       			 	<include name="UAT_Finance_WO_15"/>
+       			 	<include name="UAT_Finance_WO_16"/>
+       			 	<include name="UAT_Finance_WO_17"/>
+       			 	<include name="UAT_Finance_WO_18"/>
+    		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

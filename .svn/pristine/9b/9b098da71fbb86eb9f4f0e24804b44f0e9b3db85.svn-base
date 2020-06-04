@@ -1,0 +1,58 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyPendingApplicationDashboard_SC_09_TC_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Pending Application".
+	 * @author deepak.saini
+	 * @since 2017-11-28
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr/td/form/div/ul/li[2]")
+	private WebElement pending_application;
+
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/div/div/h3/following-sibling::div/div/div/table/thead/tr/th/span")
+	private List<WebElement> pendingdashboard;
+
+	public void verifyPendingApplicationDashboard() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(pending_application));
+		HighlightOnElement(pending_application);
+		Assert.assertTrue(pending_application.isDisplayed(),"PENDING APPLICATION MENU is displayed");
+		Assert.assertTrue(pending_application.isEnabled(),"PENDING APPLICATION MENU is enabled");
+		pending_application.click();
+		//Reporter.log("Action is performed on Pending Application",true);
+		waitForSomeTime();
+		waitForSomeTime();
+		for(WebElement dash:pendingdashboard)
+		{
+			//wait.until(ExpectedConditions.visibilityOf(dash));
+			//String dsah1=dash.getText();
+			//Reporter.log("PENDING APPLICATION DASHBOARD ELEMENT:"+dsah1,true);
+			if(dash.isDisplayed())
+			{
+				HighlightOnElement(dash);
+				Assert.assertTrue(true);
+			}
+			else
+			{
+				Reporter.log("Test Case failed",true);
+			}
+		}
+	}
+}

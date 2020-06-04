@@ -1,0 +1,187 @@
+package NRDA_NewConnection;
+
+import java.io.IOException;
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyWaterAndSewerageConnection_SC_03_TC_02 extends CommonLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver,50);
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Application for water and sewerage connection under public health and engineering".
+	 * @author deepak.saini
+	 * @since 2017-12-26
+	 */
+	/****************************************************************************************************/
+	//@FindBy(xpath="//td[@class='rightColWithLeftPad']/span/table/tbody/tr/td/div/h3/a[contains(text(),'WATER AND SEWERAGE SECTION')]/preceding-sibling::span/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'WATER AND SEWERAGE CONNECTION')]/../following-sibling::td/span/a/img[@src='/NRDAuthority/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	//@FindBy(xpath="//td[@class='rightColWithLeftPad']/span/table/tbody/tr/td/div/h3/a[contains(text(),'Public Health and Engineering')]/preceding-sibling::span/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'WATER AND SEWERAGE CONNECTION')]/../following-sibling::td/span/a/img[@src='/NRDAuthority/javax.faces.resource/applyNow.png.xhtml?ln=img']")
+	
+	@FindBy(xpath="//td[@class='rightColWithLeftPad']/span/table/tbody/tr/td/div/h3/a[contains(text(),'Public Health and Engineering')]/preceding-sibling::span/../following-sibling::div/table/tbody/tr/td/span[contains(text(),'WATER AND SEWERAGE CONNECTION')]/../following-sibling::td/span/a[1]/img")
+	private WebElement toverifyNewconnection;
+
+	public void clickOnWaterAndSewerageConnection() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(toverifyNewconnection));
+		HighlightOnElement(toverifyNewconnection);
+		Assert.assertEquals(true,toverifyNewconnection.isEnabled());
+		wait.until(ExpectedConditions.visibilityOf(toverifyNewconnection));
+		toverifyNewconnection.click();
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Application for water and sewerage connection under Water and Sewerage Connection".
+	 * @author deepak.saini
+	 * @since 2017-12-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Apply New Water Connection')]")
+	private WebElement clickonapplyfornewconnection;
+
+	public void clickOnNewApplicationButton() throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		wait.until(ExpectedConditions.visibilityOf(clickonapplyfornewconnection));
+		Assert.assertEquals(true,clickonapplyfornewconnection.isEnabled());
+		HighlightOnElement(clickonapplyfornewconnection);
+		clickonapplyfornewconnection.click();
+		waitForSomeTime();
+	}
+	
+	@FindBy(xpath="//div[@id='form0:confirmDlg']/div/div/div/div/div/button/span[contains(text(),'New Application')]")
+	private WebElement newapplication;
+	
+	public void clickOnNewApplicationPopUpBtn() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(newapplication));
+		wait.until(ExpectedConditions.elementToBeClickable(newapplication));
+		HighlightOnElement(newapplication);
+		Assert.assertTrue(newapplication.isDisplayed());
+		Assert.assertTrue(newapplication.isEnabled());
+		newapplication.click();
+		waitForSomeTime();
+	}
+	
+	@FindBy(xpath="//div[@id='form0:newConncetionConfDlgID']/div/div/div/center/table/tbody/tr/td/button/span[contains(text(),'Yes')]")
+	private WebElement button;
+	public void selectPopUp() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(button));
+		HighlightOnElement(button);
+		Assert.assertTrue(button.isDisplayed());
+		Assert.assertTrue(button.isEnabled());
+		button.click();
+		waitForSomeTime();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Proceed button".
+	 * @author deepak.saini
+	 * @since 2017-12-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Proceed')])[1]")
+	private WebElement proceed;
+
+	public void clickOnProceedButton() throws InterruptedException
+	{
+		WebDriverWait wait1 = new WebDriverWait(driver,50);
+		wait1.until(ExpectedConditions.visibilityOf(proceed));
+		HighlightOnElement(proceed);//click on proceed button
+		proceed.click();
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Proceed pop up button".
+	 * @author deepak.saini
+	 * @since 2017-12-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="(//button/span[contains(text(),'Proceed')])[2]")
+	private WebElement proceed1;
+
+	public void clickOnPopUpProceedButton() throws InterruptedException
+	{
+		WebDriverWait wait1 = new WebDriverWait(driver,50);
+		wait1.until(ExpectedConditions.visibilityOf(proceed1));
+		HighlightOnElement(proceed1);//click on proceed button
+		proceed1.click();
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on Delete button".
+	 * @author deepak.saini
+	 * @since 2017-12-26
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='form0:confirmDlg']/div/div/div/div/div/table/tbody/tr/td/button/span[contains(text(),'Delete')]")
+	private WebElement deletebtn;
+	
+	public void clickOnDeleteButton() throws InterruptedException
+	{
+		WebDriverWait wait1 = new WebDriverWait(driver,50);
+		wait1.until(ExpectedConditions.visibilityOf(deletebtn));
+		HighlightOnElement(deletebtn);//click on proceed button
+		deletebtn.click();
+		waitForSomeTime();
+	}
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "click on alert Yes/NO button".
+	 * @author deepak.saini
+	 * @since 2017-12-26
+	 */
+	/****************************************************************************************************/
+	/*@FindBy(xpath="//div[@id='form0:confirmDlg']/div[2]/div/div/center/table/tbody/tr/td/button")
+	private List<WebElement> button;*/
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td/span/div/div/div/div/b")
+	private List<WebElement> displaylink;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td/span/div/div/div/ul/li/a")
+	private List<WebElement> displaylink1;
+
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a")
+	private List<WebElement> displaylink2;
+	
+	public void verifyDisplayDashboard() throws InterruptedException
+	{
+		for(WebElement link:displaylink)
+		{
+			HighlightOnElement(link);
+			Assert.assertNotNull(link.isDisplayed());
+		}
+
+		for(WebElement link1:displaylink1)
+		{
+			HighlightOnElement(link1);
+			Assert.assertNotNull(link1.isDisplayed());
+		}
+
+		for(WebElement link2:displaylink2)
+		{
+			HighlightOnElement(link2);
+			Assert.assertNotNull(link2.isDisplayed());
+		}
+	}
+}
+
+
+

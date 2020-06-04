@@ -1,0 +1,299 @@
+package WaterAndSewerage_Disconnection;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageDisconnection.WaterAndSewerageDisconnectionLoginAsEE;
+import WaterAndSewerageDisconnection.WaterAndSewerageDisconnectionLoginAsJE;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+
+
+/**
+ * @author Sarvesh.Nellore
+ * @Date: 05-10-2017
+ * @Purpose: WATER AND SEWERAGE DISCONNECTION BY EXECUTIVE ENGINEER
+ */
+public class WaterAndSewerageDisConnectionEE extends URLPageWSNRDAScript
+{
+
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebElement web1=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		Actions action = new Actions(driver);
+		action.moveToElement(web1).build().perform();
+		waitForSomeTime();
+		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+		driver.close();
+
+	}
+	@DataProvider(name="Executive engineer")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"Executive Engineer Credintials");
+	}
+	
+	@DataProvider(name="junior engineer")
+	public String[][] getExcelData1() throws InvalidFormatException, IOException
+	  {
+		return exceldata.getCellData(filepath,"Junior Engineer Credentials");
+	  }
+	
+	
+	 @Test(priority=1,dataProvider ="Executive engineer",description="verifyLoginAsEE_04_TC_01")
+	public void NRDA_Disconnection_SC_04_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		 WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+		
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toverifyhomeDashBoard_LoginasEE();
+	}
+	
+	 @Test(priority=2,dataProvider ="Executive engineer",description="verifyStatisticsofWaterMenu_02")
+		public void NRDA_Disconnection_SC_04_TC_02(String username,String password) throws InterruptedException, Throwable, InvalidFormatException
+		{
+			 WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+				login_as_EE.loginAsEE(username, password);
+			
+			WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+			Application.toverifyfunctionalityofWaterStatistics_Icon02();
+		}
+	 
+	 @Test(priority=3,dataProvider ="Executive engineer",description="verifypendingcountlinkinWaterMenu03")
+		public void NRDA_Disconnection_SC_04_TC_03(String username,String password) throws InterruptedException, Throwable, InvalidFormatException
+		{
+			WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			login_as_EE.loginAsEE(username, password);
+		
+			WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+			Application.toclickonpendingcountlink();
+			Application.toVerifyActionButtonDisplayed01();
+			Application.toVerifyRecordPerPage02();
+			Application.toVerifyPagination02();
+			Application.closePopUpWindow();
+			Application.toverifyPendingCountinWatermenu03();
+			Application.closePopUpWindow();
+		}
+	 
+	 @Test(priority=4,dataProvider ="Executive engineer",description="verifyrejectcountlinkinWaterMenu04")
+		public void NRDA_Disconnection_SC_04_TC_04(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+		{
+			WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			login_as_EE.loginAsEE(username, password);
+			
+			WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+			Application.toclickonrejectcountlink();
+			Application.toVerifyActionButtonDisplayed01();
+			Application.toVerifyRecordPerPage02();
+			Application.toVerifyPagination02();
+			Application.closePopUpWindow();
+			Application.toverifyRejectCountinWatermenu04();
+			Application.closePopUpWindow();
+		}
+	 
+
+		@Test(priority=5,dataProvider ="Executive engineer",description="verifyApprovecountlinkinWaterMenu05")
+		public void NRDA_Disconnection_SC_04_TC_05(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+		{
+			WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			login_as_EE.loginAsEE(username, password);
+			
+			WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+			Application.toclickonApprovecountlink();
+			Application.toVerifyActionButtonDisplayed01();
+			Application.toVerifyRecordPerPage02();
+			Application.toVerifyPagination02();
+			Application.closePopUpWindow();
+			Application.toverifyApproveCountinWatermenu05();
+			Application.closePopUpWindow();
+		}
+		
+		@Test(priority=6,dataProvider ="Executive engineer",description="verifypendingApplicationIcononDashBoard06")
+		public void NRDA_Disconnection_SC_04_TC_06(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+		{
+			WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			login_as_EE.loginAsEE(username, password);
+			
+			WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+			Application.toVerifyPendingApplicationAsEE06();
+			Application.toVerifyActionButtonDisplayed01();
+		}
+		
+		@Test(priority=7,dataProvider ="Executive engineer",description="toverifypaginationonPendingApplication07")
+		public void NRDA_Disconnection_SC_04_TC_07(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+		{
+			WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+			login_as_EE.loginAsEE(username, password);
+			
+			WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+			Application.toverifypeginationofPendingApplication07();
+
+		}
+	
+	@Test(priority=8,dataProvider ="Executive engineer",description="toverifyApplicationAsInvalidNumber08")
+	public void NRDA_Disconnection_SC_04_TC_08(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toVerifyInvalidApplicationNumber08();
+	}
+		
+	@Test(priority=9,dataProvider ="Executive engineer",description="toverifyApplicationNumberisBlank09")
+	public void NRDA_Disconnection_SC_04_TC_09(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toVerifyBlankApplicationNumber09();
+	}
+	
+	@Test(priority=10,dataProvider ="Executive engineer",description="toverifyApplicationAsvalidNumber10")
+	public void NRDA_Disconnection_SC_04_TC_10(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toVerifyValidApplicationNumber10();
+	}
+	
+	@Test(priority=11,dataProvider ="Executive engineer",description="toVerifyActionbuttonFunctionality_PendingApplication11")
+	public void NRDA_Disconnection_SC_04_TC_11(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toclickonPendingApplication();
+		Application.toVerifyActionbuttonFunctionalityinPendingApplication11();
+	}
+	
+	
+	@Test(priority=12,dataProvider ="Executive engineer",description="toVerifySubmitbuttonFunctionalityWithActionFieldIS_Blank12")
+	public void NRDA_Disconnection_SC_04_TC_12(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toclickonPendingApplication();
+		Application.toVerifyActionbuttonFunctionalityinPendingApplication11();
+		Application.toVerifyFunctionalityofSubmitButton();
+		Application.toVerifyErrorMessage();
+		
+	}
+	
+	@Test(priority=13,dataProvider ="Executive engineer",description="toVerifySubmitbuttonFunctionalityWithCommentsFieldIS_Blank13")
+	public void NRDA_Disconnection_SC_04_TC_13(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toclickonPendingApplication();
+		Application.toVerifySubmitbuttonFunctionalityWithCommentsFieldISBlank13();
+		Application.toVerifyFunctionalityofSubmitButton();
+		Application.toVerifyErrorMessageAsUserisBlank();
+		
+	}
+		
+	
+	@Test(priority=14,dataProvider ="Executive engineer",description="toVerifySubmitbuttonFunctionalityuploaddocumentwithinvalidformat14")
+	public void NRDA_Disconnection_SC_04_TC_14(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toclickonPendingApplication();
+		Application.toVerifySubmitbuttonuploadingdocumentwithinvalidformat14();
+		Application.toVerifyErrorMessageAsUploadingDocumentAsInvalidFormat();
+		
+	}
+	
+	
+	@Test(priority=15,dataProvider ="Executive engineer",description="toverifythefieldnofunctionality")
+	public void NRDA_Disconnection_SC_04_TC_15(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toclickonPendingApplication();
+		Application.toverifythefieldnofunctionality();
+		
+	}
+	
+	@Test(priority=16,dataProvider ="Executive engineer",description="toverifytheSubjectfunctionality")
+	public void NRDA_Disconnection_SC_04_TC_16(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toclickonPendingApplication();
+		Application.toverifytheSubjectfunctionality();
+		
+	}
+	 
+	@Test(priority=17,dataProvider ="Executive engineer",description="toverifySubmitFunctionalitywithActionAsSentBack16")
+	public void NRDA_Disconnection_SC_04_TC_18(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toverifySubmitFunctionalitywithActionAsSentBack16();
+	}
+	
+	@Test(priority=18,dataProvider ="junior engineer",description="toVerifySubmitbuttonFunctionalityActionisForward12")
+	public void NRDA_Disconnection_SC_04_TC_18_1(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+		{
+		WaterAndSewerageLoginPage logina_citizen=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		logina_citizen.loginAsJE(username, password);
+		WaterAndSewerageDisconnectionLoginAsJE application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsJE.class);
+		application.toforwardApplicationJEtoEE();
+		
+		}
+	
+	@Test(priority=19,dataProvider ="Executive engineer",description="toVerifyFunctionalityofClose_Button18")
+	public void NRDA_Disconnection_SC_04_TC_20(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toverifyfunctionalityofclosebutton18();
+		Application.toVerifyPendingApplicationAsEE06();
+	}
+	
+	@Test(priority=15,dataProvider ="Executive engineer",description="toverifySubmitFunctionalitywithActionAsApprove15")
+	public void NRDA_Disconnection_SC_04_TC_17(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_as_EE=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_as_EE.loginAsEE(username, password);
+
+		WaterAndSewerageDisconnectionLoginAsEE Application=PageFactory.initElements(driver, WaterAndSewerageDisconnectionLoginAsEE.class);
+		Application.toverifySubmitFunctionalitywithActionAsApprove15();
+	}
+	
+
+	
+}

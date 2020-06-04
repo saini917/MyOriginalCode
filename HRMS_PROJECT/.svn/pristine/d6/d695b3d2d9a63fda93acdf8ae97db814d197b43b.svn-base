@@ -1,0 +1,537 @@
+package HRMS_ERP_PERFORMANCE_APPRAISAL;
+
+import java.io.IOException;
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+
+public class HRMS_ERP_Performance_Appraisal_Admin_Sc_03 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Create button"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//button[contains(text(),' Create')]")
+	private WebElement createbtn;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Description"
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'Description')]/../following-sibling::td/input")
+	private WebElement description;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'ACR Initiation Date')]/../following-sibling::td/div/span")
+	private WebElement ACR_Initiation_Date_drop;
+
+	//@FindBy(xpath="//div[@class='bootstrap-datetimepicker-widget dropdown-menu top picker-open']/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	@FindBy(xpath="html/body/div[5]/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	private WebElement clickonACRInitiatormonthhead;
+
+	@FindBy(xpath="html/body/div[5]/div/div[2]/table/tbody/tr/td/span")
+	private List<WebElement> selectmonth;
+
+	@FindBy(xpath="html/body/div[5]/div/div[1]/table/tbody/tr/td")
+	private List<WebElement> selectdate;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'ACR Submission Date')]/../following-sibling::td/div/span")
+	private WebElement ACR_Submission_Date_drop;
+
+	@FindBy(xpath="html/body/div[6]/div/div[1]/table/thead/tr/th[@class='picker-switch']")
+	private WebElement clickonACRSubmissionmonthhead;
+
+	@FindBy(xpath="html/body/div[6]/div/div[2]/table/tbody/tr/td/span")
+	private List<WebElement> selectmonthsubmission;
+
+	@FindBy(xpath="//html/body/div[6]/div/div[1]/table/tbody/tr/td")
+	private List<WebElement> selectdatesubmission;
+
+	@FindBy(xpath="//div[@class='o_form_sheet_bg']/div/div/table/tbody/tr/td/label[contains(text(),'Year')]/../following-sibling::td/select")
+	private WebElement year;
+
+
+	@FindBy(xpath="//div[@class='o_group']/table/tbody/tr/td/div/div[@class='o_list_editable']/div/table/thead/tr/th[contains(text(),'Employee Name')]/../../following-sibling::tbody/tr/td/a[contains(text(),'Add an item')]")
+	private WebElement addanitem;
+
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[1]/div/input")
+	private WebElement employee_name;
+
+
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[2]/div/input")
+	private WebElement controlling_officer_name;
+
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[3]/div/input")
+	private WebElement reviewer_name;
+
+	@FindBy(xpath="//div[@class='o_list_editable o-editing']/div/div[4]/div/input")
+	private WebElement approver_name;
+
+	@FindBy(xpath="//div/button[contains(text(),'Save')]")
+	private WebElement savebtn;
+
+	public void clickOnSaveButonWithValidData() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(createbtn));
+		wait.until(ExpectedConditions.elementToBeClickable(createbtn));
+		HighlightOnElement(createbtn);
+		Actions create=new Actions(driver);
+		create.click(createbtn).perform();
+		Reporter.log("click on Create button successfully",true);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.visibilityOf(description));
+		HighlightOnElement(description);
+		String descriptioning=exceldata.getExcelData(description,"Appraisal_Data",2,4);
+		Reporter.log("Description:"+descriptioning,true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(ACR_Initiation_Date_drop));
+		HighlightOnElement(ACR_Initiation_Date_drop);
+		ACR_Initiation_Date_drop.click();
+		Reporter.log("click on ACR Initiation Date dropdown successfuly",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(clickonACRInitiatormonthhead));
+		HighlightOnElement(clickonACRInitiatormonthhead);
+		Actions action=new Actions(driver);
+		action.click(clickonACRInitiatormonthhead).perform();
+		Reporter.log("click on ACR INITIATOR Month Head successfuly",true);
+
+		for(WebElement month:selectmonth)
+		{
+			try
+			{
+				String all_month=month.getText();
+				if(all_month.equalsIgnoreCase("Jun"))
+				{
+					HighlightOnElement(month);
+					month.click();
+					for(WebElement date:selectdate)
+					{
+						String all_date=date.getText();
+						if(all_date.equalsIgnoreCase("10"))
+						{
+							HighlightOnElement(date);
+							date.click();
+						}
+					}
+				}
+
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(ACR_Submission_Date_drop));
+		HighlightOnElement(ACR_Submission_Date_drop);
+		ACR_Submission_Date_drop.click();
+		Reporter.log("click on ACR Submission Date dropdown successfuly",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(clickonACRSubmissionmonthhead));
+		HighlightOnElement(clickonACRSubmissionmonthhead);
+		Actions action2=new Actions(driver);
+		action2.click(clickonACRSubmissionmonthhead).perform();
+		Reporter.log("click on ACR SUBMISSION Month Head successfuly",true);
+
+		for(WebElement monthsubmission:selectmonthsubmission)
+		{
+			try
+			{
+				String all_month_submission=monthsubmission.getText();
+				if(all_month_submission.equalsIgnoreCase("Jun"))
+				{
+					HighlightOnElement(monthsubmission);
+					monthsubmission.click();
+					for(WebElement submisiondate:selectdatesubmission)
+					{
+						String all_date=submisiondate.getText();
+						if(all_date.equalsIgnoreCase("15"))
+						{
+							HighlightOnElement(submisiondate);
+							submisiondate.click();
+						}
+					}
+				}
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(year));
+		HighlightOnElement(year);
+		year.click();
+		Reporter.log("click on year successfully",true);
+		waitForDomElement();
+		SelectVisibleText(year,"2015");
+		Reporter.log("year selected successfully",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(addanitem));
+		HighlightOnElement(addanitem);
+		addanitem.click();
+		Reporter.log("click on Add an item successfully",true);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(employee_name));
+		HighlightOnElement(employee_name);
+		employee_name.click();
+		waitForSomeTime();
+		employee_name.sendKeys("Swa");
+		waitForSomeTime();
+		employee_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(controlling_officer_name));
+		HighlightOnElement(controlling_officer_name);
+		controlling_officer_name.click();
+		waitForSomeTime();
+		controlling_officer_name.clear();
+		controlling_officer_name.sendKeys("chetan");
+		waitForSomeTime();
+		controlling_officer_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(reviewer_name));
+		HighlightOnElement(reviewer_name);
+		reviewer_name.click();
+		waitForSomeTime();
+		reviewer_name.clear();
+		reviewer_name.sendKeys("AkJha");
+		waitForSomeTime();
+		reviewer_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(approver_name));
+		HighlightOnElement(approver_name);
+		approver_name.click();
+		waitForSomeTime();
+		approver_name.clear();
+		approver_name.sendKeys("Ak Jabar");
+		waitForSomeTime();
+		approver_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(savebtn));
+		HighlightOnElement(savebtn);
+		savebtn.click();
+		Reporter.log("click on save button successfully",true);
+		//acceptAlert();
+		clickOnAppraisal();
+		clickOnAppraisalInitiator();
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Initiator Employee Appraisal Table"
+	 * @author deepak.saini
+	 * @since 2017-11-14
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_main_content']/div/div/div/div/table/tbody")
+	private WebElement mytable;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Checkbox"
+	 * @author deepak.saini
+	 * @since 2017-11-14
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_main_content']/div/div/div/div/table/tbody/tr/td/div/input")
+	private List<WebElement> checkboxlist;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "New Status"
+	 * @author deepak.saini
+	 * @since 2017-11-14
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='o_main_content']/div/div/div/div/table/tbody/tr/td/div/../following-sibling::td[contains(text(),'ACR for Month Feb')]/following-sibling::td[contains(text(),'New')]")
+	private WebElement Newstatus;
+	
+	public void verifyACRInitiatorResult() throws InterruptedException
+	{
+		List < WebElement > rows_table = mytable.findElements(By.tagName("tr"));
+		int rows_count = rows_table.size();
+		for (int row = 0; row < rows_count; row++) 
+		{
+			List < WebElement > Columns_row = rows_table.get(row).findElements(By.tagName("td"));
+			int columns_count = Columns_row.size();
+			for (int column = 0; column <columns_count; column++) 
+			{
+				String celltext = Columns_row.get(column).getText();
+				if(celltext.equalsIgnoreCase("ACR for Month Feb"))
+				{
+					Reporter.log("Expected result:"+celltext,true);
+					checkboxlist.get(row).click();
+					Reporter.log("Expected result:"+Newstatus.getText(),true);
+				}
+			}
+		}
+	}
+
+	@FindBy(xpath="//div[@class='o_main_content']/div/div/div/div/table/tbody/tr/td/div/../following-sibling::td[contains(text(),'ACR for Month Feb')]")
+	private WebElement clickOnEmployeeName;
+
+	@FindBy(xpath="//button/span[contains(text(),'Initiate ACR')]")
+	private WebElement initiateAcrbutton;
+
+	public void clickOnAcrInitiatorButton() throws InterruptedException
+	{
+		clickOnEmployeeName.click();
+		Reporter.log("click on Employee for Initiator",true);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,130)", "");
+		HighlightOnElement(initiateAcrbutton);
+		initiateAcrbutton.click();
+		Reporter.log("click on Intiator ACR successfully",true);
+		wait.until(ExpectedConditions.elementToBeClickable(appraisaldrop));
+		clickOnAppraisal();
+		clickOnAppraisalInitiator();
+		checkInitiatorStatus();
+		waitForSomeTime();
+	}
+	@FindBy(xpath="//div[@class='o_main_content']/div/div/div/div/table/tbody/tr/td/div/../following-sibling::td[contains(text(),'ACR for Month Feb')]/following-sibling::td[contains(text(),'Initiated')]")
+	private WebElement Initiatedstatus;
+	public void checkInitiatorStatus() throws InterruptedException
+	{
+		List < WebElement > rows_table = mytable.findElements(By.tagName("tr"));
+		int rows_count = rows_table.size();
+		for (int row = 0; row < rows_count; row++) 
+		{
+			List < WebElement > Columns_row = rows_table.get(row).findElements(By.tagName("td"));
+			int columns_count = Columns_row.size();
+			for (int column = 0; column <columns_count; column++) 
+			{
+				String celltext = Columns_row.get(column).getText();
+				if(celltext.equalsIgnoreCase("ACR for Month Feb"))
+				{
+					Reporter.log("Expected result:"+celltext,true);
+					checkboxlist.get(row).click();
+					Reporter.log("Expected result:"+Initiatedstatus.getText(),true);
+				}
+			}
+		}
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Apprasial dropdown".
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='container-fluid']/div[2]/div[1]/div/ul//li/a[contains(text(),'Appraisals')]/span")
+	private WebElement appraisaldrop;
+
+	public void clickOnAppraisal() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(appraisaldrop));
+		HighlightOnElement(appraisaldrop);
+		appraisaldrop.click();
+		Reporter.log("click on Appraisal dropdown successfully",true);
+	}
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Apprasial Initiator".
+	 * @author deepak.saini
+	 * @since 2017-11-01
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='container-fluid']/div[2]/div[1]/div/ul//li/a[contains(text(),'Appraisals')]/span/../following-sibling::ul/li/a/span[contains(text(),'Appraisal Initiator')]")
+	private WebElement appraisalInitiator;
+	public void clickOnAppraisalInitiator() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(appraisalInitiator));
+		HighlightOnElement(appraisalInitiator);
+		String intiator=appraisalInitiator.getText();
+		Reporter.log("Expected result:"+intiator,true);
+		appraisalInitiator.click();
+		waitForSomeTime();
+	}
+
+	@FindBy(xpath="//div[@class='o_notification o_error']/div/ul/li[contains(text(),'Description')]")
+	private WebElement Descerrormsg;
+	
+	@FindBy(xpath="//div[@class='modal-content']/div/div[contains(text(),'Initiation Date cannot be greater than Submition Date.')]")
+	private WebElement dateErrorMsg;
+	
+	public void clickOnSaveButonWithInvalidData() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(createbtn));
+		HighlightOnElement(createbtn);
+		Actions create=new Actions(driver);
+		create.click(createbtn).perform();
+		Reporter.log("click on Create button successfully",true);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.visibilityOf(description));
+		HighlightOnElement(description);
+		String descriptioning=exceldata.getExcelData(description,"Appraisal_Data",2,5);
+		Reporter.log("Description:"+descriptioning,true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(ACR_Initiation_Date_drop));
+		HighlightOnElement(ACR_Initiation_Date_drop);
+		ACR_Initiation_Date_drop.click();
+		Reporter.log("click on ACR Initiation Date dropdown successfuly",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(clickonACRInitiatormonthhead));
+		HighlightOnElement(clickonACRInitiatormonthhead);
+		Actions action=new Actions(driver);
+		action.click(clickonACRInitiatormonthhead).perform();
+		Reporter.log("click on ACR INITIATOR Month Head successfuly",true);
+
+		for(WebElement month:selectmonth)
+		{
+			try
+			{
+				String all_month=month.getText();
+				if(all_month.equalsIgnoreCase("Jun"))
+				{
+					HighlightOnElement(month);
+					month.click();
+					for(WebElement date:selectdate)
+					{
+						String all_date=date.getText();
+						if(all_date.equalsIgnoreCase("10"))
+						{
+							HighlightOnElement(date);
+							date.click();
+						}
+					}
+				}
+
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(ACR_Submission_Date_drop));
+		HighlightOnElement(ACR_Submission_Date_drop);
+		ACR_Submission_Date_drop.click();
+		Reporter.log("click on ACR Submission Date dropdown successfuly",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(clickonACRSubmissionmonthhead));
+		HighlightOnElement(clickonACRSubmissionmonthhead);
+		Actions action2=new Actions(driver);
+		action2.click(clickonACRSubmissionmonthhead).perform();
+		Reporter.log("click on ACR SUBMISSION Month Head successfuly",true);
+
+		for(WebElement monthsubmission:selectmonthsubmission)
+		{
+			try
+			{
+				String all_month_submission=monthsubmission.getText();
+				if(all_month_submission.equalsIgnoreCase("Jun"))
+				{
+					HighlightOnElement(monthsubmission);
+					monthsubmission.click();
+					for(WebElement submisiondate:selectdatesubmission)
+					{
+						String all_date=submisiondate.getText();
+						if(all_date.equalsIgnoreCase("15"))
+						{
+							HighlightOnElement(submisiondate);
+							submisiondate.click();
+						}
+					}
+				}
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(year));
+		HighlightOnElement(year);
+		year.click();
+		Reporter.log("click on year successfully",true);
+		waitForDomElement();
+		SelectVisibleText(year,"2015");
+		Reporter.log("year selected successfully",true);
+
+		wait.until(ExpectedConditions.elementToBeClickable(addanitem));
+		HighlightOnElement(addanitem);
+		addanitem.click();
+		Reporter.log("click on Add an item successfully",true);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(employee_name));
+		HighlightOnElement(employee_name);
+		employee_name.click();
+		waitForSomeTime();
+		employee_name.sendKeys("swa");
+		waitForSomeTime();
+		employee_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(controlling_officer_name));
+		HighlightOnElement(controlling_officer_name);
+		controlling_officer_name.click();
+		waitForSomeTime();
+		controlling_officer_name.clear();
+		controlling_officer_name.sendKeys("chetan");
+		waitForSomeTime();
+		controlling_officer_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(reviewer_name));
+		HighlightOnElement(reviewer_name);
+		reviewer_name.click();
+		waitForSomeTime();
+		reviewer_name.clear();
+		reviewer_name.sendKeys("AkJha");
+		waitForSomeTime();
+		reviewer_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(approver_name));
+		HighlightOnElement(approver_name);
+		approver_name.click();
+		waitForSomeTime();
+		approver_name.clear();
+		approver_name.sendKeys("Ak Jabar");
+		waitForSomeTime();
+		approver_name.sendKeys(Keys.ENTER);
+		waitForDomElement();
+
+		wait.until(ExpectedConditions.elementToBeClickable(savebtn));
+		HighlightOnElement(savebtn);
+		savebtn.click();
+		Reporter.log("click on save button successfully",true);
+		
+		wait.until(ExpectedConditions.visibilityOf(description));
+		HighlightOnElement(Descerrormsg);
+		String actualValue="Description";
+		Assert.assertEquals(actualValue, Descerrormsg.getText(),"Mached");
+		Reporter.log("Expected result:"+Descerrormsg.getText(),true);
+	}
+}
+

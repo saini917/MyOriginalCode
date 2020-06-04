@@ -1,0 +1,140 @@
+package HRMS_ERP_CONFIGURATION_CASTE;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+/**
+ * @author deepak.saini
+ * @since 25-10-2017
+ */
+public class HRMS_ERP_Configuration_Caste_Sc_01 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Discussion icon".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='navbar-header']/a/i")
+	private WebElement discussicon;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Employee icon".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//img[@class='app-drawer-icon-app img-rounded' and @title='Employees']")
+	private WebElement employeeicon;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Configuration Menu".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='odooMenuBarNav']/div[1]/div/ul[14]/li[7]/a/span")
+	private WebElement configurationicon;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Caste".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@id='odooMenuBarNav']/div[1]/div/ul[14]/li[7]/ul/li[10]/a/span")
+	private WebElement caste;
+	
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "Create".
+	 * @author deepak.saini
+	 * @since 2017-10-25
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Create')]")
+	private WebElement create;
+	
+	/*
+	 * This method is used to click on Discuss icon
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnDiscussIcon()
+	{
+		HighlightOnElement(discussicon);
+		discussicon.click();
+		Reporter.log("click on discuss image successfully");
+		log.info("To Verify click on discuss button sucessfully");
+	}
+	
+	/*
+	 * This method is used to click on Employee icon
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnEmployeeIcon()
+	{
+		HighlightOnElement(employeeicon);
+		employeeicon.click();
+		Reporter.log("click on Employee image successfully",true);
+		log.info("To Verify click on Employee image successfully");
+	}
+	
+	/*
+	 * This method is used to click on Configuration dropdown icon
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnConfigurationDropdown() throws InterruptedException
+	{
+		HighlightOnElement(configurationicon);
+		configurationicon.click();
+		Reporter.log("click on Configuration menu successfully",true);
+		log.info("To Verify click on Configuration menu successfully");
+		waitForSomeTime();
+	}
+	
+	/*
+	 * This method is used to click on Caste Button
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnCaste() throws InterruptedException
+	{
+		HighlightOnElement(caste);
+		caste.click();
+		Reporter.log("click on Caste button successfully",true);
+		log.info("To Verify click on Caste button successfully");
+		waitForSomeTime();
+	}
+	
+	/*
+	 * This method is used to click on Create Button
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnCreateButton() throws InterruptedException
+	{
+		HighlightOnElement(create);
+		create.click();
+		Reporter.log("click on Create button successfully",true);
+		//Assert.assertTrue(driver.getTitle().contains("New-Software"));
+		Reporter.log("Form is redirect on Cast dashboard successfully",true);
+		log.info("To Verify Form is redirect on Cast dashboard successfully");
+		waitForSomeTime();
+	}
+
+}

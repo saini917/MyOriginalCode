@@ -1,0 +1,300 @@
+package WaterAndSewerage_PRO;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import GenericLibrary.ExcelDataDriver;
+import LoginLogoutWSNRDAScript.URLPageWSNRDAScript;
+import WaterAndSewerageLogin.WaterAndSewerageLoginPage;
+import WaterAndSeweragePRO.ToVerifyWaterAndSeweragePRO_HEAD_Sc_01;
+
+
+public class WaterAndSewerage_LoginAsHead_PRO_Module extends URLPageWSNRDAScript
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\NRDA_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutWS() throws InterruptedException
+	{
+		WebElement web1=driver.findElement(By.xpath("//a[@class='dropdown-toggle' and@role='button']/span"));
+		Actions action = new Actions(driver);
+		action.moveToElement(web1).build().perform();
+		waitForSomeTime();
+		driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+		waitForSomeTime();
+		driver.close();
+	}
+	
+	@DataProvider(name="officer")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"PRO_Head_Credentials");
+	}
+
+	/*@Test(priority=1,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_01")
+	public void verifyLoginAsHead_PRO_SC_01_TC_01(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+	}*/
+	
+	/*@Test(priority=2,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_06")
+	public void verifyPROSECTIONLINK_HEAD_PRO_SC_01_TC_06(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosection=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosection.clickOnApplicationForm();
+		prosection.clickOnProSection();
+		prosection.verifyProSection06();
+	}
+	*/
+	/*@Test(priority=3,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_07")
+	public void verifyClickOnPROSECTIONLINK_HEAD_PRO_SC_01_TC_07(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.clickOnProSectionImage07();
+	}*/
+	
+	/*@Test(priority=4,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_08")
+	public void verifyAdvertisementDetails_HEAD_PRO_SC_01_TC_08(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyAdvertisementDetails08();
+	}*/
+	
+	/*@Test(priority=5,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_09")
+	public void verifyAdvertisementDetails_HEAD_PRO_SC_01_TC_09(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyAdvertisementType09();
+	}*/
+	
+	/*@Test(priority=7,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_10")
+	public void verifyPublicTensure_HEAD_PRO_SC_01_TC_10(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyPublicTensure10();
+	}*/
+	
+	/*@Test(priority=7,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_11")
+	public void verifyDescription_HEAD_PRO_SC_01_TC_11(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyDescriptionText11();
+	}*/
+	
+	/*@Test(priority=8,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_12")
+	public void verifyReset_HEAD_PRO_SC_01_TC_12(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.clickOnReset12();
+	}*/
+	
+	/*@Test(priority=9,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_13")
+	public void verifyClose_HEAD_PRO_SC_01_TC_13(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.clickOnClose13();
+	}*/
+	
+	/*@Test(priority=10,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_14")
+	public void verifyPublicationModeTab_HEAD_PRO_SC_01_TC_14(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyPublicationModeTab14();
+	}*/
+	
+	/*@Test(priority=11,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_15")
+	public void verifyPublicationModeDropBox_HEAD_PRO_SC_01_TC_15(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyPublicationModeDropBox15();
+	}
+	*/
+	/*@Test(priority=12,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_16")
+	public void verifyPublicationSubModeDropBox_HEAD_PRO_SC_01_TC_16(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyPublicationSubModeDropBox16();
+	}*/
+	
+	/*@Test(priority=13,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_17")
+	public void verifyPublicationCategory_HEAD_PRO_SC_01_TC_17(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyPublicationCategory17();
+	}*/
+	
+	/*@Test(priority=14,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_18")
+	public void verifyPublicationSubCategory_HEAD_PRO_SC_01_TC_18(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyPublicationSubCategory18();
+	}*/
+	
+	/*@Test(priority=15,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_19")
+	public void verifyCotentType_HEAD_PRO_SC_01_TC_19(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 prosectionlink=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		prosectionlink.verifyContentTypeTab19();
+	}*/
+	
+	/*@Test(priority=16,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_20")
+	public void verifyCotentTypeDropbox_HEAD_PRO_SC_01_TC_20(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 contentdropbox=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		contentdropbox.contentTypeDropbox20();
+	}*/
+	
+	/*@Test(priority=17,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_21")
+	public void verifyPublicationLocationDropbox_HEAD_PRO_SC_01_TC_21(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 publicationdropbox=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		publicationdropbox.publicationTypeDropBox21();
+	}*/
+	
+	/*@Test(priority=18,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_25")
+	public void verifySubmit_HEAD_PRO_SC_01_TC_25(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 submit=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		submit.clickOnSubmitButton25();
+	}*/
+	
+	/*@Test(priority=19,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_26")
+	public void verifyApplicationTypeClassifiedEventBroucher_HEAD_PRO_SC_01_TC_26(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 download=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		download.clickOnApplicationTypeClassifiedEventBrochureDownloadbutton26();
+	}*/
+	/*
+	@Test(priority=19,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_26")
+	public void verifyApplicationTypeClassifiedInaguration_HEAD_PRO_SC_01_TC_26(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 download=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		download.clickOnApplicationTypeClassifiedInagurationDownloadbutton26();
+	}*/
+	
+	/*@Test(priority=19,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_26")
+	public void verifyApplicationTypeClassifiedOther_HEAD_PRO_SC_01_TC_26(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 download=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		download.clickOnApplicationTypeClassifiedOtherDownloadbutton26();
+	}*/
+	/*@Test(priority=19,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_26")
+	public void verifyApplicationTypeDisplayTenderAdvNewsChannel_HEAD_PRO_SC_01_TC_26(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 download=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		download.clickOnApplicationTypeDisplayedTenderAdvertisementNewsChannelDownloadbutton26();
+	}*/
+	
+	/*@Test(priority=19,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_26")
+	public void verifyApplicationTypeDisplayOtherRadioJingle_HEAD_PRO_SC_01_TC_26(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 download=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		download.clickOnApplicationTypeDisplayedOtherRadioJingleDownloadbutton26();
+	}*/
+	
+	/*@Test(priority=19,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_26")
+	public void verifyApplicationTypeHoardingTenderRecruitment_HEAD_PRO_SC_01_TC_26(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 download=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		download.clickOnApplicationTypeHoardingTenderRecruitmentDownloadbutton26();
+	}*/
+	
+	@Test(priority=19,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_26")
+	public void verifyApplicationTypeHoardingRecuritmentAdvFlex_HEAD_PRO_SC_01_TC_26(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 download=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		download.clickOnApplicationTypeHoardingRecuritmentAdvFlexDownloadbutton26();
+	}
+	
+	/*@Test(priority=19,dataProvider ="officer",description="NRDA_PRO_SC_01_TC_26")
+	public void verifyApplicationTypeOther_HEAD_PRO_SC_01_TC_26(String username,String password) throws InterruptedException, Throwable, InvalidFormatException, IOException
+	{
+		WaterAndSewerageLoginPage login_PRO_Head=PageFactory.initElements(driver,WaterAndSewerageLoginPage.class);
+		login_PRO_Head.loginAsPROHEAD(username, password);
+		
+		ToVerifyWaterAndSeweragePRO_HEAD_Sc_01 download=PageFactory.initElements(driver,ToVerifyWaterAndSeweragePRO_HEAD_Sc_01.class);
+		download.clickOnApplicationTypeOtherDownloadbutton26();
+	}*/
+}

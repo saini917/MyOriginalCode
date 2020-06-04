@@ -1,0 +1,40 @@
+package NRDA_ChangeOfUse;
+
+import java.awt.AWTException;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+import GenericLibrary.CommonLibrary;
+import GenericLibrary.ExcelDataDriver;
+
+public class ToVerifyChangeOfUse_SC_02_TC_03 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "COMPLETION CERTIFICATE DOCUMENT".
+	 * @author deepak.saini
+	 * @since 2017-12-05
+	 */
+	/****************************************************************************************************/
+
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td[@class='rightColWithLeftPad']/span/span/span/div/div/div/ul/li/a[contains(text(),'Change Connection Details/कनेक्शन विवरण बदलें')]/../../following-sibling::div/div/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label[contains(text(),'Completion Certificate Document')]/../../../../../../following-sibling::td/table/tbody/tr/td/span/div/div/label/input")
+	private WebElement completioncertificate;
+	
+	public void verifyCompletionCertificate() throws AWTException, InterruptedException
+	{
+		HighlightOnElement(completioncertificate);
+		completioncertificate.click();
+		waitForSomeTime();
+		UpLoadFile("C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\NRDA_PROJECT\\src\\test\\resources\\IMAGE_NRDA_WATER&SEWERAGE\\Raipur1.jpg");
+		Reporter.log("Applicant AddressProof Document Link Application of Water and Sewerage New connection link is Present",true); //print for eclipse console 
+		waitForSomeTime();
+		waitForSomeTime();
+	}
+	
+}

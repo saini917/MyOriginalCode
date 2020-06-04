@@ -1,0 +1,31 @@
+package HRMS_ERP_TRANSFER;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifySave_SC_03_TC_07 extends WebdriverCommonDriverLibrary
+{
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	ExcelDataDriver excel=new ExcelDataDriver();
+	
+	@FindBy(xpath="//div/button[contains(text(),'Save')]")
+	private WebElement save;
+	
+	public void verifySave()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(save));
+		HighlightOnElement(save);
+		Assert.assertTrue(save.isDisplayed());
+		Assert.assertTrue(save.isEnabled());
+		save.click();
+	}
+
+}

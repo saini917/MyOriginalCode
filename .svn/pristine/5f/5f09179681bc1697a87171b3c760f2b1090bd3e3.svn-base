@@ -1,0 +1,37 @@
+package HRMS_ERP_TRANSFER;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+public class ToVerifySaveButtonFun_SC_02_TC_15 extends WebdriverCommonDriverLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	WebDriverWait wait=new WebDriverWait(driver,10);
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SAVE".
+	 * @author deepak.saini
+	 * @since 2017-12-11
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div/button[contains(text(),'Save')]")
+	private WebElement savebtn;
+	
+	public void verifySaveButtonFun() throws InterruptedException
+	{
+		HighlightOnElement(savebtn);
+		HighlightOnElement(savebtn);
+		Assert.assertTrue(savebtn.isDisplayed());
+		Assert.assertTrue(savebtn.isEnabled());
+		savebtn.click();
+		waitForSomeTime();
+	}
+}

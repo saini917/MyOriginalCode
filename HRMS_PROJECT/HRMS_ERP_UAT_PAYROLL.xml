@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<listeners>
+		<listener class-name="GenericLibrary.ExtentReport"/>
+</listeners>
+
+<!--<test name="LOGIN AS PAYROLL HR MANAGER">
+	<classes>
+		<class name="HRMS_ERP_UAT_PAYROLL_TEST.LoginAsHRManager">
+			<methods>
+       			  <include name="UAT_HRMS_PAY_1"/>
+       			 <include name="UAT_HRMS_PAY_2"/>
+       			 <include name="UAT_HRMS_PAY_3"/>
+       			 <include name="UAT_HRMS_PAY_4"/> 
+       			 <include name="UAT_HRMS_PAY_5"/>
+       			 <include name="UAT_HRMS_PAY_6"/>  
+       			 <include name="UAT_HRMS_PAY_7"/>
+       			 <include name="UAT_HRMS_PAY_8"/>
+       			 <include name="UAT_HRMS_PAY_9"/>-
+       			  <include name="UAT_HRMS_PAY_10"/>
+       		</methods>
+ 		</class>
+ 	</classes>
+ </test>-->
+ 
+ 
+ <test name="LOGIN AS PAYROLL EMPLOYEE">
+	<classes>
+		<class name="HRMS_ERP_UAT_PAYROLL_TEST.LoginAsEmployee">
+			<methods>
+       			 <include name="UAT_HRMS_PAY_11"/>
+       			 <include name="UAT_HRMS_PAY_12"/> 
+       			  <include name="UAT_HRMS_PAY_13"/>
+       			 <include name="UAT_HRMS_PAY_14"/>  
+       		</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

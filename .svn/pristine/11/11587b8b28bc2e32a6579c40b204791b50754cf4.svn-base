@@ -1,0 +1,69 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifySearchFunWithInValid_SC_12_TC_03 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SELECT SECTOR".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='wrapper']/table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/table/tbody/tr/td/div/div/input[@name='inboxForm:j_id2104245921_4904d71_focus']/../following-sibling::div/span")
+	private WebElement sector;
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "SEEARCH BUTTON".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//button/span[contains(text(),'Search')]")
+	private WebElement searchbtn;
+	
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "ERROR MESSAGE".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//div[@class='ui-growl-message']/span[contains(text(),'Please select all filters.')]")
+	private WebElement errormsg;
+
+	public void verifySearchFunWithInValid() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(sector));
+		HighlightOnElement(sector);
+		Assert.assertTrue(sector.isDisplayed(),"SECTOR is displayed");
+		Assert.assertTrue(sector.isEnabled(),"SECTOR is enabled");
+		sector.click();
+		selectValueFromDropdown("Sector 1");
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchbtn));
+		HighlightOnElement(searchbtn);
+		Assert.assertTrue(searchbtn.isDisplayed(),"SERACH BUTTON is displayed");
+		Assert.assertTrue(searchbtn.isEnabled(),"SERACH BUTTON is enabled");
+		searchbtn.click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(errormsg));
+		HighlightOnElement(errormsg);
+		Assert.assertTrue(errormsg.isDisplayed());
+		String actual="Please select all filters.";
+		Assert.assertEquals(actual,errormsg.getText(),"Matched");
+	}
+}
+

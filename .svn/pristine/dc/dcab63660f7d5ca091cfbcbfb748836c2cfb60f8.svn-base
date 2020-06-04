@@ -1,0 +1,37 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyPropertyUsesType_SC_05_02 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "PROPERTY USES TYPE".
+	 * @author deepak.saini
+	 * @since 2017-11-24
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//form[@id='form0']/div/table/tbody/tr/td/span/span/span/div/div/div/ul/li/a[contains(text(),'Property Building')]/../../following-sibling::div/div/table/tbody/tr/td/table/thead/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/label/../../../../../../../following-sibling::tr/td/table/tbody/tr/td/select[@title='Property Uses Type']")
+	private WebElement propertyusestype;
+
+	public void verifyPropertyUsesType() throws InterruptedException
+	{
+		wait.until(ExpectedConditions.visibilityOf(propertyusestype));
+		HighlightOnElement(propertyusestype);
+		Assert.assertTrue(propertyusestype.isDisplayed(),"PROPERTY USES TYPE is displayed");
+		Assert.assertTrue(propertyusestype.isEnabled(),"PROPERTY USES TYPE is enabled");
+		SelectVisibleText(propertyusestype,"Commercial");
+		Reporter.log("Action is performed on Property Uses type",true);
+	}
+}

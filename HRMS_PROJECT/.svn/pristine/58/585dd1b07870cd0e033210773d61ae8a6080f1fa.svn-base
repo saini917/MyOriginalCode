@@ -1,0 +1,181 @@
+package HRMS_ERP_Management_Script;
+
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import GenericLibrary.ExcelDataDriver;
+import HRMS_ERP_CONFIGURATION_INVESTMENT_MASTER.HRMS_ERP_CONFIGURATION_Investment_Master_Discard_Fun_Sc_03;
+import HRMS_ERP_CONFIGURATION_INVESTMENT_MASTER.HRMS_ERP_CONFIGURATION_Investment_Master_Save_Fun_Sc_02;
+import HRMS_ERP_CONFIGURATION_INVESTMENT_MASTER.HRMS_ERP_Configuration_Investment_Master_Sc_01;
+import HRMS_URL_Page.HRMS_URL;
+import LoginPageHRMS_UserLibrary.LoginPageHRMS_JavaFile;
+
+public class HRMS_ERP_Configuration_Investment_Master_Module extends HRMS_URL
+{
+	ExcelDataDriver exceldata=new ExcelDataDriver();
+	Logger log=Logger.getLogger("devpinoyLogger");
+	String filepath="C:\\ILFS\\NRDA\\workspace\\NRDA_FRAMEWORK\\HRMS_PROJECT\\src\\test\\resources\\HRMS_TESTDATA\\HRMS_TESTDATA.xlsx";
+
+	@AfterMethod 
+	public void logoutHRMS() throws InterruptedException
+	{
+		WebElement Administrator=driver.findElement(By.xpath("//ul[@class='nav navbar-nav navbar-right oe_user_menu_placeholder']/li/a/span[2]"));
+		HighlightOnElement(Administrator);
+		Administrator.click();
+		Reporter.log("click on Administrator menu successfully",true);
+		log.info("To verify click on Administrator menu successfully");
+
+		WebElement logoutbtn=driver.findElement(By.xpath("//a[contains(text(),'Log out')]"));
+		HighlightOnElement(logoutbtn);
+		logoutbtn.click();
+		Reporter.log("click on Logout button successfully",true);
+		log.info("To verify click on Logout buton successfully");
+
+		driver.close();
+		Reporter.log("Browser closed successfully",true);
+		log.info("To verify Browser closed successfully");
+	}
+
+	@DataProvider(name="admin")
+	public String[][] getExcelData() throws InvalidFormatException, IOException
+	{
+		return exceldata.getCellData(filepath,"HRMS_Login_Credentials");
+	}
+
+	@Test(priority=1,description="HRMS_EMP_IM_CR_TC_01 and HRMS_EMP_IM_CR_TC_01.1",dataProvider="admin")
+	public void verifyHRMSLoginPageHRMS_EMP_IM_CR_TC_01(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+	}
+
+	@Test(priority=2,description="HRMS_EMP_IM_CR_TC_01.2",dataProvider="admin")
+	public void verifyHRMSClickOnInvestmentMasterHRMS_EMP_IM_CR_TC_01_2(String Username,String Password) throws InterruptedException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Investment_Master_Sc_01 investment_master=PageFactory.initElements(driver,HRMS_ERP_Configuration_Investment_Master_Sc_01.class);
+		investment_master.clickOnDiscussIcon();
+		investment_master.clickOnEmployeeIcon();
+		investment_master.clickOnConfigurationDropdown();
+		investment_master.clickOnInvestmentGroup();
+		investment_master.clickOnCreateButton();
+	}
+
+	@Test(priority=3,description="HRMS_EMP_IM_CR_TC_02",dataProvider="admin")
+	public void verifySaveFunctionalityOnInvestmentMasterValidDataHRMS_EMP_IM_CR_TC_02(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Investment_Master_Sc_01 investment_master=PageFactory.initElements(driver,HRMS_ERP_Configuration_Investment_Master_Sc_01.class);
+		investment_master.clickOnDiscussIcon();
+		investment_master.clickOnEmployeeIcon();
+		investment_master.clickOnConfigurationDropdown();
+		investment_master.clickOnInvestmentGroup();
+		investment_master.clickOnCreateButton();
+
+		HRMS_ERP_CONFIGURATION_Investment_Master_Save_Fun_Sc_02 savebtn=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Investment_Master_Save_Fun_Sc_02.class);
+		savebtn.enterInvestmentHeadInputValidValue();
+		savebtn.clickOnSaveButton();
+	}
+	
+	@Test(priority=4,description="HRMS_EMP_IM_CR_TC_02.1",dataProvider="admin")
+	public void verifySaveFunctionalityOnInvestmentBlankDataHRMS_EMP_IM_CR_TC_02_1(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Investment_Master_Sc_01 investment_master=PageFactory.initElements(driver,HRMS_ERP_Configuration_Investment_Master_Sc_01.class);
+		investment_master.clickOnDiscussIcon();
+		investment_master.clickOnEmployeeIcon();
+		investment_master.clickOnConfigurationDropdown();
+		investment_master.clickOnInvestmentGroup();
+		investment_master.clickOnCreateButton();
+
+		HRMS_ERP_CONFIGURATION_Investment_Master_Save_Fun_Sc_02 savebtn=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Investment_Master_Save_Fun_Sc_02.class);
+		savebtn.enterInvestmentInputBlankValue();
+		savebtn.clickOnSaveButton();
+	}
+	
+	@Test(priority=5,description="HRMS_EMP_IM_CR_TC_02.2",dataProvider="admin")
+	public void verifySaveFunctionalityOnDescriptionBlankDataHRMS_EMP_IM_CR_TC_02_2(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Investment_Master_Sc_01 investment_master=PageFactory.initElements(driver,HRMS_ERP_Configuration_Investment_Master_Sc_01.class);
+		investment_master.clickOnDiscussIcon();
+		investment_master.clickOnEmployeeIcon();
+		investment_master.clickOnConfigurationDropdown();
+		investment_master.clickOnInvestmentGroup();
+		investment_master.clickOnCreateButton();
+
+		HRMS_ERP_CONFIGURATION_Investment_Master_Save_Fun_Sc_02 savebtn=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Investment_Master_Save_Fun_Sc_02.class);
+		savebtn.enterDescriptionHeadInputBlankValue();
+		savebtn.clickOnSaveButton();
+	}
+	
+	@Test(priority=6,description="HRMS_EMP_IM_CR_TC_03",dataProvider="admin")
+	public void verifyDiscardFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Investment_Master_Sc_01 investment_master=PageFactory.initElements(driver,HRMS_ERP_Configuration_Investment_Master_Sc_01.class);
+		investment_master.clickOnDiscussIcon();
+		investment_master.clickOnEmployeeIcon();
+		investment_master.clickOnConfigurationDropdown();
+		investment_master.clickOnInvestmentGroup();
+		investment_master.clickOnCreateButton();
+
+		HRMS_ERP_CONFIGURATION_Investment_Master_Discard_Fun_Sc_03 discardtn=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Investment_Master_Discard_Fun_Sc_03.class);
+		discardtn.clickonDiscardButtonFunctionality();
+	}
+	
+	@Test(priority=7,description="HRMS_EMP_IM_CR_TC_03.1",dataProvider="admin")
+	public void verifyOkFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_1(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Investment_Master_Sc_01 investment_master=PageFactory.initElements(driver,HRMS_ERP_Configuration_Investment_Master_Sc_01.class);
+		investment_master.clickOnDiscussIcon();
+		investment_master.clickOnEmployeeIcon();
+		investment_master.clickOnConfigurationDropdown();
+		investment_master.clickOnInvestmentGroup();
+		investment_master.clickOnCreateButton();
+
+		HRMS_ERP_CONFIGURATION_Investment_Master_Discard_Fun_Sc_03 discardtn=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Investment_Master_Discard_Fun_Sc_03.class);
+		discardtn.clickonOkButtonFunctionality();
+	}
+
+	@Test(priority=7,description="HRMS_EMP_IM_CR_TC_03.2",dataProvider="admin")
+	public void verifyCancelFunctionalityOnInvestmentMasterHRMS_EMP_IM_CR_TC_03_2(String Username,String Password) throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		LoginPageHRMS_JavaFile loginhrms=PageFactory.initElements(driver,LoginPageHRMS_JavaFile.class);
+		loginhrms.hrms_credential(Username,Password);
+
+		HRMS_ERP_Configuration_Investment_Master_Sc_01 investment_master=PageFactory.initElements(driver,HRMS_ERP_Configuration_Investment_Master_Sc_01.class);
+		investment_master.clickOnDiscussIcon();
+		investment_master.clickOnEmployeeIcon();
+		investment_master.clickOnConfigurationDropdown();
+		investment_master.clickOnInvestmentGroup();
+		investment_master.clickOnCreateButton();
+
+		HRMS_ERP_CONFIGURATION_Investment_Master_Discard_Fun_Sc_03 discardtn=PageFactory.initElements(driver,HRMS_ERP_CONFIGURATION_Investment_Master_Discard_Fun_Sc_03.class);
+		discardtn.clickonCancelButtonFunctionality();
+	}
+
+
+}

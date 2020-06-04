@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="verifyCancelFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03_2"/>
+          <include name="verifyHRMSClickOnCategoryHRMS_EMP_CT_CR_TC_01_2"/>
+          <include name="verifySaveFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_02_2"/>
+          <include name="verifyDiscardFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03"/>
+          <include name="verifySaveFunctionaltyOnCategoryInvalidDataHRMS_EMP_CT_CR_TC_02_1"/>
+          <include name="logoutWS"/>
+          <include name="verifyOkFunctionaltyOnCategoryBlankDataHRMS_EMP_CT_CR_TC_03_1"/>
+          <include name="verifySaveFunctionaltyOnCategoryValidDataHRMS_EMP_CT_CR_TC_02"/>
+        </methods>
+      </class> <!-- HRMS_ERP_Management_Script.HRMS_ERP_Configuration_Category_Module -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

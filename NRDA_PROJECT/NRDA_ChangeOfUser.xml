@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite">
+ 
+ 			<!-- LOGIN AS CITIZEN IN CHANGE OF USER MODULE-->
+ 			
+<test name="LOGIN AS CITIZEN ">
+	<classes>
+		<class name="NRDA_ChangeOfUse.LoginAsCitizen_Module">
+			<methods>
+       			<include name="NRDA_ChangeOfUse_Citizen_SC_01_TC_01"/>
+       			<include name="NRDA_ChangeOfUse_Citizen_SC_02_TC_01"/>
+       			<include name="NRDA_ChangeOfUse_Citizen_SC_02_TC_02"/>
+       			<include name="NRDA_ChangeOfUse_Citizen_SC_02_TC_03"/>
+       			<include name="NRDA_ChangeOfUse_Citizen_SC_02_TC_04"/>
+       			<include name="NRDA_ChangeOfUse_Citizen_SC_02_TC_05"/>
+       			<include name="NRDA_ChangeOfUse_Citizen_SC_02_TC_06"/>
+       			<include name="NRDA_ChangeOfUse_Citizen_SC_02_TC_08"/>
+       			<include name="NRDA_ChangeOfUse_Citizen_SC_03_TC_01"/>
+       			</methods>
+ 		</class>
+ 	</classes>
+ </test>
+ </suite>

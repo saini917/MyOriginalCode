@@ -1,0 +1,59 @@
+package WaterAndSeweragePropertyTaxManagement;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+import GenericLibrary.ExcelDataDriver;
+import GenericLibrary.CommonLibrary;
+
+public class ToVerifyDashboardApprove_Reject_SC_11_TC_01 extends CommonLibrary
+{
+	ExcelDataDriver excel=new ExcelDataDriver();
+	WebDriverWait wait=new WebDriverWait(driver,10);
+
+	/****************************************************************************************************/
+	/*
+	 * This is the xpath of the WebElement "APPROVE/REJECT APPLICATION".
+	 * @author deepak.saini
+	 * @since 2017-11-29
+	 */
+	/****************************************************************************************************/
+	@FindBy(xpath="//td[@class='leftCol']/table/tbody/tr/td/form/div/ul/li[3]")
+	private WebElement approve_reject_app;
+	
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 35')]")
+	private WebElement displaydashboard1;
+	
+	@FindBy(xpath="//table/tbody/tr/td[@class='rightColWithLeftPad']/table/tbody/tr/td/form/div/div/div/h3/a[contains(text(),'PROPERTY ASSESSMENT - 35')]/../following-sibling::div/div/div/table/thead/tr/th/span")
+	private List<WebElement> displaydashboard2;
+	
+	public void verifyDashboardApprove_Reject()
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(approve_reject_app));
+		HighlightOnElement(approve_reject_app);
+		Assert.assertTrue(approve_reject_app.isDisplayed(),"APPROVE/REJECT APPLICATION is displayed");
+		Assert.assertTrue(approve_reject_app.isEnabled(),"APPROVE/REJECT APPLICATION is enabled");
+		Actions approve_reject=new Actions(driver);
+		approve_reject.click(approve_reject_app).build().perform();
+		//Reporter.log("Action is performed on Approve/Reject application,true");
+		
+		wait.until(ExpectedConditions.visibilityOf(displaydashboard1));
+		HighlightOnElement(displaydashboard1);
+		//Reporter.log(displaydashboard1.getText(),true);
+		Assert.assertTrue(displaydashboard1.isDisplayed(),"DASHBOARD ELEMENT is displayed");
+		for(WebElement dash:displaydashboard2)
+		{
+			wait.until(ExpectedConditions.visibilityOfAllElements(displaydashboard2));
+			HighlightOnElement(dash);
+			Assert.assertTrue(dash.isDisplayed(),"DASHBOARD ELEMENT is displayed");
+			//Reporter.log(dash.getText(),true);
+		}
+	}
+	
+}

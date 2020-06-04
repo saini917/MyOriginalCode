@@ -1,0 +1,13 @@
+<h2>Reporter output</h2><table><tr><td>Email ID:admin</td></tr>
+<tr><td>Password:admin</td></tr>
+<tr><td>click on Login button successfully</td></tr>
+<tr><td>click on discuss image successfully</td></tr>
+<tr><td>click on ACR image successfully</td></tr>
+<tr><td>Expected result:Appraisals</td></tr>
+<tr><td>click on Appraisal dropdown successfully</td></tr>
+<tr><td>Expected result:Appraisal Initiator</td></tr>
+<tr><td>click on Create button successfully</td></tr>
+<tr><td>Description:ACR for Month Jan</td></tr>
+<tr><td>click on ACR Initiation Date dropdown successfuly</td></tr>
+<tr><td>click on ACR INITIATOR Month Head successfuly</td></tr>
+</table>

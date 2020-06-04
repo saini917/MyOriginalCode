@@ -1,0 +1,70 @@
+package HRMS_ERP_CONFIGURATION_CAST;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import GenericLibrary.WebdriverCommonDriverLibrary;
+
+/**
+ * @author deepak.saini
+ * @since 25-10-2017
+ */
+public class HRMS_ERP_Configuration_Caste extends WebdriverCommonDriverLibrary
+{
+	@FindBy(xpath="//div[@class='navbar-header']/a/i")
+	private WebElement discussicon;
+	
+	@FindBy(xpath="//div[@id='appDrawerAppPanelBody']/ul/li/a/img[@src='/web/image/ir.ui.menu/1022/web_icon_data']")
+	private WebElement employeeicon;
+	
+	@FindBy(xpath="//div[@id='odooMenuBarNav']/div[1]/div/ul[14]/li[7]/a/span")
+	private WebElement configurationicon;
+	
+	@FindBy(xpath="//div[@id='odooMenuBarNav']/div[1]/div/ul[14]/li[7]/ul/li[10]/a/span")
+	private WebElement caste;
+	
+	/*
+	 * This method is used to click on Discuss icon
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnDiscussIcon()
+	{
+		HighlightOnElement(discussicon);
+		discussicon.click();
+	}
+	
+	/*
+	 * This method is used to click on Employee icon
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnEmployeeIcon()
+	{
+		HighlightOnElement(employeeicon);
+		employeeicon.click();
+	}
+	
+	/*
+	 * This method is used to click on Configuration dropdown icon
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnConfigurationDropdown()
+	{
+		HighlightOnElement(configurationicon);
+		configurationicon.click();
+	}
+	
+	/*
+	 * This method is used to click on Caste Button
+	 * @author deepak.saini
+	 * @since 25-10-2017
+	 */
+	public void clickOnCaste()
+	{
+		HighlightOnElement(caste);
+		caste.click();
+	}
+
+}
